@@ -1,8 +1,8 @@
 ---
 id: meta-style-guide
 title: "How This Knowledge Base Is Written: Genre, Build Tags and License Rules"
-version: 0.1.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: High
 category: Meta
 topic: "KB governance"
@@ -23,8 +23,8 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | meta-style-guide |
-| Version | 0.1.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | High |
 | Category (track) | Meta |
 | Build | both |
@@ -429,3 +429,4 @@ None.
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |

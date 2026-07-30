@@ -1,8 +1,8 @@
 ---
 id: creator-foundation
 title: "The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window"
-version: 0.1.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Creator
 topic: "Creator foundations"
@@ -23,8 +23,8 @@ game_versions_verified: ["42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | creator-foundation |
-| Version | 0.1.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Creator |
 | Build | B42 |
@@ -515,3 +515,4 @@ YouTube oEmbed API on 2026-07-30)
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |

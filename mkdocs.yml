@@ -42,6 +42,7 @@ plugins:
 nav:
   - Home: index.md
   - "Class 1 — Track foundations (Modders / Players / Admins / Creator)":
+      - "Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices": admins/admins-foundation.md
       - "The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window": creator/creator-foundation.md
       - "The Knox Event and the History of Project Zomboid's Builds": lore/lore-foundation.md
       - "How This Knowledge Base Is Written: Genre, Build Tags and License Rules": meta/meta-style-guide.md

@@ -1,8 +1,8 @@
 ---
 id: players-foundation
 title: "Surviving Knox Country: The Core Game Across Build 41 and Build 42"
-version: 0.1.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Players
 topic: "Player foundations"
@@ -23,8 +23,8 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | players-foundation |
-| Version | 0.1.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Players |
 | Build | both |
@@ -249,3 +249,4 @@ The one-line version: Build 42 keeps the same core loop and moodle language, but
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |

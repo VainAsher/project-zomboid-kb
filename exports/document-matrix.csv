@@ -1,6 +1,7 @@
 id,title,topic,tier,build,document_type,category,version,status,confidence,review_due,path
-creator-foundation,"The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window",Creator foundations,1,B42,overview,Creator,0.1.0,in-review,Medium,2026-10-30,docs/creator/creator-foundation.md
-lore-foundation,The Knox Event and the History of Project Zomboid's Builds,Lore & history,1,historic,overview,Lore,0.1.0,in-review,Medium,2026-10-30,docs/lore/lore-foundation.md
-meta-style-guide,"How This Knowledge Base Is Written: Genre, Build Tags and License Rules",KB governance,1,both,reference,Meta,0.1.0,in-review,High,2026-10-30,docs/meta/meta-style-guide.md
-modders-foundation,"Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives",Modding foundations,1,both,overview,Modders,0.1.0,in-review,Medium,2026-10-30,docs/modders/modders-foundation.md
-players-foundation,Surviving Knox Country: The Core Game Across Build 41 and Build 42,Player foundations,1,both,overview,Players,0.1.0,in-review,Medium,2026-10-30,docs/players/players-foundation.md
+admins-foundation,"Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices",Server foundations,1,both,overview,Admins,1.0.0,approved,Medium,2026-10-30,docs/admins/admins-foundation.md
+creator-foundation,"The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window",Creator foundations,1,B42,overview,Creator,1.0.0,approved,Medium,2026-10-30,docs/creator/creator-foundation.md
+lore-foundation,The Knox Event and the History of Project Zomboid's Builds,Lore & history,1,historic,overview,Lore,1.0.0,approved,Medium,2026-10-30,docs/lore/lore-foundation.md
+meta-style-guide,"How This Knowledge Base Is Written: Genre, Build Tags and License Rules",KB governance,1,both,reference,Meta,1.0.0,approved,High,2026-10-30,docs/meta/meta-style-guide.md
+modders-foundation,"Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives",Modding foundations,1,both,overview,Modders,1.0.0,approved,Medium,2026-10-30,docs/modders/modders-foundation.md
+players-foundation,Surviving Knox Country: The Core Game Across Build 41 and Build 42,Player foundations,1,both,overview,Players,1.0.0,approved,Medium,2026-10-30,docs/players/players-foundation.md

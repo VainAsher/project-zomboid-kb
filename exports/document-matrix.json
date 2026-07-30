@@ -1,5 +1,19 @@
 [
   {
+    "id": "admins-foundation",
+    "title": "Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices",
+    "topic": "Server foundations",
+    "tier": "1",
+    "build": "both",
+    "document_type": "overview",
+    "category": "Admins",
+    "version": "1.0.0",
+    "status": "approved",
+    "confidence": "Medium",
+    "review_due": "2026-10-30",
+    "path": "docs/admins/admins-foundation.md"
+  },
+  {
     "id": "creator-foundation",
     "title": "The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window",
     "topic": "Creator foundations",
@@ -7,8 +21,8 @@
     "build": "B42",
     "document_type": "overview",
     "category": "Creator",
-    "version": "0.1.0",
-    "status": "in-review",
+    "version": "1.0.0",
+    "status": "approved",
     "confidence": "Medium",
     "review_due": "2026-10-30",
     "path": "docs/creator/creator-foundation.md"
@@ -21,8 +35,8 @@
     "build": "historic",
     "document_type": "overview",
     "category": "Lore",
-    "version": "0.1.0",
-    "status": "in-review",
+    "version": "1.0.0",
+    "status": "approved",
     "confidence": "Medium",
     "review_due": "2026-10-30",
     "path": "docs/lore/lore-foundation.md"
@@ -35,8 +49,8 @@
     "build": "both",
     "document_type": "reference",
     "category": "Meta",
-    "version": "0.1.0",
-    "status": "in-review",
+    "version": "1.0.0",
+    "status": "approved",
     "confidence": "High",
     "review_due": "2026-10-30",
     "path": "docs/meta/meta-style-guide.md"
@@ -49,8 +63,8 @@
     "build": "both",
     "document_type": "overview",
     "category": "Modders",
-    "version": "0.1.0",
-    "status": "in-review",
+    "version": "1.0.0",
+    "status": "approved",
     "confidence": "Medium",
     "review_due": "2026-10-30",
     "path": "docs/modders/modders-foundation.md"
@@ -63,8 +77,8 @@
     "build": "both",
     "document_type": "overview",
     "category": "Players",
-    "version": "0.1.0",
-    "status": "in-review",
+    "version": "1.0.0",
+    "status": "approved",
     "confidence": "Medium",
     "review_due": "2026-10-30",
     "path": "docs/players/players-foundation.md"

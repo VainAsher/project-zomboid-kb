@@ -1,13 +1,35 @@
 {
   "nodes": [
     {
+      "id": "admins-foundation",
+      "title": "Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices",
+      "topic": "Server foundations",
+      "tier": "1",
+      "build": "both",
+      "version": "1.0.0",
+      "status": "approved",
+      "confidence": "Medium",
+      "path": "docs/admins/admins-foundation.md",
+      "category": "Admins",
+      "document_type": "overview",
+      "review_due": "2026-10-30",
+      "created": "2026-07-30",
+      "related": [
+        "modders-foundation",
+        "players-foundation",
+        "creator-foundation",
+        "lore-foundation",
+        "meta-style-guide"
+      ]
+    },
+    {
       "id": "creator-foundation",
       "title": "The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window",
       "topic": "Creator foundations",
       "tier": "1",
       "build": "B42",
-      "version": "0.1.0",
-      "status": "in-review",
+      "version": "1.0.0",
+      "status": "approved",
       "confidence": "Medium",
       "path": "docs/creator/creator-foundation.md",
       "category": "Creator",
@@ -28,8 +50,8 @@
       "topic": "Lore & history",
       "tier": "1",
       "build": "historic",
-      "version": "0.1.0",
-      "status": "in-review",
+      "version": "1.0.0",
+      "status": "approved",
       "confidence": "Medium",
       "path": "docs/lore/lore-foundation.md",
       "category": "Lore",
@@ -50,8 +72,8 @@
       "topic": "KB governance",
       "tier": "1",
       "build": "both",
-      "version": "0.1.0",
-      "status": "in-review",
+      "version": "1.0.0",
+      "status": "approved",
       "confidence": "High",
       "path": "docs/meta/meta-style-guide.md",
       "category": "Meta",
@@ -72,8 +94,8 @@
       "topic": "Modding foundations",
       "tier": "1",
       "build": "both",
-      "version": "0.1.0",
-      "status": "in-review",
+      "version": "1.0.0",
+      "status": "approved",
       "confidence": "Medium",
       "path": "docs/modders/modders-foundation.md",
       "category": "Modders",
@@ -94,8 +116,8 @@
       "topic": "Player foundations",
       "tier": "1",
       "build": "both",
-      "version": "0.1.0",
-      "status": "in-review",
+      "version": "1.0.0",
+      "status": "approved",
       "confidence": "Medium",
       "path": "docs/players/players-foundation.md",
       "category": "Players",
@@ -140,7 +162,7 @@
       "from": "meta-style-guide",
       "to": "admins-foundation",
       "rel": "governs",
-      "target": "planned"
+      "target": "known"
     },
     {
       "from": "players-foundation",
@@ -164,7 +186,7 @@
       "from": "players-foundation",
       "to": "admins-foundation",
       "rel": "complements",
-      "target": "planned"
+      "target": "known"
     },
     {
       "from": "players-foundation",
@@ -194,7 +216,7 @@
       "from": "lore-foundation",
       "to": "admins-foundation",
       "rel": "informs",
-      "target": "planned"
+      "target": "known"
     },
     {
       "from": "lore-foundation",
@@ -230,7 +252,7 @@
       "from": "modders-foundation",
       "to": "admins-foundation",
       "rel": "relates_to",
-      "target": "planned"
+      "target": "known"
     },
     {
       "from": "creator-foundation",
@@ -254,10 +276,40 @@
       "from": "creator-foundation",
       "to": "admins-foundation",
       "rel": "complements",
-      "target": "planned"
+      "target": "known"
     },
     {
       "from": "creator-foundation",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "admins-foundation",
+      "to": "players-foundation",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "admins-foundation",
+      "to": "modders-foundation",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "admins-foundation",
+      "to": "creator-foundation",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "admins-foundation",
+      "to": "lore-foundation",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "admins-foundation",
       "to": "meta-style-guide",
       "rel": "conforms_to",
       "target": "known"

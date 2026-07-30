@@ -5,12 +5,13 @@
 
 Evidence-based, source-cited Project Zomboid reference for modders, players, server admins and creators — every document version-tagged for Build 41 (legacy41) and Build 42.
 
-**5 documents** across **5 topics** — every factual claim carries a citation to a primary or authoritative source, unverified community claims are labelled and quarantined, and build tags, links, citations and structure are checked automatically in CI.
+**6 documents** across **6 topics** — every factual claim carries a citation to a primary or authoritative source, unverified community claims are labelled and quarantined, and build tags, links, citations and structure are checked automatically in CI.
 
-*Confidence: 1 High · 4 Medium · 0 Low.*  *Build: B42 1 · both 3 · historic 1.*
+*Confidence: 1 High · 5 Medium · 0 Low.*  *Build: B42 1 · both 4 · historic 1.*
 
 ## Class 1 — Track foundations (Modders / Players / Admins / Creator)
 
+- [Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices](admins/admins-foundation.md) — *Server foundations* (both)
 - [The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window](creator/creator-foundation.md) — *Creator foundations* (B42)
 - [The Knox Event and the History of Project Zomboid's Builds](lore/lore-foundation.md) — *Lore & history* (historic)
 - [How This Knowledge Base Is Written: Genre, Build Tags and License Rules](meta/meta-style-guide.md) — *KB governance* (both)
@@ -24,6 +25,7 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
     ```mermaid
     graph LR
       subgraph Tier1["Tier 1"]
+        admins_foundation["admins-foundation"]
         creator_foundation["creator-foundation"]
         lore_foundation["lore-foundation"]
         meta_style_guide["meta-style-guide"]
@@ -34,28 +36,32 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
       meta_style_guide -->|governs| players_foundation
       meta_style_guide -->|governs| creator_foundation
       meta_style_guide -->|governs| lore_foundation
-      admins_foundation(["admins-foundation<br/>(planned)"])
-      meta_style_guide -.->|governs| admins_foundation
+      meta_style_guide -->|governs| admins_foundation
       players_foundation -->|complements| modders_foundation
       players_foundation -->|complements| creator_foundation
       players_foundation -->|complements| lore_foundation
-      players_foundation -.->|complements| admins_foundation
+      players_foundation -->|complements| admins_foundation
       players_foundation -->|conforms_to| meta_style_guide
       lore_foundation -->|informs| players_foundation
       lore_foundation -->|informs| modders_foundation
       lore_foundation -->|informs| creator_foundation
-      lore_foundation -.->|informs| admins_foundation
+      lore_foundation -->|informs| admins_foundation
       lore_foundation -->|conforms_to| meta_style_guide
       modders_foundation -->|relates_to| players_foundation
       modders_foundation -->|relates_to| creator_foundation
       modders_foundation -->|relates_to| lore_foundation
       modders_foundation -->|relates_to| meta_style_guide
-      modders_foundation -.->|relates_to| admins_foundation
+      modders_foundation -->|relates_to| admins_foundation
       creator_foundation -->|complements| modders_foundation
       creator_foundation -->|complements| players_foundation
       creator_foundation -->|complements| lore_foundation
-      creator_foundation -.->|complements| admins_foundation
+      creator_foundation -->|complements| admins_foundation
       creator_foundation -->|conforms_to| meta_style_guide
+      admins_foundation -->|related| players_foundation
+      admins_foundation -->|related| modders_foundation
+      admins_foundation -->|related| creator_foundation
+      admins_foundation -->|related| lore_foundation
+      admins_foundation -->|conforms_to| meta_style_guide
     ```
 
 ## Machine-readable exports

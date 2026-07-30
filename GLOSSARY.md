@@ -37,8 +37,11 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 
 | Term | Definition | Source |
 |------|------------|--------|
-| SandboxVars | The per-save/server gameplay-settings Lua file; edited only while the server is stopped. | Tier 4 |
-| RCON | Remote console protocol used to administer a dedicated server. | Tier 4 |
+| Dedicated server | The standalone headless Project Zomboid server distribution, Steam App ID 380870, installable via anonymous SteamCMD login on Windows or Linux. | Tier 4 |
+| SteamCMD | Valve's command-line Steam client used to install and update PZ server files (`login anonymous`; `app_update 380870 validate`; append `-beta legacy41` for a B41 server). | Tier 4 |
+| SandboxVars | The per-server Lua file of gameplay-rule settings (`servertest_SandboxVars.lua`), distinct from the `.ini` server settings file. Conventionally edited with the server stopped (see the admins foundation's quarantined claim on live reload). | Tier 4 |
+| RCON | Password-protected remote console interface for issuing admin commands to a running PZ server; configured via `RCONPort` (default 27015) and `RCONPassword`. | Tier 4 |
+| GSP | Game server provider; The Indie Stone opened a feedback channel for medium-to-large Zomboid GSPs at the B42 stable release. | Tier 1 |
 
 ## Creator ecosystem
 
