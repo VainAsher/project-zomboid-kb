@@ -1,4 +1,266 @@
 {
-  "nodes": [],
-  "edges": []
+  "nodes": [
+    {
+      "id": "creator-foundation",
+      "title": "The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window",
+      "topic": "Creator foundations",
+      "tier": "1",
+      "build": "B42",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/creator/creator-foundation.md",
+      "category": "Creator",
+      "document_type": "overview",
+      "review_due": "2026-10-30",
+      "created": "2026-07-30",
+      "related": [
+        "modders-foundation",
+        "players-foundation",
+        "admins-foundation",
+        "lore-foundation",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "lore-foundation",
+      "title": "The Knox Event and the History of Project Zomboid's Builds",
+      "topic": "Lore & history",
+      "tier": "1",
+      "build": "historic",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/lore/lore-foundation.md",
+      "category": "Lore",
+      "document_type": "overview",
+      "review_due": "2026-10-30",
+      "created": "2026-07-30",
+      "related": [
+        "modders-foundation",
+        "players-foundation",
+        "admins-foundation",
+        "creator-foundation",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "meta-style-guide",
+      "title": "How This Knowledge Base Is Written: Genre, Build Tags and License Rules",
+      "topic": "KB governance",
+      "tier": "1",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "High",
+      "path": "docs/meta/meta-style-guide.md",
+      "category": "Meta",
+      "document_type": "reference",
+      "review_due": "2026-10-30",
+      "created": "2026-07-30",
+      "related": [
+        "modders-foundation",
+        "players-foundation",
+        "admins-foundation",
+        "creator-foundation",
+        "lore-foundation"
+      ]
+    },
+    {
+      "id": "modders-foundation",
+      "title": "Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives",
+      "topic": "Modding foundations",
+      "tier": "1",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/modders/modders-foundation.md",
+      "category": "Modders",
+      "document_type": "overview",
+      "review_due": "2026-10-30",
+      "created": "2026-07-30",
+      "related": [
+        "players-foundation",
+        "admins-foundation",
+        "creator-foundation",
+        "lore-foundation",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "players-foundation",
+      "title": "Surviving Knox Country: The Core Game Across Build 41 and Build 42",
+      "topic": "Player foundations",
+      "tier": "1",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/players/players-foundation.md",
+      "category": "Players",
+      "document_type": "overview",
+      "review_due": "2026-10-30",
+      "created": "2026-07-30",
+      "related": [
+        "modders-foundation",
+        "admins-foundation",
+        "creator-foundation",
+        "lore-foundation",
+        "meta-style-guide"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "meta-style-guide",
+      "to": "modders-foundation",
+      "rel": "governs",
+      "target": "known"
+    },
+    {
+      "from": "meta-style-guide",
+      "to": "players-foundation",
+      "rel": "governs",
+      "target": "known"
+    },
+    {
+      "from": "meta-style-guide",
+      "to": "creator-foundation",
+      "rel": "governs",
+      "target": "known"
+    },
+    {
+      "from": "meta-style-guide",
+      "to": "lore-foundation",
+      "rel": "governs",
+      "target": "known"
+    },
+    {
+      "from": "meta-style-guide",
+      "to": "admins-foundation",
+      "rel": "governs",
+      "target": "planned"
+    },
+    {
+      "from": "players-foundation",
+      "to": "modders-foundation",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "players-foundation",
+      "to": "creator-foundation",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "players-foundation",
+      "to": "lore-foundation",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "players-foundation",
+      "to": "admins-foundation",
+      "rel": "complements",
+      "target": "planned"
+    },
+    {
+      "from": "players-foundation",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "lore-foundation",
+      "to": "players-foundation",
+      "rel": "informs",
+      "target": "known"
+    },
+    {
+      "from": "lore-foundation",
+      "to": "modders-foundation",
+      "rel": "informs",
+      "target": "known"
+    },
+    {
+      "from": "lore-foundation",
+      "to": "creator-foundation",
+      "rel": "informs",
+      "target": "known"
+    },
+    {
+      "from": "lore-foundation",
+      "to": "admins-foundation",
+      "rel": "informs",
+      "target": "planned"
+    },
+    {
+      "from": "lore-foundation",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-foundation",
+      "to": "players-foundation",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-foundation",
+      "to": "creator-foundation",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-foundation",
+      "to": "lore-foundation",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-foundation",
+      "to": "meta-style-guide",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-foundation",
+      "to": "admins-foundation",
+      "rel": "relates_to",
+      "target": "planned"
+    },
+    {
+      "from": "creator-foundation",
+      "to": "modders-foundation",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "creator-foundation",
+      "to": "players-foundation",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "creator-foundation",
+      "to": "lore-foundation",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "creator-foundation",
+      "to": "admins-foundation",
+      "rel": "complements",
+      "target": "planned"
+    },
+    {
+      "from": "creator-foundation",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    }
+  ]
 }

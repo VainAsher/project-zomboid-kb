@@ -1,9 +1,17 @@
 # Project Status
 
-**Stage:** 0 — bootstrapped, awaiting human approval of the taxonomy/scope
-(hard stop per the factory process).
+**Stage:** 2 — scope approved 2026-07-30; foundation cluster in production.
 
 **Date:** 2026-07-30
+
+## Approved scope (human gate cleared 2026-07-30)
+
+- Taxonomy approved as proposed in `MASTER_INDEX.md`.
+- First cluster after foundations: **Players + Admins**.
+- Dual coverage realized as **`build: both` + enforced delta** by default;
+  paired per-build docs only where builds truly diverge.
+- **Standing mandate granted:** auto-approve/merge/freeze clusters on green QA;
+  pause only on gate failures or unverifiable core claims.
 
 ## Done
 
@@ -14,15 +22,15 @@
 - Governance files generated; taxonomy proposed in `MASTER_INDEX.md`.
 - Git repo initialized on `main`; CI workflows target `main`.
 
-## Blocked on
+## In flight
 
-- **Human approval** of: taxonomy, ranked source list, template/gate changes,
-  and first-cluster choice (recommended: Players + Admins).
+- Foundation cluster (6 docs) with parallel workers.
 
-## Next (post-approval)
+## Next
 
+- Merge foundation returns → all gates green → freeze + tag.
 - Stage 1 ingestion (Umbrella pin, pzwiki snapshots, server-setting schemas),
-  then seed the approved first cluster with parallel workers.
+  then the Players + Admins cluster.
 
 ## Key context
 

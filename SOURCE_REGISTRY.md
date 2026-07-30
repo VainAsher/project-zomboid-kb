@@ -27,8 +27,8 @@ Community & Creator / Further Reading.
 
 | # | Source | Type | License | Cadence | Ingestion |
 |---|--------|------|---------|---------|-----------|
-| 5 | github.com/asledgehammer/Umbrella | EmmyLua/LuaCATS type stubs (Candle = Java-exposed, PZLuaStubs, PZEventStubs) | Check repo LICENSE before redistribution; citing/validation fine | Active | `git pull`; **pin a commit per KB release**. Machine-checkable ground truth for the API-existence gate. |
-| 6 | github.com/cocolabs/pz-zdoc (+ smorimoto fork) | Generates annotated Lua library from an installed game | Check repo LICENSE | On demand | Run against a B41 install and a B42 install → per-build API index |
+| 5 | github.com/PZ-Umbrella/Umbrella (formerly asledgehammer/Umbrella; old URL redirects) | EmmyLua/LuaCATS type stubs (Candle = Java-exposed, PZLuaStubs, PZEventStubs); releases tagged per game version (41.78.16 → 42.20.0) | Check repo LICENSE before redistribution; citing/validation fine | Active (42.20.0 tag published 2026-07-29) | `git pull`; **pin the per-game-version release tag per KB release**. Machine-checkable ground truth for the API-existence gate. |
+| 6 | github.com/cocolabs/pz-zdoc (+ smorimoto fork) | Generates annotated Lua library from an installed game | GPL-3.0 | **Dormant since 2023-05** (B41-era tool) | Prefer Umbrella release tags for B42; run against a B41 install only if a legacy41 API index is needed |
 | 7 | Unofficial JavaDocs (B41, B42) + LuaDocs (Doxygen) | Class/function reference | Community-generated | Per build | Scrape into normalized API index; cross-check against Umbrella |
 | 8 | Game script files (installed B41.78 + B42.20 copies) | Item/recipe/sandbox definitions | © TIS — quote minimally, cite path + build | Per patch | Local install; cite `media/scripts/...` path + game version |
 | 9 | Steam Workshop (Spiffo's Workshop) | Mod pages, mod.info, changelogs, compat tags | Mod authors' IP — link and cite, never rehost | Continuous | Workshop web API + changelog scraping; key by Workshop ID **and** Mod ID |

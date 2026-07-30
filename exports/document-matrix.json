@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "id": "creator-foundation",
+    "title": "The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window",
+    "topic": "Creator foundations",
+    "tier": "1",
+    "build": "B42",
+    "document_type": "overview",
+    "category": "Creator",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-30",
+    "path": "docs/creator/creator-foundation.md"
+  },
+  {
+    "id": "lore-foundation",
+    "title": "The Knox Event and the History of Project Zomboid's Builds",
+    "topic": "Lore & history",
+    "tier": "1",
+    "build": "historic",
+    "document_type": "overview",
+    "category": "Lore",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-30",
+    "path": "docs/lore/lore-foundation.md"
+  },
+  {
+    "id": "meta-style-guide",
+    "title": "How This Knowledge Base Is Written: Genre, Build Tags and License Rules",
+    "topic": "KB governance",
+    "tier": "1",
+    "build": "both",
+    "document_type": "reference",
+    "category": "Meta",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "High",
+    "review_due": "2026-10-30",
+    "path": "docs/meta/meta-style-guide.md"
+  },
+  {
+    "id": "modders-foundation",
+    "title": "Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives",
+    "topic": "Modding foundations",
+    "tier": "1",
+    "build": "both",
+    "document_type": "overview",
+    "category": "Modders",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-30",
+    "path": "docs/modders/modders-foundation.md"
+  },
+  {
+    "id": "players-foundation",
+    "title": "Surviving Knox Country: The Core Game Across Build 41 and Build 42",
+    "topic": "Player foundations",
+    "tier": "1",
+    "build": "both",
+    "document_type": "overview",
+    "category": "Players",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-30",
+    "path": "docs/players/players-foundation.md"
+  }
+]

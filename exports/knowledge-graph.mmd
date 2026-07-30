@@ -1,1 +1,34 @@
 graph LR
+  subgraph Tier1["Tier 1"]
+    creator_foundation["creator-foundation"]
+    lore_foundation["lore-foundation"]
+    meta_style_guide["meta-style-guide"]
+    modders_foundation["modders-foundation"]
+    players_foundation["players-foundation"]
+  end
+  meta_style_guide -->|governs| modders_foundation
+  meta_style_guide -->|governs| players_foundation
+  meta_style_guide -->|governs| creator_foundation
+  meta_style_guide -->|governs| lore_foundation
+  admins_foundation(["admins-foundation<br/>(planned)"])
+  meta_style_guide -.->|governs| admins_foundation
+  players_foundation -->|complements| modders_foundation
+  players_foundation -->|complements| creator_foundation
+  players_foundation -->|complements| lore_foundation
+  players_foundation -.->|complements| admins_foundation
+  players_foundation -->|conforms_to| meta_style_guide
+  lore_foundation -->|informs| players_foundation
+  lore_foundation -->|informs| modders_foundation
+  lore_foundation -->|informs| creator_foundation
+  lore_foundation -.->|informs| admins_foundation
+  lore_foundation -->|conforms_to| meta_style_guide
+  modders_foundation -->|relates_to| players_foundation
+  modders_foundation -->|relates_to| creator_foundation
+  modders_foundation -->|relates_to| lore_foundation
+  modders_foundation -->|relates_to| meta_style_guide
+  modders_foundation -.->|relates_to| admins_foundation
+  creator_foundation -->|complements| modders_foundation
+  creator_foundation -->|complements| players_foundation
+  creator_foundation -->|complements| lore_foundation
+  creator_foundation -.->|complements| admins_foundation
+  creator_foundation -->|conforms_to| meta_style_guide
