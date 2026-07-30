@@ -28,13 +28,25 @@ FM_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 WORD_RE = re.compile(r"[a-z0-9']+")
 URL_RE = re.compile(r"https?://\S+")
 CODE_FENCE_RE = re.compile(r"```.*?```", re.DOTALL)
+# Attributed quotation is permitted by the KB's genre rules (minimal, cited).
+# The gate targets UNQUOTED prose reuse, so quoted spans and blockquotes in
+# OUR documents are exempt. The corpus side is never stripped.
+# [^"] deliberately includes newlines — quotations wrap across lines in
+# 80-column prose; the 600-char bound stops an unbalanced quote running away.
+QUOTE_RE = re.compile(r'"[^"]{1,600}"|“[^”]{1,600}”')
+BLOCKQUOTE_RE = re.compile(r"^\s*>.*$", re.MULTILINE)
 
 DEFAULT_NGRAM = 8   # 8 consecutive shared words = near-verbatim reuse
 
 
-def normalise(text: str) -> list[str]:
+def normalise(text: str, skip_quotes: bool = False) -> list[str]:
     text = CODE_FENCE_RE.sub(" ", text)
     text = URL_RE.sub(" ", text)
+    if skip_quotes:
+        # A quote break must also break n-gram continuity: replace with a
+        # marker word that never matches corpus text.
+        text = QUOTE_RE.sub(" qqquotebreakqqq ", text)
+        text = BLOCKQUOTE_RE.sub(" qqquotebreakqqq ", text)
     return WORD_RE.findall(text.lower())
 
 
@@ -78,7 +90,7 @@ def main() -> int:
         text = f.read_text(encoding="utf-8")
         m = FM_RE.match(text)
         body = text[m.end():] if m else text
-        words = normalise(body)
+        words = normalise(body, skip_quotes=True)
         hits: dict[str, str] = {}
         for g in ngrams(words, args.ngram):
             if g in corpus_grams:

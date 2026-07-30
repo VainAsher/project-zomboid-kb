@@ -11,12 +11,12 @@ Tiers: 1 = track foundations · 2 = core reference · 3 = guides/tutorials/runbo
 
 | ID | Title | Topic | Tier | Build | Version | Status | Confidence | Path |
 |----|-------|-------|------|-------|---------|--------|------------|------|
-| admins-foundation | Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices | Server foundations | 1 | both | 1.0.0 | approved | Medium | `docs/admins/admins-foundation.md` |
+| admins-foundation | Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices | Server foundations | 1 | both | 1.0.1 | approved | Medium | `docs/admins/admins-foundation.md` |
 | creator-foundation | The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window | Creator foundations | 1 | B42 | 1.0.0 | approved | Medium | `docs/creator/creator-foundation.md` |
-| lore-foundation | The Knox Event and the History of Project Zomboid's Builds | Lore & history | 1 | historic | 1.0.0 | approved | Medium | `docs/lore/lore-foundation.md` |
-| meta-style-guide | How This Knowledge Base Is Written: Genre, Build Tags and License Rules | KB governance | 1 | both | 1.0.0 | approved | High | `docs/meta/meta-style-guide.md` |
-| modders-foundation | Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives | Modding foundations | 1 | both | 1.0.0 | approved | Medium | `docs/modders/modders-foundation.md` |
-| players-foundation | Surviving Knox Country: The Core Game Across Build 41 and Build 42 | Player foundations | 1 | both | 1.0.0 | approved | Medium | `docs/players/players-foundation.md` |
+| lore-foundation | The Knox Event and the History of Project Zomboid's Builds | Lore & history | 1 | historic | 1.0.1 | approved | Medium | `docs/lore/lore-foundation.md` |
+| meta-style-guide | How This Knowledge Base Is Written: Genre, Build Tags and License Rules | KB governance | 1 | both | 1.0.1 | approved | High | `docs/meta/meta-style-guide.md` |
+| modders-foundation | Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives | Modding foundations | 1 | both | 1.0.1 | approved | Medium | `docs/modders/modders-foundation.md` |
+| players-foundation | Surviving Knox Country: The Core Game Across Build 41 and Build 42 | Player foundations | 1 | both | 1.0.1 | approved | Medium | `docs/players/players-foundation.md` |
 
 ## Knowledge graph
 

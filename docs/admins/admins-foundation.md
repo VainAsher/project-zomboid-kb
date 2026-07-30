@@ -1,7 +1,7 @@
 ---
 id: admins-foundation
 title: "Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices"
-version: 1.0.0
+version: 1.0.1
 status: approved
 confidence: Medium
 category: Admins
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | admins-foundation |
-| Version | 1.0.0 |
+| Version | 1.0.1 |
 | Status | approved |
 | Confidence | Medium |
 | Category (track) | Admins |
@@ -120,13 +120,13 @@ RCON is separate from the game ports: `RCONPort` (default 27015) with `RCONPassw
 
 ## Memory: how it is set, and what is actually documented
 
-Server heap size is controlled by the JVM `-Xms` (initial) and `-Xmx` (maximum) flags in the launch script — the same mechanism as the client's launch options [7] [9]. Two documented facts anchor sizing *(B42, wiki page versioned 42.20.0)*: the shipped `StartServer64.bat` specifies 16 GB by default, and the wiki warns that you **must** edit `-Xms`/`-Xmx` to values your machine actually has or the server will fail to start with memory errors [7]. The wiki's worked example runs a server at 6 GB [7]. This launch-script value is equivalent to the "Server Memory" option in the in-client Host screen [7]. The Ubuntu community guide configures the same limits via `ProjectZomboid64.json` [14]. Beyond these mechanics, The Indie Stone publishes no RAM-per-player table for either build; every such table in circulation is hosting-company or community material, and the popular "+2 GB for B42" figure is quarantined below (Claim 1).
+Server heap size is controlled by the JVM `-Xms` (initial) and `-Xmx` (maximum) flags in the launch script — the same mechanism as the client's launch options [7] [9]. Two documented facts anchor sizing *(B42, wiki page versioned 42.20.0)*: the shipped `StartServer64.bat` specifies 16 GB by default, and the wiki warns that `-Xms`/`-Xmx` **must** be edited down to fit the machine's real RAM — oversized values stop the server from launching at all, exiting with memory errors [7]. The wiki's worked example runs a server at 6 GB [7]. This launch-script value is equivalent to the "Server Memory" option in the in-client Host screen [7]. The Ubuntu community guide configures the same limits via `ProjectZomboid64.json` [14]. Beyond these mechanics, The Indie Stone publishes no RAM-per-player table for either build; every such table in circulation is hosting-company or community material, and the popular "+2 GB for B42" figure is quarantined below (Claim 1).
 
 ## Multiplayer scale and Build 42's server-side shift
 
 When B42 multiplayer shipped in unstable 42.13 (2025-12-11), it was explicitly work-in-progress for stress testing: the release guidance was to prefer Steam co-op or whitelisted servers, keep dedicated servers to at most 20 player slots "for now", disable mods (even client-side ones), and avoid debug mode during MP sessions [5] [6]. Those are unstable-era operating limits, published for 42.13 and not re-stated (either as still-current or as lifted) in the 42.20 release notes [1] [5].
 
-At stable, 42.20's release notes describe a security-hardened server: anti-cheats were "Re-Worked and Re-Enabled"; the `antiCheatItem` mechanism was "removed as now server-side"; anti-cheat logging was improved and false positives fixed; and a series of exploits was closed, including arbitrary item spawning, illegal XP gains, foraging manipulation, and a map exploit that allowed copying dedicated-server map data *(B42)* [1]. The current server-settings reference exposes a family of `AntiCheat*` toggles — among them checksum, hit, no-clip, packet-exception, permission, player, safehouse, safety, speed and XP checks — alongside a `SteamVAC` switch *(B42, page versioned 42.20.0)* [8]. 42.20 also added server-operator conveniences: a "Show coordinates" server option, ZNet/packet-logging improvements, object-pool statistics for monitoring, and fixes for server hangs during chunk generation and for map-visited data not persisting across restarts [1]. The community claim that this server-side shift makes B42 meaningfully heavier on CPU than B41 is quarantined below (Claim 3).
+At stable, 42.20's release notes describe a security-hardened server: anti-cheats were "Re-Worked and Re-Enabled"; the `antiCheatItem` mechanism was "removed as now server-side"; anti-cheat logging was improved and false positives fixed; and a series of exploits was closed — arbitrary item spawning, illegal XP gains, foraging manipulation, and a hole that let clients duplicate a dedicated server's map data *(B42)* [1]. The current server-settings reference exposes a family of `AntiCheat*` toggles — among them checksum, hit, no-clip, packet-exception, permission, player, safehouse, safety, speed and XP checks — alongside a `SteamVAC` switch *(B42, page versioned 42.20.0)* [8]. 42.20 also added server-operator conveniences: a "Show coordinates" server option, ZNet/packet-logging improvements, object-pool statistics for monitoring, and fixes for server hangs during chunk generation and for map-visited data not persisting across restarts [1]. The community claim that this server-side shift makes B42 meaningfully heavier on CPU than B41 is quarantined below (Claim 3).
 
 ## Mod wiring basics
 
@@ -292,3 +292,4 @@ The one-line version: the server you operate is recognisably the same artifact o
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
+| 1.0.1 | 2026-07-30 | Orchestrator (KB Pipeline) | License-hygiene prose rewrites after arming the pzwiki n-gram gate (no factual changes). | Standing mandate (2026-07-30) |

@@ -1,0 +1,15 @@
+{
+  "umbrella": {
+    "repo": "https://github.com/PZ-Umbrella/Umbrella",
+    "pins": {
+      "B42": {"release_tag": "42.20.0", "commit": "58204fc47895ba249592519cedecc7cfbaaebd60"},
+      "B41": {"release_tag": "41.78.16", "commit": "fa2e7e19799740b57902f1cb4e989225c295c05e"}
+    },
+    "pinned_at": "2026-07-30",
+    "note": "API-existence gate ground truth per build. Re-pin on each kb-release; build the symbol index from these tags when the Modders cluster starts."
+  },
+  "game_builds": {
+    "B42_stable": "42.20.0",
+    "B41_legacy": "41.78.16"
+  }
+}

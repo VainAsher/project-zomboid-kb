@@ -19,6 +19,19 @@ document version with a revision note — never a silent edit.
 
 ### Added
 
+- 2026-07-30 — Stage 1 ingestion: pzwiki fact corpus (58 pages, revision-
+  pinned, gitignored per CC BY-NC-SA; manifest committed) arms the license-
+  hygiene gate; Umbrella release tags pinned in `sources/pins.json`
+  (B42 42.20.0 @ 58204fc, B41 41.78.16 @ fa2e7e1); new server-setting
+  existence gate (`check_server_settings.py`, arms when the reference-doc
+  schema is extracted); license gate refined to exempt attributed quotes.
+
+### Changed
+
+- 2026-07-30 — Five foundation docs bumped to 1.0.1: license-hygiene prose
+  rewrites after the armed n-gram gate flagged 23 overlaps (no factual
+  changes; creator-foundation was already clean).
+
 - 2026-07-30 — Repo bootstrapped from the kb-factory chassis; reference-genre
   gates (validate/build-tag, genre audit, license hygiene, links, lint,
   graph/RAG/site) adapted for Project Zomboid B41/B42 dual coverage. Taxonomy

@@ -1,7 +1,7 @@
 ---
 id: lore-foundation
 title: "The Knox Event and the History of Project Zomboid's Builds"
-version: 1.0.0
+version: 1.0.1
 status: approved
 confidence: Medium
 category: Lore
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | lore-foundation |
-| Version | 1.0.0 |
+| Version | 1.0.1 |
 | Status | approved |
 | Confidence | Medium |
 | Category (track) | Lore |
@@ -119,7 +119,7 @@ After a further run of unstable versions (42.14 through 42.19), TIS announced on
 
 ## The legacy41 branch
 
-Build 41 savegames are not compatible with Build 42 [1]. Ahead of the stable switch, TIS documented an existing Steam beta channel named `legacy41` for players and server operators who want to remain on Build 41: right-click the game in the Steam library → Properties → "Game Versions & Betas" → select `legacy41` [1]. A parallel `42.19` beta branch was provided for players finishing unstable-era saves that are incompatible with 42.20 [1].
+Build 41 savegames are not compatible with Build 42 [1]. Ahead of the stable switch, TIS documented an existing Steam beta channel named `legacy41` for players and server operators who want to remain on Build 41, selected from the game's Properties → "Game Versions & Betas" menu in Steam [1]. A parallel `42.19` beta branch was provided for players finishing unstable-era saves that are incompatible with 42.20 [1].
 
 ## Thursdoid cadence history
 
@@ -263,3 +263,4 @@ Not applicable — this is a `historic` document; the build-to-build story *is* 
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
+| 1.0.1 | 2026-07-30 | Orchestrator (KB Pipeline) | License-hygiene prose rewrites after arming the pzwiki n-gram gate (no factual changes). | Standing mandate (2026-07-30) |

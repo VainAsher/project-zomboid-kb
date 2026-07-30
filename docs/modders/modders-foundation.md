@@ -1,7 +1,7 @@
 ---
 id: modders-foundation
 title: "Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives"
-version: 1.0.0
+version: 1.0.1
 status: approved
 confidence: Medium
 category: Modders
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | modders-foundation |
-| Version | 1.0.0 |
+| Version | 1.0.1 |
 | Status | approved |
 | Confidence | Medium |
 | Category (track) | Modders |
@@ -166,8 +166,8 @@ only so long as access to the resulting mod is not sold individually [6]
 
 ## The Lua environment: Kahlua, a modified Lua 5.1
 
-PZ mods are programmed against a Java implementation of Lua called Kahlua,
-which runs Lua scripts inside the Java game process and exposes selected
+PZ mods are programmed against Kahlua, a Lua interpreter written in Java;
+it runs mod scripts inside the game's own Java process and exposes selected
 Java classes and methods to Lua code [14] [15]. The language baseline is
 Lua 5.1 [13], with differences from the reference implementation — pzwiki
 warns that code behaving one way in an external Lua 5.1 interpreter may not
@@ -510,3 +510,4 @@ WorldZed or AnimZed as future work, not present capability [2].
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
+| 1.0.1 | 2026-07-30 | Orchestrator (KB Pipeline) | License-hygiene prose rewrites after arming the pzwiki n-gram gate (no factual changes). | Standing mandate (2026-07-30) |

@@ -1,7 +1,7 @@
 ---
 id: players-foundation
 title: "Surviving Knox Country: The Core Game Across Build 41 and Build 42"
-version: 1.0.0
+version: 1.0.1
 status: approved
 confidence: Medium
 category: Players
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | players-foundation |
-| Version | 1.0.0 |
+| Version | 1.0.1 |
 | Status | approved |
 | Confidence | Medium |
 | Category (track) | Players |
@@ -36,7 +36,7 @@ game_versions_verified: ["41.78.16", "42.20"]
 
 # Executive Summary
 
-Project Zomboid is an open-ended, permadeath zombie survival sandbox: alone or in multiplayer you loot, build, craft, fight, farm and fish to postpone an ending the game itself tells you is inevitable [8]. This document is the foundation of the Players track. It maps the core survival loop, the moodle system that reports your character's needs, character creation (occupations and traits), the skills system, and the world of Knox Country — and it does so across the two builds that matter right now: Build 41.78 (the `legacy41` branch) and Build 42.20, the first stable release of Build 42, which shipped on 2026-07-29 [1] [2] [10].
+Project Zomboid is an open-ended, permadeath zombie survival sandbox: alone or in multiplayer you loot, build, craft, fight, farm and fish to postpone an ending the game itself tells you is inevitable [8]. This document is the foundation of the Players track. It maps the core survival loop, the moodle system that reports your character's needs, character creation (occupations and traits), the skills system, and the world of Knox Country — and it does so across the two builds that matter right now: Build 41.78 (the `legacy41` branch) and Build 42.20, Build 42's first stable release, shipped 2026-07-29 [1] [2] [10].
 
 Build 42 is the largest change to the player experience since the Build 41 animation overhaul: it adds animals and animal husbandry, a much deeper crafting and building tech tree, a new lighting model, basements and true high-rise buildings on an engine that now supports 32-storey structures, a roughly doubled map surface area, and — as of 42.13 unstable and now 42.20 stable — restored multiplayer [3] [5] [7] [9] [10]. Your Build 41 saves do not migrate: Build 41 remains playable on the `legacy41` Steam beta branch [2].
 
@@ -45,7 +45,7 @@ Document-level confidence is **Medium**: the release-facts spine rests on offici
 # Key Takeaways
 
 - Project Zomboid's loop is loot, build, craft, fight, farm and fish under permadeath — the game's own framing is "how will you die?" *(cited)* *(both)*
-- Build 42.20 is the **first stable release of Build 42**, released 2026-07-29 after a 19-month unstable cycle that began 2024-12-17 *(cited)* *(B42)*
+- Build 42.20 is **Build 42's first stable release**, shipped 2026-07-29 after a 19-month unstable cycle that began 2024-12-17 *(cited)* *(B42)*
 - **Build 41 saves are not compatible with Build 42**; a `legacy41` Steam beta branch keeps 41.78 playable, and a `42.19` branch exists for finishing unstable-era saves *(cited)*
 - B42 headline changes for players: animals and husbandry, a crafting and building overhaul, a new lighting system, basements and 32-level buildings, muscle strain in combat, and a map with roughly double the surface area *(cited)* *(B42)*
 - Multiplayer was disabled at B42's unstable launch, returned in 42.13 unstable (2025-12-11), and ships stable in 42.20 with reworked anti-cheat and a fix for the zombie-culling population bug *(cited)* *(B42)*
@@ -100,7 +100,7 @@ The rosters differ by build. The B41-era wiki revision lists 21 occupations plus
 
 ## Skills
 
-Skills level from 0 to 10 by earning XP from doing the relevant activity, with each level requiring more XP than the last [12]. The wiki groups skills into six categories — passive, agility, combat, crafting, firearm and survivalist — and notes that the passive pair (Strength, Fitness) needs vastly more XP than regular skills: 1,500 XP for level 1 versus 75 for a regular skill, per figures the page states for Build 41.78.16 *(B41)* [12]. Skill books multiply XP gain for their skill across two-level bands, which is the main lever for levelling efficiently [12].
+Skills level from 0 to 10 by earning XP from doing the relevant activity, with each level requiring more XP than the last [12]. The wiki sorts skills into six groupings — combat, agility, crafting, firearm, survivalist, and the passive pair — and notes that the passives (Strength, Fitness) need vastly more XP than regular skills: 1,500 XP for level 1 versus 75 for a regular skill, per figures the page states for Build 41.78.16 *(B41)* [12]. Skill books multiply XP gain for their skill across two-level bands, which is the main lever for levelling efficiently [12].
 
 The B42 skill list on the same page adds a family of crafting skills — Blacksmithing, Carving, Glassmaking, Knapping, Masonry, Pottery and Welding — alongside animal-economy skills (Animal Care, Butchering) and Tracking, and lists Agriculture where B41 players knew Farming *(B42)* [12]. The page itself carries an "outdated" banner warning that its categorisation is still Build 41-based, so expect the in-game grouping on 42.20 to differ in presentation [12].
 
@@ -112,7 +112,7 @@ The B42 world is also taller and deeper than B41's. The engine's previous height
 
 ## What Build 42.20 stable changed at headline level
 
-Build 42.20 is the first stable release of Build 42 [10]. It reached the public stable branch on Wednesday 2026-07-29 [1] [2]. The wiki's release overview summarises the player-facing headline as: a heavily evolved Knox Country; deeper crafting and building systems; animals and animal husbandry; improved lighting and atmosphere; expanded lore and environmental storytelling; and broad quality-of-life work *(B42)* [10]. Features underpinning that headline were confirmed across development: a new lighting system with natural ambient light bouncing off walls and leaking through gaps; domestic and wild animals (sheep, chickens, pigs, cows, rats, rabbits, deer) providing meat, leather, eggs and milk, with wild animals trackable by prints and droppings; new crafting systems including pottery, blacksmithing and stone working; and advanced crop farming with realistic growing seasons *(B42)* [9]. The Indie Stone's pre-launch Thursdoid also cites rebalanced zombie spawns, combat that builds up muscle strain, dynamic music and player vocals among the changes testers responded to *(B42)* [6].
+Build 42.20 is Build 42's first stable release [10]. It reached the public stable branch on Wednesday 2026-07-29 [1] [2]. The wiki's release overview summarises the player-facing headline as: a heavily evolved Knox Country; deeper crafting and building systems; animals and animal husbandry; improved lighting and atmosphere; expanded lore and environmental storytelling; and broad quality-of-life work *(B42)* [10]. Features underpinning that headline were confirmed across development: a new lighting system with natural ambient light bouncing off walls and leaking through gaps; domestic and wild animals (sheep, chickens, pigs, cows, rats, rabbits, deer) providing meat, leather, eggs and milk, with wild animals trackable by prints and droppings; new crafting systems including pottery, blacksmithing and stone working; and advanced crop farming with realistic growing seasons *(B42)* [9]. The Indie Stone's pre-launch Thursdoid also cites rebalanced zombie spawns, combat that builds up muscle strain, dynamic music and player vocals among the changes testers responded to *(B42)* [6].
 
 Specific to the 42.19→42.20 patch: seven areas of the map were entirely reworked (Riverside, West Point, Rosewood, Fallas Lake, Muldraugh, Ekron and Dixie) [3]; two new Challenge modes replace "Cabin in the Woods" in rotation — "28 Minutes Later" and "Top of the World" [1]; anti-cheat was reworked and re-enabled for multiplayer, and the zombie-culling bug that caused severe drops in multiplayer zombie populations was fixed [1]. A small security patch shipped alongside the release for Builds 41 and 42.19 [1].
 
@@ -250,3 +250,4 @@ The one-line version: Build 42 keeps the same core loop and moodle language, but
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
+| 1.0.1 | 2026-07-30 | Orchestrator (KB Pipeline) | License-hygiene prose rewrites after arming the pzwiki n-gram gate (no factual changes). | Standing mandate (2026-07-30) |

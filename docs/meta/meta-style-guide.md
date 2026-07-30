@@ -1,7 +1,7 @@
 ---
 id: meta-style-guide
 title: "How This Knowledge Base Is Written: Genre, Build Tags and License Rules"
-version: 1.0.0
+version: 1.0.1
 status: approved
 confidence: High
 category: Meta
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | meta-style-guide |
-| Version | 1.0.0 |
+| Version | 1.0.1 |
 | Status | approved |
 | Confidence | High |
 | Category (track) | Meta |
@@ -73,9 +73,8 @@ document rests on primary sources and directly inspectable repository files.
   commercial use [3] [5]; this commercially-adjacent project therefore uses
   pzwiki as a **fact-only** source — cite URL plus revision id, never reuse
   its prose or table layouts. *(cited)*
-- Project Zomboid content and materials are trademarks and copyrights of The
-  Indie Stone [4] [5]; the KB is an unofficial fan project and says so
-  site-wide. *(cited)*
+- The game, its art and its lore belong to The Indie Stone [4] [5]; the KB
+  is an unofficial fan project and says so site-wide. *(cited)*
 - Sources are reached for in a fixed priority order — official primaries,
   then code truth, then pzwiki facts, then tooling repos, then
   corroborate-only community material — summarised here and specified in
@@ -215,9 +214,10 @@ bot-block allowlist corroborated through a mirror such as the Steam news API.
 
 Three distinct bodies of rights shape this project.
 
-**pzwiki.net.** PZwiki states that all of its content — except
-developer-owned images, art and lore — is licensed under Creative Commons
-Attribution-NonCommercial-ShareAlike 3.0 Unported [5]. That license permits
+**pzwiki.net.** PZwiki's copyright page states: "All content on the PZwiki
+(except for developer-owned images, art, and lore) is licensed under the
+Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0)" [5].
+That license permits
 sharing and adaptation only with attribution, forbids use "primarily
 intended for commercial advantage or monetary compensation", and requires
 adaptations to be distributed under the same license [3]. This project is
@@ -230,9 +230,9 @@ written as original prose, and `scripts/check_license_hygiene.py`
 mechanically flags n-gram overlap against the ingested pzwiki corpus in
 `sources/pzwiki/`.
 
-**The Indie Stone's IP.** Project Zomboid content and materials are
-trademarks and copyrights of The Indie Stone [5], whose published terms
-govern use of the game and its materials [4]. This knowledge base is an
+**The Indie Stone's IP.** Per the same page, "Project Zomboid content and
+materials are trademarks and copyrights of The Indie Stone" [5], whose
+published terms govern use of the game and its materials [4]. This knowledge base is an
 unofficial fan project — not affiliated with, endorsed by, or sponsored by
 The Indie Stone — and carries that disclaimer site-wide. Game-file excerpts
 are quoted minimally, cited by path and game version, and never rehosted.
@@ -397,7 +397,7 @@ None.
 
 - [1] **The Indie Stone** — *B42 CHECKLIST* (Steam announcement, 2026-07-28). https://steamcommunity.com/games/108600/announcements/detail/1839041357038237 Accessed 2026-07-30 via the Steam news API (ISteamNews, app 108600); host is bot-block allowlisted.
 - [2] **The Indie Stone** — *Build 42.20.0 Stable Released* (Steam announcement, 2026-07-29). https://steamcommunity.com/games/108600/announcements/detail/1839676055882259 Accessed 2026-07-30 via the Steam news API (ISteamNews, app 108600); host is bot-block allowlisted.
-- [3] **Creative Commons** — *Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0) deed*. https://creativecommons.org/licenses/by-nc-sa/3.0/ Accessed 2026-07-30.
+- [3] **Creative Commons** — deed titled "Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0)". https://creativecommons.org/licenses/by-nc-sa/3.0/ Accessed 2026-07-30.
 - [4] **The Indie Stone** — *Project Zomboid — Terms & Conditions*. https://projectzomboid.com/blog/support/terms-conditions/ Accessed 2026-07-30. Bot-block allowlisted host; URL corroborated by the link in [5].
 
 **Fact-Only Sources (no prose reuse)**
@@ -430,3 +430,4 @@ None.
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
+| 1.0.1 | 2026-07-30 | Orchestrator (KB Pipeline) | License-hygiene prose rewrites after arming the pzwiki n-gram gate (no factual changes). | Standing mandate (2026-07-30) |

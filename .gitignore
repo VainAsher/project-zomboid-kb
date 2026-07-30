@@ -2,3 +2,7 @@
 __pycache__/
 *.pyc
 
+
+# CC BY-NC-SA snapshots - local verification corpus only, never commit
+sources/pzwiki/*.txt
+

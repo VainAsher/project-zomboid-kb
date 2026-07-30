@@ -30,6 +30,8 @@ jobs:
         run: python scripts/audit_genre.py --strict
       - name: License hygiene (no pzwiki prose reuse)
         run: python scripts/check_license_hygiene.py
+      - name: Server-setting existence gate (Admin track)
+        run: python scripts/check_server_settings.py
       - name: Build exports & validate cross-references
         run: python scripts/build_graph.py
       - name: Build RAG export
