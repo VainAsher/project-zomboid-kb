@@ -1,0 +1,7 @@
+# Normalise all text to LF in the repo and working tree so the CI staleness
+# check (which regenerates artefacts on Linux) matches committed files.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.gif binary
+*.pdf binary

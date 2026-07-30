@@ -1,0 +1,19 @@
+{
+  // Config for markdownlint-cli2 (https://github.com/DavidAnson/markdownlint).
+  // Tuned for long-form compliance documents with wide tables and inline HTML.
+  "default": true,
+  "MD013": false,   // line length — prose/tables run long by design
+  "MD033": false,   // inline HTML — templates use <!-- authoring comments -->
+  "MD034": false,   // bare URLs — intentional in the source registry & reference lists
+  "MD052": false,   // [1],[2]... are citation markers, NOT reference-style links
+  "MD040": false,   // not all fenced blocks need a language (ASCII diagrams)
+  "MD024": { "siblings_only": true },  // allow repeated headings in different sections
+  "MD041": false,   // first line need not be a top-level heading (YAML front matter)
+  "MD025": false,   // template uses one H1 per major section (23), title is in front matter
+  "MD012": { "maximum": 2 },
+  "MD029": { "style": "ordered" },
+  "MD049": { "style": "asterisk" },  // house style uses *italic* / **bold**
+  "MD050": { "style": "asterisk" },
+  "MD036": false,  // bold labels group the References block (Primary/Analyst/Practitioner…)
+  "MD060": false   // table-pipe padding — standard GFM tables are fine
+}

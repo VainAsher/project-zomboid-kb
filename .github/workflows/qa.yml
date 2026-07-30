@@ -1,0 +1,63 @@
+name: QA
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Weekly link check (Mondays 06:00 UTC) — external links rot over time.
+    - cron: "0 6 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    # Fast, offline: front matter + template structure + citation integrity.
+    name: Offline validators
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Validate documents
+        run: python scripts/validate.py
+      - name: Audit genre discipline (evidence vs hearsay)
+        run: python scripts/audit_genre.py --strict
+      - name: License hygiene (no pzwiki prose reuse)
+        run: python scripts/check_license_hygiene.py
+      - name: Build exports & validate cross-references
+        run: python scripts/build_graph.py
+      - name: Build RAG export
+        run: python scripts/build_rag.py
+      - name: Regenerate site scaffolding
+        run: python scripts/build_site.py
+      - name: Ensure committed generated artefacts are up to date
+        run: |
+          git diff --exit-code exports/ mkdocs.yml docs/index.md \
+            || (echo "Generated artefacts are stale — run build_graph.py / build_rag.py / build_site.py and commit" && exit 1)
+
+  markdownlint:
+    name: Markdown lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: markdownlint-cli2
+        run: npx --yes markdownlint-cli2 "docs/**/*.md" "*.md"
+
+  linkcheck:
+    # Network-dependent: runs on schedule / manual dispatch, not on every PR.
+    name: Link check
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check external links
+        run: python scripts/check_links.py
