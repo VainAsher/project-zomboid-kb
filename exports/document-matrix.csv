@@ -1,7 +1,13 @@
 id,title,topic,tier,build,document_type,category,version,status,confidence,review_due,path
 admins-foundation,"Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices",Server foundations,1,both,overview,Admins,1.0.1,approved,Medium,2026-10-30,docs/admins/admins-foundation.md
+admins-sandboxvars-reference,SandboxVars Reference: Gameplay Rules per Server,Server configuration,2,both,server-setting,Admins,0.1.0,in-review,Medium,2026-10-30,docs/admins/admins-sandboxvars-reference.md
+admins-server-ini-reference,"server.ini Reference: The Settings That Matter, by Area",Server configuration,2,both,server-setting,Admins,0.1.0,in-review,Medium,2026-10-31,docs/admins/admins-server-ini-reference.md
 creator-foundation,"The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window",Creator foundations,1,B42,overview,Creator,1.0.0,approved,Medium,2026-10-30,docs/creator/creator-foundation.md
 lore-foundation,The Knox Event and the History of Project Zomboid's Builds,Lore & history,1,historic,overview,Lore,1.0.1,approved,Medium,2026-10-30,docs/lore/lore-foundation.md
 meta-style-guide,"How This Knowledge Base Is Written: Genre, Build Tags and License Rules",KB governance,1,both,reference,Meta,1.0.1,approved,High,2026-10-30,docs/meta/meta-style-guide.md
 modders-foundation,"Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives",Modding foundations,1,both,overview,Modders,1.0.1,approved,Medium,2026-10-30,docs/modders/modders-foundation.md
 players-foundation,Surviving Knox Country: The Core Game Across Build 41 and Build 42,Player foundations,1,both,overview,Players,1.0.1,approved,Medium,2026-10-30,docs/players/players-foundation.md
+players-animals-husbandry,Animals and Husbandry in Build 42,Animals & husbandry,2,B42,reference,Players,0.1.0,in-review,Medium,2026-10-30,docs/players/players-animals-husbandry.md
+players-crafting-chains,The B42 Crafting Overhaul: From Knapping to Blacksmithing,Crafting,2,both,reference,Players,0.1.0,in-review,Medium,2026-10-30,docs/players/players-crafting-chains.md
+players-skills-xp,"Skills and XP: Levelling, Multipliers and the B42 Skill Roster",Skills & XP,2,both,reference,Players,0.1.0,in-review,Medium,2026-10-30,docs/players/players-skills-xp.md
+players-traits-occupations,"Traits and Occupations: Points, Rosters and the B42 Rework",Traits & occupations,2,both,reference,Players,0.1.0,in-review,Medium,2026-10-30,docs/players/players-traits-occupations.md

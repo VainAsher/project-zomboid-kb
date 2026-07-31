@@ -14,6 +14,34 @@
     "path": "docs/admins/admins-foundation.md"
   },
   {
+    "id": "admins-sandboxvars-reference",
+    "title": "SandboxVars Reference: Gameplay Rules per Server",
+    "topic": "Server configuration",
+    "tier": "2",
+    "build": "both",
+    "document_type": "server-setting",
+    "category": "Admins",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-30",
+    "path": "docs/admins/admins-sandboxvars-reference.md"
+  },
+  {
+    "id": "admins-server-ini-reference",
+    "title": "server.ini Reference: The Settings That Matter, by Area",
+    "topic": "Server configuration",
+    "tier": "2",
+    "build": "both",
+    "document_type": "server-setting",
+    "category": "Admins",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-31",
+    "path": "docs/admins/admins-server-ini-reference.md"
+  },
+  {
     "id": "creator-foundation",
     "title": "The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window",
     "topic": "Creator foundations",
@@ -82,5 +110,61 @@
     "confidence": "Medium",
     "review_due": "2026-10-30",
     "path": "docs/players/players-foundation.md"
+  },
+  {
+    "id": "players-animals-husbandry",
+    "title": "Animals and Husbandry in Build 42",
+    "topic": "Animals & husbandry",
+    "tier": "2",
+    "build": "B42",
+    "document_type": "reference",
+    "category": "Players",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-30",
+    "path": "docs/players/players-animals-husbandry.md"
+  },
+  {
+    "id": "players-crafting-chains",
+    "title": "The B42 Crafting Overhaul: From Knapping to Blacksmithing",
+    "topic": "Crafting",
+    "tier": "2",
+    "build": "both",
+    "document_type": "reference",
+    "category": "Players",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-30",
+    "path": "docs/players/players-crafting-chains.md"
+  },
+  {
+    "id": "players-skills-xp",
+    "title": "Skills and XP: Levelling, Multipliers and the B42 Skill Roster",
+    "topic": "Skills & XP",
+    "tier": "2",
+    "build": "both",
+    "document_type": "reference",
+    "category": "Players",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-30",
+    "path": "docs/players/players-skills-xp.md"
+  },
+  {
+    "id": "players-traits-occupations",
+    "title": "Traits and Occupations: Points, Rosters and the B42 Rework",
+    "topic": "Traits & occupations",
+    "tier": "2",
+    "build": "both",
+    "document_type": "reference",
+    "category": "Players",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-30",
+    "path": "docs/players/players-traits-occupations.md"
   }
 ]

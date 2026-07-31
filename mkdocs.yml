@@ -48,3 +48,10 @@ nav:
       - "How This Knowledge Base Is Written: Genre, Build Tags and License Rules": meta/meta-style-guide.md
       - "Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives": modders/modders-foundation.md
       - "Surviving Knox Country: The Core Game Across Build 41 and Build 42": players/players-foundation.md
+  - "Class 2 — Core reference (mechanics, entities, API, settings)":
+      - "SandboxVars Reference: Gameplay Rules per Server": admins/admins-sandboxvars-reference.md
+      - "server.ini Reference: The Settings That Matter, by Area": admins/admins-server-ini-reference.md
+      - "Animals and Husbandry in Build 42": players/players-animals-husbandry.md
+      - "The B42 Crafting Overhaul: From Knapping to Blacksmithing": players/players-crafting-chains.md
+      - "Skills and XP: Levelling, Multipliers and the B42 Skill Roster": players/players-skills-xp.md
+      - "Traits and Occupations: Points, Rosters and the B42 Rework": players/players-traits-occupations.md

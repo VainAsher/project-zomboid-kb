@@ -23,6 +23,48 @@
       ]
     },
     {
+      "id": "admins-sandboxvars-reference",
+      "title": "SandboxVars Reference: Gameplay Rules per Server",
+      "topic": "Server configuration",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/admins/admins-sandboxvars-reference.md",
+      "category": "Admins",
+      "document_type": "server-setting",
+      "review_due": "2026-10-30",
+      "created": "2026-07-30",
+      "related": [
+        "admins-foundation",
+        "admins-server-ini-reference",
+        "players-foundation",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "admins-server-ini-reference",
+      "title": "server.ini Reference: The Settings That Matter, by Area",
+      "topic": "Server configuration",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/admins/admins-server-ini-reference.md",
+      "category": "Admins",
+      "document_type": "server-setting",
+      "review_due": "2026-10-31",
+      "created": "2026-07-30",
+      "related": [
+        "admins-foundation",
+        "admins-sandboxvars-reference",
+        "meta-style-guide",
+        "modders-foundation"
+      ]
+    },
+    {
       "id": "creator-foundation",
       "title": "The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window",
       "topic": "Creator foundations",
@@ -129,6 +171,95 @@
         "admins-foundation",
         "creator-foundation",
         "lore-foundation",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "players-animals-husbandry",
+      "title": "Animals and Husbandry in Build 42",
+      "topic": "Animals & husbandry",
+      "tier": "2",
+      "build": "B42",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/players/players-animals-husbandry.md",
+      "category": "Players",
+      "document_type": "reference",
+      "review_due": "2026-10-30",
+      "created": "2026-07-30",
+      "related": [
+        "players-foundation",
+        "players-skills-xp",
+        "players-crafting-chains",
+        "players-traits-occupations",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "players-crafting-chains",
+      "title": "The B42 Crafting Overhaul: From Knapping to Blacksmithing",
+      "topic": "Crafting",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/players/players-crafting-chains.md",
+      "category": "Players",
+      "document_type": "reference",
+      "review_due": "2026-10-30",
+      "created": "2026-07-30",
+      "related": [
+        "players-foundation",
+        "players-skills-xp",
+        "players-traits-occupations",
+        "players-animals-husbandry",
+        "modders-foundation",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "players-skills-xp",
+      "title": "Skills and XP: Levelling, Multipliers and the B42 Skill Roster",
+      "topic": "Skills & XP",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/players/players-skills-xp.md",
+      "category": "Players",
+      "document_type": "reference",
+      "review_due": "2026-10-30",
+      "created": "2026-07-30",
+      "related": [
+        "players-foundation",
+        "players-traits-occupations",
+        "players-crafting-chains",
+        "players-animals-husbandry",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "players-traits-occupations",
+      "title": "Traits and Occupations: Points, Rosters and the B42 Rework",
+      "topic": "Traits & occupations",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/players/players-traits-occupations.md",
+      "category": "Players",
+      "document_type": "reference",
+      "review_due": "2026-10-30",
+      "created": "2026-07-30",
+      "related": [
+        "players-foundation",
+        "players-skills-xp",
+        "players-crafting-chains",
+        "players-animals-husbandry",
         "meta-style-guide"
       ]
     }
@@ -310,6 +441,180 @@
     },
     {
       "from": "admins-foundation",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "players-skills-xp",
+      "to": "players-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "players-skills-xp",
+      "to": "players-traits-occupations",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "players-skills-xp",
+      "to": "players-crafting-chains",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "players-skills-xp",
+      "to": "players-animals-husbandry",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "players-skills-xp",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "players-traits-occupations",
+      "to": "players-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "players-traits-occupations",
+      "to": "players-skills-xp",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "players-traits-occupations",
+      "to": "players-crafting-chains",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "players-traits-occupations",
+      "to": "players-animals-husbandry",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "players-traits-occupations",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "players-crafting-chains",
+      "to": "players-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "players-crafting-chains",
+      "to": "players-skills-xp",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "players-crafting-chains",
+      "to": "players-traits-occupations",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "players-crafting-chains",
+      "to": "players-animals-husbandry",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "players-crafting-chains",
+      "to": "modders-foundation",
+      "rel": "informs",
+      "target": "known"
+    },
+    {
+      "from": "players-crafting-chains",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "admins-sandboxvars-reference",
+      "to": "admins-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "admins-sandboxvars-reference",
+      "to": "admins-server-ini-reference",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "admins-server-ini-reference",
+      "to": "admins-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "admins-server-ini-reference",
+      "to": "admins-sandboxvars-reference",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "admins-server-ini-reference",
+      "to": "modders-foundation",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "admins-server-ini-reference",
+      "to": "meta-style-guide",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "players-animals-husbandry",
+      "to": "players-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "players-animals-husbandry",
+      "to": "players-skills-xp",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "players-animals-husbandry",
+      "to": "players-crafting-chains",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "players-animals-husbandry",
+      "to": "players-traits-occupations",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "players-animals-husbandry",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "admins-sandboxvars-reference",
+      "to": "players-foundation",
+      "rel": "informs",
+      "target": "known"
+    },
+    {
+      "from": "admins-sandboxvars-reference",
       "to": "meta-style-guide",
       "rel": "conforms_to",
       "target": "known"

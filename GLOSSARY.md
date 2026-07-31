@@ -64,6 +64,18 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | MultiplierConfig | B42-only nested SandboxVars table of XP multipliers: a Global value, a GlobalToggle, and ~35 per-skill keys under internal skill names. | Tier 3 |
 | Sandbox enum coding | Multiple-choice sandbox options are stored as 1-based integer codes whose meanings are fixed per key. | Tier 3 |
 | Generated default | The value the server writes into SandboxVars when it creates the file at first startup; the 42.20 generated file notably disables zombie respawn. | Tier 3 |
+| Soft reset | A server wipe that forces clients to create new characters, tracked by the paired identity keys `ResetID` and `ServerPlayerID` in the server .ini. | Tier 3 |
+| Loading ID | A mod's internal identifier from its info.txt, used in the `Mods=` list; distinct from the numeric Steam Workshop ID used in `WorkshopItems=`. | Tier 3 |
+| Safety system | The per-player PVP opt-in mechanism (`SafetySystem=true`): one player can hurt another only when at least one of the two has PVP mode engaged. | Tier 3 |
+
+## Animals & world
+
+| Term | Definition | Source |
+|------|------------|--------|
+| Livestock zone | A map zone within which livestock feed, drink and breed; farmsteads come with these pre-drawn, and moving animals elsewhere requires drawing one manually. | Tier 1 |
+| Butcher hook | A workstation for butchering hanging animals, yielding more meat plus an unprocessed hide compared with ground butchering. | Tier 3 |
+| Virtual animal | The off-screen representation of a wild-animal group migrating along a path; it spawns into real animals when a player approaches and reverts when they leave. | Tier 1 |
+| maxWeight gene | The gene that sets an individual animal's real weight as a multiplier (typically 0.5–0.8, breed-dependent) of its species/stage base weight range. | Tier 3 |
 
 ## Creator ecosystem
 

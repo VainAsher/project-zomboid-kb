@@ -31,6 +31,9 @@ SCHEMA = Path("sources/schemas/server-settings.json")
 FM_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 KEY_ROW_RE = re.compile(r"^\|\s*`([A-Za-z0-9_.]+)`\s*\|", re.MULTILINE)
 CATEGORY_RE = re.compile(r"^category:\s*Admins\s*$", re.MULTILINE)
+# File names appear as first-cell code spans in file-layout tables; setting
+# keys never carry a file extension, so these are excluded from the check.
+FILENAME_RE = re.compile(r"\.(ini|lua|bat|sh|json|txt|md|jar|log)$", re.IGNORECASE)
 
 
 def main() -> int:
@@ -62,7 +65,7 @@ def main() -> int:
             continue  # only Admin-track docs carry key tables
         body = text[m.end():] if m else text
         unknown = sorted({k for k in KEY_ROW_RE.findall(body)
-                          if k not in known})
+                          if k not in known and not FILENAME_RE.search(k)})
         if unknown:
             total += len(unknown)
             print(f"FAIL  {f.as_posix()}")

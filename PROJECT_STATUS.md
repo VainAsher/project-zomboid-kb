@@ -31,9 +31,21 @@ next: Stage-1 ingestion + the Players + Admins cluster.
 ## Open items from the Players + Admins cluster (wave A)
 
 - Cross-doc discrepancy to reconcile at freeze: players-foundation says the
-  B42 Occupation roster (pzwiki rev 1391359) lists 23 occupations + Custom;
-  players-traits-occupations counts 24 rows in the same revision — recount
-  and align both docs.
+  B42 Occupation roster (pzwiki rev 1391359) lists 23 occupations + Custom
+  named Crop Farmer/Livestock Farmer/Angler; BOTH the traits doc (24 rows)
+  and the animals doc (local snapshot reads Farmer/Rancher/Fishing Guide)
+  independently contradict that reading — players-foundation likely needs a
+  1.0.2 correction at wave freeze.
+- B41 baseline decision for a human: ISteamNews shows legacy41 maintenance
+  hotfixes up to 41.78.19/41.78.20 (2026); the KB currently pins B41
+  verification at 41.78.16. Decide whether the baseline moves.
+- pzwiki intermittently Cloudflare-challenges API clients: re-check the
+  Server settings revision (pinned 1443167) when access allows; ingest the
+  "Husbandry" and "Animal care" pages into sources/pzwiki/ when reachable
+  (they 403'd during wave A; note "Husbandry"/"Animal care" titles were
+  missing at first ingestion — find the real page titles).
+- AntiCheat numeric mode mapping (1=Ban/2=Kick/3=Log/4=Disable) is
+  quarantined at Low — schema encodes key existence only.
 - "Brewing" was briefed as a B42 crafting skill family, but no skill or
   chain could be primary-sourced (crafting SYSTEM only) — both wave-A docs
   treat it accordingly; confirm framing in-game.

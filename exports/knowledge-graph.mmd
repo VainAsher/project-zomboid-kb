@@ -7,6 +7,14 @@ graph LR
     modders_foundation["modders-foundation"]
     players_foundation["players-foundation"]
   end
+  subgraph Tier2["Tier 2"]
+    admins_sandboxvars_reference["admins-sandboxvars-reference"]
+    admins_server_ini_reference["admins-server-ini-reference"]
+    players_animals_husbandry["players-animals-husbandry"]
+    players_crafting_chains["players-crafting-chains"]
+    players_skills_xp["players-skills-xp"]
+    players_traits_occupations["players-traits-occupations"]
+  end
   meta_style_guide -->|governs| modders_foundation
   meta_style_guide -->|governs| players_foundation
   meta_style_guide -->|governs| creator_foundation
@@ -37,3 +45,32 @@ graph LR
   admins_foundation -->|related| creator_foundation
   admins_foundation -->|related| lore_foundation
   admins_foundation -->|conforms_to| meta_style_guide
+  players_skills_xp -->|deepens| players_foundation
+  players_skills_xp -->|relates_to| players_traits_occupations
+  players_skills_xp -->|relates_to| players_crafting_chains
+  players_skills_xp -->|relates_to| players_animals_husbandry
+  players_skills_xp -->|conforms_to| meta_style_guide
+  players_traits_occupations -->|deepens| players_foundation
+  players_traits_occupations -->|related| players_skills_xp
+  players_traits_occupations -->|related| players_crafting_chains
+  players_traits_occupations -->|related| players_animals_husbandry
+  players_traits_occupations -->|conforms_to| meta_style_guide
+  players_crafting_chains -->|deepens| players_foundation
+  players_crafting_chains -->|relates_to| players_skills_xp
+  players_crafting_chains -->|relates_to| players_traits_occupations
+  players_crafting_chains -->|complements| players_animals_husbandry
+  players_crafting_chains -->|informs| modders_foundation
+  players_crafting_chains -->|conforms_to| meta_style_guide
+  admins_sandboxvars_reference -->|deepens| admins_foundation
+  admins_sandboxvars_reference -->|complements| admins_server_ini_reference
+  admins_server_ini_reference -->|deepens| admins_foundation
+  admins_server_ini_reference -->|complements| admins_sandboxvars_reference
+  admins_server_ini_reference -->|complements| modders_foundation
+  admins_server_ini_reference -->|complements| meta_style_guide
+  players_animals_husbandry -->|deepens| players_foundation
+  players_animals_husbandry -->|relates_to| players_skills_xp
+  players_animals_husbandry -->|relates_to| players_crafting_chains
+  players_animals_husbandry -->|relates_to| players_traits_occupations
+  players_animals_husbandry -->|conforms_to| meta_style_guide
+  admins_sandboxvars_reference -->|informs| players_foundation
+  admins_sandboxvars_reference -->|conforms_to| meta_style_guide
