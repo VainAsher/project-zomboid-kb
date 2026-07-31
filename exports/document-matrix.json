@@ -28,6 +28,34 @@
     "path": "docs/admins/admins-backups-migration.md"
   },
   {
+    "id": "admins-legacy41-runbook",
+    "title": "Keeping a Build 41 Server Alive: The legacy41 Runbook",
+    "topic": "Server runbooks",
+    "tier": "3",
+    "build": "B41",
+    "document_type": "tutorial",
+    "category": "Admins",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-31",
+    "path": "docs/admins/admins-legacy41-runbook.md"
+  },
+  {
+    "id": "admins-modded-server-runbook",
+    "title": "Running a Modded Server: Selection, Rollout and Update Discipline",
+    "topic": "Server runbooks",
+    "tier": "3",
+    "build": "both",
+    "document_type": "tutorial",
+    "category": "Admins",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-31",
+    "path": "docs/admins/admins-modded-server-runbook.md"
+  },
+  {
     "id": "admins-performance-tuning",
     "title": "Server Performance: Memory, CPU and the Levers That Are Actually Documented",
     "topic": "Server operations",
@@ -82,6 +110,34 @@
     "confidence": "Medium",
     "review_due": "2026-10-31",
     "path": "docs/admins/admins-server-ini-reference.md"
+  },
+  {
+    "id": "admins-ubuntu-runbook",
+    "title": "Ubuntu Dedicated Server Runbook: SteamCMD to systemd",
+    "topic": "Server runbooks",
+    "tier": "3",
+    "build": "both",
+    "document_type": "tutorial",
+    "category": "Admins",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-31",
+    "path": "docs/admins/admins-ubuntu-runbook.md"
+  },
+  {
+    "id": "admins-workshop-mod-wiring",
+    "title": "Wiring Workshop Mods into a Server: IDs, Load Order and Updates",
+    "topic": "Server operations",
+    "tier": "2",
+    "build": "both",
+    "document_type": "reference",
+    "category": "Admins",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-31",
+    "path": "docs/admins/admins-workshop-mod-wiring.md"
   },
   {
     "id": "creator-foundation",
@@ -154,6 +210,34 @@
     "path": "docs/players/players-foundation.md"
   },
   {
+    "id": "players-beginner-guide-b42",
+    "title": "Starting Project Zomboid on Build 42.20: A First-Week Survival Guide",
+    "topic": "Guides",
+    "tier": "3",
+    "build": "B42",
+    "document_type": "tutorial",
+    "category": "Players",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-31",
+    "path": "docs/players/players-beginner-guide-b42.md"
+  },
+  {
+    "id": "players-farming-food",
+    "title": "Farming, Foraging and Food: Feeding a Survivor Long-Term",
+    "topic": "Farming & food",
+    "tier": "2",
+    "build": "both",
+    "document_type": "reference",
+    "category": "Players",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-31",
+    "path": "docs/players/players-farming-food.md"
+  },
+  {
     "id": "players-animals-husbandry",
     "title": "Animals and Husbandry in Build 42",
     "topic": "Animals & husbandry",
@@ -166,6 +250,20 @@
     "confidence": "Medium",
     "review_due": "2026-10-30",
     "path": "docs/players/players-animals-husbandry.md"
+  },
+  {
+    "id": "players-b41-to-b42-transition",
+    "title": "The B41 Veteran's Guide to Build 42: What Your Instincts Get Wrong",
+    "topic": "Guides",
+    "tier": "3",
+    "build": "both",
+    "document_type": "tutorial",
+    "category": "Players",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-31",
+    "path": "docs/players/players-b41-to-b42-transition.md"
   },
   {
     "id": "players-crafting-chains",

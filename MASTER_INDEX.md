@@ -14,15 +14,19 @@ Tiers: 1 = track foundations · 2 = core reference · 3 = guides/tutorials/runbo
 | admins-foundation | Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices | Server foundations | 1 | both | 1.0.1 | approved | Medium | `docs/admins/admins-foundation.md` |
 | admins-backups-migration | Backups, Saves and Migration: Protecting a Server World | Server operations | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-backups-migration.md` |
 | admins-legacy41-runbook | Keeping a Build 41 Server Alive: The legacy41 Runbook | Server runbooks | 3 | B41 | 0.1.0 | in-review | Medium | `docs/admins/admins-legacy41-runbook.md` |
+| admins-modded-server-runbook | Running a Modded Server: Selection, Rollout and Update Discipline | Server runbooks | 3 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-modded-server-runbook.md` |
 | admins-performance-tuning | Server Performance: Memory, CPU and the Levers That Are Actually Documented | Server operations | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-performance-tuning.md` |
 | admins-rcon-commands | RCON and Admin Commands: Operating a Live Server | Server operations | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-rcon-commands.md` |
 | admins-sandboxvars-reference | SandboxVars Reference: Gameplay Rules per Server | Server configuration | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-sandboxvars-reference.md` |
 | admins-server-ini-reference | server.ini Reference: The Settings That Matter, by Area | Server configuration | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-server-ini-reference.md` |
+| admins-ubuntu-runbook | Ubuntu Dedicated Server Runbook: SteamCMD to systemd | Server runbooks | 3 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-ubuntu-runbook.md` |
+| admins-workshop-mod-wiring | Wiring Workshop Mods into a Server: IDs, Load Order and Updates | Server operations | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-workshop-mod-wiring.md` |
 | creator-foundation | The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window | Creator foundations | 1 | B42 | 1.0.0 | approved | Medium | `docs/creator/creator-foundation.md` |
 | lore-foundation | The Knox Event and the History of Project Zomboid's Builds | Lore & history | 1 | historic | 1.0.1 | approved | Medium | `docs/lore/lore-foundation.md` |
 | meta-style-guide | How This Knowledge Base Is Written: Genre, Build Tags and License Rules | KB governance | 1 | both | 1.0.1 | approved | High | `docs/meta/meta-style-guide.md` |
 | modders-foundation | Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives | Modding foundations | 1 | both | 1.0.1 | approved | Medium | `docs/modders/modders-foundation.md` |
 | players-foundation | Surviving Knox Country: The Core Game Across Build 41 and Build 42 | Player foundations | 1 | both | 1.0.1 | approved | Medium | `docs/players/players-foundation.md` |
+| players-beginner-guide-b42 | Starting Project Zomboid on Build 42.20: A First-Week Survival Guide | Guides | 3 | B42 | 0.1.0 | in-review | Medium | `docs/players/players-beginner-guide-b42.md` |
 | players-farming-food | Farming, Foraging and Food: Feeding a Survivor Long-Term | Farming & food | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-farming-food.md` |
 | players-animals-husbandry | Animals and Husbandry in Build 42 | Animals & husbandry | 2 | B42 | 0.1.0 | in-review | Medium | `docs/players/players-animals-husbandry.md` |
 | players-b41-to-b42-transition | The B41 Veteran's Guide to Build 42: What Your Instincts Get Wrong | Guides | 3 | both | 0.1.0 | in-review | Medium | `docs/players/players-b41-to-b42-transition.md` |
@@ -95,6 +99,19 @@ Typed cross-reference edges, one bullet per source document:
 - `admins-legacy41-runbook` — *conforms_to* → `meta-style-guide`
 - `admins-sandboxvars-reference` — *informs* → `players-foundation`
 - `admins-sandboxvars-reference` — *conforms_to* → `meta-style-guide`
+- `admins-ubuntu-runbook` — *deepens* → `admins-foundation`
+- `admins-ubuntu-runbook` — *complements* → `admins-server-ini-reference`, `admins-backups-migration`
+- `admins-ubuntu-runbook` — *related* → `admins-workshop-mod-wiring`, `admins-modded-server-runbook`
+- `admins-ubuntu-runbook` — *conforms_to* → `meta-style-guide`
+- `admins-workshop-mod-wiring` — *deepens* → `admins-foundation`, `admins-server-ini-reference`, `modders-foundation`
+- `admins-workshop-mod-wiring` — *related* → `admins-modded-server-runbook`, `admins-ubuntu-runbook`
+- `admins-workshop-mod-wiring` — *conforms_to* → `meta-style-guide`
+- `admins-modded-server-runbook` — *deepens* → `admins-foundation`, `admins-workshop-mod-wiring`
+- `admins-modded-server-runbook` — *related* → `admins-ubuntu-runbook`, `admins-backups-migration`, `admins-performance-tuning`
+- `admins-modded-server-runbook` — *conforms_to* → `meta-style-guide`
+- `players-beginner-guide-b42` — *deepens* → `players-foundation`
+- `players-beginner-guide-b42` — *cross_references* → `players-skills-xp`, `players-traits-occupations`, `players-medical-moodles`, `players-map-locations`
+- `players-beginner-guide-b42` — *conforms_to* → `meta-style-guide`
 
 ## Approved taxonomy backlog (scope approved 2026-07-30)
 

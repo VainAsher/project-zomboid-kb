@@ -45,6 +45,50 @@
       ]
     },
     {
+      "id": "admins-legacy41-runbook",
+      "title": "Keeping a Build 41 Server Alive: The legacy41 Runbook",
+      "topic": "Server runbooks",
+      "tier": "3",
+      "build": "B41",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/admins/admins-legacy41-runbook.md",
+      "category": "Admins",
+      "document_type": "tutorial",
+      "review_due": "2026-10-31",
+      "created": "2026-07-31",
+      "related": [
+        "admins-foundation",
+        "admins-backups-migration",
+        "admins-server-ini-reference",
+        "lore-foundation",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "admins-modded-server-runbook",
+      "title": "Running a Modded Server: Selection, Rollout and Update Discipline",
+      "topic": "Server runbooks",
+      "tier": "3",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/admins/admins-modded-server-runbook.md",
+      "category": "Admins",
+      "document_type": "tutorial",
+      "review_due": "2026-10-31",
+      "created": "2026-07-31",
+      "related": [
+        "admins-foundation",
+        "admins-workshop-mod-wiring",
+        "admins-ubuntu-runbook",
+        "admins-backups-migration",
+        "meta-style-guide"
+      ]
+    },
+    {
       "id": "admins-performance-tuning",
       "title": "Server Performance: Memory, CPU and the Levers That Are Actually Documented",
       "topic": "Server operations",
@@ -126,6 +170,48 @@
         "admins-sandboxvars-reference",
         "meta-style-guide",
         "modders-foundation"
+      ]
+    },
+    {
+      "id": "admins-ubuntu-runbook",
+      "title": "Ubuntu Dedicated Server Runbook: SteamCMD to systemd",
+      "topic": "Server runbooks",
+      "tier": "3",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/admins/admins-ubuntu-runbook.md",
+      "category": "Admins",
+      "document_type": "tutorial",
+      "review_due": "2026-10-31",
+      "created": "2026-07-31",
+      "related": [
+        "admins-foundation",
+        "admins-server-ini-reference",
+        "admins-backups-migration",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "admins-workshop-mod-wiring",
+      "title": "Wiring Workshop Mods into a Server: IDs, Load Order and Updates",
+      "topic": "Server operations",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/admins/admins-workshop-mod-wiring.md",
+      "category": "Admins",
+      "document_type": "reference",
+      "review_due": "2026-10-31",
+      "created": "2026-07-31",
+      "related": [
+        "admins-foundation",
+        "admins-server-ini-reference",
+        "modders-foundation",
+        "meta-style-guide"
       ]
     },
     {
@@ -239,6 +325,51 @@
       ]
     },
     {
+      "id": "players-beginner-guide-b42",
+      "title": "Starting Project Zomboid on Build 42.20: A First-Week Survival Guide",
+      "topic": "Guides",
+      "tier": "3",
+      "build": "B42",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/players/players-beginner-guide-b42.md",
+      "category": "Players",
+      "document_type": "tutorial",
+      "review_due": "2026-10-31",
+      "created": "2026-07-31",
+      "related": [
+        "players-foundation",
+        "players-skills-xp",
+        "players-traits-occupations",
+        "players-medical-moodles",
+        "players-map-locations",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "players-farming-food",
+      "title": "Farming, Foraging and Food: Feeding a Survivor Long-Term",
+      "topic": "Farming & food",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/players/players-farming-food.md",
+      "category": "Players",
+      "document_type": "reference",
+      "review_due": "2026-10-31",
+      "created": "2026-07-31",
+      "related": [
+        "players-foundation",
+        "players-animals-husbandry",
+        "players-crafting-chains",
+        "players-skills-xp",
+        "meta-style-guide"
+      ]
+    },
+    {
       "id": "players-animals-husbandry",
       "title": "Animals and Husbandry in Build 42",
       "topic": "Animals & husbandry",
@@ -257,6 +388,32 @@
         "players-skills-xp",
         "players-crafting-chains",
         "players-traits-occupations",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "players-b41-to-b42-transition",
+      "title": "The B41 Veteran's Guide to Build 42: What Your Instincts Get Wrong",
+      "topic": "Guides",
+      "tier": "3",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/players/players-b41-to-b42-transition.md",
+      "category": "Players",
+      "document_type": "tutorial",
+      "review_due": "2026-10-31",
+      "created": "2026-07-31",
+      "related": [
+        "players-foundation",
+        "players-skills-xp",
+        "players-traits-occupations",
+        "players-crafting-chains",
+        "players-animals-husbandry",
+        "players-medical-moodles",
+        "players-map-locations",
+        "players-vehicles",
         "meta-style-guide"
       ]
     },
@@ -885,6 +1042,120 @@
       "target": "known"
     },
     {
+      "from": "players-b41-to-b42-transition",
+      "to": "players-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "players-b41-to-b42-transition",
+      "to": "players-skills-xp",
+      "rel": "cross_references",
+      "target": "known"
+    },
+    {
+      "from": "players-b41-to-b42-transition",
+      "to": "players-traits-occupations",
+      "rel": "cross_references",
+      "target": "known"
+    },
+    {
+      "from": "players-b41-to-b42-transition",
+      "to": "players-crafting-chains",
+      "rel": "cross_references",
+      "target": "known"
+    },
+    {
+      "from": "players-b41-to-b42-transition",
+      "to": "players-animals-husbandry",
+      "rel": "cross_references",
+      "target": "known"
+    },
+    {
+      "from": "players-b41-to-b42-transition",
+      "to": "players-medical-moodles",
+      "rel": "cross_references",
+      "target": "known"
+    },
+    {
+      "from": "players-b41-to-b42-transition",
+      "to": "players-map-locations",
+      "rel": "cross_references",
+      "target": "known"
+    },
+    {
+      "from": "players-b41-to-b42-transition",
+      "to": "players-vehicles",
+      "rel": "cross_references",
+      "target": "known"
+    },
+    {
+      "from": "players-b41-to-b42-transition",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "players-farming-food",
+      "to": "players-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "players-farming-food",
+      "to": "players-animals-husbandry",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "players-farming-food",
+      "to": "players-crafting-chains",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "players-farming-food",
+      "to": "players-skills-xp",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "players-farming-food",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "admins-legacy41-runbook",
+      "to": "admins-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "admins-legacy41-runbook",
+      "to": "admins-backups-migration",
+      "rel": "cross_references",
+      "target": "known"
+    },
+    {
+      "from": "admins-legacy41-runbook",
+      "to": "admins-server-ini-reference",
+      "rel": "cross_references",
+      "target": "known"
+    },
+    {
+      "from": "admins-legacy41-runbook",
+      "to": "lore-foundation",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "admins-legacy41-runbook",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
       "from": "admins-sandboxvars-reference",
       "to": "players-foundation",
       "rel": "informs",
@@ -892,6 +1163,150 @@
     },
     {
       "from": "admins-sandboxvars-reference",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "admins-ubuntu-runbook",
+      "to": "admins-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "admins-ubuntu-runbook",
+      "to": "admins-server-ini-reference",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "admins-ubuntu-runbook",
+      "to": "admins-backups-migration",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "admins-ubuntu-runbook",
+      "to": "admins-workshop-mod-wiring",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "admins-ubuntu-runbook",
+      "to": "admins-modded-server-runbook",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "admins-ubuntu-runbook",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "admins-workshop-mod-wiring",
+      "to": "admins-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "admins-workshop-mod-wiring",
+      "to": "admins-server-ini-reference",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "admins-workshop-mod-wiring",
+      "to": "modders-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "admins-workshop-mod-wiring",
+      "to": "admins-modded-server-runbook",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "admins-workshop-mod-wiring",
+      "to": "admins-ubuntu-runbook",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "admins-workshop-mod-wiring",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "admins-modded-server-runbook",
+      "to": "admins-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "admins-modded-server-runbook",
+      "to": "admins-workshop-mod-wiring",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "admins-modded-server-runbook",
+      "to": "admins-ubuntu-runbook",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "admins-modded-server-runbook",
+      "to": "admins-backups-migration",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "admins-modded-server-runbook",
+      "to": "admins-performance-tuning",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "admins-modded-server-runbook",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "players-beginner-guide-b42",
+      "to": "players-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "players-beginner-guide-b42",
+      "to": "players-skills-xp",
+      "rel": "cross_references",
+      "target": "known"
+    },
+    {
+      "from": "players-beginner-guide-b42",
+      "to": "players-traits-occupations",
+      "rel": "cross_references",
+      "target": "known"
+    },
+    {
+      "from": "players-beginner-guide-b42",
+      "to": "players-medical-moodles",
+      "rel": "cross_references",
+      "target": "known"
+    },
+    {
+      "from": "players-beginner-guide-b42",
+      "to": "players-map-locations",
+      "rel": "cross_references",
+      "target": "known"
+    },
+    {
+      "from": "players-beginner-guide-b42",
       "to": "meta-style-guide",
       "rel": "conforms_to",
       "target": "known"

@@ -1,16 +1,23 @@
 id,title,topic,tier,build,document_type,category,version,status,confidence,review_due,path
 admins-foundation,"Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices",Server foundations,1,both,overview,Admins,1.0.1,approved,Medium,2026-10-30,docs/admins/admins-foundation.md
 admins-backups-migration,"Backups, Saves and Migration: Protecting a Server World",Server operations,2,both,reference,Admins,0.1.0,in-review,Medium,2026-10-31,docs/admins/admins-backups-migration.md
+admins-legacy41-runbook,Keeping a Build 41 Server Alive: The legacy41 Runbook,Server runbooks,3,B41,tutorial,Admins,0.1.0,in-review,Medium,2026-10-31,docs/admins/admins-legacy41-runbook.md
+admins-modded-server-runbook,"Running a Modded Server: Selection, Rollout and Update Discipline",Server runbooks,3,both,tutorial,Admins,0.1.0,in-review,Medium,2026-10-31,docs/admins/admins-modded-server-runbook.md
 admins-performance-tuning,"Server Performance: Memory, CPU and the Levers That Are Actually Documented",Server operations,2,both,reference,Admins,0.1.0,in-review,Medium,2026-10-31,docs/admins/admins-performance-tuning.md
 admins-rcon-commands,RCON and Admin Commands: Operating a Live Server,Server operations,2,both,reference,Admins,0.1.0,in-review,Medium,2026-10-31,docs/admins/admins-rcon-commands.md
 admins-sandboxvars-reference,SandboxVars Reference: Gameplay Rules per Server,Server configuration,2,both,server-setting,Admins,0.1.0,in-review,Medium,2026-10-30,docs/admins/admins-sandboxvars-reference.md
 admins-server-ini-reference,"server.ini Reference: The Settings That Matter, by Area",Server configuration,2,both,server-setting,Admins,0.1.0,in-review,Medium,2026-10-31,docs/admins/admins-server-ini-reference.md
+admins-ubuntu-runbook,Ubuntu Dedicated Server Runbook: SteamCMD to systemd,Server runbooks,3,both,tutorial,Admins,0.1.0,in-review,Medium,2026-10-31,docs/admins/admins-ubuntu-runbook.md
+admins-workshop-mod-wiring,"Wiring Workshop Mods into a Server: IDs, Load Order and Updates",Server operations,2,both,reference,Admins,0.1.0,in-review,Medium,2026-10-31,docs/admins/admins-workshop-mod-wiring.md
 creator-foundation,"The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window",Creator foundations,1,B42,overview,Creator,1.0.0,approved,Medium,2026-10-30,docs/creator/creator-foundation.md
 lore-foundation,The Knox Event and the History of Project Zomboid's Builds,Lore & history,1,historic,overview,Lore,1.0.1,approved,Medium,2026-10-30,docs/lore/lore-foundation.md
 meta-style-guide,"How This Knowledge Base Is Written: Genre, Build Tags and License Rules",KB governance,1,both,reference,Meta,1.0.1,approved,High,2026-10-30,docs/meta/meta-style-guide.md
 modders-foundation,"Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives",Modding foundations,1,both,overview,Modders,1.0.1,approved,Medium,2026-10-30,docs/modders/modders-foundation.md
 players-foundation,Surviving Knox Country: The Core Game Across Build 41 and Build 42,Player foundations,1,both,overview,Players,1.0.1,approved,Medium,2026-10-30,docs/players/players-foundation.md
+players-beginner-guide-b42,Starting Project Zomboid on Build 42.20: A First-Week Survival Guide,Guides,3,B42,tutorial,Players,0.1.0,in-review,Medium,2026-10-31,docs/players/players-beginner-guide-b42.md
+players-farming-food,"Farming, Foraging and Food: Feeding a Survivor Long-Term",Farming & food,2,both,reference,Players,0.1.0,in-review,Medium,2026-10-31,docs/players/players-farming-food.md
 players-animals-husbandry,Animals and Husbandry in Build 42,Animals & husbandry,2,B42,reference,Players,0.1.0,in-review,Medium,2026-10-30,docs/players/players-animals-husbandry.md
+players-b41-to-b42-transition,The B41 Veteran's Guide to Build 42: What Your Instincts Get Wrong,Guides,3,both,tutorial,Players,0.1.0,in-review,Medium,2026-10-31,docs/players/players-b41-to-b42-transition.md
 players-crafting-chains,The B42 Crafting Overhaul: From Knapping to Blacksmithing,Crafting,2,both,reference,Players,0.1.0,in-review,Medium,2026-10-30,docs/players/players-crafting-chains.md
 players-map-locations,Knox Country Locations: The B41 Towns and the B42 Expansion,Map & locations,2,both,reference,Players,0.1.0,in-review,Medium,2026-10-31,docs/players/players-map-locations.md
 players-medical-moodles,"Health, Injuries and Moodles: The Body Simulation",Medical & moodles,2,both,reference,Players,0.1.0,in-review,Medium,2026-10-31,docs/players/players-medical-moodles.md

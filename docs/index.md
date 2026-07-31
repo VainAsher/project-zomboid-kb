@@ -5,9 +5,9 @@
 
 Evidence-based, source-cited Project Zomboid reference for modders, players, server admins and creators — every document version-tagged for Build 41 (legacy41) and Build 42.
 
-**18 documents** across **15 topics** — every factual claim carries a citation to a primary or authoritative source, unverified community claims are labelled and quarantined, and build tags, links, citations and structure are checked automatically in CI.
+**25 documents** across **18 topics** — every factual claim carries a citation to a primary or authoritative source, unverified community claims are labelled and quarantined, and build tags, links, citations and structure are checked automatically in CI.
 
-*Confidence: 1 High · 17 Medium · 0 Low.*  *Build: B42 2 · both 15 · historic 1.*
+*Confidence: 1 High · 24 Medium · 0 Low.*  *Build: B41 1 · B42 3 · both 20 · historic 1.*
 
 ## Class 1 — Track foundations (Modders / Players / Admins / Creator)
 
@@ -25,13 +25,23 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
 - [RCON and Admin Commands: Operating a Live Server](admins/admins-rcon-commands.md) — *Server operations* (both)
 - [SandboxVars Reference: Gameplay Rules per Server](admins/admins-sandboxvars-reference.md) — *Server configuration* (both)
 - [server.ini Reference: The Settings That Matter, by Area](admins/admins-server-ini-reference.md) — *Server configuration* (both)
+- [Wiring Workshop Mods into a Server: IDs, Load Order and Updates](admins/admins-workshop-mod-wiring.md) — *Server operations* (both)
 - [Animals and Husbandry in Build 42](players/players-animals-husbandry.md) — *Animals & husbandry* (B42)
 - [The B42 Crafting Overhaul: From Knapping to Blacksmithing](players/players-crafting-chains.md) — *Crafting* (both)
+- [Farming, Foraging and Food: Feeding a Survivor Long-Term](players/players-farming-food.md) — *Farming & food* (both)
 - [Knox Country Locations: The B41 Towns and the B42 Expansion](players/players-map-locations.md) — *Map & locations* (both)
 - [Health, Injuries and Moodles: The Body Simulation](players/players-medical-moodles.md) — *Medical & moodles* (both)
 - [Skills and XP: Levelling, Multipliers and the B42 Skill Roster](players/players-skills-xp.md) — *Skills & XP* (both)
 - [Traits and Occupations: Points, Rosters and the B42 Rework](players/players-traits-occupations.md) — *Traits & occupations* (both)
 - [Vehicles: Finding, Fixing and Driving Across Both Builds](players/players-vehicles.md) — *Vehicles* (both)
+
+## Class 3 — Guides, tutorials & runbooks
+
+- [Keeping a Build 41 Server Alive: The legacy41 Runbook](admins/admins-legacy41-runbook.md) — *Server runbooks* (B41)
+- [Running a Modded Server: Selection, Rollout and Update Discipline](admins/admins-modded-server-runbook.md) — *Server runbooks* (both)
+- [Ubuntu Dedicated Server Runbook: SteamCMD to systemd](admins/admins-ubuntu-runbook.md) — *Server runbooks* (both)
+- [The B41 Veteran's Guide to Build 42: What Your Instincts Get Wrong](players/players-b41-to-b42-transition.md) — *Guides* (both)
+- [Starting Project Zomboid on Build 42.20: A First-Week Survival Guide](players/players-beginner-guide-b42.md) — *Guides* (B42)
 
 ## Knowledge graph
 
@@ -53,13 +63,22 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
         admins_rcon_commands["admins-rcon-commands"]
         admins_sandboxvars_reference["admins-sandboxvars-reference"]
         admins_server_ini_reference["admins-server-ini-reference"]
+        admins_workshop_mod_wiring["admins-workshop-mod-wiring"]
         players_animals_husbandry["players-animals-husbandry"]
         players_crafting_chains["players-crafting-chains"]
+        players_farming_food["players-farming-food"]
         players_map_locations["players-map-locations"]
         players_medical_moodles["players-medical-moodles"]
         players_skills_xp["players-skills-xp"]
         players_traits_occupations["players-traits-occupations"]
         players_vehicles["players-vehicles"]
+      end
+      subgraph Tier3["Tier 3"]
+        admins_legacy41_runbook["admins-legacy41-runbook"]
+        admins_modded_server_runbook["admins-modded-server-runbook"]
+        admins_ubuntu_runbook["admins-ubuntu-runbook"]
+        players_b41_to_b42_transition["players-b41-to-b42-transition"]
+        players_beginner_guide_b42["players-beginner-guide-b42"]
       end
       meta_style_guide -->|governs| modders_foundation
       meta_style_guide -->|governs| players_foundation
@@ -143,8 +162,51 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
       players_medical_moodles -->|cross_references| players_skills_xp
       players_medical_moodles -->|cross_references| admins_sandboxvars_reference
       players_medical_moodles -->|conforms_to| meta_style_guide
+      players_b41_to_b42_transition -->|deepens| players_foundation
+      players_b41_to_b42_transition -->|cross_references| players_skills_xp
+      players_b41_to_b42_transition -->|cross_references| players_traits_occupations
+      players_b41_to_b42_transition -->|cross_references| players_crafting_chains
+      players_b41_to_b42_transition -->|cross_references| players_animals_husbandry
+      players_b41_to_b42_transition -->|cross_references| players_medical_moodles
+      players_b41_to_b42_transition -->|cross_references| players_map_locations
+      players_b41_to_b42_transition -->|cross_references| players_vehicles
+      players_b41_to_b42_transition -->|conforms_to| meta_style_guide
+      players_farming_food -->|deepens| players_foundation
+      players_farming_food -->|complements| players_animals_husbandry
+      players_farming_food -->|relates_to| players_crafting_chains
+      players_farming_food -->|relates_to| players_skills_xp
+      players_farming_food -->|conforms_to| meta_style_guide
+      admins_legacy41_runbook -->|deepens| admins_foundation
+      admins_legacy41_runbook -->|cross_references| admins_backups_migration
+      admins_legacy41_runbook -->|cross_references| admins_server_ini_reference
+      admins_legacy41_runbook -->|related| lore_foundation
+      admins_legacy41_runbook -->|conforms_to| meta_style_guide
       admins_sandboxvars_reference -->|informs| players_foundation
       admins_sandboxvars_reference -->|conforms_to| meta_style_guide
+      admins_ubuntu_runbook -->|deepens| admins_foundation
+      admins_ubuntu_runbook -->|complements| admins_server_ini_reference
+      admins_ubuntu_runbook -->|complements| admins_backups_migration
+      admins_ubuntu_runbook -->|related| admins_workshop_mod_wiring
+      admins_ubuntu_runbook -->|related| admins_modded_server_runbook
+      admins_ubuntu_runbook -->|conforms_to| meta_style_guide
+      admins_workshop_mod_wiring -->|deepens| admins_foundation
+      admins_workshop_mod_wiring -->|deepens| admins_server_ini_reference
+      admins_workshop_mod_wiring -->|deepens| modders_foundation
+      admins_workshop_mod_wiring -->|related| admins_modded_server_runbook
+      admins_workshop_mod_wiring -->|related| admins_ubuntu_runbook
+      admins_workshop_mod_wiring -->|conforms_to| meta_style_guide
+      admins_modded_server_runbook -->|deepens| admins_foundation
+      admins_modded_server_runbook -->|deepens| admins_workshop_mod_wiring
+      admins_modded_server_runbook -->|related| admins_ubuntu_runbook
+      admins_modded_server_runbook -->|related| admins_backups_migration
+      admins_modded_server_runbook -->|related| admins_performance_tuning
+      admins_modded_server_runbook -->|conforms_to| meta_style_guide
+      players_beginner_guide_b42 -->|deepens| players_foundation
+      players_beginner_guide_b42 -->|cross_references| players_skills_xp
+      players_beginner_guide_b42 -->|cross_references| players_traits_occupations
+      players_beginner_guide_b42 -->|cross_references| players_medical_moodles
+      players_beginner_guide_b42 -->|cross_references| players_map_locations
+      players_beginner_guide_b42 -->|conforms_to| meta_style_guide
     ```
 
 ## Machine-readable exports

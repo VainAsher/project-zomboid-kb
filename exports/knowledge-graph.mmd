@@ -13,13 +13,22 @@ graph LR
     admins_rcon_commands["admins-rcon-commands"]
     admins_sandboxvars_reference["admins-sandboxvars-reference"]
     admins_server_ini_reference["admins-server-ini-reference"]
+    admins_workshop_mod_wiring["admins-workshop-mod-wiring"]
     players_animals_husbandry["players-animals-husbandry"]
     players_crafting_chains["players-crafting-chains"]
+    players_farming_food["players-farming-food"]
     players_map_locations["players-map-locations"]
     players_medical_moodles["players-medical-moodles"]
     players_skills_xp["players-skills-xp"]
     players_traits_occupations["players-traits-occupations"]
     players_vehicles["players-vehicles"]
+  end
+  subgraph Tier3["Tier 3"]
+    admins_legacy41_runbook["admins-legacy41-runbook"]
+    admins_modded_server_runbook["admins-modded-server-runbook"]
+    admins_ubuntu_runbook["admins-ubuntu-runbook"]
+    players_b41_to_b42_transition["players-b41-to-b42-transition"]
+    players_beginner_guide_b42["players-beginner-guide-b42"]
   end
   meta_style_guide -->|governs| modders_foundation
   meta_style_guide -->|governs| players_foundation
@@ -103,5 +112,48 @@ graph LR
   players_medical_moodles -->|cross_references| players_skills_xp
   players_medical_moodles -->|cross_references| admins_sandboxvars_reference
   players_medical_moodles -->|conforms_to| meta_style_guide
+  players_b41_to_b42_transition -->|deepens| players_foundation
+  players_b41_to_b42_transition -->|cross_references| players_skills_xp
+  players_b41_to_b42_transition -->|cross_references| players_traits_occupations
+  players_b41_to_b42_transition -->|cross_references| players_crafting_chains
+  players_b41_to_b42_transition -->|cross_references| players_animals_husbandry
+  players_b41_to_b42_transition -->|cross_references| players_medical_moodles
+  players_b41_to_b42_transition -->|cross_references| players_map_locations
+  players_b41_to_b42_transition -->|cross_references| players_vehicles
+  players_b41_to_b42_transition -->|conforms_to| meta_style_guide
+  players_farming_food -->|deepens| players_foundation
+  players_farming_food -->|complements| players_animals_husbandry
+  players_farming_food -->|relates_to| players_crafting_chains
+  players_farming_food -->|relates_to| players_skills_xp
+  players_farming_food -->|conforms_to| meta_style_guide
+  admins_legacy41_runbook -->|deepens| admins_foundation
+  admins_legacy41_runbook -->|cross_references| admins_backups_migration
+  admins_legacy41_runbook -->|cross_references| admins_server_ini_reference
+  admins_legacy41_runbook -->|related| lore_foundation
+  admins_legacy41_runbook -->|conforms_to| meta_style_guide
   admins_sandboxvars_reference -->|informs| players_foundation
   admins_sandboxvars_reference -->|conforms_to| meta_style_guide
+  admins_ubuntu_runbook -->|deepens| admins_foundation
+  admins_ubuntu_runbook -->|complements| admins_server_ini_reference
+  admins_ubuntu_runbook -->|complements| admins_backups_migration
+  admins_ubuntu_runbook -->|related| admins_workshop_mod_wiring
+  admins_ubuntu_runbook -->|related| admins_modded_server_runbook
+  admins_ubuntu_runbook -->|conforms_to| meta_style_guide
+  admins_workshop_mod_wiring -->|deepens| admins_foundation
+  admins_workshop_mod_wiring -->|deepens| admins_server_ini_reference
+  admins_workshop_mod_wiring -->|deepens| modders_foundation
+  admins_workshop_mod_wiring -->|related| admins_modded_server_runbook
+  admins_workshop_mod_wiring -->|related| admins_ubuntu_runbook
+  admins_workshop_mod_wiring -->|conforms_to| meta_style_guide
+  admins_modded_server_runbook -->|deepens| admins_foundation
+  admins_modded_server_runbook -->|deepens| admins_workshop_mod_wiring
+  admins_modded_server_runbook -->|related| admins_ubuntu_runbook
+  admins_modded_server_runbook -->|related| admins_backups_migration
+  admins_modded_server_runbook -->|related| admins_performance_tuning
+  admins_modded_server_runbook -->|conforms_to| meta_style_guide
+  players_beginner_guide_b42 -->|deepens| players_foundation
+  players_beginner_guide_b42 -->|cross_references| players_skills_xp
+  players_beginner_guide_b42 -->|cross_references| players_traits_occupations
+  players_beginner_guide_b42 -->|cross_references| players_medical_moodles
+  players_beginner_guide_b42 -->|cross_references| players_map_locations
+  players_beginner_guide_b42 -->|conforms_to| meta_style_guide

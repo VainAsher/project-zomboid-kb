@@ -21,6 +21,7 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | Muscle strain | Build 42's accumulated exertion damage, applied to the specific body parts performing an action and scaled down by weapon skill and Strength; governed by the `MuscleStrainFactor` sandbox key. | Tier 1 |
 | Bandage power | A per-item value governing how long a dressing stays effective before turning dirty; bandage types heal at the same rate and differ only in longevity and infection interaction. | Tier 3 |
 | Launch window | The weeks immediately after a major stable release, when returning-player traffic and search demand spike; for B42 it opened 2026-07-29. | Tier 1 |
+| Game mode (playstyle) | The top-level scenario chosen before spawn location and character creation, pre-filling Custom Sandbox with a themed settings preset (Apocalypse, Outbreak, Extinction, Rising on B42.20). | Tier 3 |
 
 ## Modding
 
@@ -36,6 +37,10 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | PZAPI.ModOptions | B42's native Lua API for per-user mod options (keybinds, tickboxes, sliders, etc.), replacing the B41-era community Mod Options framework. | Tier 3 |
 | craftRecipe | The B42 script block for defining crafting recipes, replacing B41's legacy `Recipe` block. | Tier 3 |
 | Spiffo's Workshop | Project Zomboid's Steam Workshop hub, the official channel for sharing mods. | Tier 3 |
+| require= (mod.info) | A `mod.info` field listing, comma-separated, the Mod IDs a mod needs to run; the documented dependency mechanism, distinct from `Mods=` list order in server.ini. | Tier 3 |
+| loadModAfter= / loadModBefore= (mod.info) | `mod.info` fields that force a mod to load after or before a comma-separated list of named Mod IDs; the documented load-order lever, independent of `Mods=` position. | Tier 3 |
+| Workshop tag | A category label attached to a Steam Workshop item from a predefined list the game itself supplies (including build-version tags Build 40/41/42); author-applied, not independently verified. | Tier 2 |
+| Workshop "Update Required" state | A per-item Workshop download-state label distinct from "Installed," meaning the client or server's cached copy is stale relative to what Steam currently serves for that item. | Tier 2 |
 
 ## Skills, traits & crafting
 
@@ -60,6 +65,7 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | Evolved recipe | A cooking construction (soup, stew, salad, sandwich, etc.) accepting variable ingredients, each contributing recipe-specific hunger and nutrition; inherits age only from its base ingredient. | Tier 3 |
 | Drying rack | A Build 42 food-preservation station that dries plants, herbs (one in-game day) and leather (seven days) in variable batch sizes. | Tier 1 |
 | Power shutoff | The sandbox-scheduled random day within a configured window on which grid electricity stops, disabling refrigerators and lights. | Tier 3 |
+| Zero-point occupation | An occupation whose creation-point cost is 0, granting starting skill levels without spending or earning points (e.g. Doctor, Farmer, Firefighter, Lumberjack, Nurse, Rancher on B42). | Tier 3 |
 
 ## Servers & admin
 
@@ -93,6 +99,11 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | Access level | The staff tier attached to a server account, set with `/setaccesslevel`; documented roster is Admin, Moderator, Overseer, GM, Observer, plus `none` to strip elevated access. | Tier 3 |
 | Server console | The interactive console of the running dedicated-server process; accepts admin commands as bare names, without the in-game forward-slash prefix. | Tier 3 |
 | Self-targeting command | An admin command whose username argument defaults to the issuing admin when omitted in-game (e.g. `/additem`, `/godmode`, `/createhorde`); several require an explicit target from the server console. | Tier 3 |
+| FIFO control socket | A named pipe exposed by a systemd socket unit that lets shell commands be sent to a running Project Zomboid server without an interactive console; the wiki disclaims any shutdown-safety guarantee for this method. | Tier 3 |
+| Staging (mod rollout) | Running a candidate mod-list change against a non-production copy of the world (or a fresh throwaway world) before applying the same change to the live server's configuration. | — |
+| Freeze / pin (mods) | Deliberately preventing a mod from updating on a running server, either by restart discipline or by vendoring a mod's files locally in place of the Workshop auto-fetch path. | — |
+| Red mod | The client mod manager's visual indicator that an active mod is missing a dependency it declares via `require=`; the missing item is named on the mod's own Workshop page under "Required Items". | Tier 3 |
+| Bifurcation testing | A documented method for isolating which mod among a large list causes a given problem, by repeatedly halving the active mod set and reproducing the issue against each half. | Tier 3 |
 
 ## Animals & world
 
