@@ -21,6 +21,7 @@ Tiers: 1 = track foundations · 2 = core reference · 3 = guides/tutorials/runbo
 | players-foundation | Surviving Knox Country: The Core Game Across Build 41 and Build 42 | Player foundations | 1 | both | 1.0.1 | approved | Medium | `docs/players/players-foundation.md` |
 | players-animals-husbandry | Animals and Husbandry in Build 42 | Animals & husbandry | 2 | B42 | 0.1.0 | in-review | Medium | `docs/players/players-animals-husbandry.md` |
 | players-crafting-chains | The B42 Crafting Overhaul: From Knapping to Blacksmithing | Crafting | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-crafting-chains.md` |
+| players-map-locations | Knox Country Locations: The B41 Towns and the B42 Expansion | Map & locations | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-map-locations.md` |
 | players-skills-xp | Skills and XP: Levelling, Multipliers and the B42 Skill Roster | Skills & XP | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-skills-xp.md` |
 | players-traits-occupations | Traits and Occupations: Points, Rosters and the B42 Rework | Traits & occupations | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-traits-occupations.md` |
 
@@ -58,6 +59,8 @@ Typed cross-reference edges, one bullet per source document:
 - `players-animals-husbandry` — *deepens* → `players-foundation`
 - `players-animals-husbandry` — *relates_to* → `players-skills-xp`, `players-crafting-chains`, `players-traits-occupations`
 - `players-animals-husbandry` — *conforms_to* → `meta-style-guide`
+- `players-map-locations` — *deepens* → `players-foundation`
+- `players-map-locations` — *relates_to* → `lore-foundation`, `meta-style-guide`, `players-vehicles` (planned)
 - `admins-sandboxvars-reference` — *informs* → `players-foundation`
 - `admins-sandboxvars-reference` — *conforms_to* → `meta-style-guide`
 

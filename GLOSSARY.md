@@ -76,6 +76,9 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | Butcher hook | A workstation for butchering hanging animals, yielding more meat plus an unprocessed hide compared with ground butchering. | Tier 3 |
 | Virtual animal | The off-screen representation of a wild-animal group migrating along a path; it spawns into real animals when a player approaches and reverts when they leave. | Tier 1 |
 | maxWeight gene | The gene that sets an individual animal's real weight as a multiplier (typically 0.5–0.8, breed-dependent) of its species/stage base weight range. | Tier 3 |
+| Canon starting towns | The Indie Stone's term for the four towns supporting occupation-specific spawn points on both builds: Muldraugh, West Point, Riverside and Rosewood. | Tier 1 |
+| Map glow-up | The developers' name for the Build 42.20 map overhaul that entirely reworked seven existing areas (Riverside, West Point, Rosewood, Fallas Lake, Muldraugh, Ekron, Dixie) to a new per-town art standard. | Tier 1 |
+| Procedural basement | A Build 42 basement placed by generation rather than hand-building; B42 ships 400 procedural and 75 unique basements. | Tier 1 |
 
 ## Creator ecosystem
 
