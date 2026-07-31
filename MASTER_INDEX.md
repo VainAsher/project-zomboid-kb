@@ -23,6 +23,7 @@ Tiers: 1 = track foundations · 2 = core reference · 3 = guides/tutorials/runbo
 | modders-foundation | Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives | Modding foundations | 1 | both | 1.0.1 | approved | Medium | `docs/modders/modders-foundation.md` |
 | players-foundation | Surviving Knox Country: The Core Game Across Build 41 and Build 42 | Player foundations | 1 | both | 1.0.1 | approved | Medium | `docs/players/players-foundation.md` |
 | players-animals-husbandry | Animals and Husbandry in Build 42 | Animals & husbandry | 2 | B42 | 0.1.0 | in-review | Medium | `docs/players/players-animals-husbandry.md` |
+| players-b41-to-b42-transition | The B41 Veteran's Guide to Build 42: What Your Instincts Get Wrong | Guides | 3 | both | 0.1.0 | in-review | Medium | `docs/players/players-b41-to-b42-transition.md` |
 | players-crafting-chains | The B42 Crafting Overhaul: From Knapping to Blacksmithing | Crafting | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-crafting-chains.md` |
 | players-map-locations | Knox Country Locations: The B41 Towns and the B42 Expansion | Map & locations | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-map-locations.md` |
 | players-medical-moodles | Health, Injuries and Moodles: The Body Simulation | Medical & moodles | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-medical-moodles.md` |
@@ -79,6 +80,9 @@ Typed cross-reference edges, one bullet per source document:
 - `players-medical-moodles` — *deepens* → `players-foundation`
 - `players-medical-moodles` — *cross_references* → `players-skills-xp`, `admins-sandboxvars-reference`
 - `players-medical-moodles` — *conforms_to* → `meta-style-guide`
+- `players-b41-to-b42-transition` — *deepens* → `players-foundation`
+- `players-b41-to-b42-transition` — *cross_references* → `players-skills-xp`, `players-traits-occupations`, `players-crafting-chains`, `players-animals-husbandry`, `players-medical-moodles`, `players-map-locations`, `players-vehicles`
+- `players-b41-to-b42-transition` — *conforms_to* → `meta-style-guide`
 - `admins-sandboxvars-reference` — *informs* → `players-foundation`
 - `admins-sandboxvars-reference` — *conforms_to* → `meta-style-guide`
 
