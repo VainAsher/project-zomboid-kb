@@ -12,6 +12,7 @@ Tiers: 1 = track foundations · 2 = core reference · 3 = guides/tutorials/runbo
 | ID | Title | Topic | Tier | Build | Version | Status | Confidence | Path |
 |----|-------|-------|------|-------|---------|--------|------------|------|
 | admins-foundation | Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices | Server foundations | 1 | both | 1.0.1 | approved | Medium | `docs/admins/admins-foundation.md` |
+| admins-sandboxvars-reference | SandboxVars Reference: Gameplay Rules per Server | Server configuration | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-sandboxvars-reference.md` |
 | creator-foundation | The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window | Creator foundations | 1 | B42 | 1.0.0 | approved | Medium | `docs/creator/creator-foundation.md` |
 | lore-foundation | The Knox Event and the History of Project Zomboid's Builds | Lore & history | 1 | historic | 1.0.1 | approved | Medium | `docs/lore/lore-foundation.md` |
 | meta-style-guide | How This Knowledge Base Is Written: Genre, Build Tags and License Rules | KB governance | 1 | both | 1.0.1 | approved | High | `docs/meta/meta-style-guide.md` |
@@ -48,6 +49,10 @@ Typed cross-reference edges, one bullet per source document:
 - `players-crafting-chains` — *complements* → `players-animals-husbandry` (planned)
 - `players-crafting-chains` — *informs* → `modders-foundation`
 - `players-crafting-chains` — *conforms_to* → `meta-style-guide`
+- `admins-sandboxvars-reference` — *deepens* → `admins-foundation`
+- `admins-sandboxvars-reference` — *complements* → `admins-server-ini-reference` (planned)
+- `admins-sandboxvars-reference` — *informs* → `players-foundation`
+- `admins-sandboxvars-reference` — *conforms_to* → `meta-style-guide`
 
 ## Approved taxonomy backlog (scope approved 2026-07-30)
 

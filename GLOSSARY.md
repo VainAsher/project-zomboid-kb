@@ -59,6 +59,11 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | SandboxVars | The per-server Lua file of gameplay-rule settings (`servertest_SandboxVars.lua`), distinct from the `.ini` server settings file. Conventionally edited with the server stopped (see the admins foundation's quarantined claim on live reload). | Tier 4 |
 | RCON | Password-protected remote console interface for issuing admin commands to a running PZ server; configured via `RCONPort` (default 27015) and `RCONPassword`. | Tier 4 |
 | GSP | Game server provider; The Indie Stone opened a feedback channel for medium-to-large Zomboid GSPs at the B42 stable release. | Tier 1 |
+| ZombieLore | Nested SandboxVars table of zombie behaviour settings (speed, strength, toughness, transmission, senses). | Tier 3 |
+| ZombieConfig | Nested SandboxVars table of the population model: multipliers, peak day, respawn cycle, migration and grouping. | Tier 3 |
+| MultiplierConfig | B42-only nested SandboxVars table of XP multipliers: a Global value, a GlobalToggle, and ~35 per-skill keys under internal skill names. | Tier 3 |
+| Sandbox enum coding | Multiple-choice sandbox options are stored as 1-based integer codes whose meanings are fixed per key. | Tier 3 |
+| Generated default | The value the server writes into SandboxVars when it creates the file at first startup; the 42.20 generated file notably disables zombie respawn. | Tier 3 |
 
 ## Creator ecosystem
 
