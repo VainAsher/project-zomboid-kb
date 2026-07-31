@@ -67,6 +67,9 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | Soft reset | A server wipe that forces clients to create new characters, tracked by the paired identity keys `ResetID` and `ServerPlayerID` in the server .ini. | Tier 3 |
 | Loading ID | A mod's internal identifier from its info.txt, used in the `Mods=` list; distinct from the numeric Steam Workshop ID used in `WorkshopItems=`. | Tier 3 |
 | Safety system | The per-player PVP opt-in mechanism (`SafetySystem=true`): one player can hurt another only when at least one of the two has PVP mode engaged. | Tier 3 |
+| Access level | The staff tier attached to a server account, set with `/setaccesslevel`; documented roster is Admin, Moderator, Overseer, GM, Observer, plus `none` to strip elevated access. | Tier 3 |
+| Server console | The interactive console of the running dedicated-server process; accepts admin commands as bare names, without the in-game forward-slash prefix. | Tier 3 |
+| Self-targeting command | An admin command whose username argument defaults to the issuing admin when omitted in-game (e.g. `/additem`, `/godmode`, `/createhorde`); several require an explicit target from the server console. | Tier 3 |
 
 ## Animals & world
 

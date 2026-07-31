@@ -12,6 +12,7 @@ Tiers: 1 = track foundations · 2 = core reference · 3 = guides/tutorials/runbo
 | ID | Title | Topic | Tier | Build | Version | Status | Confidence | Path |
 |----|-------|-------|------|-------|---------|--------|------------|------|
 | admins-foundation | Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices | Server foundations | 1 | both | 1.0.1 | approved | Medium | `docs/admins/admins-foundation.md` |
+| admins-rcon-commands | RCON and Admin Commands: Operating a Live Server | Server operations | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-rcon-commands.md` |
 | admins-sandboxvars-reference | SandboxVars Reference: Gameplay Rules per Server | Server configuration | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-sandboxvars-reference.md` |
 | admins-server-ini-reference | server.ini Reference: The Settings That Matter, by Area | Server configuration | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-server-ini-reference.md` |
 | creator-foundation | The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window | Creator foundations | 1 | B42 | 1.0.0 | approved | Medium | `docs/creator/creator-foundation.md` |
@@ -65,6 +66,9 @@ Typed cross-reference edges, one bullet per source document:
 - `players-vehicles` — *deepens* → `players-foundation`
 - `players-vehicles` — *related* → `players-skills-xp`, `players-map-locations`
 - `players-vehicles` — *conforms_to* → `meta-style-guide`
+- `admins-rcon-commands` — *deepens* → `admins-foundation`
+- `admins-rcon-commands` — *complements* → `admins-server-ini-reference`, `admins-sandboxvars-reference`
+- `admins-rcon-commands` — *conforms_to* → `meta-style-guide`
 - `admins-sandboxvars-reference` — *informs* → `players-foundation`
 - `admins-sandboxvars-reference` — *conforms_to* → `meta-style-guide`
 
