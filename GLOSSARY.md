@@ -64,7 +64,11 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | MultiplierConfig | B42-only nested SandboxVars table of XP multipliers: a Global value, a GlobalToggle, and ~35 per-skill keys under internal skill names. | Tier 3 |
 | Sandbox enum coding | Multiple-choice sandbox options are stored as 1-based integer codes whose meanings are fixed per key. | Tier 3 |
 | Generated default | The value the server writes into SandboxVars when it creates the file at first startup; the 42.20 generated file notably disables zombie respawn. | Tier 3 |
-| Soft reset | A server wipe that forces clients to create new characters, tracked by the paired identity keys `ResetID` and `ServerPlayerID` in the server .ini. | Tier 3 |
+| Soft reset | A server wipe that forces clients to create new characters, tracked by the paired identity keys `ResetID` and `ServerPlayerID` in the server .ini. Its documented trigger, `-Dsoftreset`, is broken as of 42.20.0. | Tier 3 |
+| Zomboid folder (cache folder) | The per-user data directory (`%USERPROFILE%\Zomboid` on Windows, `~/Zomboid` on Linux/macOS) holding server settings, saves, databases and logs; relocatable with `-cachedir`. | Tier 3 |
+| World folder | `Zomboid/Saves/Multiplayer/<servername>` — the generated, continuously saved world state for one server, keyed to the server name. | Tier 3 |
+| Account database | The SQLite file under `Zomboid/db` named after the server, holding user accounts and whitelist state. | Tier 3 |
+| Cold backup | A copy of server data taken with the server stopped — the only restore-grade backup; a hot copy (server running) is best-effort. | — |
 | Loading ID | A mod's internal identifier from its info.txt, used in the `Mods=` list; distinct from the numeric Steam Workshop ID used in `WorkshopItems=`. | Tier 3 |
 | Safety system | The per-player PVP opt-in mechanism (`SafetySystem=true`): one player can hurt another only when at least one of the two has PVP mode engaged. | Tier 3 |
 | Access level | The staff tier attached to a server account, set with `/setaccesslevel`; documented roster is Admin, Moderator, Overseer, GM, Observer, plus `none` to strip elevated access. | Tier 3 |
