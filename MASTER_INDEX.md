@@ -13,6 +13,7 @@ Tiers: 1 = track foundations · 2 = core reference · 3 = guides/tutorials/runbo
 |----|-------|-------|------|-------|---------|--------|------------|------|
 | admins-foundation | Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices | Server foundations | 1 | both | 1.0.1 | approved | Medium | `docs/admins/admins-foundation.md` |
 | admins-backups-migration | Backups, Saves and Migration: Protecting a Server World | Server operations | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-backups-migration.md` |
+| admins-legacy41-runbook | Keeping a Build 41 Server Alive: The legacy41 Runbook | Server runbooks | 3 | B41 | 0.1.0 | in-review | Medium | `docs/admins/admins-legacy41-runbook.md` |
 | admins-performance-tuning | Server Performance: Memory, CPU and the Levers That Are Actually Documented | Server operations | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-performance-tuning.md` |
 | admins-rcon-commands | RCON and Admin Commands: Operating a Live Server | Server operations | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-rcon-commands.md` |
 | admins-sandboxvars-reference | SandboxVars Reference: Gameplay Rules per Server | Server configuration | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-sandboxvars-reference.md` |
@@ -22,6 +23,7 @@ Tiers: 1 = track foundations · 2 = core reference · 3 = guides/tutorials/runbo
 | meta-style-guide | How This Knowledge Base Is Written: Genre, Build Tags and License Rules | KB governance | 1 | both | 1.0.1 | approved | High | `docs/meta/meta-style-guide.md` |
 | modders-foundation | Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives | Modding foundations | 1 | both | 1.0.1 | approved | Medium | `docs/modders/modders-foundation.md` |
 | players-foundation | Surviving Knox Country: The Core Game Across Build 41 and Build 42 | Player foundations | 1 | both | 1.0.1 | approved | Medium | `docs/players/players-foundation.md` |
+| players-farming-food | Farming, Foraging and Food: Feeding a Survivor Long-Term | Farming & food | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-farming-food.md` |
 | players-animals-husbandry | Animals and Husbandry in Build 42 | Animals & husbandry | 2 | B42 | 0.1.0 | in-review | Medium | `docs/players/players-animals-husbandry.md` |
 | players-b41-to-b42-transition | The B41 Veteran's Guide to Build 42: What Your Instincts Get Wrong | Guides | 3 | both | 0.1.0 | in-review | Medium | `docs/players/players-b41-to-b42-transition.md` |
 | players-crafting-chains | The B42 Crafting Overhaul: From Knapping to Blacksmithing | Crafting | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-crafting-chains.md` |
@@ -83,6 +85,14 @@ Typed cross-reference edges, one bullet per source document:
 - `players-b41-to-b42-transition` — *deepens* → `players-foundation`
 - `players-b41-to-b42-transition` — *cross_references* → `players-skills-xp`, `players-traits-occupations`, `players-crafting-chains`, `players-animals-husbandry`, `players-medical-moodles`, `players-map-locations`, `players-vehicles`
 - `players-b41-to-b42-transition` — *conforms_to* → `meta-style-guide`
+- `players-farming-food` — *deepens* → `players-foundation`
+- `players-farming-food` — *complements* → `players-animals-husbandry`
+- `players-farming-food` — *relates_to* → `players-crafting-chains`, `players-skills-xp`
+- `players-farming-food` — *conforms_to* → `meta-style-guide`
+- `admins-legacy41-runbook` — *deepens* → `admins-foundation`
+- `admins-legacy41-runbook` — *cross_references* → `admins-backups-migration`, `admins-server-ini-reference`
+- `admins-legacy41-runbook` — *related* → `lore-foundation`
+- `admins-legacy41-runbook` — *conforms_to* → `meta-style-guide`
 - `admins-sandboxvars-reference` — *informs* → `players-foundation`
 - `admins-sandboxvars-reference` — *conforms_to* → `meta-style-guide`
 

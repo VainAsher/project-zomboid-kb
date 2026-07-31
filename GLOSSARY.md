@@ -53,6 +53,13 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | Workstation | A placed or built object that specific B42 recipes require and that is operated by clicking on it: pottery benches and wheels, kilns, furnaces, forges, grindstones. | Tier 3 |
 | Research Craft | The B42 system (added 42.3) that reverse-engineers learnable recipes from an item via a right-click option, granting the recipe and the craft's XP. | Tier 1 |
 | Fluid container | Any B42 item or entity that stores a fluid; any container can hold any fluid, tracked in millilitres, with mixing and taint propagation. | Tier 3 |
+| Agriculture (skill) | Build 42's name for the crop-farming skill, renamed from B41's Farming; the internal Skill ID remains `Farming`. | Tier 3 |
+| Growing season | A B42 crop's calendar profile — planting window, best/poor months, bad months and growth duration — governing when sowing is safe. | Tier 3 |
+| Cursed crop | A B42 crop permanently penalised (halved recovery, doubled losses, reduced yield, doubled disease chance) for wrong-season planting, bad months, winter, or triple fertilizing; incurable. | Tier 3 |
+| Search Mode | The foraging interface (default hotkey END) that blurs the screen outside a skill-scaled search radius; replaced the previous foraging system in Build 41.60. | Tier 3 |
+| Evolved recipe | A cooking construction (soup, stew, salad, sandwich, etc.) accepting variable ingredients, each contributing recipe-specific hunger and nutrition; inherits age only from its base ingredient. | Tier 3 |
+| Drying rack | A Build 42 food-preservation station that dries plants, herbs (one in-game day) and leather (seven days) in variable batch sizes. | Tier 1 |
+| Power shutoff | The sandbox-scheduled random day within a configured window on which grid electricity stops, disabling refrigerators and lights. | Tier 3 |
 
 ## Servers & admin
 
@@ -73,6 +80,10 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | World folder | `Zomboid/Saves/Multiplayer/<servername>` — the generated, continuously saved world state for one server, keyed to the server name. | Tier 3 |
 | Account database | The SQLite file under `Zomboid/db` named after the server, holding user accounts and whitelist state. | Tier 3 |
 | Cold backup | A copy of server data taken with the server stopped — the only restore-grade backup; a hot copy (server running) is best-effort. | — |
+| 42.19 branch | A parallel Steam beta branch preserving unstable Build 42.19 so its saves (incompatible with 42.20) can be finished; distinct from legacy41. | Tier 1 |
+| Maintenance line | This KB's term for Build 41 as it now exists: a branch receiving security/maintenance hotfixes (41.78.17 through at least 41.78.19 in 2026) but no content development. | Tier 1 |
+| Branch pinning | Encoding the `-beta legacy41` flag into every SteamCMD install/update command so a routine update can never silently hop a B41 server onto the default (B42) branch. | Tier 3 |
+| outdatedunstable | An official Steam branch that lags one content update behind unstable, introduced as part of the 2026 security-driven branch policy. | Tier 1 |
 | ZGC | The Z Garbage Collector, the low-pause-time JVM collector the shipped B42 server launch script selects with `-XX:+UseZGC`. | Tier 3 |
 | ZNet | Project Zomboid's network layer, named in the shipped `-Dzomboid.znetlog` JVM property; its server-side logging was improved at 42.20. | Tier 1 |
 | Object pool statistics | A server monitoring/diagnostics surface added in Build 42.20 that reports on the server's object pools; output format undocumented. | Tier 1 |
