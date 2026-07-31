@@ -17,6 +17,9 @@ Tiers: 1 = track foundations · 2 = core reference · 3 = guides/tutorials/runbo
 | meta-style-guide | How This Knowledge Base Is Written: Genre, Build Tags and License Rules | KB governance | 1 | both | 1.0.1 | approved | High | `docs/meta/meta-style-guide.md` |
 | modders-foundation | Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives | Modding foundations | 1 | both | 1.0.1 | approved | Medium | `docs/modders/modders-foundation.md` |
 | players-foundation | Surviving Knox Country: The Core Game Across Build 41 and Build 42 | Player foundations | 1 | both | 1.0.1 | approved | Medium | `docs/players/players-foundation.md` |
+| players-crafting-chains | The B42 Crafting Overhaul: From Knapping to Blacksmithing | Crafting | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-crafting-chains.md` |
+| players-skills-xp | Skills and XP: Levelling, Multipliers and the B42 Skill Roster | Skills & XP | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-skills-xp.md` |
+| players-traits-occupations | Traits and Occupations: Points, Rosters and the B42 Rework | Traits & occupations | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-traits-occupations.md` |
 
 ## Knowledge graph
 
@@ -34,6 +37,17 @@ Typed cross-reference edges, one bullet per source document:
 - `creator-foundation` — *conforms_to* → `meta-style-guide`
 - `admins-foundation` — *related* → `players-foundation`, `modders-foundation`, `creator-foundation`, `lore-foundation`
 - `admins-foundation` — *conforms_to* → `meta-style-guide`
+- `players-skills-xp` — *deepens* → `players-foundation`
+- `players-skills-xp` — *relates_to* → `players-traits-occupations`, `players-crafting-chains`, `players-animals-husbandry` (planned)
+- `players-skills-xp` — *conforms_to* → `meta-style-guide`
+- `players-traits-occupations` — *deepens* → `players-foundation`
+- `players-traits-occupations` — *related* → `players-skills-xp`, `players-crafting-chains`, `players-animals-husbandry` (planned)
+- `players-traits-occupations` — *conforms_to* → `meta-style-guide`
+- `players-crafting-chains` — *deepens* → `players-foundation`
+- `players-crafting-chains` — *relates_to* → `players-skills-xp`, `players-traits-occupations`
+- `players-crafting-chains` — *complements* → `players-animals-husbandry` (planned)
+- `players-crafting-chains` — *informs* → `modders-foundation`
+- `players-crafting-chains` — *conforms_to* → `meta-style-guide`
 
 ## Approved taxonomy backlog (scope approved 2026-07-30)
 

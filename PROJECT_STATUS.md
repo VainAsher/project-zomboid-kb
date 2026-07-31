@@ -28,6 +28,21 @@ next: Stage-1 ingestion + the Players + Admins cluster.
 - Foundation cluster (6 docs) written, gated, frozen at v1.0.0 and tagged
   `kb-release-2026.07.30`. Independent link check 107/107 live.
 
+## Open items from the Players + Admins cluster (wave A)
+
+- Cross-doc discrepancy to reconcile at freeze: players-foundation says the
+  B42 Occupation roster (pzwiki rev 1391359) lists 23 occupations + Custom;
+  players-traits-occupations counts 24 rows in the same revision — recount
+  and align both docs.
+- "Brewing" was briefed as a B42 crafting skill family, but no skill or
+  chain could be primary-sourced (crafting SYSTEM only) — both wave-A docs
+  treat it accordingly; confirm framing in-game.
+- Unresolved renames quarantined pending one in-game 42.20 check each:
+  Pacifist→Reluctant Fighter (Medium), Asthmatic→Short of Breath (Low),
+  Metalworker→Welder (roster-inference only); occupation naming tension
+  between patch notes (Farmer/Rancher/Fishing Guide) and the pinned wiki
+  roster (Crop Farmer/Livestock Farmer/Fire Officer).
+
 ## Open items carried out of the foundation cluster
 
 - No repo LICENSE file for the KB's own original prose (flagged by

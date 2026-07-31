@@ -33,6 +33,23 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | craftRecipe | The B42 script block for defining crafting recipes, replacing B41's legacy `Recipe` block. | Tier 3 |
 | Spiffo's Workshop | Project Zomboid's Steam Workshop hub, the official channel for sharing mods. | Tier 3 |
 
+## Skills, traits & crafting
+
+| Term | Definition | Source |
+|------|------------|--------|
+| XP boost (starting-level boost) | The permanent XP-rate multiplier a skill receives from its level at character creation: 25% at level 0, 100% at 1, 133% at 2, 166% at 3+; Strength and Fitness are exempt. | Tier 3 |
+| Passive skill | Strength or Fitness — the two-skill category with a far larger XP scale (1,500 XP for level 1 vs 75 for a regular skill) and exemption from starting-level XP boosts. | Tier 3 |
+| Skill book | A single-use readable that multiplies XP for one skill within a two-level band; the five volumes cover levels 1–2 to 9–10 at standard multipliers ×3, ×5, ×8, ×12 and ×16. | Tier 3 |
+| Skill ID | A skill's internal data name; B42's renamed skills keep their old IDs (Agriculture = `Farming`, Welding = `MetalWelding`, Running = `Sprinting`, Knapping = `FlintKnapping`). | Tier 3 |
+| Trait points | The character-creation budget: positive traits cost points, negative traits grant them, and the character can only spawn at zero or above. | Tier 3 |
+| Occupation-exclusive trait | A trait that cannot be bought with points and only arrives bundled with a specific occupation, e.g. Desensitized with Veteran. | Tier 3 |
+| Adaptive trait | A trait gained or lost during play as strength, fitness or weight changes (community: "dynamic traits"); losing a creation-time negative this way never refunds its points. | Tier 3 |
+| Free points | Community shorthand for negative traits whose in-play downside is trivial relative to the points granted; a B41 meta pattern sharply reduced by B42's re-pricing. | Tier 5 |
+| Crafting chain | A sequence of B42 crafting skills and stations where earlier links (e.g. Carving, Pottery) produce the tools and materials later links (e.g. Blacksmithing) require. | — |
+| Workstation | A placed or built object that specific B42 recipes require and that is operated by clicking on it: pottery benches and wheels, kilns, furnaces, forges, grindstones. | Tier 3 |
+| Research Craft | The B42 system (added 42.3) that reverse-engineers learnable recipes from an item via a right-click option, granting the recipe and the craft's XP. | Tier 1 |
+| Fluid container | Any B42 item or entity that stores a fluid; any container can hold any fluid, tracked in millilitres, with mixing and taint propagation. | Tier 3 |
+
 ## Servers & admin
 
 | Term | Definition | Source |
