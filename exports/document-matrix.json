@@ -140,6 +140,20 @@
     "path": "docs/players/players-crafting-chains.md"
   },
   {
+    "id": "players-map-locations",
+    "title": "Knox Country Locations: The B41 Towns and the B42 Expansion",
+    "topic": "Map & locations",
+    "tier": "2",
+    "build": "both",
+    "document_type": "reference",
+    "category": "Players",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-31",
+    "path": "docs/players/players-map-locations.md"
+  },
+  {
     "id": "players-skills-xp",
     "title": "Skills and XP: Levelling, Multipliers and the B42 Skill Roster",
     "topic": "Skills & XP",
@@ -166,5 +180,19 @@
     "confidence": "Medium",
     "review_due": "2026-10-30",
     "path": "docs/players/players-traits-occupations.md"
+  },
+  {
+    "id": "players-vehicles",
+    "title": "Vehicles: Finding, Fixing and Driving Across Both Builds",
+    "topic": "Vehicles",
+    "tier": "2",
+    "build": "both",
+    "document_type": "reference",
+    "category": "Players",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-31",
+    "path": "docs/players/players-vehicles.md"
   }
 ]

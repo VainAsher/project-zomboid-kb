@@ -220,6 +220,27 @@
       ]
     },
     {
+      "id": "players-map-locations",
+      "title": "Knox Country Locations: The B41 Towns and the B42 Expansion",
+      "topic": "Map & locations",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/players/players-map-locations.md",
+      "category": "Players",
+      "document_type": "reference",
+      "review_due": "2026-10-31",
+      "created": "2026-07-31",
+      "related": [
+        "players-foundation",
+        "lore-foundation",
+        "players-vehicles",
+        "meta-style-guide"
+      ]
+    },
+    {
       "id": "players-skills-xp",
       "title": "Skills and XP: Levelling, Multipliers and the B42 Skill Roster",
       "topic": "Skills & XP",
@@ -260,6 +281,27 @@
         "players-skills-xp",
         "players-crafting-chains",
         "players-animals-husbandry",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "players-vehicles",
+      "title": "Vehicles: Finding, Fixing and Driving Across Both Builds",
+      "topic": "Vehicles",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/players/players-vehicles.md",
+      "category": "Players",
+      "document_type": "reference",
+      "review_due": "2026-10-31",
+      "created": "2026-07-31",
+      "related": [
+        "players-foundation",
+        "players-skills-xp",
+        "players-map-locations",
         "meta-style-guide"
       ]
     }
@@ -603,6 +645,54 @@
     },
     {
       "from": "players-animals-husbandry",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "players-map-locations",
+      "to": "players-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "players-map-locations",
+      "to": "lore-foundation",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "players-map-locations",
+      "to": "meta-style-guide",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "players-map-locations",
+      "to": "players-vehicles",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "players-vehicles",
+      "to": "players-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "players-vehicles",
+      "to": "players-skills-xp",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "players-vehicles",
+      "to": "players-map-locations",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "players-vehicles",
       "to": "meta-style-guide",
       "rel": "conforms_to",
       "target": "known"

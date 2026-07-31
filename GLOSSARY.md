@@ -79,6 +79,11 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | Canon starting towns | The Indie Stone's term for the four towns supporting occupation-specific spawn points on both builds: Muldraugh, West Point, Riverside and Rosewood. | Tier 1 |
 | Map glow-up | The developers' name for the Build 42.20 map overhaul that entirely reworked seven existing areas (Riverside, West Point, Rosewood, Fallas Lake, Muldraugh, Ekron, Dixie) to a new per-town art standard. | Tier 1 |
 | Procedural basement | A Build 42 basement placed by generation rather than hand-building; B42 ships 400 procedural and 75 unique basements. | Tier 1 |
+| Engine quality | Per-vehicle reliability score (max 100) rolled at spawn; sets start-failure chance (30 / (quality + 50)) and engine power, and can never be raised, unlike repairable engine condition. | Tier 3 |
+| Vehicle class | One of three service families — standard, heavy-duty, sports — applied to whole vehicles and to individual parts; parts never fit across classes. | Tier 3 |
+| Recipe magazine (Laines manual) | One of three magazines (Standard, Commercial, Performance) that must be read before working on the matching vehicle class in the Mechanics menu, unless the character is a Mechanic. | Tier 3 |
+| Hotwiring | Starting a vehicle without its key; requires Electrical 1 plus Mechanics 2, or the Burglar occupation. Failure damages nothing but can make noise. | Tier 3 |
+| Electricity shutoff (ElecShut) | Sandbox event that permanently ends grid power (default window 14–30 days after the July 9, 1993 start date); afterwards gas pumps dispense only with generator power. | Tier 3 |
 
 ## Creator ecosystem
 

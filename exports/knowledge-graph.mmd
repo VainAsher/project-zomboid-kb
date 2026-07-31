@@ -12,8 +12,10 @@ graph LR
     admins_server_ini_reference["admins-server-ini-reference"]
     players_animals_husbandry["players-animals-husbandry"]
     players_crafting_chains["players-crafting-chains"]
+    players_map_locations["players-map-locations"]
     players_skills_xp["players-skills-xp"]
     players_traits_occupations["players-traits-occupations"]
+    players_vehicles["players-vehicles"]
   end
   meta_style_guide -->|governs| modders_foundation
   meta_style_guide -->|governs| players_foundation
@@ -72,5 +74,13 @@ graph LR
   players_animals_husbandry -->|relates_to| players_crafting_chains
   players_animals_husbandry -->|relates_to| players_traits_occupations
   players_animals_husbandry -->|conforms_to| meta_style_guide
+  players_map_locations -->|deepens| players_foundation
+  players_map_locations -->|relates_to| lore_foundation
+  players_map_locations -->|relates_to| meta_style_guide
+  players_map_locations -->|relates_to| players_vehicles
+  players_vehicles -->|deepens| players_foundation
+  players_vehicles -->|related| players_skills_xp
+  players_vehicles -->|related| players_map_locations
+  players_vehicles -->|conforms_to| meta_style_guide
   admins_sandboxvars_reference -->|informs| players_foundation
   admins_sandboxvars_reference -->|conforms_to| meta_style_guide

@@ -24,6 +24,7 @@ Tiers: 1 = track foundations · 2 = core reference · 3 = guides/tutorials/runbo
 | players-map-locations | Knox Country Locations: The B41 Towns and the B42 Expansion | Map & locations | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-map-locations.md` |
 | players-skills-xp | Skills and XP: Levelling, Multipliers and the B42 Skill Roster | Skills & XP | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-skills-xp.md` |
 | players-traits-occupations | Traits and Occupations: Points, Rosters and the B42 Rework | Traits & occupations | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-traits-occupations.md` |
+| players-vehicles | Vehicles: Finding, Fixing and Driving Across Both Builds | Vehicles | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-vehicles.md` |
 
 ## Knowledge graph
 
@@ -60,7 +61,10 @@ Typed cross-reference edges, one bullet per source document:
 - `players-animals-husbandry` — *relates_to* → `players-skills-xp`, `players-crafting-chains`, `players-traits-occupations`
 - `players-animals-husbandry` — *conforms_to* → `meta-style-guide`
 - `players-map-locations` — *deepens* → `players-foundation`
-- `players-map-locations` — *relates_to* → `lore-foundation`, `meta-style-guide`, `players-vehicles` (planned)
+- `players-map-locations` — *relates_to* → `lore-foundation`, `meta-style-guide`, `players-vehicles`
+- `players-vehicles` — *deepens* → `players-foundation`
+- `players-vehicles` — *related* → `players-skills-xp`, `players-map-locations`
+- `players-vehicles` — *conforms_to* → `meta-style-guide`
 - `admins-sandboxvars-reference` — *informs* → `players-foundation`
 - `admins-sandboxvars-reference` — *conforms_to* → `meta-style-guide`
 
