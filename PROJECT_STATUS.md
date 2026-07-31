@@ -36,9 +36,13 @@ next: Stage-1 ingestion + the Players + Admins cluster.
   and the animals doc (local snapshot reads Farmer/Rancher/Fishing Guide)
   independently contradict that reading — players-foundation likely needs a
   1.0.2 correction at wave freeze.
-- B41 baseline decision for a human: ISteamNews shows legacy41 maintenance
-  hotfixes up to 41.78.19/41.78.20 (2026); the KB currently pins B41
-  verification at 41.78.16. Decide whether the baseline moves.
+- RESOLVED 2026-07-31 (user decision): the B41 baseline moves to the
+  legacy41 maintenance line. Orchestrator verified 41.78.19 is a
+  security-only hotfix (primary), so existing 41.78.16-era fact
+  verification stands; docs bump `game_versions_verified` at their next
+  natural revision. Follow-up: primary-confirm 41.78.20 (currently
+  pzwiki-attested only) when TIS announces it or the legacy41 server
+  reports its version.
 - pzwiki intermittently Cloudflare-challenges API clients: re-check the
   Server settings revision (pinned 1443167) when access allows; ingest the
   "Husbandry" and "Animal care" pages into sources/pzwiki/ when reachable

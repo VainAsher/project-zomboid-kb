@@ -7,7 +7,7 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 
 | Term | Definition | Source |
 |------|------------|--------|
-| B41 / legacy41 | Build 41 (final numbered stable: 41.78.16), kept available as the `legacy41` Steam beta branch after B42 became the default stable build on 2026-07-29. B41 saves and mods are not compatible with B42. | Tier 1 |
+| B41 / legacy41 | Build 41, kept available as the `legacy41` Steam beta branch after B42 went stable on 2026-07-29, and still receiving maintenance hotfixes (41.78.19 security patch primary-attested 2026-04-08; 41.78.20 pzwiki-attested). The KB's B41 baseline is the current legacy41 maintenance line, not frozen 41.78.16. B41 saves and mods are not compatible with B42. | Tier 1 |
 | B42 | Build 42: unstable branch 2024-12-17 (single-player only), multiplayer from unstable 42.13 (2025-12-11), stable as 42.20 on 2026-07-29. | Tier 1 |
 | Unstable (branch) | The opt-in Steam beta branch on which Build 42 was publicly developed before the 42.20 stable release. | Tier 1 |
 | IWBUMS | "I Will Back Up My Save" — the B41-era name for the opt-in public beta branch that the B42 era calls unstable. | Tier 3 |

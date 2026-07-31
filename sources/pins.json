@@ -10,6 +10,12 @@
   },
   "game_builds": {
     "B42_stable": "42.20.0",
-    "B41_legacy": "41.78.16"
+    "B41_legacy": {
+      "baseline": "legacy41 maintenance line",
+      "latest_primary_attested": "41.78.19 (security-only hotfix, 2026-04-08, Steam announcement)",
+      "latest_wiki_attested": "41.78.20 (2026-07-29, pzwiki version pages only - pending primary confirmation)",
+      "decision": "User decision 2026-07-31: B41 baseline follows the legacy41 maintenance line, not frozen 41.78.16. 41.78.17-.19 verified as security/maintenance-only; existing docs' 41.78.16-era fact verification stands. Docs bump game_versions_verified at their next natural revision.",
+      "note": "The Umbrella B41 API pin stays at release tag 41.78.16 - no newer B41 stub tag exists."
+    }
   }
 }

@@ -28,6 +28,12 @@ document version with a revision note — never a silent edit.
 
 ### Changed
 
+- 2026-07-31 — **B41 baseline policy** (user decision): the KB's B41
+  verification target is now the legacy41 maintenance line (41.78.19
+  primary-attested, security-only; 41.78.20 pzwiki-attested pending
+  primary), no longer frozen 41.78.16. Existing docs' verification
+  provenance stands; `game_versions_verified` moves at each doc's next
+  revision. Umbrella B41 API pin remains release tag 41.78.16.
 - 2026-07-30 — Five foundation docs bumped to 1.0.1: license-hygiene prose
   rewrites after the armed n-gram gate flagged 23 overlaps (no factual
   changes; creator-foundation was already clean).

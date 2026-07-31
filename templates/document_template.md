@@ -35,7 +35,8 @@ game_versions_verified: ["41.78.16", "42.20"]  # exact versions checked first-ha
   or lightly paraphrased. Write 100% original prose. The license-hygiene gate
   (scripts/check_license_hygiene.py) flags n-gram overlap mechanically.
 
-  BUILD RULE (hard): `build:` is required. B41 = legacy41 (41.78.16) only.
+  BUILD RULE (hard): `build:` is required. B41 = the legacy41 branch
+  (41.78.x maintenance line; record the exact version you verified against).
   B42 = Build 42 stable (42.20+) only. both = document covers both builds and
   MUST carry a substantive "B41 vs B42 Delta" section. historic = older
   builds / lore. Any B42-only value quoted in a `both` document must be
