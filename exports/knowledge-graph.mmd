@@ -8,11 +8,15 @@ graph LR
     players_foundation["players-foundation"]
   end
   subgraph Tier2["Tier 2"]
+    admins_backups_migration["admins-backups-migration"]
+    admins_performance_tuning["admins-performance-tuning"]
+    admins_rcon_commands["admins-rcon-commands"]
     admins_sandboxvars_reference["admins-sandboxvars-reference"]
     admins_server_ini_reference["admins-server-ini-reference"]
     players_animals_husbandry["players-animals-husbandry"]
     players_crafting_chains["players-crafting-chains"]
     players_map_locations["players-map-locations"]
+    players_medical_moodles["players-medical-moodles"]
     players_skills_xp["players-skills-xp"]
     players_traits_occupations["players-traits-occupations"]
     players_vehicles["players-vehicles"]
@@ -82,5 +86,22 @@ graph LR
   players_vehicles -->|related| players_skills_xp
   players_vehicles -->|related| players_map_locations
   players_vehicles -->|conforms_to| meta_style_guide
+  admins_rcon_commands -->|deepens| admins_foundation
+  admins_rcon_commands -->|complements| admins_server_ini_reference
+  admins_rcon_commands -->|complements| admins_sandboxvars_reference
+  admins_rcon_commands -->|conforms_to| meta_style_guide
+  admins_backups_migration -->|deepens| admins_foundation
+  admins_backups_migration -->|references| admins_server_ini_reference
+  admins_backups_migration -->|references| admins_sandboxvars_reference
+  admins_backups_migration -->|references| lore_foundation
+  admins_backups_migration -->|references| meta_style_guide
+  admins_performance_tuning -->|deepens| admins_foundation
+  admins_performance_tuning -->|complements| admins_server_ini_reference
+  admins_performance_tuning -->|complements| admins_sandboxvars_reference
+  admins_performance_tuning -->|complements| meta_style_guide
+  players_medical_moodles -->|deepens| players_foundation
+  players_medical_moodles -->|cross_references| players_skills_xp
+  players_medical_moodles -->|cross_references| admins_sandboxvars_reference
+  players_medical_moodles -->|conforms_to| meta_style_guide
   admins_sandboxvars_reference -->|informs| players_foundation
   admins_sandboxvars_reference -->|conforms_to| meta_style_guide

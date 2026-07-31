@@ -49,9 +49,15 @@ nav:
       - "Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives": modders/modders-foundation.md
       - "Surviving Knox Country: The Core Game Across Build 41 and Build 42": players/players-foundation.md
   - "Class 2 — Core reference (mechanics, entities, API, settings)":
+      - "Backups, Saves and Migration: Protecting a Server World": admins/admins-backups-migration.md
+      - "Server Performance: Memory, CPU and the Levers That Are Actually Documented": admins/admins-performance-tuning.md
+      - "RCON and Admin Commands: Operating a Live Server": admins/admins-rcon-commands.md
       - "SandboxVars Reference: Gameplay Rules per Server": admins/admins-sandboxvars-reference.md
       - "server.ini Reference: The Settings That Matter, by Area": admins/admins-server-ini-reference.md
       - "Animals and Husbandry in Build 42": players/players-animals-husbandry.md
       - "The B42 Crafting Overhaul: From Knapping to Blacksmithing": players/players-crafting-chains.md
+      - "Knox Country Locations: The B41 Towns and the B42 Expansion": players/players-map-locations.md
+      - "Health, Injuries and Moodles: The Body Simulation": players/players-medical-moodles.md
       - "Skills and XP: Levelling, Multipliers and the B42 Skill Roster": players/players-skills-xp.md
       - "Traits and Occupations: Points, Rosters and the B42 Rework": players/players-traits-occupations.md
+      - "Vehicles: Finding, Fixing and Driving Across Both Builds": players/players-vehicles.md

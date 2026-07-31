@@ -25,6 +25,7 @@ Tiers: 1 = track foundations · 2 = core reference · 3 = guides/tutorials/runbo
 | players-animals-husbandry | Animals and Husbandry in Build 42 | Animals & husbandry | 2 | B42 | 0.1.0 | in-review | Medium | `docs/players/players-animals-husbandry.md` |
 | players-crafting-chains | The B42 Crafting Overhaul: From Knapping to Blacksmithing | Crafting | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-crafting-chains.md` |
 | players-map-locations | Knox Country Locations: The B41 Towns and the B42 Expansion | Map & locations | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-map-locations.md` |
+| players-medical-moodles | Health, Injuries and Moodles: The Body Simulation | Medical & moodles | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-medical-moodles.md` |
 | players-skills-xp | Skills and XP: Levelling, Multipliers and the B42 Skill Roster | Skills & XP | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-skills-xp.md` |
 | players-traits-occupations | Traits and Occupations: Points, Rosters and the B42 Rework | Traits & occupations | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-traits-occupations.md` |
 | players-vehicles | Vehicles: Finding, Fixing and Driving Across Both Builds | Vehicles | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-vehicles.md` |
@@ -75,6 +76,9 @@ Typed cross-reference edges, one bullet per source document:
 - `admins-backups-migration` — *references* → `admins-server-ini-reference`, `admins-sandboxvars-reference`, `lore-foundation`, `meta-style-guide`
 - `admins-performance-tuning` — *deepens* → `admins-foundation`
 - `admins-performance-tuning` — *complements* → `admins-server-ini-reference`, `admins-sandboxvars-reference`, `meta-style-guide`
+- `players-medical-moodles` — *deepens* → `players-foundation`
+- `players-medical-moodles` — *cross_references* → `players-skills-xp`, `admins-sandboxvars-reference`
+- `players-medical-moodles` — *conforms_to* → `meta-style-guide`
 - `admins-sandboxvars-reference` — *informs* → `players-foundation`
 - `admins-sandboxvars-reference` — *conforms_to* → `meta-style-guide`
 

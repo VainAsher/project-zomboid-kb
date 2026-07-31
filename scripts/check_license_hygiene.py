@@ -38,6 +38,22 @@ BLOCKQUOTE_RE = re.compile(r"^\s*>.*$", re.MULTILINE)
 
 DEFAULT_NGRAM = 8   # 8 consecutive shared words = near-verbatim reuse
 
+# Game VALUES are uncopyrightable data: a heal-time range or symptom timeline
+# shares its numbers (and their natural order) with any faithful record of the
+# same facts. An n-gram dominated by numeric/unit tokens is data, not prose —
+# exempt. Table LAYOUT originality remains a human-review item.
+UNIT_WORDS = {"hour", "hours", "day", "days", "minute", "minutes",
+              "second", "seconds", "week", "weeks", "x", "gb", "mb", "kg",
+              "ml", "xp", "hp"}
+NUMERIC_FRACTION = 0.5
+
+
+def is_data_gram(gram: str) -> bool:
+    tokens = gram.split()
+    datalike = sum(1 for t in tokens
+                   if t.replace("'", "").isdigit() or t in UNIT_WORDS)
+    return datalike / len(tokens) >= NUMERIC_FRACTION if tokens else False
+
 
 def normalise(text: str, skip_quotes: bool = False) -> list[str]:
     text = CODE_FENCE_RE.sub(" ", text)
@@ -93,7 +109,7 @@ def main() -> int:
         words = normalise(body, skip_quotes=True)
         hits: dict[str, str] = {}
         for g in ngrams(words, args.ngram):
-            if g in corpus_grams:
+            if g in corpus_grams and not is_data_gram(g):
                 hits[g] = corpus_grams[g]
         if hits:
             total += len(hits)

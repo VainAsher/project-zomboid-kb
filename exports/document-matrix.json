@@ -14,6 +14,48 @@
     "path": "docs/admins/admins-foundation.md"
   },
   {
+    "id": "admins-backups-migration",
+    "title": "Backups, Saves and Migration: Protecting a Server World",
+    "topic": "Server operations",
+    "tier": "2",
+    "build": "both",
+    "document_type": "reference",
+    "category": "Admins",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-31",
+    "path": "docs/admins/admins-backups-migration.md"
+  },
+  {
+    "id": "admins-performance-tuning",
+    "title": "Server Performance: Memory, CPU and the Levers That Are Actually Documented",
+    "topic": "Server operations",
+    "tier": "2",
+    "build": "both",
+    "document_type": "reference",
+    "category": "Admins",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-31",
+    "path": "docs/admins/admins-performance-tuning.md"
+  },
+  {
+    "id": "admins-rcon-commands",
+    "title": "RCON and Admin Commands: Operating a Live Server",
+    "topic": "Server operations",
+    "tier": "2",
+    "build": "both",
+    "document_type": "reference",
+    "category": "Admins",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-31",
+    "path": "docs/admins/admins-rcon-commands.md"
+  },
+  {
     "id": "admins-sandboxvars-reference",
     "title": "SandboxVars Reference: Gameplay Rules per Server",
     "topic": "Server configuration",
@@ -152,6 +194,20 @@
     "confidence": "Medium",
     "review_due": "2026-10-31",
     "path": "docs/players/players-map-locations.md"
+  },
+  {
+    "id": "players-medical-moodles",
+    "title": "Health, Injuries and Moodles: The Body Simulation",
+    "topic": "Medical & moodles",
+    "tier": "2",
+    "build": "both",
+    "document_type": "reference",
+    "category": "Players",
+    "version": "0.1.0",
+    "status": "in-review",
+    "confidence": "Medium",
+    "review_due": "2026-10-31",
+    "path": "docs/players/players-medical-moodles.md"
   },
   {
     "id": "players-skills-xp",

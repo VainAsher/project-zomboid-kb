@@ -16,6 +16,10 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | Knox Country | The partially fictional Kentucky game world (formerly Knox County), modelled on the real Muldraugh / West Point / Louisville area. | Tier 3 |
 | Exclusion Zone | The in-fiction military quarantine area around the Knox outbreak within which the player character is trapped. | Tier 3 |
 | Moodle | Icon-based status indicator reporting the character's physical and emotional state (hunger, panic, tiredness, etc.), with hover tooltips. | Tier 3 |
+| Knox Infection | The fatal zombie-borne disease, transmitted only by zombie wounds (scratch 7%, laceration 25%, bite 100% by default); untreatable, invisible in the UI, and distinct from bacterial wound infection. | Tier 3 |
+| Wound infection | Bacterial infection of a neglected or dirty-bandaged wound; increases pain only, is treatable, and is always survivable. | Tier 3 |
+| Muscle strain | Build 42's accumulated exertion damage, applied to the specific body parts performing an action and scaled down by weapon skill and Strength; governed by the `MuscleStrainFactor` sandbox key. | Tier 1 |
+| Bandage power | A per-item value governing how long a dressing stays effective before turning dirty; bandage types heal at the same rate and differ only in longevity and infection interaction. | Tier 3 |
 | Launch window | The weeks immediately after a major stable release, when returning-player traffic and search demand spike; for B42 it opened 2026-07-29. | Tier 1 |
 
 ## Modding

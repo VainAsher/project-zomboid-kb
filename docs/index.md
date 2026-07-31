@@ -5,9 +5,9 @@
 
 Evidence-based, source-cited Project Zomboid reference for modders, players, server admins and creators — every document version-tagged for Build 41 (legacy41) and Build 42.
 
-**12 documents** across **11 topics** — every factual claim carries a citation to a primary or authoritative source, unverified community claims are labelled and quarantined, and build tags, links, citations and structure are checked automatically in CI.
+**18 documents** across **15 topics** — every factual claim carries a citation to a primary or authoritative source, unverified community claims are labelled and quarantined, and build tags, links, citations and structure are checked automatically in CI.
 
-*Confidence: 1 High · 11 Medium · 0 Low.*  *Build: B42 2 · both 9 · historic 1.*
+*Confidence: 1 High · 17 Medium · 0 Low.*  *Build: B42 2 · both 15 · historic 1.*
 
 ## Class 1 — Track foundations (Modders / Players / Admins / Creator)
 
@@ -20,12 +20,18 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
 
 ## Class 2 — Core reference (mechanics, entities, API, settings)
 
+- [Backups, Saves and Migration: Protecting a Server World](admins/admins-backups-migration.md) — *Server operations* (both)
+- [Server Performance: Memory, CPU and the Levers That Are Actually Documented](admins/admins-performance-tuning.md) — *Server operations* (both)
+- [RCON and Admin Commands: Operating a Live Server](admins/admins-rcon-commands.md) — *Server operations* (both)
 - [SandboxVars Reference: Gameplay Rules per Server](admins/admins-sandboxvars-reference.md) — *Server configuration* (both)
 - [server.ini Reference: The Settings That Matter, by Area](admins/admins-server-ini-reference.md) — *Server configuration* (both)
 - [Animals and Husbandry in Build 42](players/players-animals-husbandry.md) — *Animals & husbandry* (B42)
 - [The B42 Crafting Overhaul: From Knapping to Blacksmithing](players/players-crafting-chains.md) — *Crafting* (both)
+- [Knox Country Locations: The B41 Towns and the B42 Expansion](players/players-map-locations.md) — *Map & locations* (both)
+- [Health, Injuries and Moodles: The Body Simulation](players/players-medical-moodles.md) — *Medical & moodles* (both)
 - [Skills and XP: Levelling, Multipliers and the B42 Skill Roster](players/players-skills-xp.md) — *Skills & XP* (both)
 - [Traits and Occupations: Points, Rosters and the B42 Rework](players/players-traits-occupations.md) — *Traits & occupations* (both)
+- [Vehicles: Finding, Fixing and Driving Across Both Builds](players/players-vehicles.md) — *Vehicles* (both)
 
 ## Knowledge graph
 
@@ -42,12 +48,18 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
         players_foundation["players-foundation"]
       end
       subgraph Tier2["Tier 2"]
+        admins_backups_migration["admins-backups-migration"]
+        admins_performance_tuning["admins-performance-tuning"]
+        admins_rcon_commands["admins-rcon-commands"]
         admins_sandboxvars_reference["admins-sandboxvars-reference"]
         admins_server_ini_reference["admins-server-ini-reference"]
         players_animals_husbandry["players-animals-husbandry"]
         players_crafting_chains["players-crafting-chains"]
+        players_map_locations["players-map-locations"]
+        players_medical_moodles["players-medical-moodles"]
         players_skills_xp["players-skills-xp"]
         players_traits_occupations["players-traits-occupations"]
+        players_vehicles["players-vehicles"]
       end
       meta_style_guide -->|governs| modders_foundation
       meta_style_guide -->|governs| players_foundation
@@ -106,6 +118,31 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
       players_animals_husbandry -->|relates_to| players_crafting_chains
       players_animals_husbandry -->|relates_to| players_traits_occupations
       players_animals_husbandry -->|conforms_to| meta_style_guide
+      players_map_locations -->|deepens| players_foundation
+      players_map_locations -->|relates_to| lore_foundation
+      players_map_locations -->|relates_to| meta_style_guide
+      players_map_locations -->|relates_to| players_vehicles
+      players_vehicles -->|deepens| players_foundation
+      players_vehicles -->|related| players_skills_xp
+      players_vehicles -->|related| players_map_locations
+      players_vehicles -->|conforms_to| meta_style_guide
+      admins_rcon_commands -->|deepens| admins_foundation
+      admins_rcon_commands -->|complements| admins_server_ini_reference
+      admins_rcon_commands -->|complements| admins_sandboxvars_reference
+      admins_rcon_commands -->|conforms_to| meta_style_guide
+      admins_backups_migration -->|deepens| admins_foundation
+      admins_backups_migration -->|references| admins_server_ini_reference
+      admins_backups_migration -->|references| admins_sandboxvars_reference
+      admins_backups_migration -->|references| lore_foundation
+      admins_backups_migration -->|references| meta_style_guide
+      admins_performance_tuning -->|deepens| admins_foundation
+      admins_performance_tuning -->|complements| admins_server_ini_reference
+      admins_performance_tuning -->|complements| admins_sandboxvars_reference
+      admins_performance_tuning -->|complements| meta_style_guide
+      players_medical_moodles -->|deepens| players_foundation
+      players_medical_moodles -->|cross_references| players_skills_xp
+      players_medical_moodles -->|cross_references| admins_sandboxvars_reference
+      players_medical_moodles -->|conforms_to| meta_style_guide
       admins_sandboxvars_reference -->|informs| players_foundation
       admins_sandboxvars_reference -->|conforms_to| meta_style_guide
     ```

@@ -23,6 +23,70 @@
       ]
     },
     {
+      "id": "admins-backups-migration",
+      "title": "Backups, Saves and Migration: Protecting a Server World",
+      "topic": "Server operations",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/admins/admins-backups-migration.md",
+      "category": "Admins",
+      "document_type": "reference",
+      "review_due": "2026-10-31",
+      "created": "2026-07-31",
+      "related": [
+        "admins-foundation",
+        "admins-server-ini-reference",
+        "admins-sandboxvars-reference",
+        "lore-foundation",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "admins-performance-tuning",
+      "title": "Server Performance: Memory, CPU and the Levers That Are Actually Documented",
+      "topic": "Server operations",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/admins/admins-performance-tuning.md",
+      "category": "Admins",
+      "document_type": "reference",
+      "review_due": "2026-10-31",
+      "created": "2026-07-31",
+      "related": [
+        "admins-foundation",
+        "admins-server-ini-reference",
+        "admins-sandboxvars-reference",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "admins-rcon-commands",
+      "title": "RCON and Admin Commands: Operating a Live Server",
+      "topic": "Server operations",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/admins/admins-rcon-commands.md",
+      "category": "Admins",
+      "document_type": "reference",
+      "review_due": "2026-10-31",
+      "created": "2026-07-31",
+      "related": [
+        "admins-foundation",
+        "admins-server-ini-reference",
+        "admins-sandboxvars-reference",
+        "meta-style-guide"
+      ]
+    },
+    {
       "id": "admins-sandboxvars-reference",
       "title": "SandboxVars Reference: Gameplay Rules per Server",
       "topic": "Server configuration",
@@ -237,6 +301,27 @@
         "players-foundation",
         "lore-foundation",
         "players-vehicles",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "players-medical-moodles",
+      "title": "Health, Injuries and Moodles: The Body Simulation",
+      "topic": "Medical & moodles",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/players/players-medical-moodles.md",
+      "category": "Players",
+      "document_type": "reference",
+      "review_due": "2026-10-31",
+      "created": "2026-07-31",
+      "related": [
+        "players-foundation",
+        "players-skills-xp",
+        "admins-sandboxvars-reference",
         "meta-style-guide"
       ]
     },
@@ -693,6 +778,108 @@
     },
     {
       "from": "players-vehicles",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "admins-rcon-commands",
+      "to": "admins-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "admins-rcon-commands",
+      "to": "admins-server-ini-reference",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "admins-rcon-commands",
+      "to": "admins-sandboxvars-reference",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "admins-rcon-commands",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "admins-backups-migration",
+      "to": "admins-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "admins-backups-migration",
+      "to": "admins-server-ini-reference",
+      "rel": "references",
+      "target": "known"
+    },
+    {
+      "from": "admins-backups-migration",
+      "to": "admins-sandboxvars-reference",
+      "rel": "references",
+      "target": "known"
+    },
+    {
+      "from": "admins-backups-migration",
+      "to": "lore-foundation",
+      "rel": "references",
+      "target": "known"
+    },
+    {
+      "from": "admins-backups-migration",
+      "to": "meta-style-guide",
+      "rel": "references",
+      "target": "known"
+    },
+    {
+      "from": "admins-performance-tuning",
+      "to": "admins-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "admins-performance-tuning",
+      "to": "admins-server-ini-reference",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "admins-performance-tuning",
+      "to": "admins-sandboxvars-reference",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "admins-performance-tuning",
+      "to": "meta-style-guide",
+      "rel": "complements",
+      "target": "known"
+    },
+    {
+      "from": "players-medical-moodles",
+      "to": "players-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "players-medical-moodles",
+      "to": "players-skills-xp",
+      "rel": "cross_references",
+      "target": "known"
+    },
+    {
+      "from": "players-medical-moodles",
+      "to": "admins-sandboxvars-reference",
+      "rel": "cross_references",
+      "target": "known"
+    },
+    {
+      "from": "players-medical-moodles",
       "to": "meta-style-guide",
       "rel": "conforms_to",
       "target": "known"

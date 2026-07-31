@@ -46,6 +46,8 @@ DEFAULT_PAGES = [
     "Lua (API)", "Lua (language)",
     "Farming", "Agriculture", "First Aid", "Fishing", "Foraging",
     "Carpentry", "Cooking", "Vehicle", "Mechanics",
+    "Knox Infection", "Health", "Skill book", "Custom Sandbox", "Crafting",
+    "Fluid", "Fluid container", "Running", "Sandbox options", "Tech Support",
     "Animals", "Husbandry", "Animal care", "Butchering", "Tracking",
     "Blacksmithing", "Knapping", "Masonry", "Carving", "Pottery",
     "Glassmaking", "Welding", "Brewing",
@@ -102,7 +104,12 @@ def main() -> int:
             encoding="utf-8").splitlines() if ln.strip()]
 
     OUT.mkdir(parents=True, exist_ok=True)
+    # Merge into the existing manifest so partial (--pages) runs never drop
+    # provenance for pages ingested earlier.
+    manifest_path = OUT / "manifest.json"
     manifest: dict[str, dict] = {}
+    if manifest_path.exists():
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     ok = skipped = 0
     for title in pages:
         try:
