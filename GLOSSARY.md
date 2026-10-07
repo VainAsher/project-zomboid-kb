@@ -41,6 +41,27 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | loadModAfter= / loadModBefore= (mod.info) | `mod.info` fields that force a mod to load after or before a comma-separated list of named Mod IDs; the documented load-order lever, independent of `Mods=` position. | Tier 3 |
 | Workshop tag | A category label attached to a Steam Workshop item from a predefined list the game itself supplies (including build-version tags Build 40/41/42); author-applied, not independently verified. | Tier 2 |
 | Workshop "Update Required" state | A per-item Workshop download-state label distinct from "Installed," meaning the client or server's cached copy is stale relative to what Steam currently serves for that item. | Tier 2 |
+| Stub (Umbrella) | A Lua file of EmmyLua-annotated declarations with empty bodies, used for editor intellisense and as this KB's API-existence ground truth; not the game's runtime code. | Tier 2 |
+| Candle | The library/Candle folder in the pinned B41 Umbrella tree holding Java-exposed class stubs; the B42 tree uses library/java instead. | Tier 2 |
+| API index | The KB's machine-readable per-build list of classes, members, events and globals extracted from the pinned Umbrella stubs (sources/schemas/api-index-*.json); the data behind check_api_exists.py. | — |
+| Event (PZ Lua) | A named hook in the global Events table with Add and Remove functions; the engine calls registered Lua callbacks when it fires. | Tier 2 |
+| Callback alias | The Callback_<Name> type alias in the Umbrella event stubs that records an event's parameter list. | Tier 2 |
+| LuaEventManager | Java class exposed to Lua with AddEvent and triggerEvent for creating and firing events. | Tier 2 |
+| Options section | Object returned by PZAPI.ModOptions:create; one per modOptionsID, shown as a named section in the game options (B42). | Tier 2 |
+| Version folder / common folder | B42 mod subfolders named after a game version, plus a common folder loaded before the closest version folder. | Tier 3 |
+| workshop.txt | Uploader-generated file holding a Workshop item's version, id, title, description, tags and visibility. | Tier 3 |
+| Script file (zedscript) | A .txt file under media/scripts/ in a custom block format defining items, recipes and more; data, not a programming language. | Tier 3 |
+| Full type | The module.id form of a script entry, for example Base.Nails. | Tier 2 |
+| Procedural distribution | A named loot list (rolls plus alternating item name and weight) referenced by room and container tables. | Tier 2 |
+| Module (command) | First argument of sendClientCommand/sendServerCommand; a string namespace, conventionally the mod's name. | Tier 2 |
+| Global mod data | Named tables managed by ModData (add/get/getOrCreate/request/transmit), as opposed to per-object getModData() tables. | Tier 2 |
+| Halo text | Short floating text above a character, produced via HaloTextHelper. | Tier 2 |
+| Effective removal | A member declared by a class in the B41 index that neither the class nor any ancestor declares in the B42 index. | — |
+| Stub noise | Index differences caused by how the stub generator documents a class, not by a game change. | — |
+| registries.lua | B42 (42.13+) file, exact name, at media/registries.lua, loaded before scripts and other Lua; declares namespaced IDs via X.register("namespace:name") for traits, professions, item tags, item types, body locations, moodles, weapon categories, ammo types, brochures, fliers and newspapers. | Tier 1 |
+| Registry ID | A namespace:name identifier (for example testmod:bobbypin) that scripts reference after it is registered in registries.lua. | Tier 1 |
+| Timed Action split (perform/complete) | B42 MP pattern: perform runs on the client for sound, animation and UI; complete runs on the server for item and object changes; singleplayer runs perform then complete. | Tier 1 |
+| getDuration cycle | Unit returned by a Timed Action's getDuration: one cycle is 0.02 s, so 1 s = 50; 1 = instant, -1 = infinite. | Tier 1 |
 
 ## Skills, traits & crafting
 

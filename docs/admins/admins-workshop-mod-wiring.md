@@ -555,7 +555,7 @@ its siblings — lives, per the B42 versioned-folder restructuring that
   Accessed 2026-07-31.
 - [2] **PZ-Wiki-Modding** — *PZ API Documentation: ROOT-ModInfo* (ScriptsDocs;
   generated from parsed script/Lua/Java data; page titled "PZ API
-  Documentation 42.20.0"). https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/roots/modinfo.html.
+  Documentation 42.20.0"). https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/modinfo.html.
   Accessed 2026-07-31.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL +

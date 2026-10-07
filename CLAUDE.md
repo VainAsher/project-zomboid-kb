@@ -49,14 +49,15 @@ python scripts/audit_genre.py --strict     # evidence cites; claims quarantined 
 python scripts/check_license_hygiene.py    # no pzwiki prose overlap
 npx --no-install markdownlint-cli2 "docs/**/*.md" "*.md"
 python scripts/check_links.py              # 0 dead links (orchestrator re-runs independently)
+python scripts/check_api_exists.py         # Modder docs: Events.X / Class:method exist in pinned Umbrella
+python scripts/check_server_settings.py    # Admin docs: setting keys exist in schema
 python scripts/build_graph.py              # cross-references resolve
 python scripts/build_rag.py && python scripts/build_site.py   # exports current
 ```
 
-Planned deterministic gates (Stage 1, once corpora are ingested): API-existence
-(Modder docs vs pinned Umbrella/ZomboidDoc index per build) and server-setting
-existence/range (Admin docs vs the reference server.ini / SandboxVars schema
-per build). See `ROADMAP.md`.
+Freshness: `python scripts/check_freshness.py` (informational; exit 2 = pinned
+builds behind Steam news). Server-setting range checks remain planned. See
+`ROADMAP.md`.
 
 ## Repo map
 

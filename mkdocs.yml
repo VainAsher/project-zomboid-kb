@@ -55,6 +55,12 @@ nav:
       - "SandboxVars Reference: Gameplay Rules per Server": admins/admins-sandboxvars-reference.md
       - "server.ini Reference: The Settings That Matter, by Area": admins/admins-server-ini-reference.md
       - "Wiring Workshop Mods into a Server: IDs, Load Order and Updates": admins/admins-workshop-mod-wiring.md
+      - "Events and Callbacks: Hooking the Game Loop with Events.X.Add": modders/modders-events-callbacks.md
+      - "Item Scripts, Recipes and Loot Distributions: Defining Content Through Script Files": modders/modders-item-scripts-distributions.md
+      - "The Project Zomboid Lua API Surface: Java-Exposed Classes, Globals and the Per-Build Differences": modders/modders-lua-api-surface.md
+      - "mod.info, Mod IDs and the B42 Versioned Mod Folder Layout": modders/modders-modinfo-modid-conventions.md
+      - "PZAPI.ModOptions and the B42 Mod Settings API: Building an Options Screen": modders/modders-modoptions-pzapi.md
+      - "Multiplayer Mod Networking: Client/Server Lua, sendClientCommand and Porting for B42 MP": modders/modders-mp-networking-porting.md
       - "Animals and Husbandry in Build 42": players/players-animals-husbandry.md
       - "The B42 Crafting Overhaul: From Knapping to Blacksmithing": players/players-crafting-chains.md
       - "Farming, Foraging and Food: Feeding a Survivor Long-Term": players/players-farming-food.md
@@ -67,5 +73,7 @@ nav:
       - "Keeping a Build 41 Server Alive: The legacy41 Runbook": admins/admins-legacy41-runbook.md
       - "Running a Modded Server: Selection, Rollout and Update Discipline": admins/admins-modded-server-runbook.md
       - "Ubuntu Dedicated Server Runbook: SteamCMD to systemd": admins/admins-ubuntu-runbook.md
+      - "Your First Build 42 Mod: A Verified Step-by-Step Tutorial": modders/modders-first-mod-tutorial-b42.md
+      - "Porting a Build 41 Mod to Build 42: A Diff-Driven Checklist": modders/modders-porting-b41-to-b42.md
       - "The B41 Veteran's Guide to Build 42: What Your Instincts Get Wrong": players/players-b41-to-b42-transition.md
       - "Starting Project Zomboid on Build 42.20: A First-Week Survival Guide": players/players-beginner-guide-b42.md

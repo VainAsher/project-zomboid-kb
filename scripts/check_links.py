@@ -51,6 +51,8 @@ BOT_BLOCK_HOSTS = {
     "steamcommunity.com",          # workshop/guide pages sometimes challenge
     "discord.com",                 # invite/channel links never 200 for bots
     "discord.gg",
+    "map.projectzomboid.com",      # official community map; 403s non-browser agents
+    "legionhosting.net",           # hosting-company KB; 403s bots (corroborate-only source)
 }
 
 DEFAULT_PATHS = [

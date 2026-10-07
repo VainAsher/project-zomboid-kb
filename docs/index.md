@@ -5,9 +5,9 @@
 
 Evidence-based, source-cited Project Zomboid reference for modders, players, server admins and creators — every document version-tagged for Build 41 (legacy41) and Build 42.
 
-**25 documents** across **18 topics** — every factual claim carries a citation to a primary or authoritative source, unverified community claims are labelled and quarantined, and build tags, links, citations and structure are checked automatically in CI.
+**33 documents** across **26 topics** — every factual claim carries a citation to a primary or authoritative source, unverified community claims are labelled and quarantined, and build tags, links, citations and structure are checked automatically in CI.
 
-*Confidence: 1 High · 24 Medium · 0 Low.*  *Build: B41 1 · B42 3 · both 20 · historic 1.*
+*Confidence: 1 High · 32 Medium · 0 Low.*  *Build: B41 1 · B42 4 · both 27 · historic 1.*
 
 ## Class 1 — Track foundations (Modders / Players / Admins / Creator)
 
@@ -26,6 +26,12 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
 - [SandboxVars Reference: Gameplay Rules per Server](admins/admins-sandboxvars-reference.md) — *Server configuration* (both)
 - [server.ini Reference: The Settings That Matter, by Area](admins/admins-server-ini-reference.md) — *Server configuration* (both)
 - [Wiring Workshop Mods into a Server: IDs, Load Order and Updates](admins/admins-workshop-mod-wiring.md) — *Server operations* (both)
+- [Events and Callbacks: Hooking the Game Loop with Events.X.Add](modders/modders-events-callbacks.md) — *Events & callbacks* (both)
+- [Item Scripts, Recipes and Loot Distributions: Defining Content Through Script Files](modders/modders-item-scripts-distributions.md) — *Item scripts & distributions* (both)
+- [The Project Zomboid Lua API Surface: Java-Exposed Classes, Globals and the Per-Build Differences](modders/modders-lua-api-surface.md) — *Lua API surface* (both)
+- [mod.info, Mod IDs and the B42 Versioned Mod Folder Layout](modders/modders-modinfo-modid-conventions.md) — *mod.info & Mod ID conventions* (both)
+- [PZAPI.ModOptions and the B42 Mod Settings API: Building an Options Screen](modders/modders-modoptions-pzapi.md) — *ModOptions & PZAPI* (both)
+- [Multiplayer Mod Networking: Client/Server Lua, sendClientCommand and Porting for B42 MP](modders/modders-mp-networking-porting.md) — *MP networking porting* (both)
 - [Animals and Husbandry in Build 42](players/players-animals-husbandry.md) — *Animals & husbandry* (B42)
 - [The B42 Crafting Overhaul: From Knapping to Blacksmithing](players/players-crafting-chains.md) — *Crafting* (both)
 - [Farming, Foraging and Food: Feeding a Survivor Long-Term](players/players-farming-food.md) — *Farming & food* (both)
@@ -40,6 +46,8 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
 - [Keeping a Build 41 Server Alive: The legacy41 Runbook](admins/admins-legacy41-runbook.md) — *Server runbooks* (B41)
 - [Running a Modded Server: Selection, Rollout and Update Discipline](admins/admins-modded-server-runbook.md) — *Server runbooks* (both)
 - [Ubuntu Dedicated Server Runbook: SteamCMD to systemd](admins/admins-ubuntu-runbook.md) — *Server runbooks* (both)
+- [Your First Build 42 Mod: A Verified Step-by-Step Tutorial](modders/modders-first-mod-tutorial-b42.md) — *First mod tutorial* (B42)
+- [Porting a Build 41 Mod to Build 42: A Diff-Driven Checklist](modders/modders-porting-b41-to-b42.md) — *Porting B41 mods to B42* (both)
 - [The B41 Veteran's Guide to Build 42: What Your Instincts Get Wrong](players/players-b41-to-b42-transition.md) — *Guides* (both)
 - [Starting Project Zomboid on Build 42.20: A First-Week Survival Guide](players/players-beginner-guide-b42.md) — *Guides* (B42)
 
@@ -64,6 +72,12 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
         admins_sandboxvars_reference["admins-sandboxvars-reference"]
         admins_server_ini_reference["admins-server-ini-reference"]
         admins_workshop_mod_wiring["admins-workshop-mod-wiring"]
+        modders_events_callbacks["modders-events-callbacks"]
+        modders_item_scripts_distributions["modders-item-scripts-distributions"]
+        modders_lua_api_surface["modders-lua-api-surface"]
+        modders_modinfo_modid_conventions["modders-modinfo-modid-conventions"]
+        modders_modoptions_pzapi["modders-modoptions-pzapi"]
+        modders_mp_networking_porting["modders-mp-networking-porting"]
         players_animals_husbandry["players-animals-husbandry"]
         players_crafting_chains["players-crafting-chains"]
         players_farming_food["players-farming-food"]
@@ -77,6 +91,8 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
         admins_legacy41_runbook["admins-legacy41-runbook"]
         admins_modded_server_runbook["admins-modded-server-runbook"]
         admins_ubuntu_runbook["admins-ubuntu-runbook"]
+        modders_first_mod_tutorial_b42["modders-first-mod-tutorial-b42"]
+        modders_porting_b41_to_b42["modders-porting-b41-to-b42"]
         players_b41_to_b42_transition["players-b41-to-b42-transition"]
         players_beginner_guide_b42["players-beginner-guide-b42"]
       end
@@ -207,6 +223,95 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
       players_beginner_guide_b42 -->|cross_references| players_medical_moodles
       players_beginner_guide_b42 -->|cross_references| players_map_locations
       players_beginner_guide_b42 -->|conforms_to| meta_style_guide
+      modders_lua_api_surface -->|deepens| modders_foundation
+      modders_lua_api_surface -->|related| modders_events_callbacks
+      modders_lua_api_surface -->|related| modders_modoptions_pzapi
+      modders_lua_api_surface -->|related| modders_item_scripts_distributions
+      modders_lua_api_surface -->|related| modders_mp_networking_porting
+      modders_lua_api_surface -->|related| modders_modinfo_modid_conventions
+      modders_lua_api_surface -->|related| modders_first_mod_tutorial_b42
+      modders_lua_api_surface -->|related| modders_porting_b41_to_b42
+      modders_lua_api_surface -->|conforms_to| meta_style_guide
+      modders_events_callbacks -->|deepens| modders_foundation
+      modders_events_callbacks -->|related| modders_lua_api_surface
+      modders_events_callbacks -->|related| modders_modoptions_pzapi
+      modders_events_callbacks -->|related| modders_item_scripts_distributions
+      modders_events_callbacks -->|related| modders_mp_networking_porting
+      modders_events_callbacks -->|related| modders_modinfo_modid_conventions
+      modders_events_callbacks -->|related| modders_first_mod_tutorial_b42
+      modders_events_callbacks -->|related| modders_porting_b41_to_b42
+      modders_events_callbacks -->|conforms_to| meta_style_guide
+      modders_modoptions_pzapi -->|deepens| modders_foundation
+      modders_modoptions_pzapi -->|related| modders_lua_api_surface
+      modders_modoptions_pzapi -->|related| modders_events_callbacks
+      modders_modoptions_pzapi -->|related| modders_item_scripts_distributions
+      modders_modoptions_pzapi -->|related| modders_mp_networking_porting
+      modders_modoptions_pzapi -->|related| modders_modinfo_modid_conventions
+      modders_modoptions_pzapi -->|related| modders_first_mod_tutorial_b42
+      modders_modoptions_pzapi -->|related| modders_porting_b41_to_b42
+      modders_modoptions_pzapi -->|conforms_to| meta_style_guide
+      modders_item_scripts_distributions -->|deepens| modders_foundation
+      modders_item_scripts_distributions -->|related| modders_lua_api_surface
+      modders_item_scripts_distributions -->|related| modders_events_callbacks
+      modders_item_scripts_distributions -->|related| modders_modoptions_pzapi
+      modders_item_scripts_distributions -->|related| modders_mp_networking_porting
+      modders_item_scripts_distributions -->|related| modders_modinfo_modid_conventions
+      modders_item_scripts_distributions -->|related| modders_first_mod_tutorial_b42
+      modders_item_scripts_distributions -->|related| modders_porting_b41_to_b42
+      modders_item_scripts_distributions -->|conforms_to| meta_style_guide
+      modders_mp_networking_porting -->|deepens| modders_foundation
+      modders_mp_networking_porting -->|related| modders_lua_api_surface
+      modders_mp_networking_porting -->|related| modders_events_callbacks
+      modders_mp_networking_porting -->|related| modders_modoptions_pzapi
+      modders_mp_networking_porting -->|related| modders_item_scripts_distributions
+      modders_mp_networking_porting -->|related| modders_modinfo_modid_conventions
+      modders_mp_networking_porting -->|related| modders_first_mod_tutorial_b42
+      modders_mp_networking_porting -->|related| modders_porting_b41_to_b42
+      modders_mp_networking_porting -->|conforms_to| meta_style_guide
+      modders_modinfo_modid_conventions -->|deepens| modders_foundation
+      modders_modinfo_modid_conventions -->|related| modders_lua_api_surface
+      modders_modinfo_modid_conventions -->|related| modders_events_callbacks
+      modders_modinfo_modid_conventions -->|related| modders_modoptions_pzapi
+      modders_modinfo_modid_conventions -->|related| modders_item_scripts_distributions
+      modders_modinfo_modid_conventions -->|related| modders_mp_networking_porting
+      modders_modinfo_modid_conventions -->|related| modders_first_mod_tutorial_b42
+      modders_modinfo_modid_conventions -->|related| modders_porting_b41_to_b42
+      modders_modinfo_modid_conventions -->|conforms_to| meta_style_guide
+      modders_first_mod_tutorial_b42 -->|deepens| modders_foundation
+      modders_first_mod_tutorial_b42 -->|related| modders_lua_api_surface
+      modders_first_mod_tutorial_b42 -->|related| modders_events_callbacks
+      modders_first_mod_tutorial_b42 -->|related| modders_modoptions_pzapi
+      modders_first_mod_tutorial_b42 -->|related| modders_item_scripts_distributions
+      modders_first_mod_tutorial_b42 -->|related| modders_mp_networking_porting
+      modders_first_mod_tutorial_b42 -->|related| modders_modinfo_modid_conventions
+      modders_first_mod_tutorial_b42 -->|related| modders_porting_b41_to_b42
+      modders_first_mod_tutorial_b42 -->|conforms_to| meta_style_guide
+      modders_porting_b41_to_b42 -->|deepens| modders_foundation
+      modders_porting_b41_to_b42 -->|related| modders_lua_api_surface
+      modders_porting_b41_to_b42 -->|related| modders_events_callbacks
+      modders_porting_b41_to_b42 -->|related| modders_modoptions_pzapi
+      modders_porting_b41_to_b42 -->|related| modders_item_scripts_distributions
+      modders_porting_b41_to_b42 -->|related| modders_mp_networking_porting
+      modders_porting_b41_to_b42 -->|related| modders_modinfo_modid_conventions
+      modders_porting_b41_to_b42 -->|related| modders_first_mod_tutorial_b42
+      modders_porting_b41_to_b42 -->|conforms_to| meta_style_guide
+      modders_item_scripts_distributions -->|relates_to| players_crafting_chains
+      modders_porting_b41_to_b42 -->|relates_to| players_crafting_chains
+      modders_porting_b41_to_b42 -->|relates_to| admins_workshop_mod_wiring
+      modders_modinfo_modid_conventions -->|relates_to| admins_workshop_mod_wiring
+      modders_first_mod_tutorial_b42 -->|prerequisite_for| modders_lua_api_surface
+      modders_first_mod_tutorial_b42 -->|prerequisite_for| modders_events_callbacks
+      modders_lua_api_surface -->|related| players_crafting_chains
+      modders_lua_api_surface -->|related| admins_workshop_mod_wiring
+      modders_events_callbacks -->|related| players_crafting_chains
+      modders_events_callbacks -->|related| admins_workshop_mod_wiring
+      modders_modoptions_pzapi -->|related| admins_workshop_mod_wiring
+      modders_item_scripts_distributions -->|related| admins_workshop_mod_wiring
+      modders_mp_networking_porting -->|related| players_crafting_chains
+      modders_mp_networking_porting -->|related| admins_workshop_mod_wiring
+      modders_modinfo_modid_conventions -->|related| players_crafting_chains
+      modders_first_mod_tutorial_b42 -->|related| players_crafting_chains
+      modders_first_mod_tutorial_b42 -->|related| admins_workshop_mod_wiring
     ```
 
 ## Machine-readable exports

@@ -36,6 +36,14 @@ Tiers: 1 = track foundations · 2 = core reference · 3 = guides/tutorials/runbo
 | players-skills-xp | Skills and XP: Levelling, Multipliers and the B42 Skill Roster | Skills & XP | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-skills-xp.md` |
 | players-traits-occupations | Traits and Occupations: Points, Rosters and the B42 Rework | Traits & occupations | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-traits-occupations.md` |
 | players-vehicles | Vehicles: Finding, Fixing and Driving Across Both Builds | Vehicles | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-vehicles.md` |
+| modders-lua-api-surface | The Project Zomboid Lua API Surface: Java-Exposed Classes, Globals and the Per-Build Differences | Lua API surface | 2 | both | 0.1.0 | in-review | Medium | `docs/modders/modders-lua-api-surface.md` |
+| modders-events-callbacks | Events and Callbacks: Hooking the Game Loop with Events.X.Add | Events & callbacks | 2 | both | 0.1.0 | in-review | Medium | `docs/modders/modders-events-callbacks.md` |
+| modders-modoptions-pzapi | PZAPI.ModOptions and the B42 Mod Settings API: Building an Options Screen | ModOptions & PZAPI | 2 | both | 0.1.0 | in-review | Medium | `docs/modders/modders-modoptions-pzapi.md` |
+| modders-item-scripts-distributions | Item Scripts, Recipes and Loot Distributions: Defining Content Through Script Files | Item scripts & distributions | 2 | both | 0.2.0 | in-review | Medium | `docs/modders/modders-item-scripts-distributions.md` |
+| modders-mp-networking-porting | Multiplayer Mod Networking: Client/Server Lua, sendClientCommand and Porting for B42 MP | MP networking porting | 2 | both | 0.2.0 | in-review | Medium | `docs/modders/modders-mp-networking-porting.md` |
+| modders-modinfo-modid-conventions | mod.info, Mod IDs and the B42 Versioned Mod Folder Layout | mod.info & Mod ID conventions | 2 | both | 0.1.0 | in-review | Medium | `docs/modders/modders-modinfo-modid-conventions.md` |
+| modders-first-mod-tutorial-b42 | Your First Build 42 Mod: A Verified Step-by-Step Tutorial | First mod tutorial | 3 | B42 | 0.1.0 | in-review | Medium | `docs/modders/modders-first-mod-tutorial-b42.md` |
+| modders-porting-b41-to-b42 | Porting a Build 41 Mod to Build 42: A Diff-Driven Checklist | Porting B41 mods to B42 | 3 | both | 0.2.0 | in-review | Medium | `docs/modders/modders-porting-b41-to-b42.md` |
 
 ## Knowledge graph
 
@@ -112,6 +120,34 @@ Typed cross-reference edges, one bullet per source document:
 - `players-beginner-guide-b42` — *deepens* → `players-foundation`
 - `players-beginner-guide-b42` — *cross_references* → `players-skills-xp`, `players-traits-occupations`, `players-medical-moodles`, `players-map-locations`
 - `players-beginner-guide-b42` — *conforms_to* → `meta-style-guide`
+- `modders-lua-api-surface` — *deepens* → `modders-foundation`
+- `modders-lua-api-surface` — *related* → `modders-events-callbacks`, `modders-modoptions-pzapi`, `modders-item-scripts-distributions`, `modders-mp-networking-porting`, `modders-modinfo-modid-conventions`, `modders-first-mod-tutorial-b42`, `modders-porting-b41-to-b42`
+- `modders-lua-api-surface` — *conforms_to* → `meta-style-guide`
+- `modders-events-callbacks` — *deepens* → `modders-foundation`
+- `modders-events-callbacks` — *related* → `modders-lua-api-surface`, `modders-modoptions-pzapi`, `modders-item-scripts-distributions`, `modders-mp-networking-porting`, `modders-modinfo-modid-conventions`, `modders-first-mod-tutorial-b42`, `modders-porting-b41-to-b42`
+- `modders-events-callbacks` — *conforms_to* → `meta-style-guide`
+- `modders-modoptions-pzapi` — *deepens* → `modders-foundation`
+- `modders-modoptions-pzapi` — *related* → `modders-lua-api-surface`, `modders-events-callbacks`, `modders-item-scripts-distributions`, `modders-mp-networking-porting`, `modders-modinfo-modid-conventions`, `modders-first-mod-tutorial-b42`, `modders-porting-b41-to-b42`
+- `modders-modoptions-pzapi` — *conforms_to* → `meta-style-guide`
+- `modders-item-scripts-distributions` — *deepens* → `modders-foundation`
+- `modders-item-scripts-distributions` — *related* → `modders-lua-api-surface`, `modders-events-callbacks`, `modders-modoptions-pzapi`, `modders-mp-networking-porting`, `modders-modinfo-modid-conventions`, `modders-first-mod-tutorial-b42`, `modders-porting-b41-to-b42`
+- `modders-item-scripts-distributions` — *conforms_to* → `meta-style-guide`
+- `modders-mp-networking-porting` — *deepens* → `modders-foundation`
+- `modders-mp-networking-porting` — *related* → `modders-lua-api-surface`, `modders-events-callbacks`, `modders-modoptions-pzapi`, `modders-item-scripts-distributions`, `modders-modinfo-modid-conventions`, `modders-first-mod-tutorial-b42`, `modders-porting-b41-to-b42`
+- `modders-mp-networking-porting` — *conforms_to* → `meta-style-guide`
+- `modders-modinfo-modid-conventions` — *deepens* → `modders-foundation`
+- `modders-modinfo-modid-conventions` — *related* → `modders-lua-api-surface`, `modders-events-callbacks`, `modders-modoptions-pzapi`, `modders-item-scripts-distributions`, `modders-mp-networking-porting`, `modders-first-mod-tutorial-b42`, `modders-porting-b41-to-b42`
+- `modders-modinfo-modid-conventions` — *conforms_to* → `meta-style-guide`
+- `modders-first-mod-tutorial-b42` — *deepens* → `modders-foundation`
+- `modders-first-mod-tutorial-b42` — *related* → `modders-lua-api-surface`, `modders-events-callbacks`, `modders-modoptions-pzapi`, `modders-item-scripts-distributions`, `modders-mp-networking-porting`, `modders-modinfo-modid-conventions`, `modders-porting-b41-to-b42`
+- `modders-first-mod-tutorial-b42` — *conforms_to* → `meta-style-guide`
+- `modders-porting-b41-to-b42` — *deepens* → `modders-foundation`
+- `modders-porting-b41-to-b42` — *related* → `modders-lua-api-surface`, `modders-events-callbacks`, `modders-modoptions-pzapi`, `modders-item-scripts-distributions`, `modders-mp-networking-porting`, `modders-modinfo-modid-conventions`, `modders-first-mod-tutorial-b42`
+- `modders-porting-b41-to-b42` — *conforms_to* → `meta-style-guide`
+- `modders-item-scripts-distributions` — *relates_to* → `players-crafting-chains`
+- `modders-porting-b41-to-b42` — *relates_to* → `players-crafting-chains`, `admins-workshop-mod-wiring`
+- `modders-modinfo-modid-conventions` — *relates_to* → `admins-workshop-mod-wiring`
+- `modders-first-mod-tutorial-b42` — *prerequisite_for* → `modders-lua-api-surface`, `modders-events-callbacks`
 
 ## Approved taxonomy backlog (scope approved 2026-07-30)
 

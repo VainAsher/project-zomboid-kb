@@ -1,9 +1,51 @@
 # Project Status
 
-**Stage:** 2 — foundation cluster FROZEN (kb-release-2026.07.30);
-next: Stage-1 ingestion + the Players + Admins cluster.
+**Stage:** 2 — foundation cluster FROZEN (kb-release-2026.07.30); Players +
+Admins waves A–D merged (19 docs, all `in-review` v0.1.0, not yet frozen);
+Stage-1 API-existence gate armed; Modders wave E (8 docs) merged 2026-10-07.
 
-**Date:** 2026-07-30
+**Date:** 2026-10-07 (status refreshed; originally written 2026-07-30)
+
+## Wave E — Modders cluster (2026-10-07)
+
+8 docs merged `in-review` v0.1.0 (6 Tier-2 reference + first-mod tutorial +
+B41->B42 porting guide); 33 docs total. All gates green on the full set
+(validate, genre strict, license, API-existence 295 refs, server-settings,
+links, graph/RAG/site). markdownlint still unrunnable (not installed).
+Worker-found extractor bug (B41 `--- @class` with a space) fixed; B41 index
+regenerated and the two diff-dependent docs recomputed.
+
+Wave E follow-ups for a human or later pass:
+- DONE 2026-10-07: TIS forum 42.13 Migration Guide + "API for Inventory
+  Items" PDFs read (signed-in browser download by the user) and folded into
+  modders-mp-networking-porting, -item-scripts-distributions and
+  -porting-b41-to-b42 (all now v0.2.0). Guide is 42.13-era (2025-12-11); its
+  rules are not re-verified on 42.20/42.21. PDFs are TIS copyright, kept
+  outside the repo; citations point at the forum thread (sign-in needed).
+- Verify tutorial/ModOptions/item-script example code in a live 42.20 game.
+- B41 `Recipe` block syntax and `Mods=` ordering remain unsourced (quarantined).
+- Add pzwiki workshop.txt rev 1598215 to the pzwiki manifest (fetched live).
+- A worker reported env vars (incl. OPENAI_API_KEY) printed to a session log;
+  no secret is in the repo (grep clean) - consider rotating that key.
+- All Modders docs verified on Umbrella 42.20.0; 42.21 (2026-09-28) unverified.
+
+## State review 2026-10-07
+
+- 25 docs (6 foundations + 19 wave A–D). All gates green except none failing:
+  validate, genre audit (strict), license hygiene (67 pzwiki snapshots),
+  server-setting gate, links (0 dead), graph. Wave A–D docs are still
+  `in-review`; no freeze/`kb-release` since 2026.07.30.
+- **Game-version drift (new, unreconciled):** Steam news shows B42 stable is
+  now **42.21** (2026-09-28; hotfixes 42.20.1–42.20.4 in Aug) and legacy41 is
+  **41.78.21** (2026-08-26). Every doc is verified against 42.20 / 41.78.16-19.
+  Run `python scripts/check_freshness.py`. Needs a re-baseline decision.
+- Coverage gaps: Modders track has only its foundation; Creator and Lore only
+  foundations; Tier 3 modder tutorials and Creator calendar not started.
+- Added: `scripts/extract_api_index.py`, `scripts/check_api_exists.py`
+  (indices for B41 @ fa2e7e1 and B42 @ 58204fc in `sources/schemas/`),
+  `scripts/check_freshness.py`. Link fixes: ModInfo doc URL moved to
+  `scripts/root_files/modinfo.html`; two bot-blocking hosts allowlisted.
+- Stale locked git worktrees under `.claude/worktrees/` (wave D leftovers).
 
 ## Approved scope (human gate cleared 2026-07-30)
 

@@ -546,6 +546,226 @@
         "players-map-locations",
         "meta-style-guide"
       ]
+    },
+    {
+      "id": "modders-lua-api-surface",
+      "title": "The Project Zomboid Lua API Surface: Java-Exposed Classes, Globals and the Per-Build Differences",
+      "topic": "Lua API surface",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/modders/modders-lua-api-surface.md",
+      "category": "Modders",
+      "document_type": "reference",
+      "review_due": "2027-01-05",
+      "created": "2026-10-07",
+      "related": [
+        "modders-foundation",
+        "modders-events-callbacks",
+        "modders-modoptions-pzapi",
+        "modders-item-scripts-distributions",
+        "modders-mp-networking-porting",
+        "modders-modinfo-modid-conventions",
+        "modders-first-mod-tutorial-b42",
+        "modders-porting-b41-to-b42",
+        "players-crafting-chains",
+        "admins-workshop-mod-wiring",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "modders-events-callbacks",
+      "title": "Events and Callbacks: Hooking the Game Loop with Events.X.Add",
+      "topic": "Events & callbacks",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/modders/modders-events-callbacks.md",
+      "category": "Modders",
+      "document_type": "reference",
+      "review_due": "2027-01-05",
+      "created": "2026-10-07",
+      "related": [
+        "modders-foundation",
+        "modders-lua-api-surface",
+        "modders-modoptions-pzapi",
+        "modders-item-scripts-distributions",
+        "modders-mp-networking-porting",
+        "modders-modinfo-modid-conventions",
+        "modders-first-mod-tutorial-b42",
+        "modders-porting-b41-to-b42",
+        "players-crafting-chains",
+        "admins-workshop-mod-wiring",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "modders-modoptions-pzapi",
+      "title": "PZAPI.ModOptions and the B42 Mod Settings API: Building an Options Screen",
+      "topic": "ModOptions & PZAPI",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/modders/modders-modoptions-pzapi.md",
+      "category": "Modders",
+      "document_type": "reference",
+      "review_due": "2027-01-05",
+      "created": "2026-10-07",
+      "related": [
+        "modders-foundation",
+        "modders-lua-api-surface",
+        "modders-events-callbacks",
+        "modders-mp-networking-porting",
+        "modders-modinfo-modid-conventions",
+        "modders-first-mod-tutorial-b42",
+        "modders-porting-b41-to-b42",
+        "admins-workshop-mod-wiring",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "modders-item-scripts-distributions",
+      "title": "Item Scripts, Recipes and Loot Distributions: Defining Content Through Script Files",
+      "topic": "Item scripts & distributions",
+      "tier": "2",
+      "build": "both",
+      "version": "0.2.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/modders/modders-item-scripts-distributions.md",
+      "category": "Modders",
+      "document_type": "reference",
+      "review_due": "2027-01-05",
+      "created": "2026-10-07",
+      "related": [
+        "modders-foundation",
+        "modders-lua-api-surface",
+        "modders-events-callbacks",
+        "modders-modinfo-modid-conventions",
+        "modders-first-mod-tutorial-b42",
+        "modders-porting-b41-to-b42",
+        "players-crafting-chains",
+        "admins-workshop-mod-wiring",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "modders-mp-networking-porting",
+      "title": "Multiplayer Mod Networking: Client/Server Lua, sendClientCommand and Porting for B42 MP",
+      "topic": "MP networking porting",
+      "tier": "2",
+      "build": "both",
+      "version": "0.2.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/modders/modders-mp-networking-porting.md",
+      "category": "Modders",
+      "document_type": "reference",
+      "review_due": "2027-01-05",
+      "created": "2026-10-07",
+      "related": [
+        "modders-foundation",
+        "modders-lua-api-surface",
+        "modders-events-callbacks",
+        "modders-modoptions-pzapi",
+        "modders-item-scripts-distributions",
+        "modders-modinfo-modid-conventions",
+        "modders-first-mod-tutorial-b42",
+        "modders-porting-b41-to-b42",
+        "players-crafting-chains",
+        "admins-workshop-mod-wiring",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "modders-modinfo-modid-conventions",
+      "title": "mod.info, Mod IDs and the B42 Versioned Mod Folder Layout",
+      "topic": "mod.info & Mod ID conventions",
+      "tier": "2",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/modders/modders-modinfo-modid-conventions.md",
+      "category": "Modders",
+      "document_type": "reference",
+      "review_due": "2027-01-05",
+      "created": "2026-10-07",
+      "related": [
+        "modders-foundation",
+        "admins-workshop-mod-wiring",
+        "modders-lua-api-surface",
+        "modders-events-callbacks",
+        "modders-modoptions-pzapi",
+        "modders-item-scripts-distributions",
+        "modders-mp-networking-porting",
+        "modders-first-mod-tutorial-b42",
+        "modders-porting-b41-to-b42",
+        "players-crafting-chains",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "modders-first-mod-tutorial-b42",
+      "title": "Your First Build 42 Mod: A Verified Step-by-Step Tutorial",
+      "topic": "First mod tutorial",
+      "tier": "3",
+      "build": "B42",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/modders/modders-first-mod-tutorial-b42.md",
+      "category": "Modders",
+      "document_type": "tutorial",
+      "review_due": "2027-01-05",
+      "created": "2026-10-07",
+      "related": [
+        "modders-foundation",
+        "modders-lua-api-surface",
+        "modders-events-callbacks",
+        "modders-modoptions-pzapi",
+        "modders-item-scripts-distributions",
+        "modders-mp-networking-porting",
+        "modders-modinfo-modid-conventions",
+        "modders-porting-b41-to-b42",
+        "players-crafting-chains",
+        "admins-workshop-mod-wiring",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "modders-porting-b41-to-b42",
+      "title": "Porting a Build 41 Mod to Build 42: A Diff-Driven Checklist",
+      "topic": "Porting B41 mods to B42",
+      "tier": "3",
+      "build": "both",
+      "version": "0.2.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/modders/modders-porting-b41-to-b42.md",
+      "category": "Modders",
+      "document_type": "guide",
+      "review_due": "2027-01-05",
+      "created": "2026-10-07",
+      "related": [
+        "modders-foundation",
+        "modders-lua-api-surface",
+        "modders-events-callbacks",
+        "modders-modoptions-pzapi",
+        "modders-item-scripts-distributions",
+        "modders-mp-networking-porting",
+        "modders-modinfo-modid-conventions",
+        "modders-first-mod-tutorial-b42",
+        "players-crafting-chains",
+        "admins-workshop-mod-wiring",
+        "meta-style-guide"
+      ]
     }
   ],
   "edges": [
@@ -1309,6 +1529,540 @@
       "from": "players-beginner-guide-b42",
       "to": "meta-style-guide",
       "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-lua-api-surface",
+      "to": "modders-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "modders-lua-api-surface",
+      "to": "modders-events-callbacks",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-lua-api-surface",
+      "to": "modders-modoptions-pzapi",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-lua-api-surface",
+      "to": "modders-item-scripts-distributions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-lua-api-surface",
+      "to": "modders-mp-networking-porting",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-lua-api-surface",
+      "to": "modders-modinfo-modid-conventions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-lua-api-surface",
+      "to": "modders-first-mod-tutorial-b42",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-lua-api-surface",
+      "to": "modders-porting-b41-to-b42",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-lua-api-surface",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-events-callbacks",
+      "to": "modders-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "modders-events-callbacks",
+      "to": "modders-lua-api-surface",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-events-callbacks",
+      "to": "modders-modoptions-pzapi",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-events-callbacks",
+      "to": "modders-item-scripts-distributions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-events-callbacks",
+      "to": "modders-mp-networking-porting",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-events-callbacks",
+      "to": "modders-modinfo-modid-conventions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-events-callbacks",
+      "to": "modders-first-mod-tutorial-b42",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-events-callbacks",
+      "to": "modders-porting-b41-to-b42",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-events-callbacks",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-modoptions-pzapi",
+      "to": "modders-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "modders-modoptions-pzapi",
+      "to": "modders-lua-api-surface",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-modoptions-pzapi",
+      "to": "modders-events-callbacks",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-modoptions-pzapi",
+      "to": "modders-item-scripts-distributions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-modoptions-pzapi",
+      "to": "modders-mp-networking-porting",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-modoptions-pzapi",
+      "to": "modders-modinfo-modid-conventions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-modoptions-pzapi",
+      "to": "modders-first-mod-tutorial-b42",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-modoptions-pzapi",
+      "to": "modders-porting-b41-to-b42",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-modoptions-pzapi",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-item-scripts-distributions",
+      "to": "modders-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "modders-item-scripts-distributions",
+      "to": "modders-lua-api-surface",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-item-scripts-distributions",
+      "to": "modders-events-callbacks",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-item-scripts-distributions",
+      "to": "modders-modoptions-pzapi",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-item-scripts-distributions",
+      "to": "modders-mp-networking-porting",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-item-scripts-distributions",
+      "to": "modders-modinfo-modid-conventions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-item-scripts-distributions",
+      "to": "modders-first-mod-tutorial-b42",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-item-scripts-distributions",
+      "to": "modders-porting-b41-to-b42",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-item-scripts-distributions",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-mp-networking-porting",
+      "to": "modders-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "modders-mp-networking-porting",
+      "to": "modders-lua-api-surface",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-mp-networking-porting",
+      "to": "modders-events-callbacks",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-mp-networking-porting",
+      "to": "modders-modoptions-pzapi",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-mp-networking-porting",
+      "to": "modders-item-scripts-distributions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-mp-networking-porting",
+      "to": "modders-modinfo-modid-conventions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-mp-networking-porting",
+      "to": "modders-first-mod-tutorial-b42",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-mp-networking-porting",
+      "to": "modders-porting-b41-to-b42",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-mp-networking-porting",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-modinfo-modid-conventions",
+      "to": "modders-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "modders-modinfo-modid-conventions",
+      "to": "modders-lua-api-surface",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-modinfo-modid-conventions",
+      "to": "modders-events-callbacks",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-modinfo-modid-conventions",
+      "to": "modders-modoptions-pzapi",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-modinfo-modid-conventions",
+      "to": "modders-item-scripts-distributions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-modinfo-modid-conventions",
+      "to": "modders-mp-networking-porting",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-modinfo-modid-conventions",
+      "to": "modders-first-mod-tutorial-b42",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-modinfo-modid-conventions",
+      "to": "modders-porting-b41-to-b42",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-modinfo-modid-conventions",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-first-mod-tutorial-b42",
+      "to": "modders-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "modders-first-mod-tutorial-b42",
+      "to": "modders-lua-api-surface",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-first-mod-tutorial-b42",
+      "to": "modders-events-callbacks",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-first-mod-tutorial-b42",
+      "to": "modders-modoptions-pzapi",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-first-mod-tutorial-b42",
+      "to": "modders-item-scripts-distributions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-first-mod-tutorial-b42",
+      "to": "modders-mp-networking-porting",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-first-mod-tutorial-b42",
+      "to": "modders-modinfo-modid-conventions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-first-mod-tutorial-b42",
+      "to": "modders-porting-b41-to-b42",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-first-mod-tutorial-b42",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-porting-b41-to-b42",
+      "to": "modders-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "modders-porting-b41-to-b42",
+      "to": "modders-lua-api-surface",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-porting-b41-to-b42",
+      "to": "modders-events-callbacks",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-porting-b41-to-b42",
+      "to": "modders-modoptions-pzapi",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-porting-b41-to-b42",
+      "to": "modders-item-scripts-distributions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-porting-b41-to-b42",
+      "to": "modders-mp-networking-porting",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-porting-b41-to-b42",
+      "to": "modders-modinfo-modid-conventions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-porting-b41-to-b42",
+      "to": "modders-first-mod-tutorial-b42",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-porting-b41-to-b42",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-item-scripts-distributions",
+      "to": "players-crafting-chains",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-porting-b41-to-b42",
+      "to": "players-crafting-chains",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-porting-b41-to-b42",
+      "to": "admins-workshop-mod-wiring",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-modinfo-modid-conventions",
+      "to": "admins-workshop-mod-wiring",
+      "rel": "relates_to",
+      "target": "known"
+    },
+    {
+      "from": "modders-first-mod-tutorial-b42",
+      "to": "modders-lua-api-surface",
+      "rel": "prerequisite_for",
+      "target": "known"
+    },
+    {
+      "from": "modders-first-mod-tutorial-b42",
+      "to": "modders-events-callbacks",
+      "rel": "prerequisite_for",
+      "target": "known"
+    },
+    {
+      "from": "modders-lua-api-surface",
+      "to": "players-crafting-chains",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-lua-api-surface",
+      "to": "admins-workshop-mod-wiring",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-events-callbacks",
+      "to": "players-crafting-chains",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-events-callbacks",
+      "to": "admins-workshop-mod-wiring",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-modoptions-pzapi",
+      "to": "admins-workshop-mod-wiring",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-item-scripts-distributions",
+      "to": "admins-workshop-mod-wiring",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-mp-networking-porting",
+      "to": "players-crafting-chains",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-mp-networking-porting",
+      "to": "admins-workshop-mod-wiring",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-modinfo-modid-conventions",
+      "to": "players-crafting-chains",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-first-mod-tutorial-b42",
+      "to": "players-crafting-chains",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "modders-first-mod-tutorial-b42",
+      "to": "admins-workshop-mod-wiring",
+      "rel": "related",
       "target": "known"
     }
   ]

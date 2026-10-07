@@ -14,6 +14,12 @@ graph LR
     admins_sandboxvars_reference["admins-sandboxvars-reference"]
     admins_server_ini_reference["admins-server-ini-reference"]
     admins_workshop_mod_wiring["admins-workshop-mod-wiring"]
+    modders_events_callbacks["modders-events-callbacks"]
+    modders_item_scripts_distributions["modders-item-scripts-distributions"]
+    modders_lua_api_surface["modders-lua-api-surface"]
+    modders_modinfo_modid_conventions["modders-modinfo-modid-conventions"]
+    modders_modoptions_pzapi["modders-modoptions-pzapi"]
+    modders_mp_networking_porting["modders-mp-networking-porting"]
     players_animals_husbandry["players-animals-husbandry"]
     players_crafting_chains["players-crafting-chains"]
     players_farming_food["players-farming-food"]
@@ -27,6 +33,8 @@ graph LR
     admins_legacy41_runbook["admins-legacy41-runbook"]
     admins_modded_server_runbook["admins-modded-server-runbook"]
     admins_ubuntu_runbook["admins-ubuntu-runbook"]
+    modders_first_mod_tutorial_b42["modders-first-mod-tutorial-b42"]
+    modders_porting_b41_to_b42["modders-porting-b41-to-b42"]
     players_b41_to_b42_transition["players-b41-to-b42-transition"]
     players_beginner_guide_b42["players-beginner-guide-b42"]
   end
@@ -157,3 +165,92 @@ graph LR
   players_beginner_guide_b42 -->|cross_references| players_medical_moodles
   players_beginner_guide_b42 -->|cross_references| players_map_locations
   players_beginner_guide_b42 -->|conforms_to| meta_style_guide
+  modders_lua_api_surface -->|deepens| modders_foundation
+  modders_lua_api_surface -->|related| modders_events_callbacks
+  modders_lua_api_surface -->|related| modders_modoptions_pzapi
+  modders_lua_api_surface -->|related| modders_item_scripts_distributions
+  modders_lua_api_surface -->|related| modders_mp_networking_porting
+  modders_lua_api_surface -->|related| modders_modinfo_modid_conventions
+  modders_lua_api_surface -->|related| modders_first_mod_tutorial_b42
+  modders_lua_api_surface -->|related| modders_porting_b41_to_b42
+  modders_lua_api_surface -->|conforms_to| meta_style_guide
+  modders_events_callbacks -->|deepens| modders_foundation
+  modders_events_callbacks -->|related| modders_lua_api_surface
+  modders_events_callbacks -->|related| modders_modoptions_pzapi
+  modders_events_callbacks -->|related| modders_item_scripts_distributions
+  modders_events_callbacks -->|related| modders_mp_networking_porting
+  modders_events_callbacks -->|related| modders_modinfo_modid_conventions
+  modders_events_callbacks -->|related| modders_first_mod_tutorial_b42
+  modders_events_callbacks -->|related| modders_porting_b41_to_b42
+  modders_events_callbacks -->|conforms_to| meta_style_guide
+  modders_modoptions_pzapi -->|deepens| modders_foundation
+  modders_modoptions_pzapi -->|related| modders_lua_api_surface
+  modders_modoptions_pzapi -->|related| modders_events_callbacks
+  modders_modoptions_pzapi -->|related| modders_item_scripts_distributions
+  modders_modoptions_pzapi -->|related| modders_mp_networking_porting
+  modders_modoptions_pzapi -->|related| modders_modinfo_modid_conventions
+  modders_modoptions_pzapi -->|related| modders_first_mod_tutorial_b42
+  modders_modoptions_pzapi -->|related| modders_porting_b41_to_b42
+  modders_modoptions_pzapi -->|conforms_to| meta_style_guide
+  modders_item_scripts_distributions -->|deepens| modders_foundation
+  modders_item_scripts_distributions -->|related| modders_lua_api_surface
+  modders_item_scripts_distributions -->|related| modders_events_callbacks
+  modders_item_scripts_distributions -->|related| modders_modoptions_pzapi
+  modders_item_scripts_distributions -->|related| modders_mp_networking_porting
+  modders_item_scripts_distributions -->|related| modders_modinfo_modid_conventions
+  modders_item_scripts_distributions -->|related| modders_first_mod_tutorial_b42
+  modders_item_scripts_distributions -->|related| modders_porting_b41_to_b42
+  modders_item_scripts_distributions -->|conforms_to| meta_style_guide
+  modders_mp_networking_porting -->|deepens| modders_foundation
+  modders_mp_networking_porting -->|related| modders_lua_api_surface
+  modders_mp_networking_porting -->|related| modders_events_callbacks
+  modders_mp_networking_porting -->|related| modders_modoptions_pzapi
+  modders_mp_networking_porting -->|related| modders_item_scripts_distributions
+  modders_mp_networking_porting -->|related| modders_modinfo_modid_conventions
+  modders_mp_networking_porting -->|related| modders_first_mod_tutorial_b42
+  modders_mp_networking_porting -->|related| modders_porting_b41_to_b42
+  modders_mp_networking_porting -->|conforms_to| meta_style_guide
+  modders_modinfo_modid_conventions -->|deepens| modders_foundation
+  modders_modinfo_modid_conventions -->|related| modders_lua_api_surface
+  modders_modinfo_modid_conventions -->|related| modders_events_callbacks
+  modders_modinfo_modid_conventions -->|related| modders_modoptions_pzapi
+  modders_modinfo_modid_conventions -->|related| modders_item_scripts_distributions
+  modders_modinfo_modid_conventions -->|related| modders_mp_networking_porting
+  modders_modinfo_modid_conventions -->|related| modders_first_mod_tutorial_b42
+  modders_modinfo_modid_conventions -->|related| modders_porting_b41_to_b42
+  modders_modinfo_modid_conventions -->|conforms_to| meta_style_guide
+  modders_first_mod_tutorial_b42 -->|deepens| modders_foundation
+  modders_first_mod_tutorial_b42 -->|related| modders_lua_api_surface
+  modders_first_mod_tutorial_b42 -->|related| modders_events_callbacks
+  modders_first_mod_tutorial_b42 -->|related| modders_modoptions_pzapi
+  modders_first_mod_tutorial_b42 -->|related| modders_item_scripts_distributions
+  modders_first_mod_tutorial_b42 -->|related| modders_mp_networking_porting
+  modders_first_mod_tutorial_b42 -->|related| modders_modinfo_modid_conventions
+  modders_first_mod_tutorial_b42 -->|related| modders_porting_b41_to_b42
+  modders_first_mod_tutorial_b42 -->|conforms_to| meta_style_guide
+  modders_porting_b41_to_b42 -->|deepens| modders_foundation
+  modders_porting_b41_to_b42 -->|related| modders_lua_api_surface
+  modders_porting_b41_to_b42 -->|related| modders_events_callbacks
+  modders_porting_b41_to_b42 -->|related| modders_modoptions_pzapi
+  modders_porting_b41_to_b42 -->|related| modders_item_scripts_distributions
+  modders_porting_b41_to_b42 -->|related| modders_mp_networking_porting
+  modders_porting_b41_to_b42 -->|related| modders_modinfo_modid_conventions
+  modders_porting_b41_to_b42 -->|related| modders_first_mod_tutorial_b42
+  modders_porting_b41_to_b42 -->|conforms_to| meta_style_guide
+  modders_item_scripts_distributions -->|relates_to| players_crafting_chains
+  modders_porting_b41_to_b42 -->|relates_to| players_crafting_chains
+  modders_porting_b41_to_b42 -->|relates_to| admins_workshop_mod_wiring
+  modders_modinfo_modid_conventions -->|relates_to| admins_workshop_mod_wiring
+  modders_first_mod_tutorial_b42 -->|prerequisite_for| modders_lua_api_surface
+  modders_first_mod_tutorial_b42 -->|prerequisite_for| modders_events_callbacks
+  modders_lua_api_surface -->|related| players_crafting_chains
+  modders_lua_api_surface -->|related| admins_workshop_mod_wiring
+  modders_events_callbacks -->|related| players_crafting_chains
+  modders_events_callbacks -->|related| admins_workshop_mod_wiring
+  modders_modoptions_pzapi -->|related| admins_workshop_mod_wiring
+  modders_item_scripts_distributions -->|related| admins_workshop_mod_wiring
+  modders_mp_networking_porting -->|related| players_crafting_chains
+  modders_mp_networking_porting -->|related| admins_workshop_mod_wiring
+  modders_modinfo_modid_conventions -->|related| players_crafting_chains
+  modders_first_mod_tutorial_b42 -->|related| players_crafting_chains
+  modders_first_mod_tutorial_b42 -->|related| admins_workshop_mod_wiring
