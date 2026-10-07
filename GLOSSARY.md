@@ -22,6 +22,12 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | Bandage power | A per-item value governing how long a dressing stays effective before turning dirty; bandage types heal at the same rate and differ only in longevity and infection interaction. | Tier 3 |
 | Launch window | The weeks immediately after a major stable release, when returning-player traffic and search demand spike; for B42 it opened 2026-07-29. | Tier 1 |
 | Game mode (playstyle) | The top-level scenario chosen before spawn location and character creation, pre-filling Custom Sandbox with a themed settings preset (Apocalypse, Outbreak, Extinction, Rising on B42.20). | Tier 3 |
+| Day 0 | 9 July 1993, the in-fiction date a default game begins; the wiki numbers other days relative to it. | Tier 3 |
+| Knox Evacuation / blockade | The military road closure and removal of residents around Knox Country on 6 July 1993. | Tier 3 |
+| Channel (radio/TV) | A station as the code models it: name, frequency, category and a TV flag. | Tier 2 |
+| Broadcast | One airing of a channel script, modelled as lines plus start and end stamps. | Tier 2 |
+| Recorded media | The code system for CDs, tapes and similar playable media, including heard-line tracking. | Tier 2 |
+| Print media (B42) | The B42 family of readable newspapers, brochures and fliers with their own manager and reader UI classes. | Tier 2 |
 
 ## Modding
 
@@ -150,6 +156,14 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | Condensed playthrough (supercut) | A long survival run edited into a single narrative video, typically titled "I Survived N Days…"; the PZ ecosystem's most-cloned format. | Tier 5 |
 | Challenge run | A playthrough under self-imposed constraint rules (e.g. CDDA start, all negative traits), giving a repeatable per-episode premise without new game content. | Tier 5 |
 | VOD channel | A secondary YouTube channel where a creator archives full, lightly edited stream recordings, kept separate from the edited main channel. | Tier 5 |
+| Patch hook | A dated official release or announcement that gives a creator a timely reason to publish. | Tier 1 |
+| Unstable-first | TIS's stated release path since 42.21: unstable beta, community testing, then stable. | Tier 1 |
+| Evergreen slot | A scheduled, search-driven content slot whose topic does not depend on a specific patch. | Tier 5 |
+| Re-record trigger | A documented patch change that can make previously captured footage or narration inaccurate or visually dated. | Tier 5 |
+| Watch-page snapshot | The view count and upload date shown on a public YouTube watch page on a stated retrieval date; not creator analytics. | Tier 5 |
+| Displayed figure | A subscriber, video or view number exactly as YouTube displayed it on the retrieval date; platform-rounded, not analytics. | Tier 5 |
+| Funnel stage | One step on the path from video viewer to returning community member: discovery, capture, play, retention. | Tier 5 |
+| Asset use (TIS Terms) | Creative use of Project Zomboid art, music or footage, licensed only for promotional, non-commercial work with TIS's prescribed credit; distinct from the gameplay-video allowance. | Tier 1 |
 
 ## KB governance
 
@@ -160,3 +174,10 @@ JSON, never edit this file. `Source` points at `SOURCE_REGISTRY.md` tiers.
 | Guidance layer | The Practical Guidance and Common Pitfalls sections; may synthesise cited facts but may not introduce new uncited facts. | — |
 | Quarantine layer | The Community Notes & Unverified Claims section — the only place an uncited community claim may appear, always as a labelled Claim / Why unverified / Confidence block. | — |
 | Fact-only source | A source whose facts may be cited (with URL + revision-id provenance) but whose prose and table layouts must never be copied or lightly paraphrased; in this KB, pzwiki.net (CC BY-NC-SA 3.0). | Tier 3 |
+| kb-release tag | Annotated git tag kb-release-YYYY.MM.DD recording the game builds and Umbrella release tag a cluster freeze was validated against. | — |
+| Pin | A recorded external version (game build or Umbrella tag and commit, in sources/pins.json) that gates and documents are validated against. | — |
+| Drift | A newer official game build than the one pinned; check_freshness.py exits 2. | — |
+| Re-queue | Marking a document for fresh verification because its game_versions_verified or review_due is stale; currently a manual orchestrator action. | — |
+| Freeze | Promoting a reviewed document to 1.0.0 as part of a cluster release. | — |
+| Allowlisted host | A host in BOT_BLOCK_HOSTS in check_links.py; failures there are reported as WARN, not FAIL. | — |
+| License corpus | The local, gitignored pzwiki plain-text snapshots that check_license_hygiene.py compares documents against. | Tier 3 |

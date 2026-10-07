@@ -29,6 +29,32 @@ Wave E follow-ups for a human or later pass:
   no secret is in the repo (grep clean) - consider rotating that key.
 - All Modders docs verified on Umbrella 42.20.0; 42.21 (2026-09-28) unverified.
 
+## Wave F — Creator + Lore/meta (2026-10-07)
+
+8 docs merged `in-review` v0.1.0: creator (format catalogue, channel map,
+cross-promotion funnel, post-launch content calendar), lore (in-world media,
+Knox Event timeline), meta (release/versioning policy, source-registry
+companion). 41 docs total (6 frozen, 35 unfrozen). All gates green on my own
+run; links 395/399 live, 0 dead. Allowlist extended (support.discord.com,
+pzwiki.net, developer.valvesoftware.com).
+
+Wave F follow-ups:
+- NEXT: 42.21 re-baseline (read 42.20.1-42.21 notes incl. the forum 42.21
+  changelist topic 101693, re-pin Umbrella, bump `game_versions_verified`,
+  re-verify the 42.13-era MP/registry rules). ScriptsDocs is already stamped
+  42.21.0.
+- Lore docs rest on pzwiki pages stamped <=42.12; radio/TV/print pages are
+  not ingested in sources/pzwiki/ (ingest them).
+- Twitch and Valve's mod-content policy were not opened (creator docs list
+  them as gaps). TIS Terms 2.2 vs 2.5 overlap is left as an open question.
+- pzwiki manifest has a UTF-8 BOM (plain json.load fails) and 5 default-list
+  titles without manifest keys (Farming, Animals, Husbandry, Animal care,
+  Brewing).
+- meta-release-versioning-policy says "27 unfrozen" as a dated snapshot;
+  current count is 35.
+- CI (.github/workflows/qa.yml) does not yet run check_api_exists.py or
+  check_freshness.py; no LICENSE file for the KB's own prose.
+
 ## State review 2026-10-07
 
 - 25 docs (6 foundations + 19 wave A–D). All gates green except none failing:

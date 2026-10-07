@@ -7,6 +7,11 @@ document version with a revision note — never a silent edit.
 
 ### Added
 
+- 2026-10-07 — Wave F: Creator (format-catalogue, channel-competitor-map,
+  cross-promotion-funnel, content-calendar), Lore (in-world-media,
+  knox-event-timeline) and Meta (release-versioning-policy,
+  source-registry-companion) documents, v0.1.0 in-review; 41 docs total.
+
 - 2026-10-07 — Wave E revision 0.2.0 (3 Modders docs): official TIS 42.13
   Migration Guide and "API for Inventory Items" folded into
   mp-networking-porting (server-authoritative items, Timed Action split,

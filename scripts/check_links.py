@@ -52,6 +52,9 @@ BOT_BLOCK_HOSTS = {
     "discord.com",                 # invite/channel links never 200 for bots
     "discord.gg",
     "map.projectzomboid.com",      # official community map; 403s non-browser agents
+    "support.discord.com",          # Discord help centre; 403s non-browser agents
+    "pzwiki.net",                  # intermittent Cloudflare challenge on API/page fetches
+    "developer.valvesoftware.com", # Valve dev wiki; challenges bots
     "legionhosting.net",           # hosting-company KB; 403s bots (corroborate-only source)
 }
 

@@ -44,6 +44,14 @@ Tiers: 1 = track foundations · 2 = core reference · 3 = guides/tutorials/runbo
 | modders-modinfo-modid-conventions | mod.info, Mod IDs and the B42 Versioned Mod Folder Layout | mod.info & Mod ID conventions | 2 | both | 0.1.0 | in-review | Medium | `docs/modders/modders-modinfo-modid-conventions.md` |
 | modders-first-mod-tutorial-b42 | Your First Build 42 Mod: A Verified Step-by-Step Tutorial | First mod tutorial | 3 | B42 | 0.1.0 | in-review | Medium | `docs/modders/modders-first-mod-tutorial-b42.md` |
 | modders-porting-b41-to-b42 | Porting a Build 41 Mod to Build 42: A Diff-Driven Checklist | Porting B41 mods to B42 | 3 | both | 0.2.0 | in-review | Medium | `docs/modders/modders-porting-b41-to-b42.md` |
+| creator-format-catalogue | Project Zomboid Content Format Catalogue: What Works, What It Costs and Which Build It Needs | Format catalogue | 2 | B42 | 0.1.0 | in-review | Medium | `docs/creator/creator-format-catalogue.md` |
+| creator-channel-competitor-map | The Project Zomboid Creator Landscape: Channels, Niches and Gaps | Channel & competitor map | 2 | B42 | 0.1.0 | in-review | Medium | `docs/creator/creator-channel-competitor-map.md` |
+| creator-cross-promotion-funnel | From Video to Server to Mod: A Cross-Promotion Funnel for a Project Zomboid Creator | Cross-promotion funnel | 2 | B42 | 0.1.0 | in-review | Medium | `docs/creator/creator-cross-promotion-funnel.md` |
+| creator-content-calendar | Post-Launch Content Calendar for Build 42: Release Rhythm, Patch Hooks and Evergreen Slots | Content calendar | 3 | B42 | 0.1.0 | in-review | Medium | `docs/creator/creator-content-calendar.md` |
+| lore-in-world-media | In-World Media: Radio, Television, Print and Found Documents in Knox Country | In-world media | 4 | both | 0.1.0 | in-review | Medium | `docs/lore/lore-in-world-media.md` |
+| lore-knox-event-timeline | The Knox Event Timeline: What the Game Says Happened and When | Knox Event timeline | 4 | historic | 0.1.0 | in-review | Medium | `docs/lore/lore-knox-event-timeline.md` |
+| meta-release-versioning-policy | Release and Versioning Policy: Document Versions, kb-release Tags and Game-Build Pins | Release & versioning policy | 4 | both | 0.1.0 | in-review | High | `docs/meta/meta-release-versioning-policy.md` |
+| meta-source-registry-companion | Source Registry Companion: How Each Source Is Reached, What Is Ingested and What Is Blocked | Source registry companion | 4 | both | 0.1.0 | in-review | Medium | `docs/meta/meta-source-registry-companion.md` |
 
 ## Knowledge graph
 
@@ -148,6 +156,32 @@ Typed cross-reference edges, one bullet per source document:
 - `modders-porting-b41-to-b42` — *relates_to* → `players-crafting-chains`, `admins-workshop-mod-wiring`
 - `modders-modinfo-modid-conventions` — *relates_to* → `admins-workshop-mod-wiring`
 - `modders-first-mod-tutorial-b42` — *prerequisite_for* → `modders-lua-api-surface`, `modders-events-callbacks`
+- `creator-format-catalogue` — *deepens* → `creator-foundation`
+- `creator-format-catalogue` — *related* → `creator-channel-competitor-map`, `creator-cross-promotion-funnel`, `creator-content-calendar`
+- `creator-format-catalogue` — *fact_checks_with* → `players-beginner-guide-b42`, `players-b41-to-b42-transition`, `players-animals-husbandry`, `players-crafting-chains`, `admins-modded-server-runbook`, `modders-first-mod-tutorial-b42`, `lore-foundation`
+- `creator-format-catalogue` — *conforms_to* → `meta-style-guide`
+- `creator-channel-competitor-map` — *deepens* → `creator-foundation`
+- `creator-channel-competitor-map` — *related* → `creator-format-catalogue`, `creator-cross-promotion-funnel`, `creator-content-calendar`
+- `creator-channel-competitor-map` — *supports* → `players-beginner-guide-b42`, `players-b41-to-b42-transition`, `admins-modded-server-runbook`, `modders-first-mod-tutorial-b42`
+- `creator-channel-competitor-map` — *conforms_to* → `meta-style-guide`
+- `creator-cross-promotion-funnel` — *deepens* → `creator-foundation`
+- `creator-cross-promotion-funnel` — *related* → `creator-format-catalogue`, `creator-channel-competitor-map`, `creator-content-calendar`, `admins-modded-server-runbook`, `admins-ubuntu-runbook`, `admins-workshop-mod-wiring`, `modders-first-mod-tutorial-b42`, `modders-modinfo-modid-conventions`, `players-beginner-guide-b42`
+- `creator-cross-promotion-funnel` — *conforms_to* → `meta-style-guide`
+- `creator-content-calendar` — *deepens* → `creator-foundation`
+- `creator-content-calendar` — *related* → `creator-format-catalogue`, `creator-channel-competitor-map`, `creator-cross-promotion-funnel`
+- `creator-content-calendar` — *draws_facts_from* → `players-beginner-guide-b42`, `players-b41-to-b42-transition`, `players-farming-food`, `players-animals-husbandry`, `players-vehicles`, `players-medical-moodles`, `admins-modded-server-runbook`, `modders-first-mod-tutorial-b42`
+- `creator-content-calendar` — *conforms_to* → `meta-style-guide`
+- `lore-in-world-media` — *deepens* → `lore-foundation`
+- `lore-in-world-media` — *related* → `lore-knox-event-timeline`, `players-map-locations`, `players-b41-to-b42-transition`, `modders-item-scripts-distributions`, `modders-modinfo-modid-conventions`
+- `lore-in-world-media` — *conforms_to* → `meta-style-guide`
+- `lore-knox-event-timeline` — *deepens* → `lore-foundation`
+- `lore-knox-event-timeline` — *related* → `lore-in-world-media`, `players-map-locations`, `players-b41-to-b42-transition`, `players-foundation`, `creator-foundation`
+- `lore-knox-event-timeline` — *conforms_to* → `meta-style-guide`
+- `meta-release-versioning-policy` — *deepens* → `meta-style-guide`
+- `meta-release-versioning-policy` — *related* → `meta-source-registry-companion`, `modders-lua-api-surface`, `admins-server-ini-reference`, `players-foundation`
+- `meta-source-registry-companion` — *deepens* → `meta-style-guide`
+- `meta-source-registry-companion` — *related* → `meta-release-versioning-policy`, `creator-channel-competitor-map`
+- `meta-source-registry-companion` — *supports* → `modders-lua-api-surface`, `modders-modinfo-modid-conventions`, `admins-server-ini-reference`
 
 ## Approved taxonomy backlog (scope approved 2026-07-30)
 

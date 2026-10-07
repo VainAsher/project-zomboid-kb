@@ -5,9 +5,9 @@
 
 Evidence-based, source-cited Project Zomboid reference for modders, players, server admins and creators — every document version-tagged for Build 41 (legacy41) and Build 42.
 
-**33 documents** across **26 topics** — every factual claim carries a citation to a primary or authoritative source, unverified community claims are labelled and quarantined, and build tags, links, citations and structure are checked automatically in CI.
+**41 documents** across **34 topics** — every factual claim carries a citation to a primary or authoritative source, unverified community claims are labelled and quarantined, and build tags, links, citations and structure are checked automatically in CI.
 
-*Confidence: 1 High · 32 Medium · 0 Low.*  *Build: B41 1 · B42 4 · both 27 · historic 1.*
+*Confidence: 2 High · 39 Medium · 0 Low.*  *Build: B41 1 · B42 8 · both 30 · historic 2.*
 
 ## Class 1 — Track foundations (Modders / Players / Admins / Creator)
 
@@ -26,6 +26,9 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
 - [SandboxVars Reference: Gameplay Rules per Server](admins/admins-sandboxvars-reference.md) — *Server configuration* (both)
 - [server.ini Reference: The Settings That Matter, by Area](admins/admins-server-ini-reference.md) — *Server configuration* (both)
 - [Wiring Workshop Mods into a Server: IDs, Load Order and Updates](admins/admins-workshop-mod-wiring.md) — *Server operations* (both)
+- [The Project Zomboid Creator Landscape: Channels, Niches and Gaps](creator/creator-channel-competitor-map.md) — *Channel & competitor map* (B42)
+- [From Video to Server to Mod: A Cross-Promotion Funnel for a Project Zomboid Creator](creator/creator-cross-promotion-funnel.md) — *Cross-promotion funnel* (B42)
+- [Project Zomboid Content Format Catalogue: What Works, What It Costs and Which Build It Needs](creator/creator-format-catalogue.md) — *Format catalogue* (B42)
 - [Events and Callbacks: Hooking the Game Loop with Events.X.Add](modders/modders-events-callbacks.md) — *Events & callbacks* (both)
 - [Item Scripts, Recipes and Loot Distributions: Defining Content Through Script Files](modders/modders-item-scripts-distributions.md) — *Item scripts & distributions* (both)
 - [The Project Zomboid Lua API Surface: Java-Exposed Classes, Globals and the Per-Build Differences](modders/modders-lua-api-surface.md) — *Lua API surface* (both)
@@ -46,10 +49,18 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
 - [Keeping a Build 41 Server Alive: The legacy41 Runbook](admins/admins-legacy41-runbook.md) — *Server runbooks* (B41)
 - [Running a Modded Server: Selection, Rollout and Update Discipline](admins/admins-modded-server-runbook.md) — *Server runbooks* (both)
 - [Ubuntu Dedicated Server Runbook: SteamCMD to systemd](admins/admins-ubuntu-runbook.md) — *Server runbooks* (both)
+- [Post-Launch Content Calendar for Build 42: Release Rhythm, Patch Hooks and Evergreen Slots](creator/creator-content-calendar.md) — *Content calendar* (B42)
 - [Your First Build 42 Mod: A Verified Step-by-Step Tutorial](modders/modders-first-mod-tutorial-b42.md) — *First mod tutorial* (B42)
 - [Porting a Build 41 Mod to Build 42: A Diff-Driven Checklist](modders/modders-porting-b41-to-b42.md) — *Porting B41 mods to B42* (both)
 - [The B41 Veteran's Guide to Build 42: What Your Instincts Get Wrong](players/players-b41-to-b42-transition.md) — *Guides* (both)
 - [Starting Project Zomboid on Build 42.20: A First-Week Survival Guide](players/players-beginner-guide-b42.md) — *Guides* (B42)
+
+## Class 4 — Meta, lore & creator strategy
+
+- [In-World Media: Radio, Television, Print and Found Documents in Knox Country](lore/lore-in-world-media.md) — *In-world media* (both)
+- [The Knox Event Timeline: What the Game Says Happened and When](lore/lore-knox-event-timeline.md) — *Knox Event timeline* (historic)
+- [Release and Versioning Policy: Document Versions, kb-release Tags and Game-Build Pins](meta/meta-release-versioning-policy.md) — *Release & versioning policy* (both)
+- [Source Registry Companion: How Each Source Is Reached, What Is Ingested and What Is Blocked](meta/meta-source-registry-companion.md) — *Source registry companion* (both)
 
 ## Knowledge graph
 
@@ -72,6 +83,9 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
         admins_sandboxvars_reference["admins-sandboxvars-reference"]
         admins_server_ini_reference["admins-server-ini-reference"]
         admins_workshop_mod_wiring["admins-workshop-mod-wiring"]
+        creator_channel_competitor_map["creator-channel-competitor-map"]
+        creator_cross_promotion_funnel["creator-cross-promotion-funnel"]
+        creator_format_catalogue["creator-format-catalogue"]
         modders_events_callbacks["modders-events-callbacks"]
         modders_item_scripts_distributions["modders-item-scripts-distributions"]
         modders_lua_api_surface["modders-lua-api-surface"]
@@ -91,10 +105,17 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
         admins_legacy41_runbook["admins-legacy41-runbook"]
         admins_modded_server_runbook["admins-modded-server-runbook"]
         admins_ubuntu_runbook["admins-ubuntu-runbook"]
+        creator_content_calendar["creator-content-calendar"]
         modders_first_mod_tutorial_b42["modders-first-mod-tutorial-b42"]
         modders_porting_b41_to_b42["modders-porting-b41-to-b42"]
         players_b41_to_b42_transition["players-b41-to-b42-transition"]
         players_beginner_guide_b42["players-beginner-guide-b42"]
+      end
+      subgraph Tier4["Tier 4"]
+        lore_in_world_media["lore-in-world-media"]
+        lore_knox_event_timeline["lore-knox-event-timeline"]
+        meta_release_versioning_policy["meta-release-versioning-policy"]
+        meta_source_registry_companion["meta-source-registry-companion"]
       end
       meta_style_guide -->|governs| modders_foundation
       meta_style_guide -->|governs| players_foundation
@@ -301,6 +322,76 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
       modders_modinfo_modid_conventions -->|relates_to| admins_workshop_mod_wiring
       modders_first_mod_tutorial_b42 -->|prerequisite_for| modders_lua_api_surface
       modders_first_mod_tutorial_b42 -->|prerequisite_for| modders_events_callbacks
+      creator_format_catalogue -->|deepens| creator_foundation
+      creator_format_catalogue -->|related| creator_channel_competitor_map
+      creator_format_catalogue -->|related| creator_cross_promotion_funnel
+      creator_format_catalogue -->|related| creator_content_calendar
+      creator_format_catalogue -->|fact_checks_with| players_beginner_guide_b42
+      creator_format_catalogue -->|fact_checks_with| players_b41_to_b42_transition
+      creator_format_catalogue -->|fact_checks_with| players_animals_husbandry
+      creator_format_catalogue -->|fact_checks_with| players_crafting_chains
+      creator_format_catalogue -->|fact_checks_with| admins_modded_server_runbook
+      creator_format_catalogue -->|fact_checks_with| modders_first_mod_tutorial_b42
+      creator_format_catalogue -->|fact_checks_with| lore_foundation
+      creator_format_catalogue -->|conforms_to| meta_style_guide
+      creator_channel_competitor_map -->|deepens| creator_foundation
+      creator_channel_competitor_map -->|related| creator_format_catalogue
+      creator_channel_competitor_map -->|related| creator_cross_promotion_funnel
+      creator_channel_competitor_map -->|related| creator_content_calendar
+      creator_channel_competitor_map -->|supports| players_beginner_guide_b42
+      creator_channel_competitor_map -->|supports| players_b41_to_b42_transition
+      creator_channel_competitor_map -->|supports| admins_modded_server_runbook
+      creator_channel_competitor_map -->|supports| modders_first_mod_tutorial_b42
+      creator_channel_competitor_map -->|conforms_to| meta_style_guide
+      creator_cross_promotion_funnel -->|deepens| creator_foundation
+      creator_cross_promotion_funnel -->|related| creator_format_catalogue
+      creator_cross_promotion_funnel -->|related| creator_channel_competitor_map
+      creator_cross_promotion_funnel -->|related| creator_content_calendar
+      creator_cross_promotion_funnel -->|related| admins_modded_server_runbook
+      creator_cross_promotion_funnel -->|related| admins_ubuntu_runbook
+      creator_cross_promotion_funnel -->|related| admins_workshop_mod_wiring
+      creator_cross_promotion_funnel -->|related| modders_first_mod_tutorial_b42
+      creator_cross_promotion_funnel -->|related| modders_modinfo_modid_conventions
+      creator_cross_promotion_funnel -->|related| players_beginner_guide_b42
+      creator_cross_promotion_funnel -->|conforms_to| meta_style_guide
+      creator_content_calendar -->|deepens| creator_foundation
+      creator_content_calendar -->|related| creator_format_catalogue
+      creator_content_calendar -->|related| creator_channel_competitor_map
+      creator_content_calendar -->|related| creator_cross_promotion_funnel
+      creator_content_calendar -->|draws_facts_from| players_beginner_guide_b42
+      creator_content_calendar -->|draws_facts_from| players_b41_to_b42_transition
+      creator_content_calendar -->|draws_facts_from| players_farming_food
+      creator_content_calendar -->|draws_facts_from| players_animals_husbandry
+      creator_content_calendar -->|draws_facts_from| players_vehicles
+      creator_content_calendar -->|draws_facts_from| players_medical_moodles
+      creator_content_calendar -->|draws_facts_from| admins_modded_server_runbook
+      creator_content_calendar -->|draws_facts_from| modders_first_mod_tutorial_b42
+      creator_content_calendar -->|conforms_to| meta_style_guide
+      lore_in_world_media -->|deepens| lore_foundation
+      lore_in_world_media -->|related| lore_knox_event_timeline
+      lore_in_world_media -->|related| players_map_locations
+      lore_in_world_media -->|related| players_b41_to_b42_transition
+      lore_in_world_media -->|related| modders_item_scripts_distributions
+      lore_in_world_media -->|related| modders_modinfo_modid_conventions
+      lore_in_world_media -->|conforms_to| meta_style_guide
+      lore_knox_event_timeline -->|deepens| lore_foundation
+      lore_knox_event_timeline -->|related| lore_in_world_media
+      lore_knox_event_timeline -->|related| players_map_locations
+      lore_knox_event_timeline -->|related| players_b41_to_b42_transition
+      lore_knox_event_timeline -->|related| players_foundation
+      lore_knox_event_timeline -->|related| creator_foundation
+      lore_knox_event_timeline -->|conforms_to| meta_style_guide
+      meta_release_versioning_policy -->|deepens| meta_style_guide
+      meta_release_versioning_policy -->|related| meta_source_registry_companion
+      meta_release_versioning_policy -->|related| modders_lua_api_surface
+      meta_release_versioning_policy -->|related| admins_server_ini_reference
+      meta_release_versioning_policy -->|related| players_foundation
+      meta_source_registry_companion -->|deepens| meta_style_guide
+      meta_source_registry_companion -->|related| meta_release_versioning_policy
+      meta_source_registry_companion -->|related| creator_channel_competitor_map
+      meta_source_registry_companion -->|supports| modders_lua_api_surface
+      meta_source_registry_companion -->|supports| modders_modinfo_modid_conventions
+      meta_source_registry_companion -->|supports| admins_server_ini_reference
       modders_lua_api_surface -->|related| players_crafting_chains
       modders_lua_api_surface -->|related| admins_workshop_mod_wiring
       modders_events_callbacks -->|related| players_crafting_chains
@@ -312,6 +403,9 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
       modders_modinfo_modid_conventions -->|related| players_crafting_chains
       modders_first_mod_tutorial_b42 -->|related| players_crafting_chains
       modders_first_mod_tutorial_b42 -->|related| admins_workshop_mod_wiring
+      creator_format_catalogue -->|related| players_foundation
+      creator_format_catalogue -->|related| admins_foundation
+      creator_format_catalogue -->|related| modders_foundation
     ```
 
 ## Machine-readable exports

@@ -766,6 +766,214 @@
         "admins-workshop-mod-wiring",
         "meta-style-guide"
       ]
+    },
+    {
+      "id": "creator-format-catalogue",
+      "title": "Project Zomboid Content Format Catalogue: What Works, What It Costs and Which Build It Needs",
+      "topic": "Format catalogue",
+      "tier": "2",
+      "build": "B42",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/creator/creator-format-catalogue.md",
+      "category": "Creator",
+      "document_type": "reference",
+      "review_due": "2027-01-05",
+      "created": "2026-10-07",
+      "related": [
+        "creator-foundation",
+        "creator-channel-competitor-map",
+        "creator-cross-promotion-funnel",
+        "creator-content-calendar",
+        "players-beginner-guide-b42",
+        "players-b41-to-b42-transition",
+        "players-animals-husbandry",
+        "players-crafting-chains",
+        "admins-modded-server-runbook",
+        "modders-first-mod-tutorial-b42",
+        "lore-foundation",
+        "players-foundation",
+        "admins-foundation",
+        "modders-foundation",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "creator-channel-competitor-map",
+      "title": "The Project Zomboid Creator Landscape: Channels, Niches and Gaps",
+      "topic": "Channel & competitor map",
+      "tier": "2",
+      "build": "B42",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/creator/creator-channel-competitor-map.md",
+      "category": "Creator",
+      "document_type": "reference",
+      "review_due": "2027-01-05",
+      "created": "2026-10-07",
+      "related": [
+        "creator-foundation",
+        "creator-format-catalogue",
+        "creator-cross-promotion-funnel",
+        "creator-content-calendar",
+        "players-beginner-guide-b42",
+        "players-b41-to-b42-transition",
+        "admins-modded-server-runbook",
+        "modders-first-mod-tutorial-b42",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "creator-cross-promotion-funnel",
+      "title": "From Video to Server to Mod: A Cross-Promotion Funnel for a Project Zomboid Creator",
+      "topic": "Cross-promotion funnel",
+      "tier": "2",
+      "build": "B42",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/creator/creator-cross-promotion-funnel.md",
+      "category": "Creator",
+      "document_type": "reference",
+      "review_due": "2027-01-05",
+      "created": "2026-10-07",
+      "related": [
+        "creator-foundation",
+        "creator-format-catalogue",
+        "creator-channel-competitor-map",
+        "creator-content-calendar",
+        "admins-ubuntu-runbook",
+        "admins-modded-server-runbook",
+        "admins-workshop-mod-wiring",
+        "modders-first-mod-tutorial-b42",
+        "modders-modinfo-modid-conventions",
+        "players-beginner-guide-b42",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "creator-content-calendar",
+      "title": "Post-Launch Content Calendar for Build 42: Release Rhythm, Patch Hooks and Evergreen Slots",
+      "topic": "Content calendar",
+      "tier": "3",
+      "build": "B42",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/creator/creator-content-calendar.md",
+      "category": "Creator",
+      "document_type": "guide",
+      "review_due": "2027-01-05",
+      "created": "2026-10-07",
+      "related": [
+        "creator-foundation",
+        "creator-format-catalogue",
+        "creator-channel-competitor-map",
+        "creator-cross-promotion-funnel",
+        "players-beginner-guide-b42",
+        "players-b41-to-b42-transition",
+        "players-farming-food",
+        "players-animals-husbandry",
+        "players-vehicles",
+        "players-medical-moodles",
+        "admins-modded-server-runbook",
+        "modders-first-mod-tutorial-b42",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "lore-in-world-media",
+      "title": "In-World Media: Radio, Television, Print and Found Documents in Knox Country",
+      "topic": "In-world media",
+      "tier": "4",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/lore/lore-in-world-media.md",
+      "category": "Lore",
+      "document_type": "reference",
+      "review_due": "2027-01-05",
+      "created": "2026-10-07",
+      "related": [
+        "lore-foundation",
+        "lore-knox-event-timeline",
+        "players-map-locations",
+        "players-b41-to-b42-transition",
+        "modders-item-scripts-distributions",
+        "modders-modinfo-modid-conventions"
+      ]
+    },
+    {
+      "id": "lore-knox-event-timeline",
+      "title": "The Knox Event Timeline: What the Game Says Happened and When",
+      "topic": "Knox Event timeline",
+      "tier": "4",
+      "build": "historic",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/lore/lore-knox-event-timeline.md",
+      "category": "Lore",
+      "document_type": "reference",
+      "review_due": "2027-01-05",
+      "created": "2026-10-07",
+      "related": [
+        "lore-foundation",
+        "lore-in-world-media",
+        "players-map-locations",
+        "players-b41-to-b42-transition",
+        "players-foundation",
+        "creator-foundation",
+        "meta-style-guide"
+      ]
+    },
+    {
+      "id": "meta-release-versioning-policy",
+      "title": "Release and Versioning Policy: Document Versions, kb-release Tags and Game-Build Pins",
+      "topic": "Release & versioning policy",
+      "tier": "4",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "High",
+      "path": "docs/meta/meta-release-versioning-policy.md",
+      "category": "Meta",
+      "document_type": "policy",
+      "review_due": "2027-01-05",
+      "created": "2026-10-07",
+      "related": [
+        "meta-style-guide",
+        "meta-source-registry-companion",
+        "modders-lua-api-surface",
+        "admins-server-ini-reference",
+        "players-foundation"
+      ]
+    },
+    {
+      "id": "meta-source-registry-companion",
+      "title": "Source Registry Companion: How Each Source Is Reached, What Is Ingested and What Is Blocked",
+      "topic": "Source registry companion",
+      "tier": "4",
+      "build": "both",
+      "version": "0.1.0",
+      "status": "in-review",
+      "confidence": "Medium",
+      "path": "docs/meta/meta-source-registry-companion.md",
+      "category": "Meta",
+      "document_type": "reference",
+      "review_due": "2027-01-05",
+      "created": "2026-10-07",
+      "related": [
+        "meta-style-guide",
+        "meta-release-versioning-policy",
+        "modders-lua-api-surface",
+        "modders-modinfo-modid-conventions",
+        "admins-server-ini-reference",
+        "creator-channel-competitor-map"
+      ]
     }
   ],
   "edges": [
@@ -2000,6 +2208,426 @@
       "target": "known"
     },
     {
+      "from": "creator-format-catalogue",
+      "to": "creator-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "creator-format-catalogue",
+      "to": "creator-channel-competitor-map",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-format-catalogue",
+      "to": "creator-cross-promotion-funnel",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-format-catalogue",
+      "to": "creator-content-calendar",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-format-catalogue",
+      "to": "players-beginner-guide-b42",
+      "rel": "fact_checks_with",
+      "target": "known"
+    },
+    {
+      "from": "creator-format-catalogue",
+      "to": "players-b41-to-b42-transition",
+      "rel": "fact_checks_with",
+      "target": "known"
+    },
+    {
+      "from": "creator-format-catalogue",
+      "to": "players-animals-husbandry",
+      "rel": "fact_checks_with",
+      "target": "known"
+    },
+    {
+      "from": "creator-format-catalogue",
+      "to": "players-crafting-chains",
+      "rel": "fact_checks_with",
+      "target": "known"
+    },
+    {
+      "from": "creator-format-catalogue",
+      "to": "admins-modded-server-runbook",
+      "rel": "fact_checks_with",
+      "target": "known"
+    },
+    {
+      "from": "creator-format-catalogue",
+      "to": "modders-first-mod-tutorial-b42",
+      "rel": "fact_checks_with",
+      "target": "known"
+    },
+    {
+      "from": "creator-format-catalogue",
+      "to": "lore-foundation",
+      "rel": "fact_checks_with",
+      "target": "known"
+    },
+    {
+      "from": "creator-format-catalogue",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "creator-channel-competitor-map",
+      "to": "creator-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "creator-channel-competitor-map",
+      "to": "creator-format-catalogue",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-channel-competitor-map",
+      "to": "creator-cross-promotion-funnel",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-channel-competitor-map",
+      "to": "creator-content-calendar",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-channel-competitor-map",
+      "to": "players-beginner-guide-b42",
+      "rel": "supports",
+      "target": "known"
+    },
+    {
+      "from": "creator-channel-competitor-map",
+      "to": "players-b41-to-b42-transition",
+      "rel": "supports",
+      "target": "known"
+    },
+    {
+      "from": "creator-channel-competitor-map",
+      "to": "admins-modded-server-runbook",
+      "rel": "supports",
+      "target": "known"
+    },
+    {
+      "from": "creator-channel-competitor-map",
+      "to": "modders-first-mod-tutorial-b42",
+      "rel": "supports",
+      "target": "known"
+    },
+    {
+      "from": "creator-channel-competitor-map",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "creator-cross-promotion-funnel",
+      "to": "creator-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "creator-cross-promotion-funnel",
+      "to": "creator-format-catalogue",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-cross-promotion-funnel",
+      "to": "creator-channel-competitor-map",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-cross-promotion-funnel",
+      "to": "creator-content-calendar",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-cross-promotion-funnel",
+      "to": "admins-modded-server-runbook",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-cross-promotion-funnel",
+      "to": "admins-ubuntu-runbook",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-cross-promotion-funnel",
+      "to": "admins-workshop-mod-wiring",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-cross-promotion-funnel",
+      "to": "modders-first-mod-tutorial-b42",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-cross-promotion-funnel",
+      "to": "modders-modinfo-modid-conventions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-cross-promotion-funnel",
+      "to": "players-beginner-guide-b42",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-cross-promotion-funnel",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "creator-content-calendar",
+      "to": "creator-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "creator-content-calendar",
+      "to": "creator-format-catalogue",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-content-calendar",
+      "to": "creator-channel-competitor-map",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-content-calendar",
+      "to": "creator-cross-promotion-funnel",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-content-calendar",
+      "to": "players-beginner-guide-b42",
+      "rel": "draws_facts_from",
+      "target": "known"
+    },
+    {
+      "from": "creator-content-calendar",
+      "to": "players-b41-to-b42-transition",
+      "rel": "draws_facts_from",
+      "target": "known"
+    },
+    {
+      "from": "creator-content-calendar",
+      "to": "players-farming-food",
+      "rel": "draws_facts_from",
+      "target": "known"
+    },
+    {
+      "from": "creator-content-calendar",
+      "to": "players-animals-husbandry",
+      "rel": "draws_facts_from",
+      "target": "known"
+    },
+    {
+      "from": "creator-content-calendar",
+      "to": "players-vehicles",
+      "rel": "draws_facts_from",
+      "target": "known"
+    },
+    {
+      "from": "creator-content-calendar",
+      "to": "players-medical-moodles",
+      "rel": "draws_facts_from",
+      "target": "known"
+    },
+    {
+      "from": "creator-content-calendar",
+      "to": "admins-modded-server-runbook",
+      "rel": "draws_facts_from",
+      "target": "known"
+    },
+    {
+      "from": "creator-content-calendar",
+      "to": "modders-first-mod-tutorial-b42",
+      "rel": "draws_facts_from",
+      "target": "known"
+    },
+    {
+      "from": "creator-content-calendar",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "lore-in-world-media",
+      "to": "lore-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "lore-in-world-media",
+      "to": "lore-knox-event-timeline",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "lore-in-world-media",
+      "to": "players-map-locations",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "lore-in-world-media",
+      "to": "players-b41-to-b42-transition",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "lore-in-world-media",
+      "to": "modders-item-scripts-distributions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "lore-in-world-media",
+      "to": "modders-modinfo-modid-conventions",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "lore-in-world-media",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "lore-knox-event-timeline",
+      "to": "lore-foundation",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "lore-knox-event-timeline",
+      "to": "lore-in-world-media",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "lore-knox-event-timeline",
+      "to": "players-map-locations",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "lore-knox-event-timeline",
+      "to": "players-b41-to-b42-transition",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "lore-knox-event-timeline",
+      "to": "players-foundation",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "lore-knox-event-timeline",
+      "to": "creator-foundation",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "lore-knox-event-timeline",
+      "to": "meta-style-guide",
+      "rel": "conforms_to",
+      "target": "known"
+    },
+    {
+      "from": "meta-release-versioning-policy",
+      "to": "meta-style-guide",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "meta-release-versioning-policy",
+      "to": "meta-source-registry-companion",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "meta-release-versioning-policy",
+      "to": "modders-lua-api-surface",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "meta-release-versioning-policy",
+      "to": "admins-server-ini-reference",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "meta-release-versioning-policy",
+      "to": "players-foundation",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "meta-source-registry-companion",
+      "to": "meta-style-guide",
+      "rel": "deepens",
+      "target": "known"
+    },
+    {
+      "from": "meta-source-registry-companion",
+      "to": "meta-release-versioning-policy",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "meta-source-registry-companion",
+      "to": "creator-channel-competitor-map",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "meta-source-registry-companion",
+      "to": "modders-lua-api-surface",
+      "rel": "supports",
+      "target": "known"
+    },
+    {
+      "from": "meta-source-registry-companion",
+      "to": "modders-modinfo-modid-conventions",
+      "rel": "supports",
+      "target": "known"
+    },
+    {
+      "from": "meta-source-registry-companion",
+      "to": "admins-server-ini-reference",
+      "rel": "supports",
+      "target": "known"
+    },
+    {
       "from": "modders-lua-api-surface",
       "to": "players-crafting-chains",
       "rel": "related",
@@ -2062,6 +2690,24 @@
     {
       "from": "modders-first-mod-tutorial-b42",
       "to": "admins-workshop-mod-wiring",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-format-catalogue",
+      "to": "players-foundation",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-format-catalogue",
+      "to": "admins-foundation",
+      "rel": "related",
+      "target": "known"
+    },
+    {
+      "from": "creator-format-catalogue",
+      "to": "modders-foundation",
       "rel": "related",
       "target": "known"
     }
