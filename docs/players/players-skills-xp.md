@@ -1,7 +1,7 @@
 ---
 id: players-skills-xp
 title: "Skills and XP: Levelling, Multipliers and the B42 Skill Roster"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Players
@@ -9,13 +9,13 @@ topic: "Skills & XP"
 build: both
 document_type: reference
 created: 2026-07-30
-updated: 2026-07-30
-review_due: 2026-10-30
-sources_verified: 2026-07-30
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [players-foundation, players-traits-occupations, players-crafting-chains, players-animals-husbandry, meta-style-guide]
 tags: [players, skills, xp, levelling, skill-books, multipliers, passive-skills, crafting-skills, build-42, sandbox-options]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,16 +23,16 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | players-skills-xp |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Players |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-07-30 |
-| Review due | 2026-10-30 |
-| Game versions verified | 41.78.16, 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 |
 
 # Executive Summary
 
@@ -78,9 +78,11 @@ Not covered: per-occupation and per-trait tables (see `players-traits-occupation
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | 41.78.16 | XP tables, boost multipliers and the 26-skill roster cited from a pzwiki revision explicitly versioned 41.78.16 [5] |
-| B42 (stable) | Yes | 42.20 | Roster and mechanics cited from pzwiki revisions versioned 42.3.1–42.19.0; the only 42.20-specific fact is the skill-book XP fix in the release notes [1] [4] [6] [7] |
+| B42 (stable) | Yes | 42.20; patch notes re-read through 42.21 | Roster and mechanics cited from pzwiki revisions versioned 42.3.1–42.19.0; the 42.20-specific fact is the skill-book XP fix in the release notes, and 42.21 adds only small fix notes (see Reference) [1] [4] [6] [7] [19] [20] [21] |
 
 The Skill page revision used for B42 facts still carries an editors' banner stating its categorisation is Build 41-based, and its XP table is labelled for 41.78.16 even on the B42-era revision — no independently verified B42 XP table has been published [4]. Treat every number here as "documented for 41.78, believed unchanged on 42.20" unless tagged otherwise.
+
+Revision 0.2.0 (2026-10-07) re-read the 42.20.1, 42.20.2, 42.20.3 and 42.20.4 hotfix notes [15] [16] [17] [18], the 42.21 unstable and stable announcements [19] [20] and the abridged ("selected") TIS forum 42.21 changelist [21]. The four 42.20.x hotfix notes cover multiplayer, memory, security and mod-tooling fixes and list no skill, XP-requirement, multiplier or roster changes [15] [16] [17] [18]. Statements not named as 42.21-affected are carried forward from 42.20 and the cited pzwiki revisions with no contradicting change found in those notes; this is a patch-notes review, not an in-game re-test [21].
 
 # Reference
 
@@ -143,6 +145,8 @@ Multiplier and page figures are the wiki's standard values (it notes multipliers
 Coverage differs sharply by build. On B41, only the crafting and survivalist categories have books at all — eleven skills in total under that revision's grouping *(B41)* [5]. The B42-era Skill book page lists books for 24 skills: the whole crafting family (including all seven new B42 crafting skills), Agriculture, Animal Care, Butchering, Tracking, the survivalist set, and — new territory for the series — Aiming, Reloading, Long Blade and Maintenance *(B42)* [6]. No books exist for passive or agility skills on either build, nor for melee skills other than Long Blade and Maintenance *(B42)* [6]. Book item IDs preserve renamed skills' old identities — Agriculture volumes are `Base.BookFarming1` through `Base.BookFarming5` *(B42)* [6].
 
 One 42.20-stable primary fact belongs here: the release patch notes fix the XP boost from skill books "not being calculated properly in some cases", so book behaviour on 42.20 differs from late-unstable builds in unspecified edge cases *(B42)* [1].
+
+The 42.21 stable release (2026-09-28) adds three small fix notes in this area *(B42)* [20]. The forum changelist's multiplayer list records that Nimble XP was not being granted while in combat stance in multiplayer, now fixed [21]. Its split-screen list records that read-book status and XP boosts were being shared incorrectly between local players, now fixed, and the unstable announcement repeats that point [19] [21]. Its singleplayer list records a fix for PerkLog.txt not recording perk changes [21]. The changelist as retrieved lists no change to XP requirements, multipliers or the skill roster; it is abridged, so that is an absence in a partial list, not a confirmation [21].
 
 ## Where starting levels come from: occupations and traits
 
@@ -207,7 +211,7 @@ The Custom Sandbox page documents an **XP Multiplier** option scaling all task X
 | Category moves | First Aid and Farming under Crafting [5] | First Aid under Survivalist; farming skills in their own Farming group [4] |
 | XP tables | Stated for 41.78.16 [5] | Same table republished, still labelled 41.78.16 — no verified B42 table [4] |
 | Starting-level boost | 25/100/133/166%, Sprinting exception [5] | Same values documented; exception now under Running [4] [7] [8] |
-| Skill books | Crafting + survivalist categories only (11 skills) [5] | 24 skills incl. Aiming, Reloading, Long Blade, Maintenance; book XP-boost bug fixed in 42.20 [1] [6] |
+| Skill books | Crafting + survivalist categories only (11 skills) [5] | 24 skills incl. Aiming, Reloading, Long Blade, Maintenance; book XP-boost bug fixed in 42.20 [1] [6]; split-screen sharing of book status and XP boosts fixed in 42.21 [19] [21] |
 | Brewing | — | New crafting system, not a skill [13] |
 | Sandbox XP options | XP Multiplier + passive toggle documented on a 41.78.19-versioned page [12] | Presence expected but bounds not re-verified; unstable cycle included XP tuning [2] [12] |
 
@@ -255,8 +259,8 @@ Summed up: the *mathematics* of levelling is documented as unchanged between bui
 
 # Risks & Caveats
 
-- **Nothing here is 42.20-re-verified except the patch-note facts.** The Skill page is versioned 42.3.1 with an outdated-categorisation banner, Skill book 42.13.2, Occupation 42.18.0, Trait 42.19.0, Running 42.18.0, and Custom Sandbox 41.78.19 [4] [6] [7] [8] [11] [12]. That spread is the core reason for the Medium rating.
-- **42.20 is one day old** and shipped with a skill-book XP fix whose exact scope ("in some cases") is unspecified — early hotfixes could adjust adjacent behaviour [1].
+- **Nothing here is 42.20-re-verified except the patch-note facts, and 42.21 was checked against patch notes only.** The Skill page is versioned 42.3.1 with an outdated-categorisation banner, Skill book 42.13.2, Occupation 42.18.0, Trait 42.19.0, Running 42.18.0, and Custom Sandbox 41.78.19 [4] [6] [7] [8] [11] [12]. That spread is the core reason for the Medium rating.
+- **The 42.20 skill-book XP fix has an unspecified scope** ("in some cases"), and 42.21 later fixed further XP-adjacent issues (split-screen boost sharing, Nimble XP in multiplayer combat stance), so adjacent behaviour has already moved once after 42.20 [1] [19] [21].
 - **The B42 grouping table may not match the in-game panel** given the wiki's own banner; the *membership* of the roster is better attested than its presentation [4].
 - **Cumulative XP columns and the book-band "effective XP" column are this document's arithmetic** over cited per-level figures, not independently published numbers.
 - **Rename statements combine two revisions plus internal IDs**; only Farming→Agriculture is stated outright by the wiki as a Build 42 rename [9]. Welding and Running are inferred from roster comparison plus preserved Skill IDs [5] [10] [11].
@@ -274,7 +278,7 @@ Summed up: the *mathematics* of levelling is documented as unchanged between bui
 
 # Open Questions
 
-- Does 42.20 still display the wrong starting-boost percentages (Claim 1)? One character-creation screenshot resolves it.
+- Does 42.20 or 42.21 still display the wrong starting-boost percentages (Claim 1)? The 42.21 changelist as retrieved does not mention it [21]; one character-creation screenshot resolves it.
 - What is the shipped 42.20 skill-panel grouping, given the wiki's outdated-categorisation banner [4]?
 - Which "cases" did the 42.20 skill-book XP fix cover, and did effective multipliers change [1]?
 - Are the XP requirements per level identical on 42.20 (Claim 3)? A tooltip sweep across one regular and one passive skill resolves it.
@@ -288,6 +292,13 @@ Summed up: the *mathematics* of levelling is documented as unchanged between bui
 - [1] **The Indie Stone** — *Build 42.20.0 Stable Released* (Steam announcement, 2026-07-29; retrieved via Steam news API, ISteamNews app 108600). https://steamcommunity.com/games/108600/announcements/detail/1839676055882259. Accessed 2026-07-30.
 - [2] **The Indie Stone** — *Build 42 Unstable Out Now* (Steam announcement, 2024-12-17). https://steamcommunity.com/games/108600/announcements/detail/1785774543698069. Accessed 2026-07-30.
 - [3] **The Indie Stone** — *WhatZ Next* (Thursdoid, Steam announcement, 2024-11-28). https://steamcommunity.com/games/108600/announcements/detail/1784506359022970. Accessed 2026-07-30.
+- [15] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766. Accessed 2026-10-07.
+- [16] **The Indie Stone** — *42.20.2 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314339441. Accessed 2026-10-07.
+- [17] **The Indie Stone** — *42.20.3 STABLE Hotfix Released* (Steam announcement, 2026-08-17). https://steamcommunity.com/games/108600/announcements/detail/1840944183785895. Accessed 2026-10-07.
+- [18] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601. Accessed 2026-10-07.
+- [19] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925. Accessed 2026-10-07.
+- [20] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [21] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first post by Rockjaw, 2026-09-23; retrieved abridged, "selected" lists only). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -328,3 +339,4 @@ Summed up: the *mathematics* of levelling is documented as unchanged between bui
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | 42.21 re-baseline against the 42.20.1–42.20.4 hotfix notes, the 42.21 unstable and stable Steam posts and the abridged TIS forum 42.21 changelist: Nimble XP combat-stance (MP) fix, split-screen book-status/XP-boost fix and PerkLog.txt fix recorded; Build Applicability, Delta, Risks and Open Questions updated; no XP numbers changed. Rebase is a patch-notes review, not an in-game re-test. | — |

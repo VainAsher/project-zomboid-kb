@@ -1,7 +1,7 @@
 ---
 id: admins-sandboxvars-reference
 title: "SandboxVars Reference: Gameplay Rules per Server"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Admins
@@ -9,13 +9,13 @@ topic: "Server configuration"
 build: both
 document_type: server-setting
 created: 2026-07-30
-updated: 2026-07-30
-review_due: 2026-10-30
-sources_verified: 2026-07-30
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [admins-foundation, admins-server-ini-reference, players-foundation, meta-style-guide]
 tags: [sandboxvars, sandbox-options, server-config, zombie-lore, loot-rarity, xp-multiplier, b42, legacy41]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,16 +23,16 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | admins-sandboxvars-reference |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Admins |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-07-30 |
-| Review due | 2026-10-30 |
-| Game versions verified | 41.78.16, 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 |
 
 # Executive Summary
 
@@ -78,9 +78,11 @@ Not covered: the `server.ini` key set (see `admins-server-ini-reference`), spawn
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | Archived wiki listing, page versioned 41.78.19 [6]; B41 sandbox-UI docs [7] | Served from the `legacy41` branch since 42.20 went stable [4]; B41-only keys tagged *(B41)* |
-| B42 (stable) | Yes | Wiki revision versioned 42.20.0 [5] | Key names corroborated in official 42.17–42.20 patch notes [1] [2] [3]; B42-only keys tagged *(B42)* |
+| B42 (stable) | Yes | Wiki revision versioned 42.20.0 [5]; 42.20.1-42.21 patch notes reviewed [10] [11] [12] | Key names corroborated in official 42.17–42.20 patch notes [1] [2] [3]; B42-only keys tagged *(B42)*; 42.21 has been stable since 2026-09-28 [11] |
 
-The B42 listing is current and version-stamped 42.20.0 [5]. The B41 listing is an archived page revision whose SandboxVars block carries `VERSION = 4` and some enum comments that disagree with the B41 sandbox-UI documentation [6] [7]; treat its enum numbering as indicative, and its key names as the reliable part.
+**42.21 re-check scope.** Re-checked: the official 42.21 unstable and stable Steam notes [10] [11] and the TIS forum 42.21 changelist [12] were read for any SandboxVars key, default or range change; none is named in them, and the 42.20.1-42.20.4 hotfix notes were also read with the same result. Not re-checked: the key list, defaults and ranges are still the wiki rendering at revision 1443167 [5] and were not re-extracted from a 42.21 server install. Everything not mentioned below is carried forward from 42.20 with no contradicting change found, not re-tested.
+
+The B42 listing is version-stamped 42.20.0 [5]. The B41 listing is an archived page revision whose SandboxVars block carries `VERSION = 4` and some enum comments that disagree with the B41 sandbox-UI documentation [6] [7]; treat its enum numbering as indicative, and its key names as the reliable part.
 
 # Reference
 
@@ -115,6 +117,8 @@ The quick population controls sit at the top of the file; the fine-grained model
 | `ZombieMigrate` | boolean | true | true/false | B42 | Lets zombies drift into empty cells [5] |
 
 ## Dynamic population: `ZombieConfig`
+
+**42.21 note (B42).** The 42.21 notes record fixes for zombies disappearing after a player left and re-entered a chunk (single-player and multiplayer) and for several zombie-duplication cases in multiplayer; the stable announcement says some instances remain and are slated for the next update [10] [11] [12]. These are behaviour fixes: the notes change no population or respawn key, so the tables below are unchanged.
 
 The multiplier-to-preset mappings differ per build. On B42 a Normal count is 0.65, with Low at 0.15, High at 1.2, Very High at 1.6, Insane at 2.5 and None at zero [5]; on B41 a Normal count is 1.0, with Low at 0.35, High at 2.0, Insane at 4.0 and None at zero [6] [7].
 
@@ -499,7 +503,7 @@ The short version: keep the two builds' files apart. A B41 SandboxVars pasted on
 # Risks & Caveats
 
 - **The B41 evidence is the weak leg.** The archived listing's SandboxVars block is stamped `VERSION = 4` and its enum comments disagree with the B41 sandbox-UI docs in places (five- vs six-step population counts, six- vs seven-step mortality) [6] [7]. B41 key names cited here are solid; B41 enum numbering and defaults should be treated as approximate.
-- **Defaults quoted are generated-file values, not universal truths.** The 42.20 defaults come from one wiki revision's rendering of the generated file [5]; a hotfix can move any of them, and 42.20 is days old at the time of writing [1].
+- **Defaults quoted are generated-file values, not universal truths.** The 42.20 defaults come from one wiki revision's rendering of the generated file [5]; a hotfix can move any of them. The 42.20.1-42.21 notes name no changed sandbox default [10] [11] [12], but they are behaviour notes rather than a schema diff, and no 42.21 server was inspected.
 - **UI-documented but key-unpinned options.** For a number of B41 rules (vehicles, night darkness, poisoning, multi-hit) only the UI option is documented [7]; the B41 Lua key names are asserted nowhere in the cited record and are deliberately not tabled.
 - **Retroactivity is undocumented.** Nothing cited here says which keys affect an existing world (Claim 1); every mid-campaign change is an experiment.
 - **Steam announcement URLs bot-block link checkers** (verified via the ISteamNews API mirror per project source policy); pzwiki citations are revision-pinned and fact-only per the license rules.
@@ -521,6 +525,7 @@ The short version: keep the two builds' files apart. A B41 SandboxVars pasted on
 - What is the precedence between the windowed enums and their day modifiers (`WaterShut` vs `WaterShutModifier`) at 42.20? The archived B41 comment implies the modifier is the concrete day count [6]; the B42 listing documents both without stating the interaction [5].
 - Does the B42 server clamp out-of-range hand-edited values (Claim 2)?
 - Where is the B41 `XpMultiplierAffectsPassive`-style key actually named, if it exists — game files would pin what the wiki record does not [6] [7].
+- Does 42.21 change any generated default or range? The patch notes name none [10] [11] [12]; a 42.21 server install would answer it.
 - Will post-release B42 patching move the generated defaults (respawn zeroed, randomized lore) toward the B41 posture, or is this the intended stable baseline [1]?
 
 # References
@@ -531,6 +536,9 @@ The short version: keep the two builds' files apart. A B41 SandboxVars pasted on
 - [2] **The Indie Stone** — *Build 42.19.0 Unstable Released* (Steam announcement, 2026-06-01; sandbox-option fixes incl. map-known and tainted-water tooltip). https://steamcommunity.com/games/108600/announcements/detail/1833968530897275. Accessed 2026-07-30.
 - [3] **The Indie Stone** — *Build 42.17.0 Unstable Released* (Steam announcement, 2026-04-20; names Water/ElecShutModifier and the crawl-under-vehicle sandbox setting). https://steamcommunity.com/games/108600/announcements/detail/1830163047266254. Accessed 2026-07-30.
 - [4] **The Indie Stone** — *B42 CHECKLIST* (Steam announcement, 2026-07-28; legacy41 branch instructions). https://steamcommunity.com/games/108600/announcements/detail/1839041357038237. Accessed 2026-07-30.
+- [10] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925. Accessed 2026-10-07.
+- [11] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [12] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first post 2026-09-23; abridged copy). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -560,3 +568,4 @@ The short version: keep the two builds' files apart. A B41 SandboxVars pasted on
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: reviewed the 42.21 unstable and stable Steam notes [10] [11] and the TIS forum changelist [12]; added zombie-fix note, scope statement, removed stale 'days old' caveat. Key schema not re-extracted. | — |

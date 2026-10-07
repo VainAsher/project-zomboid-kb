@@ -1,7 +1,7 @@
 ---
 id: players-vehicles
 title: "Vehicles: Finding, Fixing and Driving Across Both Builds"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Players
@@ -9,13 +9,13 @@ topic: "Vehicles"
 build: both
 document_type: reference
 created: 2026-07-31
-updated: 2026-07-31
-review_due: 2026-10-31
-sources_verified: 2026-07-31
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [players-foundation, players-skills-xp, players-map-locations, meta-style-guide]
 tags: [players, vehicles, mechanics, hotwiring, towing, fuel, car-keys, engine-quality, build-42]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,16 +23,16 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | players-vehicles |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Players |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-07-31 |
-| Review due | 2026-10-31 |
-| Game versions verified | 41.78.16, 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 |
 
 # Executive Summary
 
@@ -79,9 +79,11 @@ Not covered: full per-vehicle stat tables (the wiki's model-by-model numbers), e
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | 41.78.16 | Core system inherited from Build 39 [2]; B41 not separately re-verified for per-part numbers |
-| B42 (stable) | Yes | 42.20 | Release-note facts verified against the 42.20 announcement [1]; wiki-sourced numbers pinned to revisions versioned 42.16.0–42.18.0 [5] [6] |
+| B42 (stable) | Yes | 42.20, re-checked against 42.21 patch notes | Release-note facts verified against the 42.20 announcement [1] and the 42.20.1 to 42.21 notes [8] [9] [10] [11]; wiki-sourced numbers pinned to revisions versioned 42.16.0–42.18.0 [5] [6] |
 
 The two central pzwiki sources carry banners stating they were last updated for 42.16.0 (Vehicle) and 42.18.0 (Mechanics) against a current stable of 42.20.0 [5] [6]. Sandbox defaults are quoted from a Server settings snapshot taken after the 42.20 release [7].
+
+The 42.21 stable release (2026-09-28) was reviewed for this document by reading the official Steam announcements for 42.20.1 through 42.21 and the 42.21 forum changelist [8] [9] [10] [11]. The vehicle-related items found are recorded in the Delta table; every other statement is carried forward from 42.20 and the cited pzwiki revisions with no contradicting change found in those notes. That was a patch-note review, not an in-game re-test, and the towing, noise and Mechanics values were not re-checked.
 
 # Reference
 
@@ -172,6 +174,10 @@ The vehicle system is one of the more continuous player-facing systems across th
 | Towing behaviour | B41-era towing model | 42.20 rebalanced speed/towing; trailers detach on over-sharp or over-fast turns [1] [3] |
 | Engine power | — | 42.20 fixed engine power wrongly pinned to the script maximum [1] |
 | Mechanics QoL | — | 42.20 fixed timed-action queuing with tools in backpacks, duplicate install options and screwdriver double-listing in the Mechanics UI [1] |
+| XXL trees *(42.21)* | Not covered by the 42.21 notes | XXL tree cutaway behaviour updated: better for players in vehicles, no longer hides houses and furniture the trees overhang, transparency adjusted; the notes call it work in progress [9] [10] [11] |
+| MP driving, 42.21 | B41 MP | Driving at roughly 150 ms ping and above: map not loading in front of the car, passenger teleportation and juddering improved; vehicle sound, desync and animation fixes; memory leak from eating food directly from a trunk fixed; split-screen crash when sharing a moving vehicle fixed [10] [11] |
+| Vehicle fixes, 42.21 supplement | — | Fixed: vehicle sound state issues, SFX issues when cars hit traffic cones in MP, car model blinking when a remote player swaps seats, walkie-talkie VOIP not working while driving, BufferUnderflow errors when driving Base.RaceCar, being unable to queue Mechanics 'Install' actions, player-built campfires colliding with vehicles, and instant removal of XXL trees through 'Remove Bush' [11] |
+| Vehicle visibility in MP *(42.20.1)* | — | 42.20.1 fixed vehicles temporarily disappearing for players after another player disconnected [8] |
 | Animals × vehicles | No animals in B41 | Animal stress no longer spikes to maximum near a running engine (42.20 fix) [1] |
 | MP driving | B41 MP | 42.20 fixed map chunks failing to load while driving, network performance during vehicle–zombie collisions, and trunk damage from crawlers [1] [4] |
 
@@ -225,7 +231,8 @@ What did **not** change, per available primaries: no bicycles, motorcycles or an
 - **Internal inconsistency in the Vehicle source.** The page's prose counts 14 vehicle models and three trailer types, while its own tables list more entries of each (including the Race Car and five trailer rows) [5]. This document therefore avoids asserting an exact roster count.
 - **Trait naming instability.** The Mechanics page refers to the same trait as both "Vehicle Knowledge" and "Amateur Mechanic" in different paragraphs [6] — likely a mid-update rename artefact; this document uses the B42 roster name Vehicle Knowledge.
 - **Sandbox defaults quoted from one build.** The settings table comes from a post-42.20 snapshot [7]; B41's sandbox menu was not independently re-verified and some defaults may differ there.
-- **Hotfix exposure.** 42.20 stable is days old; The Indie Stone has said hotfixes will follow the release [3], and towing behaviour — freshly rebalanced — is a plausible re-tuning target.
+- **42.21 re-baseline is notes-only.** The 42.21 changes above come from patch notes [9] [10] [11]; the notes are selective, so unlisted vehicle changes may exist, and none was tested in-game.
+- **Hotfix exposure.** 42.20 stable was days old when written (since then 42.20.1 to 42.20.4 and 42.21 have shipped [8] [9] [10] [11]); The Indie Stone has said hotfixes will follow the release [3], and towing behaviour — freshly rebalanced — is a plausible re-tuning target.
 - **B41-side thinness.** Primary sourcing for B41-specific vehicle behaviour is limited to the Build 39-era announcements; per-part numbers cited from 42.x-era wiki revisions are assumed, not proven, to match 41.78.16.
 
 # Verification Steps
@@ -254,6 +261,10 @@ What did **not** change, per available primaries: no bicycles, motorcycles or an
 - [2] **The Indie Stone** — *Build 39: Vehicles released!* (Steam announcement, 2018-05-31; retrieved via Steam news API, ISteamNews app 108600). https://steamcommunity.com/games/108600/announcements/detail/2396358621997235099. Accessed 2026-07-31.
 - [3] **The Indie Stone** — *BUILD 42 STABLE PLANS* (Steam announcement, 2026-07-24). https://steamcommunity.com/games/108600/announcements/detail/1839041357029453. Accessed 2026-07-31.
 - [4] **The Indie Stone** — *NEXT STEPS* (Steam announcement, 2026-07-09; retrieved via Steam news API, ISteamNews app 108600). https://steamcommunity.com/games/108600/announcements/detail/1836506165584147. Accessed 2026-07-31.
+- [8] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05; vehicles temporarily disappearing after a disconnect fixed). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766. Accessed 2026-10-07.
+- [9] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28; XXL tree cutaway). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [10] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925. Accessed 2026-10-07.
+- [11] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first post, 2026-09-23). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -286,3 +297,4 @@ What did **not** change, per available primaries: no bicycles, motorcycles or an
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: reviewed Steam announcements 42.20.1-42.21 and the 42.21 forum changelist [8] [9] [10] [11]; added XXL tree cutaway, high-ping driving, vehicle-disappearance, sound/seat-swap/VOIP/RaceCar and related vehicle fixes; version-scope statements updated. | — |

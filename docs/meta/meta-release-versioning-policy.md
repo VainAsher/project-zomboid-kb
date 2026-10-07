@@ -1,7 +1,7 @@
 ---
 id: meta-release-versioning-policy
 title: "Release and Versioning Policy: Document Versions, kb-release Tags and Game-Build Pins"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: High
 category: Meta
@@ -10,12 +10,12 @@ build: both
 document_type: policy
 created: 2026-10-07
 updated: 2026-10-07
-review_due: 2027-01-05
+review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
 related: [meta-style-guide, meta-source-registry-companion, modders-lua-api-surface, admins-server-ini-reference, players-foundation]
 tags: [meta, governance, release, versioning, freshness, qa-gates, pins]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | meta-release-versioning-policy |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | High |
 | Category (track) | Meta |
@@ -31,8 +31,8 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
 | Updated | 2026-10-07 |
-| Review due | 2027-01-05 |
-| Game versions verified | 41.78.16, 42.20 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 (and the 41.78.21 legacy hotfix announcement) |
 
 # Executive Summary
 
@@ -50,11 +50,13 @@ opening the named file or running `git log` and `git tag`. Repo facts are
 cited by path and, where a change is dated, by git commit id, the same way
 `meta-style-guide` does it. The external anchors are the official 42.20
 stable announcement [1], which fixes the two-branch situation the policy
-manages, and the Umbrella repository [2], whose release tags are what the
-API pins refer to. Confidence is High for the mechanics described. It would
-fall if the scripts were changed without a revision of this document; the
-live state on 2026-10-07 already shows unreconciled drift (see Reference
-and Open Questions).
+manages, the 42.21 stable and 41.78.21 legacy announcements [3] [4], which
+the pins now follow, and the Umbrella repository [2], whose release tags are
+what the API pins refer to. Confidence is High for the mechanics described.
+It would fall if the scripts were changed without a revision of this
+document. On 2026-10-07 the pins were moved to 42.21 and 41.78.21 and the
+freshness script reports them current; the `kb-release` tag for that
+re-baseline has not been cut (see Reference and Open Questions).
 
 # Key Takeaways
 
@@ -68,22 +70,28 @@ and Open Questions).
   rule)*
 - Exactly one release tag exists today, `kb-release-2026.07.30`, an
   annotated tag whose message names the game builds and the Umbrella
-  release tag. No release has been cut since; 27 documents sit unfrozen at
-  `in-review`. *(repo state at commit `0ad3a16`)*
-- `sources/pins.json` pins Umbrella B42 `42.20.0` @ `58204fc` and B41
-  `41.78.16` @ `fa2e7e1`; the B41 game baseline is the legacy41
-  maintenance line (user decision 2026-07-31), but the B41 API pin cannot
-  move because no newer B41 stub tag exists. *(repo file)*
+  release tag. No release has been cut since, and none has been cut for the
+  2026-10-07 re-baseline: that tag is pending the orchestrator's commit and
+  tag. As of 2026-10-07, 35 documents sit unfrozen at `in-review` (six
+  are `approved`). *(repo state, `git tag` and the `status:` fields)*
+- `sources/pins.json` pins Umbrella B42 `42.21.0` @ `13d01f9` (previous
+  pin `42.20.0` @ `58204fc` kept as `B42_previous`) and B41 `41.78.16` @
+  `fa2e7e1`; the B41 game baseline is the legacy41 maintenance line (user
+  decision 2026-07-31), with `41.78.21` now primary-attested, but the B41 API
+  pin cannot move because no newer B41 stub tag exists. *(repo file)*
 - `python scripts/check_freshness.py` exits 0 (current), 1 (fetch error) or
-  2 (drift). On 2026-10-07 it exits 2: Steam news shows B42 stable 42.21 and
-  legacy41 41.78.21, while pins say 42.20.0 and 41.78.19. *(run on
-  2026-10-07)*
+  2 (drift). Earlier on 2026-10-07, before the re-baseline, it exited 2
+  (pins 42.20.0 and 41.78.19 against announced 42.21 and 41.78.21); after the
+  pins moved it exits 0 ("Pins current"). *(run on 2026-10-07)*
 - Green gates prove structure, citation hygiene, name existence and
   link liveness. They do not prove a statement is true, current, or
   correctly interpreted. *(see the gate table)*
 - Open policy gaps are real: no LICENSE file for the KB's prose, no
   automated re-queue, freshness and API gates not wired into CI,
   markdownlint not installed locally. *(see Open Questions)*
+- The upstream Umbrella `42.20.0` tag was later moved to a different commit
+  (`98f50ae`, two commits on), so the KB pins by commit id, not tag name.
+  *(repo file note in `sources/pins.json`)*
 
 # Purpose
 
@@ -135,8 +143,8 @@ beta [1].
 
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
-| B41 (legacy41) | Yes | 41.78.16 | Baseline is the maintenance line; Umbrella pin stays at 41.78.16 |
-| B42 (stable) | Yes | 42.20 | Newer 42.21 stable is announced but not yet pinned or reconciled |
+| B41 (legacy41) | Yes | 41.78.16 (Umbrella pin); 41.78.21 hotfix announcement [4] | Baseline is the maintenance line; Umbrella pin stays at 41.78.16 |
+| B42 (stable) | Yes | 42.20 and 42.21 | Umbrella pin and game pin moved to 42.21 on 2026-10-07; 42.21 stable announced 2026-09-28 [3] |
 
 # Reference
 
@@ -205,10 +213,11 @@ read from the tag alone.
 
 | Pin | Value | Note |
 |-----|-------|------|
-| Umbrella B42 | release tag `42.20.0`, commit `58204fc47895ba249592519cedecc7cfbaaebd60` | Upstream repository [2] |
+| Umbrella B42 | release tag `42.21.0`, commit `13d01f9ee58fa48773553920db56d06f0005e7f8` | Upstream repository [2]; pinned 2026-10-07 |
+| Umbrella B42 previous | release tag `42.20.0`, commit `58204fc47895ba249592519cedecc7cfbaaebd60` | Original KB pin; the upstream tag was later moved to `98f50ae`, so pin by commit; archived index at `sources/schemas/archive/api-index-B42-42.20.0.json` |
 | Umbrella B41 | release tag `41.78.16`, commit `fa2e7e19799740b57902f1cb4e989225c295c05e` | No newer B41 stub tag exists, per the file's note |
-| Game B42 stable | `42.20.0` | Compared by the freshness script |
-| Game B41 legacy | `latest_primary_attested` 41.78.19 (security-only hotfix, 2026-04-08); `latest_wiki_attested` 41.78.20 | Only the primary-attested value is compared |
+| Game B42 stable | `42.21` | Compared by the freshness script; stable since 2026-09-28 [3] |
+| Game B41 legacy | `latest_primary_attested` 41.78.21 (legacy hotfix, 2026-08-26) [4]; `latest_wiki_attested` 41.78.20 | Only the primary-attested value is compared |
 
 The Umbrella pins feed the API-existence gate: `scripts/extract_api_index.py`
 builds per-build symbol indices into `sources/schemas/`, which
@@ -229,7 +238,9 @@ commit `512581b`. Its operating consequences, as written in those files:
   not in a bulk edit.
 - The Umbrella B41 API pin stays at release tag 41.78.16.
 - 41.78.20 is attested only by pzwiki version pages and is pending primary
-  confirmation; `PROJECT_STATUS.md` lists confirming it as a follow-up.
+  confirmation; `PROJECT_STATUS.md` lists confirming it as a follow-up. The
+  primary-attested value has since advanced to 41.78.21 (announced
+  2026-08-26 together with the 42.20.4 and 42.19.2 hotfixes) [4].
 
 The B41 branch is a Steam beta opt-in, per the stable-release announcement
 [1]; the policy is about which maintenance versions count as the B41 target,
@@ -251,9 +262,12 @@ STABLE, LEGACY or UNSTABLE, and compares the newest STABLE with
 | 2 | Drift detected, informational for CI |
 
 On 2026-10-07 it printed STABLE 42.21 (2026-09-28), LEGACY 41.78.21
-(2026-08-26), UNSTABLE 42.21 (2026-09-23) against pins B42 42.20.0 and B41
-41.78.19, reported both drifts, and exited 2. `PROJECT_STATUS.md` records the
-same unreconciled drift and the need for a re-baseline decision.
+(2026-08-26), UNSTABLE 42.21 (2026-09-23). Against the earlier pins (B42
+42.20.0, B41 41.78.19) it reported both drifts and exited 2; after the pins
+were updated to 42.21 and 41.78.21 the same run prints "Pins current" and
+exits 0. The 42.21 sequence it detected is: unstable on 2026-09-23 [5],
+stable on 2026-09-28 [3], which the stable post describes as the standard
+unstable-first procedure going forward [3].
 
 ## The re-queue rule
 
@@ -320,17 +334,21 @@ branches rather than a mechanic that changed.
 | Aspect | B41 (legacy41) | B42 (stable) |
 |--------|----------------|--------------|
 | Branch status | Opt-in beta branch kept alongside stable [1] | Stable branch since 2026-07-29 [1] |
-| Game-build pin used by freshness | `41.78.19`, the latest primary-attested value *(B41)* | `42.20.0` *(B42)* |
-| Umbrella API pin | Release tag `41.78.16`, commit `fa2e7e1`; cannot advance for lack of a newer stub tag *(B41)* | Release tag `42.20.0`, commit `58204fc` *(B42)* |
+| Game-build pin used by freshness | `41.78.21`, the latest primary-attested value *(B41)* [4] | `42.21` *(B42)* [3] |
+| Umbrella API pin | Release tag `41.78.16`, commit `fa2e7e1`; cannot advance for lack of a newer stub tag *(B41)* | Release tag `42.21.0`, commit `13d01f9`; previous `42.20.0` @ `58204fc` kept *(B42)* |
 | Baseline concept | Maintenance line, not a frozen build (decision 2026-07-31) *(B41)* | The latest stable build; no equivalent decision recorded *(B42)* |
-| Observed drift on 2026-10-07 | 41.78.21 announced, two patch levels ahead of the primary-attested pin *(B41)* | 42.21 stable announced, one minor ahead of the pin *(B42)* |
+| Drift on 2026-10-07 | Was two patch levels ahead (41.78.21 against 41.78.19); reconciled by the re-baseline *(B41)* | Was one minor ahead (42.21 against 42.20.0); reconciled by the re-baseline *(B42)* |
 
 The asymmetry is deliberate: on B41 the KB follows a line whose later builds
 are security or maintenance releases, so documents keep their 41.78.16-era
 verification until revised, whereas on B42 a minor release such as 42.21 can
 change gameplay and APIs and is expected to trigger real re-verification.
-That reading of B42 is an inference from the version number, not a verified
-fact about 42.21's contents, which this document did not open.
+That reading of B42 is an inference from the version number. The 42.21
+announcements call it an incremental update with many fixes and a few
+gameplay improvements [3] [5], and the repository's two B42 API indices
+differ (4,124 classes, 244 events, 930 globals at 42.21.0 against 4,266,
+234 and 947 at 42.20.0, from `sources/schemas/`), but the counts describe
+stubs, not game behaviour.
 
 # Practical Guidance
 
@@ -382,20 +400,24 @@ None.
 
 # Risks & Caveats
 
-- The mechanics described are accurate for repo commit `0ad3a16` on
-  2026-10-07; any script change makes this document stale and should come
+- The mechanics described are accurate for repo commit `20aaa2d` plus the
+  uncommitted 2026-10-07 re-baseline changes; any script change makes this document stale and should come
   with a version bump here.
 - Version-increment semantics are inferred from the revision history of
   existing documents, not from a written rule, so a maintainer could
   reasonably choose differently.
 - The Steam drift figures come from a live feed read on 2026-10-07 and will
-  change; the feed titles were parsed by the script, and this document did
-  not open the 42.21 or 41.78.21 announcements themselves.
-- The 42.20 announcement [1] is on a bot-blocking host and is cited as an
-  allowlisted URL.
-- The count of unfrozen documents (27) is the number of Wave A to E documents
-  merged `in-review` plus the other non-foundation documents on disk at
-  commit `0ad3a16`; recount before quoting it.
+  change; the feed titles were parsed by the script, and the 42.21 stable,
+  42.21 unstable and 41.78.21 announcements [3] [4] [5] were read as part of
+  the re-baseline.
+- The 42.20, 42.21 and 41.78.21 announcements [1] [3] [4] [5] are on a
+  bot-blocking host and are cited as allowlisted URLs.
+- No `kb-release` tag has been cut for the re-baseline; any statement here
+  about it is a statement of intent by the orchestrator, not a tag.
+- The count of unfrozen documents (35 as of 2026-10-07) is the number of
+  `docs/` files whose `status:` is not `approved` (41 documents, six
+  approved); recount before quoting it. The earlier figure of 27 was a
+  snapshot at commit `0ad3a16`.
 
 # Verification Steps
 
@@ -425,9 +447,11 @@ None.
 - **Freshness and API gates outside CI.** Neither `check_freshness.py` nor
   `check_api_exists.py` is in `qa.yml`, so a regression in either would not
   fail a push.
-- **Re-baseline of 42.21 and 41.78.21.** Documented as unreconciled in
-  `PROJECT_STATUS.md`; the decision of what 42.21 means for the freeze
-  schedule is open.
+- **Re-baseline of 42.21 and 41.78.21.** The pins were moved on 2026-10-07
+  and documents are being revised individually; which documents still carry
+  only 42.20 in `game_versions_verified`, and what that means for the freeze
+  schedule, is for the orchestrator to decide. The `kb-release` tag for the
+  re-baseline is pending the orchestrator's commit and tag.
 - **Unfrozen backlog.** Nothing has been frozen since `kb-release-2026.07.30`
   although the standing mandate permits it; whether to freeze before or
   after the re-baseline is undecided.
@@ -444,6 +468,9 @@ None.
 
 - [1] **The Indie Stone** — *Build 42.20.0 Stable Released* (Steam announcement, 2026-07-29). https://steamcommunity.com/games/108600/announcements/detail/1839676055882259 Accessed 2026-07-30 via the Steam news API (ISteamNews, app 108600); host is bot-block allowlisted.
 - [2] **PZ-Umbrella** — *Umbrella* (Project Zomboid type stubs; release tags per game version). https://github.com/PZ-Umbrella/Umbrella Repository URL as recorded in `sources/pins.json`.
+- [3] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307 Accessed 2026-10-07; host is bot-block allowlisted.
+- [4] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601 Accessed 2026-10-07; host is bot-block allowlisted.
+- [5] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925 Accessed 2026-10-07; host is bot-block allowlisted.
 
 # Further Reading
 
@@ -467,3 +494,4 @@ None.
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined: pins now B42 42.21.0 (42.20.0 kept as previous, tag-move note) and B41 41.78.21 primary-attested; freshness now exits 0; unfrozen count 35 as of 2026-10-07; kb-release tag for the re-baseline recorded as pending; sources [3][4][5]. | — |

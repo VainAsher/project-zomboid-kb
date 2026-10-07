@@ -2,20 +2,32 @@
   "umbrella": {
     "repo": "https://github.com/PZ-Umbrella/Umbrella",
     "pins": {
-      "B42": {"release_tag": "42.20.0", "commit": "58204fc47895ba249592519cedecc7cfbaaebd60"},
-      "B41": {"release_tag": "41.78.16", "commit": "fa2e7e19799740b57902f1cb4e989225c295c05e"}
+      "B42": {
+        "release_tag": "42.21.0",
+        "commit": "13d01f9ee58fa48773553920db56d06f0005e7f8"
+      },
+      "B41": {
+        "release_tag": "41.78.16",
+        "commit": "fa2e7e19799740b57902f1cb4e989225c295c05e"
+      },
+      "B42_previous": {
+        "release_tag": "42.20.0",
+        "commit": "58204fc47895ba249592519cedecc7cfbaaebd60",
+        "note": "Original KB pin (kb-release-2026.07.30 era). The upstream 42.20.0 tag was later moved to 98f50ae (+2 commits, 'Update lua', 2026-07-31); pin by commit, not by tag. Archived index: sources/schemas/archive/api-index-B42-42.20.0.json"
+      }
     },
-    "pinned_at": "2026-07-30",
+    "pinned_at": "2026-10-07",
     "note": "API-existence gate ground truth per build. Re-pin on each kb-release; build the symbol index from these tags when the Modders cluster starts."
   },
   "game_builds": {
-    "B42_stable": "42.20.0",
+    "B42_stable": "42.21",
     "B41_legacy": {
       "baseline": "legacy41 maintenance line",
-      "latest_primary_attested": "41.78.19 (security-only hotfix, 2026-04-08, Steam announcement)",
+      "latest_primary_attested": "41.78.21 (legacy hotfix, 2026-08-26, Steam announcement 1842212951296601)",
       "latest_wiki_attested": "41.78.20 (2026-07-29, pzwiki version pages only - pending primary confirmation)",
       "decision": "User decision 2026-07-31: B41 baseline follows the legacy41 maintenance line, not frozen 41.78.16. 41.78.17-.19 verified as security/maintenance-only; existing docs' 41.78.16-era fact verification stands. Docs bump game_versions_verified at their next natural revision.",
       "note": "The Umbrella B41 API pin stays at release tag 41.78.16 - no newer B41 stub tag exists."
-    }
+    },
+    "B42_stable_note": "42.21 stable released 2026-09-28 (Steam announcement 1844751498231307); preceded by 42.21 unstable 2026-09-23 and hotfixes 42.20.1-42.20.4 (2026-08-05..26)."
   }
 }

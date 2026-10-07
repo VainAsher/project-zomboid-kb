@@ -43,6 +43,28 @@
    "members": [],
    "parents": []
   },
+  "AStormIsComing": {
+   "members": [
+    "Add",
+    "AddPlayer",
+    "EveryTenMinutes",
+    "OnGameStart",
+    "OnInitSeasons",
+    "OnInitWorld",
+    "RemovePlayer",
+    "Render",
+    "gameMode",
+    "hourOfDay",
+    "id",
+    "image",
+    "spawns",
+    "world",
+    "x",
+    "y",
+    "z"
+   ],
+   "parents": []
+  },
   "AbstractStyle": {
    "members": [],
    "parents": []
@@ -57,6 +79,28 @@
     "Wallet"
    ],
    "parents": []
+  },
+  "AccessFlag": {
+   "members": [],
+   "parents": []
+  },
+  "AccessibleObject": {
+   "members": [
+    "canAccess",
+    "getAnnotation",
+    "getAnnotations",
+    "getAnnotationsByType",
+    "getDeclaredAnnotation",
+    "getDeclaredAnnotations",
+    "getDeclaredAnnotationsByType",
+    "isAccessible",
+    "isAnnotationPresent",
+    "setAccessible",
+    "trySetAccessible"
+   ],
+   "parents": [
+    "AnnotatedElement"
+   ]
   },
   "Account": {
    "members": [
@@ -1280,7 +1324,15 @@
    "parents": []
   },
   "AnnotatedElement": {
-   "members": [],
+   "members": [
+    "getAnnotation",
+    "getAnnotations",
+    "getAnnotationsByType",
+    "getDeclaredAnnotation",
+    "getDeclaredAnnotations",
+    "getDeclaredAnnotationsByType",
+    "isAnnotationPresent"
+   ],
    "parents": []
   },
   "AnnotatedMapOverlay": {
@@ -1297,6 +1349,14 @@
    "parents": [
     "ISPanel"
    ]
+  },
+  "AnnotatedType": {
+   "members": [],
+   "parents": []
+  },
+  "Annotation": {
+   "members": [],
+   "parents": []
   },
   "Appendable": {
    "members": [
@@ -2559,12 +2619,13 @@
     "getBarricadeOnOppositeSquare",
     "getBarricadeOnSameSquare",
     "getBarricadeOppositeCharacter",
+    "getNorth",
+    "getOppositeSquare",
+    "getSquare",
     "isBarricadeAllowed",
     "isBarricaded"
    ],
-   "parents": [
-    "GridSquareEdgeElement"
-   ]
+   "parents": []
   },
   "BaseAction": {
    "members": [
@@ -3165,7 +3226,6 @@
     "getAngleX",
     "getAngleY",
     "getAngleZ",
-    "getAnimalById",
     "getAnimalTrailerSize",
     "getAnimals",
     "getAnimationPlayer",
@@ -3409,7 +3469,6 @@
     "keyNamerVehicle",
     "leftSideFuel",
     "load",
-    "loadChange",
     "lockServerUpdate",
     "needPartsUpdate",
     "netPlayerFromServerUpdate",
@@ -3467,7 +3526,6 @@
     "resumeRunningAfterLoad",
     "rightSideFuel",
     "save",
-    "saveChange",
     "scriptReloaded",
     "setActiveInBullet",
     "setAddThumpWorldSound",
@@ -3637,6 +3695,10 @@
    "parents": []
   },
   "BaseVehicle.QuaternionfObjectPool": {
+   "members": [],
+   "parents": []
+  },
+  "BaseVehicle.ServerVehicleState": {
    "members": [],
    "parents": []
   },
@@ -4499,6 +4561,33 @@
    ],
    "parents": []
   },
+  "Boolean": {
+   "members": [
+    "FALSE",
+    "TRUE",
+    "TYPE",
+    "booleanValue",
+    "class",
+    "compare",
+    "compareTo",
+    "describeConstable",
+    "equals",
+    "getBoolean",
+    "hashCode",
+    "logicalAnd",
+    "logicalOr",
+    "logicalXor",
+    "new",
+    "parseBoolean",
+    "toString",
+    "valueOf"
+   ],
+   "parents": [
+    "Comparable<boolean>",
+    "Constable",
+    "Serializable"
+   ]
+  },
   "BooleanConfigOption": {
    "members": [
     "class",
@@ -4704,6 +4793,10 @@
    "parents": []
   },
   "BucketRootScript": {
+   "members": [],
+   "parents": []
+  },
+  "BufferedImage": {
    "members": [],
    "parents": []
   },
@@ -5034,7 +5127,6 @@
     "isHookUsingSameCharacter",
     "modifyMeat",
     "onAddedCorpseOnHook",
-    "onReattachAnimal",
     "onRemoveCorpseFromHook",
     "setUsingPlayerForHook",
     "updateCorpseDatas"
@@ -5460,6 +5552,53 @@
     "waveTime",
     "world",
     "x",
+    "y",
+    "z",
+    "zombieSpawnsRect",
+    "zombiesSpawned"
+   ],
+   "parents": []
+  },
+  "Challenge2": {
+   "members": [
+    "Add",
+    "AddPlayer",
+    "Init",
+    "OnInitWorld",
+    "RemovePlayer",
+    "Render",
+    "SpawnZombies",
+    "Tick",
+    "alphaTxt",
+    "deadZombie",
+    "endWave",
+    "gameMode",
+    "hourOfDay",
+    "id",
+    "image",
+    "lastWaveTime",
+    "moneyGained",
+    "onBackButtonWheel",
+    "onCreatePlayer",
+    "onKeyPressed",
+    "onZombieDead",
+    "playersMoney",
+    "prepareTime",
+    "prepareTimeCalendar",
+    "radarPanel",
+    "sdf",
+    "spawnCount",
+    "startedWaveCalendar",
+    "timeNeeded",
+    "timeNeededAlpha",
+    "timeNeededTick",
+    "upgradeScreen",
+    "video",
+    "wave",
+    "waveTime",
+    "world",
+    "x",
+    "xpGained",
     "y",
     "z",
     "zombieSpawnsRect",
@@ -5904,6 +6043,24 @@
   "CharacterGender": {
    "members": [],
    "parents": []
+  },
+  "CharacterInfoPage": {
+   "members": [
+    "Type",
+    "avatar",
+    "avatarPanel",
+    "createAvatar",
+    "createChildren",
+    "desc",
+    "doInfo",
+    "drawAvatar",
+    "initialise",
+    "new",
+    "prerender"
+   ],
+   "parents": [
+    "ISPanel"
+   ]
   },
   "CharacterInputBindingSet": {
    "members": [
@@ -7580,8 +7737,7 @@
     "exit",
     "getWindow",
     "instance",
-    "isDoingActionThatCanBeCancelled",
-    "setParams"
+    "isDoingActionThatCanBeCancelled"
    ],
    "parents": [
     "State"
@@ -9919,6 +10075,10 @@
    ],
    "parents": []
   },
+  "ConstructorRepository": {
+   "members": [],
+   "parents": []
+  },
   "Container": {
    "members": [
     "AMMO_STRAP_BROWN_BULLETS",
@@ -10379,6 +10539,7 @@
    "members": [
     "AddDispenserBottle",
     "BatteryLightSourceInteraction",
+    "CompostInteraction",
     "Items",
     "OnButcherHook",
     "OpenCloseAmphoraLid",
@@ -10736,7 +10897,6 @@
     "getDefaultZoomLevels",
     "getGLMajorVersion",
     "getGLVersion",
-    "getGameAndBuildVersion",
     "getGameMode",
     "getGameVersion",
     "getGitRevision",
@@ -10803,6 +10963,7 @@
     "getOptionDropItemsOnSquareCenter",
     "getOptionEnableDyslexicFont",
     "getOptionEnableLeftJoystickRadialMenu",
+    "getOptionFocusloss",
     "getOptionFontSize",
     "getOptionFontSizeReal",
     "getOptionGamepadBindingPreset",
@@ -10833,7 +10994,6 @@
     "getOptionOnStartup",
     "getOptionPanCameraWhileAiming",
     "getOptionPanCameraWhileDriving",
-    "getOptionPauseOnFocusloss",
     "getOptionPrecipitationSpeedMultiplier",
     "getOptionRackProgress",
     "getOptionRadialMenuKeyToggle",
@@ -11070,6 +11230,7 @@
     "setOptionDropItemsOnSquareCenter",
     "setOptionEnableDyslexicFont",
     "setOptionEnableLeftJoystickRadialMenu",
+    "setOptionFocusloss",
     "setOptionFontSize",
     "setOptionGamepadBindingPreset",
     "setOptionHighResPlacedItems",
@@ -11099,7 +11260,6 @@
     "setOptionOnStartup",
     "setOptionPanCameraWhileAiming",
     "setOptionPanCameraWhileDriving",
-    "setOptionPauseOnFocusloss",
     "setOptionPrecipitationSpeedMultiplier",
     "setOptionProgressBar",
     "setOptionRackProgress",
@@ -11218,7 +11378,40 @@
    "parents": []
   },
   "Coroutine": {
-   "members": [],
+   "members": [
+    "addStackTrace",
+    "atBottom",
+    "class",
+    "cleanCallFrames",
+    "closeUpvalues",
+    "currentCallFrame",
+    "destroy",
+    "findUpvalue",
+    "getCallFrame",
+    "getCallframeStack",
+    "getCallframeTop",
+    "getCurrentStackTrace",
+    "getObjectFromStack",
+    "getObjectStackSize",
+    "getParent",
+    "getParentCallframe",
+    "getParentNoAssert",
+    "getPlatform",
+    "getStatus",
+    "getThread",
+    "getTop",
+    "isDead",
+    "new",
+    "popCallFrame",
+    "pushNewCallFrame",
+    "resume",
+    "setCallFrameStackTop",
+    "setTop",
+    "stackClear",
+    "stackCopy",
+    "stackCopyNoDebugStuff",
+    "yieldHelper"
+   ],
    "parents": []
   },
   "CorpseCount.ChunkData": {
@@ -11534,6 +11727,222 @@
    "members": [
     "getAmount",
     "getPerk"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode": {
+   "members": [
+    "AssembleBlade",
+    "AssembleHead",
+    "COLUMN_ANIMAL",
+    "COLUMN_BLOOD",
+    "COLUMN_GREASE",
+    "COLUMN_TOOL",
+    "CopyKey",
+    "DUMMY_ITEM",
+    "DismantleBlade",
+    "DismantleHead",
+    "EntityRepairFull",
+    "FLAG_TEST",
+    "GenericBetterFixing",
+    "GenericEvenBetterFixing",
+    "GenericFixer",
+    "GenericFixing",
+    "ONCREATE_TEST",
+    "ONTEST_TEST",
+    "SharpenBladeGrindstone",
+    "SharpenHeadGrindstone",
+    "butcherHook",
+    "dryLeatherCrude",
+    "dryLeatherFur",
+    "generic",
+    "getAnimalBody",
+    "getInputLeather",
+    "getLeatherName",
+    "getOutputResourceInProcessor",
+    "removeBlood",
+    "removeFeather",
+    "removeFlesh",
+    "removeFur",
+    "removeGrease",
+    "removeLeather",
+    "removeParts",
+    "replaceOutputLeather",
+    "replaceOutputLeather2",
+    "tanLeatherCrude",
+    "tanLeatherFur",
+    "test"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.AssembleBlade": {
+   "members": [
+    "OnCreate"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.AssembleHead": {
+   "members": [
+    "OnCreate"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.CopyKey": {
+   "members": [
+    "OnCreate",
+    "OnTest"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.DismantleBlade": {
+   "members": [
+    "OnCreate"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.DismantleHead": {
+   "members": [
+    "OnCreate"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.EntityRepairFull": {
+   "members": [
+    "OnCreate",
+    "OnTest"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.GenericBetterFixing": {
+   "members": [
+    "OnCreate"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.GenericEvenBetterFixing": {
+   "members": [
+    "OnCreate"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.GenericFixing": {
+   "members": [
+    "OnCreate"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.SharpenBladeGrindstone": {
+   "members": [
+    "OnCreate",
+    "OnTest"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.SharpenHeadGrindstone": {
+   "members": [
+    "OnCreate"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.butcherHook": {
+   "members": [
+    "OnTest",
+    "OnTestModData",
+    "createItem",
+    "getAnimalPartDef",
+    "removeDummyItem"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.dryLeatherCrude": {
+   "members": [
+    "OnCreate"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.dryLeatherFur": {
+   "members": [
+    "OnCreate"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.generic": {
+   "members": [
+    "OnCreate",
+    "OnFailed",
+    "OnStart",
+    "OnTest",
+    "OnUpdate"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.removeBlood": {
+   "members": [
+    "OnCreate",
+    "OnTest"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.removeFeather": {
+   "members": [
+    "OnCreate",
+    "OnTest"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.removeFlesh": {
+   "members": [
+    "OnCreate"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.removeFur": {
+   "members": [
+    "OnCreate"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.removeGrease": {
+   "members": [
+    "OnCreate",
+    "OnTest"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.removeLeather": {
+   "members": [
+    "OnCreate",
+    "OnTest"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.removeParts": {
+   "members": [
+    "OnCreate",
+    "OnTest"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.tanLeatherCrude": {
+   "members": [
+    "OnCreate"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.tanLeatherFur": {
+   "members": [
+    "OnCreate"
+   ],
+   "parents": []
+  },
+  "CraftRecipeCode.test": {
+   "members": [
+    "OnCreate",
+    "OnFailed",
+    "OnStart",
+    "OnTest",
+    "OnUpdate",
+    "moreDebugPrints"
    ],
    "parents": []
   },
@@ -11951,7 +12360,6 @@
     "CARL_STONE",
     "CASEY_JO_KENNY",
     "CASPIAN_PRINCE",
-    "CATHERINE_NGO",
     "CHARLIE_SLOAN",
     "CHET_FALISZEK",
     "CHIEF",
@@ -12016,10 +12424,8 @@
     "JACK_BELL",
     "JACOB_HALEY",
     "JAIME_BYRNE",
-    "JAKE_RILEY",
     "JAKOB_KANDEL",
     "JAMES_STRETTON",
-    "JAMIE_CARR",
     "JAMIE_MAGNUSON",
     "JAS_PUREWAL",
     "JAY_MILLS",
@@ -12037,7 +12443,6 @@
     "KEVIN_BANKS",
     "KEVIN_KING",
     "KIERAN_RAFFERTY",
-    "KIEREN_VERNON",
     "KIM_METZGER",
     "KIWO",
     "KLEAN",
@@ -12045,7 +12450,6 @@
     "KRISTINE_MYRENE",
     "KRZYSZTOF_SAGOLA",
     "KYLE_ROWLEY",
-    "LEE_BARNES",
     "LEONKIEL",
     "LEO_DIMILO",
     "LEO_IVANOV",
@@ -12126,9 +12530,6 @@
     "RUAL_STORGE",
     "SACRIEL",
     "SAMI_OLAVI",
-    "SAM_BASSETT_SEAMARK",
-    "SAM_BURROUGHES",
-    "SAM_GATES",
     "SAM_SPAWTON",
     "SARAH_NEWELL",
     "SAUDIGAMER",
@@ -12145,19 +12546,16 @@
     "STEVE_SHARP",
     "STEVE_YOUNG",
     "STUART_JONES",
-    "SYED_BILAL_AHMED",
     "TANJA_SUITIALA",
     "THE_COMMANDER",
     "THE_COMMUNITY",
     "THE_PUB",
     "THOMAS_DEYN",
     "THOMAS_GUIMBRETIERE",
-    "THOMAS_ROBINSON",
     "TIMOTHY_BAKER",
     "TIM_BUCKLEY",
     "TITOPEI",
     "TOMEK_KALISZEWSKI",
-    "TOM_HALL",
     "TOM_PORTER",
     "TRAILER_FARM",
     "TWIGGY",
@@ -12186,7 +12584,6 @@
    "members": [
     "ADDITIONAL_ARTISTS",
     "ADDITIONAL_CODE",
-    "ADDITIONAL_SUPPORT",
     "ARTISTS",
     "ART_DIRECTOR",
     "ASSOCIATE_PRODUCER",
@@ -12205,7 +12602,6 @@
     "FOUNDERS",
     "GENERAL_ARCADE",
     "GRAPHIC_DESIGNER",
-    "HEAD_FQA",
     "HEAD_PRODUCER",
     "HEAD_RACCOON",
     "HR",
@@ -12217,7 +12613,6 @@
     "LEAD_PROGRAMMER",
     "LEAD_QA",
     "LEAD_QA_TIS",
-    "LEAD_QA_USS",
     "LEAD_SOUND_DESIGNER_ARRIVAL",
     "LEAD_TECHNICAL_PROGRAMMER",
     "LOCALISATION_LEAD",
@@ -12229,8 +12624,6 @@
     "PRODUCER",
     "PRODUCTION_DIRECTOR",
     "QA",
-    "QA_PROJECT_MANAGER",
-    "QA_TECHNICIANS",
     "QUALITY_ASSURANCE",
     "QUALITY_ASSURANCE_TESTERS",
     "RENDERING_PROGRAMMER",
@@ -12238,7 +12631,6 @@
     "SENIOR_PRODUCER",
     "SENIOR_PROGRAMMER",
     "SENIOR_QA",
-    "SENIOR_QA_TECHNICIANS",
     "SENIOR_SOFTWARE_DEVELOPER",
     "SOUND_DESIGNER",
     "SOUND_SUPERVISOR",
@@ -12297,7 +12689,6 @@
     "TEA",
     "TMG",
     "TOOLS",
-    "USS",
     "VERTEX_BREAK",
     "class",
     "getAll",
@@ -12314,9 +12705,11 @@
   "CreditsScreen": {
    "members": [
     "Type",
+    "addToMap",
     "changeSpeed",
     "create",
     "currentAlpha",
+    "doCreditTable",
     "doCreditsText",
     "escapeText",
     "escapeTextWidth",
@@ -13491,7 +13884,6 @@
     "readConfigCommand",
     "setDefaultLogSeverity",
     "setLogEnabled",
-    "setLogEnabledFromCommandLine",
     "setLogServerTimeMsEnabled",
     "setRecordingOut",
     "setStdErr",
@@ -13676,7 +14068,6 @@
     "BodyDamage",
     "CharacterTrait",
     "Checksum",
-    "ClientCommand",
     "Clothing",
     "Combat",
     "Context",
@@ -13729,9 +14120,7 @@
     "Sprite",
     "Statistic",
     "Translation",
-    "UnitTest",
     "Vehicle",
-    "VehicleClientCommand",
     "VehicleHit",
     "Voice",
     "WorldGen",
@@ -13901,7 +14290,6 @@
     "addBattery",
     "addEmergencyChannel",
     "addHeadphones",
-    "addHeadphonesToInventory",
     "addMediaItem",
     "canBePoweredHere",
     "canPlayerRemoteInteract",
@@ -13924,6 +14312,7 @@
     "getFMODParameters",
     "getHasBattery",
     "getHeadphoneType",
+    "getHeadphones",
     "getIsBatteryPowered",
     "getIsHighTier",
     "getIsPortable",
@@ -14005,6 +14394,40 @@
     "IFMODParameterUpdater"
    ]
   },
+  "DeviceInspector": {
+   "members": [
+    "Type",
+    "addLine",
+    "addLineEnd",
+    "addTitle",
+    "clear",
+    "close",
+    "createChildren",
+    "currentTile",
+    "hotKeyPanels",
+    "initialise",
+    "instance",
+    "isJoypadWindow",
+    "new",
+    "onMouseButtonUp",
+    "onResize",
+    "overrideBPrompt",
+    "player",
+    "playerNum",
+    "prerender",
+    "readObject",
+    "render",
+    "richtext",
+    "stayOnSplitScreen",
+    "subFocus",
+    "title",
+    "tmpTxt",
+    "update"
+   ],
+   "parents": [
+    "ISCollapsableWindow"
+   ]
+  },
   "DevicePresets": {
    "members": [
     "addPreset",
@@ -14076,10 +14499,52 @@
   },
   "Double": {
    "members": [
+    "BYTES",
+    "MAX_EXPONENT",
+    "MAX_VALUE",
+    "MIN_EXPONENT",
+    "MIN_NORMAL",
+    "MIN_VALUE",
+    "NEGATIVE_INFINITY",
+    "NaN",
+    "POSITIVE_INFINITY",
+    "PRECISION",
+    "SIZE",
+    "TYPE",
+    "byteValue",
     "class",
-    "new"
+    "compare",
+    "compareTo",
+    "describeConstable",
+    "doubleToLongBits",
+    "doubleToRawLongBits",
+    "doubleValue",
+    "equals",
+    "floatValue",
+    "hashCode",
+    "intValue",
+    "isFinite",
+    "isInfinite",
+    "isNaN",
+    "longBitsToDouble",
+    "longValue",
+    "max",
+    "min",
+    "new",
+    "parseDouble",
+    "resolveConstantDesc",
+    "shortValue",
+    "sum",
+    "toHexString",
+    "toString",
+    "valueOf"
    ],
-   "parents": []
+   "parents": [
+    "Comparable<number>",
+    "Constable",
+    "ConstantDesc",
+    "Number"
+   ]
   },
   "DoubleConfigOption": {
    "members": [
@@ -14582,7 +15047,7 @@
     "removePoint",
     "reverseDirection",
     "setPoint",
-    "setUntranslatedText",
+    "setTranslatedText",
     "setWidth"
    ],
    "parents": [
@@ -14999,6 +15464,30 @@
    "parents": [
     "ISUI3DScene"
    ]
+  },
+  "EightMonthsLater": {
+   "members": [
+    "AddPlayer",
+    "Init",
+    "PreloadInit",
+    "RemovePlayer",
+    "Render",
+    "Tick",
+    "completionText",
+    "description",
+    "gameMode",
+    "hourOfDay",
+    "image",
+    "name",
+    "onBackButtonWheel",
+    "wave",
+    "waveTime",
+    "world",
+    "x",
+    "y",
+    "z"
+   ],
+   "parents": []
   },
   "EmitterType": {
    "members": [
@@ -15435,6 +15924,41 @@
    "members": [],
    "parents": []
   },
+  "Executable": {
+   "members": [
+    "accessFlags",
+    "getAnnotatedExceptionTypes",
+    "getAnnotatedParameterTypes",
+    "getAnnotatedReceiverType",
+    "getAnnotatedReturnType",
+    "getAnnotation",
+    "getAnnotationsByType",
+    "getDeclaredAnnotations",
+    "getDeclaringClass",
+    "getExceptionTypes",
+    "getGenericExceptionTypes",
+    "getGenericParameterTypes",
+    "getModifiers",
+    "getName",
+    "getParameterAnnotations",
+    "getParameterCount",
+    "getParameterTypes",
+    "getParameters",
+    "getTypeParameters",
+    "isSynthetic",
+    "isVarArgs",
+    "toGenericString"
+   ],
+   "parents": [
+    "AccessibleObject",
+    "GenericDeclaration",
+    "Member"
+   ]
+  },
+  "Executable.ParameterData": {
+   "members": [],
+   "parents": []
+  },
   "ExitOption": {
    "members": [
     "class",
@@ -15807,10 +16331,58 @@
    "parents": []
   },
   "Field": {
+   "members": [
+    "accessFlags",
+    "class",
+    "equals",
+    "get",
+    "getAnnotatedType",
+    "getAnnotation",
+    "getAnnotationsByType",
+    "getBoolean",
+    "getByte",
+    "getChar",
+    "getDeclaredAnnotations",
+    "getDeclaringClass",
+    "getDouble",
+    "getFloat",
+    "getGenericType",
+    "getInt",
+    "getLong",
+    "getModifiers",
+    "getName",
+    "getShort",
+    "getType",
+    "hashCode",
+    "isEnumConstant",
+    "isSynthetic",
+    "set",
+    "setAccessible",
+    "setBoolean",
+    "setByte",
+    "setChar",
+    "setDouble",
+    "setFloat",
+    "setInt",
+    "setLong",
+    "setShort",
+    "toGenericString",
+    "toString"
+   ],
+   "parents": [
+    "AccessibleObject",
+    "Member"
+   ]
+  },
+  "FieldAccessor": {
    "members": [],
    "parents": []
   },
   "FieldPosition": {
+   "members": [],
+   "parents": []
+  },
+  "FieldRepository": {
    "members": [],
    "parents": []
   },
@@ -16604,10 +17176,54 @@
   },
   "Float": {
    "members": [
+    "BYTES",
+    "MAX_EXPONENT",
+    "MAX_VALUE",
+    "MIN_EXPONENT",
+    "MIN_NORMAL",
+    "MIN_VALUE",
+    "NEGATIVE_INFINITY",
+    "NaN",
+    "POSITIVE_INFINITY",
+    "PRECISION",
+    "SIZE",
+    "TYPE",
+    "byteValue",
     "class",
-    "new"
+    "compare",
+    "compareTo",
+    "describeConstable",
+    "doubleValue",
+    "equals",
+    "float16ToFloat",
+    "floatToFloat16",
+    "floatToIntBits",
+    "floatToRawIntBits",
+    "floatValue",
+    "hashCode",
+    "intBitsToFloat",
+    "intValue",
+    "isFinite",
+    "isInfinite",
+    "isNaN",
+    "longValue",
+    "max",
+    "min",
+    "new",
+    "parseFloat",
+    "resolveConstantDesc",
+    "shortValue",
+    "sum",
+    "toHexString",
+    "toString",
+    "valueOf"
    ],
-   "parents": []
+   "parents": [
+    "Comparable<number>",
+    "Constable",
+    "ConstantDesc",
+    "Number"
+   ]
   },
   "FloatArrayPlotter": {
    "members": [
@@ -17932,7 +18548,6 @@
     "getWeight",
     "getWorldTexture",
     "hasAnimalParts",
-    "hasSpices",
     "inheritFoodAgeFrom",
     "inheritOlderFoodAge",
     "isAnimalSkeleton",
@@ -18359,6 +18974,7 @@
     "exit",
     "gameLoadingString",
     "loader",
+    "mapDownloadFailed",
     "new",
     "playerWrongIP",
     "redirectState",
@@ -18592,8 +19208,6 @@
     "NANOSECONDS_PER_SECOND",
     "RemoveZombiesIndiscriminate",
     "SECONDS_PER_MINUTE",
-    "START_OF_NEW_DAY",
-    "SYNC_CLOCK_MS",
     "SecondsPerHour",
     "THIRTY_FPS_SCALE",
     "TimeLerp",
@@ -18811,6 +19425,14 @@
    "parents": []
   },
   "GenericDeclaration": {
+   "members": [
+    "getTypeParameters"
+   ],
+   "parents": [
+    "AnnotatedElement"
+   ]
+  },
+  "GenericsFactory": {
    "members": [],
    "parents": []
   },
@@ -18944,41 +19566,6 @@
    "members": [],
    "parents": []
   },
-  "GridSquareEdge": {
-   "members": [
-    "EAST",
-    "NORTH",
-    "SOUTH",
-    "WEST",
-    "class",
-    "valueOf",
-    "values"
-   ],
-   "parents": [
-    "Enum<GridSquareEdge>"
-   ]
-  },
-  "GridSquareEdgeElement": {
-   "members": [
-    "getGridSquareEdgeFacingDirection",
-    "getNorth",
-    "getOppositeSquare",
-    "getSquare"
-   ],
-   "parents": []
-  },
-  "GridSquareEdgeFacingDirection": {
-   "members": [
-    "EAST_WEST",
-    "NORTH_SOUTH",
-    "class",
-    "valueOf",
-    "values"
-   ],
-   "parents": [
-    "Enum<GridSquareEdgeFacingDirection>"
-   ]
-  },
   "GridSquareMarker": {
    "members": [
     "class",
@@ -19001,7 +19588,6 @@
     "Limestone",
     "Log",
     "Stone",
-    "Stone2",
     "StoneTwigs",
     "TreeBranch2",
     "Twigs"
@@ -19477,10 +20063,6 @@
    ]
   },
   "Helicopter": {
-   "members": [],
-   "parents": []
-  },
-  "HitDirEnum": {
    "members": [],
    "parents": []
   },
@@ -20180,7 +20762,6 @@
     "smashCarWindow",
     "smashWindow",
     "stopOrTriggerSound",
-    "transmitHaloNote",
     "triggerContextualAction"
    ],
    "parents": [
@@ -20380,6 +20961,29 @@
   "IRuntimeAnimationCommand": {
    "members": [],
    "parents": []
+  },
+  "IS9Patch": {
+   "members": [
+    "Type",
+    "background",
+    "backgroundColor",
+    "border",
+    "borderColor",
+    "colWidthLeft",
+    "colWidthRight",
+    "drawOnPrerender",
+    "img",
+    "initialise",
+    "new",
+    "prerender",
+    "render",
+    "renderInternal",
+    "rowHeightBot",
+    "rowHeightTop"
+   ],
+   "parents": [
+    "ISUIElement"
+   ]
   },
   "ISActivateCarBatteryChargerAction": {
    "members": [
@@ -21996,12 +22600,10 @@
     "playerNum",
     "prerender",
     "render",
-    "shouldAutoClose",
     "stayOnSplitScreen",
     "title",
     "update",
     "validateSizeBounds",
-    "wasEntityRemoved",
     "xuiPreferredResizeHeight",
     "xuiPreferredResizeWidth",
     "xuiRecalculateLayout",
@@ -22178,6 +22780,27 @@
     "ISPanel"
    ]
   },
+  "ISBaseMover": {
+   "members": [
+    "IDMax",
+    "Type",
+    "changeState",
+    "getSprite",
+    "init",
+    "javaObject",
+    "new",
+    "placeInWorld",
+    "playAnim",
+    "postrender",
+    "removeFromWorld",
+    "sprite",
+    "states",
+    "update"
+   ],
+   "parents": [
+    "ISBaseObject"
+   ]
+  },
   "ISBaseObject": {
    "members": [
     "SuperType",
@@ -22193,6 +22816,69 @@
     "triggerEvent"
    ],
    "parents": []
+  },
+  "ISBaseState": {
+   "members": [
+    "Type",
+    "during",
+    "enter",
+    "exit",
+    "isFinished",
+    "new"
+   ],
+   "parents": [
+    "ISBaseObject"
+   ]
+  },
+  "ISBaseStockingLayout": {
+   "members": [
+    "Type",
+    "addVendingOption",
+    "arrayList",
+    "blueprintLogic",
+    "buttonOffColor",
+    "buttonOnColor",
+    "buttonPower",
+    "coverPanel",
+    "createChildren",
+    "defaultJoypadMoveInterval",
+    "frontPanel",
+    "getMaxCredits",
+    "getProductPrice",
+    "getVendingOption",
+    "initialise",
+    "interiorTextures",
+    "interiorUnlitTextures",
+    "isRunning",
+    "isTurnedOn",
+    "itemSlotKey",
+    "itemSlotMoney",
+    "joypadMoveInterval",
+    "ledInvalidCol",
+    "ledValidCol",
+    "new",
+    "onButtonClick",
+    "parentPanel",
+    "parts",
+    "player",
+    "playerNum",
+    "prerender",
+    "productColumns",
+    "productPanelHeight",
+    "productPanelWidth",
+    "render",
+    "resourceKey",
+    "resourceMoney",
+    "resources",
+    "scriptLabel",
+    "textColorOff",
+    "textColorOn",
+    "update",
+    "vendingOptions"
+   ],
+   "parents": [
+    "ISPanel"
+   ]
   },
   "ISBaseTimedAction": {
    "members": [
@@ -22249,6 +22935,56 @@
    ],
    "parents": [
     "ISBaseObject"
+   ]
+  },
+  "ISBaseVendingLayout": {
+   "members": [
+    "Type",
+    "addVendingOption",
+    "arrayList",
+    "blueprintLogic",
+    "buttonBorderColor",
+    "buttonBorderColorDisabled",
+    "buttonImg",
+    "createChildren",
+    "defaultJoypadMoveInterval",
+    "frontImageOff",
+    "frontImageOn",
+    "frontPanel",
+    "getCredits",
+    "getProductPrice",
+    "getVendingOption",
+    "initialise",
+    "isRunning",
+    "isTurnedOn",
+    "itemSlotMoney",
+    "itemSlotOutput",
+    "joypadMoveInterval",
+    "ledInvalidCol",
+    "ledValidCol",
+    "moneyLcd",
+    "mouseOverButtons",
+    "new",
+    "onButtonClick",
+    "onMouseMove",
+    "onMouseMoveOutside",
+    "optionArea",
+    "parentPanel",
+    "parts",
+    "player",
+    "playerNum",
+    "prerender",
+    "render",
+    "resourceMoney",
+    "resourceOutput",
+    "resources",
+    "trayImgs",
+    "trayPanel",
+    "update",
+    "vendingOptions"
+   ],
+   "parents": [
+    "ISPanel"
    ]
   },
   "ISBatteryStatusDisplay": {
@@ -22436,7 +23172,6 @@
     "isTileCursor",
     "new",
     "noNeedHammer",
-    "onTileObjectAdded",
     "player",
     "render",
     "skipBuildAction",
@@ -22858,6 +23593,7 @@
     "canBePlastered",
     "canPassThrough",
     "chosenSprite",
+    "clickedUI",
     "completionSound",
     "crossSpeed",
     "deactivate",
@@ -22928,6 +23664,139 @@
    ],
    "parents": [
     "ISBaseObject"
+   ]
+  },
+  "ISBuildingRoomsEditor": {
+   "members": [
+    "OnEvent",
+    "Show",
+    "Type",
+    "applyChanges",
+    "askApplyChanges",
+    "buildingPanel",
+    "buttonApply",
+    "buttonClose",
+    "close",
+    "confirmApplyChanges",
+    "contents",
+    "createChildren",
+    "currentLevel",
+    "currentTool",
+    "display",
+    "drawJoypadFocus",
+    "getSelectedBuilding",
+    "getSelectedRoom",
+    "handleBumpers",
+    "hasChanges",
+    "hasConflictWithJoypadNavigateStart",
+    "instance",
+    "javaEditor",
+    "joypadNavigate",
+    "new",
+    "onButtonApply",
+    "onButtonClose",
+    "onGainJoypadFocus",
+    "onJoypadButtonReleased",
+    "onJoypadButtonReleased_Descendant",
+    "onJoypadDirUp",
+    "onJoypadDown",
+    "onJoypadDown_Descendant",
+    "onJoypadNavigateStart",
+    "onLoseJoypadFocus",
+    "playerNum",
+    "previousFocusTool",
+    "render",
+    "roomPanel",
+    "setCurrentTool",
+    "tabPanel",
+    "title",
+    "toolAddBuilding",
+    "toolAddRect",
+    "toolAddRoom",
+    "toolRemoveRect",
+    "update"
+   ],
+   "parents": [
+    "ISCollapsableWindowJoypad"
+   ]
+  },
+  "ISBuildingRoomsEditor_BuildingPanel": {
+   "members": [
+    "OnEvent",
+    "Type",
+    "askRemoveBuilding",
+    "button1",
+    "button2",
+    "confirmRemoveBuilding",
+    "createChildren",
+    "editor",
+    "fillList",
+    "getSelectedBuilding",
+    "hasConflictWithJoypadNavigateStart",
+    "javaEditor",
+    "listBox",
+    "modalInProgress",
+    "new",
+    "onButton1",
+    "onButton2",
+    "onGainJoypadFocus",
+    "onJoypadDirLeft",
+    "onJoypadDirRight_Descendant",
+    "onLoseJoypadFocus",
+    "playerNum",
+    "selectPlayerBuilding",
+    "selectedBuilding",
+    "setButtonColor",
+    "setDefaultButtonColor",
+    "update",
+    "updateItemColors"
+   ],
+   "parents": [
+    "ISPanelJoypad"
+   ]
+  },
+  "ISBuildingRoomsEditor_RoomPanel": {
+   "members": [
+    "OnEvent",
+    "Type",
+    "askRemoveRoom",
+    "building",
+    "button1",
+    "button2",
+    "button3",
+    "button4",
+    "confirmRemoveRoom",
+    "createChildren",
+    "editor",
+    "fillList",
+    "getSelectedRoom",
+    "hasConflictWithJoypadNavigateStart",
+    "javaEditor",
+    "listBox",
+    "modalInProgress",
+    "nameEntry",
+    "new",
+    "onButton1",
+    "onButton2",
+    "onButton3",
+    "onButton4",
+    "onGainJoypadFocus",
+    "onJoypadDirLeft",
+    "onJoypadDirRight_Descendant",
+    "onLoseJoypadFocus",
+    "onNameChange",
+    "onNameEntered",
+    "playerNum",
+    "playerRoomIndex",
+    "selectedRoom",
+    "setButtonColor",
+    "setDefaultButtonColor",
+    "trackPlayerRoom",
+    "update",
+    "updateItemColors"
+   ],
+   "parents": [
+    "ISPanelJoypad"
    ]
   },
   "ISBuildingRoomsEditor_ToolAddBuilding": {
@@ -23015,6 +23884,23 @@
     "ISBuildingObject"
    ]
   },
+  "ISBulletTracerEffect": {
+   "members": [
+    "Type",
+    "createChildren",
+    "ignoreSlider",
+    "initialise",
+    "new",
+    "onResetToDefault",
+    "onSliderChange",
+    "optionToSlider",
+    "prerender",
+    "setSliderValues"
+   ],
+   "parents": [
+    "ISDebugSubPanelBase"
+   ]
+  },
   "ISBurnCorpseAction": {
    "members": [
     "Type",
@@ -23060,6 +23946,7 @@
    "members": [
     "Type",
     "body",
+    "bodyItemToRemove",
     "complete",
     "getDuration",
     "isLargeAnimal",
@@ -23077,6 +23964,56 @@
    ],
    "parents": [
     "ISBaseTimedAction"
+   ]
+  },
+  "ISButcherHookCraftPanel": {
+   "members": [
+    "CanCreatePanelFor",
+    "Type",
+    "calculateLayout",
+    "createChildren",
+    "initialise",
+    "new",
+    "onResize",
+    "prerender",
+    "processorPanel",
+    "render",
+    "update"
+   ],
+   "parents": [
+    "ISBaseComponentPanel"
+   ]
+  },
+  "ISButcherHookProcessorPanel": {
+   "members": [
+    "Type",
+    "calculateLayout",
+    "component",
+    "craftControl",
+    "craftControlDebug",
+    "craftProcessor",
+    "craftProgress",
+    "craftRecipeSelect",
+    "createChildren",
+    "createEnergySlotPanel",
+    "createFluidSlotPanel",
+    "createItemSlotPanel",
+    "entity",
+    "fluidOutputs",
+    "initialise",
+    "itemInputs",
+    "itemOutputs",
+    "new",
+    "onResize",
+    "player",
+    "prerender",
+    "render",
+    "resourceContainer",
+    "tableLayout",
+    "update"
+   ],
+   "parents": [
+    "ISPanel"
    ]
   },
   "ISButcherHookUI": {
@@ -23129,6 +24066,7 @@
     "onGainJoypadFocus",
     "onHookReceivedNetUpdate",
     "onJoypadDown",
+    "onReattachAnimal",
     "onRemoveBlood",
     "onRemoveHead",
     "onRemoveLeather",
@@ -23496,6 +24434,112 @@
    ],
    "parents": []
   },
+  "ISChallenge2PlayerUpWindow": {
+   "members": [
+    "Type",
+    "buttons",
+    "char",
+    "create",
+    "initialise",
+    "joypadButtons",
+    "loadJoypadButtons",
+    "new",
+    "onJoypadDown",
+    "onOptionMouseDown",
+    "playerId",
+    "reloadButtons",
+    "render",
+    "updateButtonLevel"
+   ],
+   "parents": [
+    "ISPanelJoypad"
+   ]
+  },
+  "ISChallenge2UpgradeTab": {
+   "members": [
+    "Type",
+    "close",
+    "createChildren",
+    "initialise",
+    "instance",
+    "itemScreen",
+    "new",
+    "onGainJoypadFocus",
+    "onJoypadDown",
+    "panel",
+    "playerId",
+    "playerScreen",
+    "reloadButtons",
+    "render",
+    "repairScreen",
+    "weaponScreen"
+   ],
+   "parents": [
+    "ISCollapsableWindow"
+   ]
+  },
+  "ISChallenge2VariousItemWindow": {
+   "members": [
+    "Type",
+    "buttons",
+    "char",
+    "create",
+    "createItemButton",
+    "initialise",
+    "joypadButtons",
+    "loadJoypadButtons",
+    "new",
+    "onJoypadDown",
+    "onOptionMouseDown",
+    "playerId",
+    "reloadButtons",
+    "render"
+   ],
+   "parents": [
+    "ISPanelJoypad"
+   ]
+  },
+  "ISChallenge2WeaponRepairWindow": {
+   "members": [
+    "Type",
+    "buttons",
+    "char",
+    "create",
+    "initialise",
+    "joypadButtons",
+    "loadJoypadButtons",
+    "new",
+    "onJoypadDown",
+    "onOptionMouseDown",
+    "playerId",
+    "reloadButtons",
+    "render"
+   ],
+   "parents": [
+    "ISPanelJoypad"
+   ]
+  },
+  "ISChallenge2WeaponUpWindow": {
+   "members": [
+    "Type",
+    "buttons",
+    "char",
+    "create",
+    "createItemButton",
+    "initialise",
+    "joypadButtons",
+    "loadJoypadButtons",
+    "new",
+    "onJoypadDown",
+    "onOptionMouseDown",
+    "playerId",
+    "reloadButtons",
+    "render"
+   ],
+   "parents": [
+    "ISPanelJoypad"
+   ]
+  },
   "ISChangeFishingRodEquip": {
    "members": [
     "Type",
@@ -23843,6 +24887,32 @@
     "ISCollapsableWindow"
    ]
   },
+  "ISCheatPanelUI": {
+   "members": [
+    "AddOption",
+    "EnableCheats",
+    "OnOpenPanel",
+    "OptionById",
+    "OptionList",
+    "Type",
+    "addAdminPowerOptions",
+    "cheatTooltips",
+    "initialise",
+    "instance",
+    "new",
+    "ok",
+    "onClick",
+    "onTicked",
+    "player",
+    "prerender",
+    "render",
+    "saveOptions",
+    "tickBox"
+   ],
+   "parents": [
+    "ISPanel"
+   ]
+  },
   "ISCheckAnimalInsideTrailer": {
    "members": [
     "Type",
@@ -24166,9 +25236,12 @@
     "item",
     "new",
     "perform",
+    "performNew",
     "start",
+    "started",
     "stop",
     "stopSound",
+    "transactionId",
     "update",
     "waitToStart"
    ],
@@ -24749,12 +25822,56 @@
     "ISBaseTimedAction"
    ]
   },
+  "ISContextDebugHighlights": {
+   "members": [
+    "colorindex",
+    "colors",
+    "createMenu",
+    "enableMe",
+    "init",
+    "openPanel",
+    "openPanel0",
+    "openPanel00",
+    "openPanel01",
+    "openPanel2",
+    "openPanel3"
+   ],
+   "parents": [
+    "ISMenuElement"
+   ]
+  },
+  "ISContextDisassemble": {
+   "members": [
+    "createMenu",
+    "disassemble",
+    "init"
+   ],
+   "parents": [
+    "ISMenuElement"
+   ]
+  },
   "ISContextEntity": {
    "members": [
     "buildTest",
     "createMenu",
     "init",
     "openPanel"
+   ],
+   "parents": [
+    "ISMenuElement"
+   ]
+  },
+  "ISContextFluidContainer": {
+   "members": [
+    "addDebugFluid",
+    "addPetrol",
+    "addWater",
+    "createMenu",
+    "emptyFluidContainer",
+    "init",
+    "removeContainer",
+    "showInfo",
+    "transferFluids"
    ],
    "parents": [
     "ISMenuElement"
@@ -24893,6 +26010,16 @@
    "members": [],
    "parents": []
   },
+  "ISContextTelevision": {
+   "members": [
+    "createMenu",
+    "init",
+    "openPanel"
+   ],
+   "parents": [
+    "ISMenuElement"
+   ]
+  },
   "ISControllerBindingsEditorPanel": {
    "members": [
     "SuperType",
@@ -24956,6 +26083,7 @@
     "label",
     "new",
     "onControllerSelected",
+    "onResolutionChange",
     "render",
     "selectedController",
     "setControllerCombo",
@@ -25550,6 +26678,45 @@
     "ISPanel"
    ]
   },
+  "ISCraftingCategoryUI": {
+   "members": [
+    "MEDIUM_FONT_HGT",
+    "SMALL_FONT_HGT",
+    "Type",
+    "addToFavorite",
+    "character",
+    "craftingUI",
+    "create",
+    "drawRecipesMap",
+    "favCheckedTex",
+    "favNotCheckedTex",
+    "favPadX",
+    "favWidth",
+    "favoriteStar",
+    "filter",
+    "filterAll",
+    "filterEntry",
+    "filterLabel",
+    "filteringAll",
+    "getFavoriteX",
+    "initialise",
+    "instance",
+    "isMouseOverFavorite",
+    "lastText",
+    "new",
+    "onFilterAll",
+    "onMouseDoubleClick_Recipes",
+    "onMouseDown_Recipes",
+    "prerender",
+    "recipes",
+    "selected",
+    "syncAllFilters",
+    "update"
+   ],
+   "parents": [
+    "ISPanelJoypad"
+   ]
+  },
   "ISCraftingUI": {
    "members": [
     "ReturnItemToContainer",
@@ -26088,7 +27255,6 @@
     "cornerCounter",
     "getCornerWallSprite",
     "getDuration",
-    "hasSledgehammerInRange",
     "isValid",
     "item",
     "new",
@@ -26098,8 +27264,7 @@
     "start",
     "stop",
     "update",
-    "waitToStart",
-    "wasValid"
+    "waitToStart"
    ],
    "parents": [
     "ISBaseTimedAction"
@@ -26526,9 +27691,14 @@
     "new",
     "perform",
     "serverStart",
+    "serverStartTime",
+    "serverStop",
     "start",
     "started",
     "stop",
+    "syncItemUses",
+    "tick",
+    "timer",
     "update",
     "useAndDry",
     "useDelay"
@@ -27187,6 +28357,7 @@
     "animSpeed",
     "complete",
     "fromHotbar",
+    "getDuration",
     "hotbar",
     "ignoreHandsWounds",
     "isAlreadyEquipped",
@@ -27562,7 +28733,8 @@
     "player",
     "playerList",
     "populateList",
-    "prerender"
+    "prerender",
+    "scoreboard"
    ],
    "parents": [
     "ISPanel"
@@ -27617,6 +28789,7 @@
     "showTag",
     "tag",
     "tagColor",
+    "tagColorBtn",
     "updateButtons"
    ],
    "parents": [
@@ -27644,6 +28817,32 @@
     "ISPanel"
    ]
   },
+  "ISFarmingCursor": {
+   "members": [
+    "Type",
+    "character",
+    "create",
+    "getAPrompt",
+    "getLBPrompt",
+    "getObjectList",
+    "getRBPrompt",
+    "isValid",
+    "new",
+    "noNeedHammer",
+    "onJoypadPressButton",
+    "player",
+    "render",
+    "renderX",
+    "renderY",
+    "renderZ",
+    "rotateKey",
+    "skipBuildAction",
+    "skipWalk"
+   ],
+   "parents": [
+    "ISBuildingObject"
+   ]
+  },
   "ISFarmingCursorMouse": {
    "members": [
     "IsVisible",
@@ -27665,8 +28864,7 @@
     "renderTooltip",
     "skipBuildAction",
     "sq",
-    "tooltip",
-    "walkTo"
+    "tooltip"
    ],
    "parents": [
     "ISBuildingObject"
@@ -28044,6 +29242,80 @@
     "ISFirearmRadialMenu.BaseCommand"
    ]
   },
+  "ISFishingUI": {
+   "members": [
+    "Type",
+    "barHgt",
+    "barPadY",
+    "barY",
+    "btnHgt",
+    "buttonBorderColor",
+    "canFishDistance",
+    "cancel",
+    "checkInventory",
+    "checkInventoryBags",
+    "checkInventoryLures",
+    "checkInventoryRods",
+    "checkPlayerPosition",
+    "checkPlayerX",
+    "checkPlayerY",
+    "checkStuffTime",
+    "clickedRod",
+    "clickedSquare",
+    "clickedSquareX",
+    "clickedSquareY",
+    "clickedSquareZ",
+    "close",
+    "containerSelector",
+    "containers",
+    "containersLbl",
+    "doBagOptions",
+    "equipItems",
+    "fishes",
+    "getSelectedBag",
+    "initialise",
+    "instance",
+    "items_array",
+    "joypadButtons",
+    "lures",
+    "luresEnabled",
+    "maxFish",
+    "messages",
+    "new",
+    "ok",
+    "onClick",
+    "onGainJoypadFocus",
+    "onJoypadBeforeDeactivate",
+    "onJoypadBeforeReactivate",
+    "onJoypadDown",
+    "padBottom",
+    "pickBestSquare",
+    "player",
+    "prerender",
+    "render",
+    "rod",
+    "rods",
+    "selectedLure",
+    "selectedRod",
+    "setFish",
+    "setVisible",
+    "squareWithOtherZone",
+    "squareWithSameZone",
+    "squareWithoutZone",
+    "titleY",
+    "updateButtons",
+    "updateLures",
+    "updateRods",
+    "updateSelectedRod",
+    "updateSize",
+    "updateZoneProgress",
+    "usingSpear",
+    "zoneProgress"
+   ],
+   "parents": [
+    "ISPanelJoypad"
+   ]
+  },
   "ISFitnessAction": {
    "members": [
     "Type",
@@ -28090,7 +29362,6 @@
     "clickedExe",
     "clickedSquare",
     "close",
-    "currentExercice",
     "enduranceLevelThreshold",
     "equipItems",
     "exeData",
@@ -28103,7 +29374,6 @@
     "getCurrentRegularity",
     "initialise",
     "instance",
-    "itemsToReequip",
     "joypadButtons",
     "minusBtn",
     "new",
@@ -28123,7 +29393,6 @@
     "timeLbl",
     "titleY",
     "tooltipLbl",
-    "update",
     "updateButtons",
     "updateExercises",
     "zoneProgress"
@@ -28840,6 +30109,40 @@
     "ISBaseIcon"
    ]
   },
+  "ISFurnaceLogicPanel": {
+   "members": [
+    "CanCreatePanelFor",
+    "Type",
+    "calculateLayout",
+    "craftControl",
+    "craftControlDebug",
+    "craftProgress",
+    "createChildren",
+    "createEnergySlotPanel",
+    "createFluidSlotPanel",
+    "createItemSlotPanel",
+    "fuelInputs",
+    "fuelInputsGroupName",
+    "fuelOutputs",
+    "fuelOutputsGroupName",
+    "fuelTableLayout",
+    "furnaceInputs",
+    "furnaceInputsGroupName",
+    "furnaceOutputs",
+    "furnaceOutputsGroupName",
+    "initialise",
+    "new",
+    "onResize",
+    "prerender",
+    "render",
+    "resourcesComponent",
+    "tableLayout",
+    "update"
+   ],
+   "parents": [
+    "ISBaseComponentPanel"
+   ]
+  },
   "ISGameDebugPanel": {
    "members": [
     "Type",
@@ -28861,6 +30164,25 @@
    ],
    "parents": [
     "ISDebugSubPanelBase"
+   ]
+  },
+  "ISGameLoadingUI": {
+   "members": [
+    "OnJoypadActivateUI",
+    "Type",
+    "buttonQuit",
+    "configButton",
+    "createChildren",
+    "instance",
+    "new",
+    "onExit",
+    "onExitToDesktop",
+    "onGainJoypadFocus",
+    "onJoypadDown",
+    "status"
+   ],
+   "parents": [
+    "ISPanelJoypad"
    ]
   },
   "ISGameSoundVolumeControl": {
@@ -28934,6 +30256,79 @@
    ],
    "parents": [
     "ISPanelJoypad"
+   ]
+  },
+  "ISGameStatisticPanel": {
+   "members": [
+    "OnFlaresListMouseDown",
+    "OnOpenPanel",
+    "OnServerStatisticReceived",
+    "Type",
+    "avgUpdatePeriod",
+    "buttonBorderColor",
+    "buttonChartDiskOperations",
+    "buttonChartMemory",
+    "buttonChartPackets",
+    "buttonChartUpdatePeriod",
+    "buttonToggleMonitor",
+    "close",
+    "colExt",
+    "colInt",
+    "connection_access",
+    "connection_fps",
+    "connection_fpsAvg",
+    "connection_ip",
+    "connection_ping",
+    "connection_ping_avg",
+    "connection_players",
+    "connection_players_count",
+    "connection_players_desync_avg",
+    "connection_players_desync_max",
+    "connection_players_desync_teleport",
+    "connection_username",
+    "connection_zombies_count",
+    "connection_zombies_desync_avg",
+    "connection_zombies_desync_max",
+    "connection_zombies_desync_teleport",
+    "connections",
+    "createChildren",
+    "data",
+    "drawIncomePacketsList",
+    "drawOutcomePacketsList",
+    "drawUsersList",
+    "flareCount",
+    "flareID",
+    "freeMemory",
+    "histogramm_h",
+    "histogramm_w",
+    "histogramm_y",
+    "incomePackets",
+    "init",
+    "initialise",
+    "instance",
+    "lastReport",
+    "loadCellFromDisk",
+    "maxUpdatePeriod",
+    "minUpdatePeriod",
+    "new",
+    "onClick",
+    "onClickClose",
+    "onCombo",
+    "outcomePackets",
+    "panelTitle",
+    "periodValue",
+    "populateConnectionsList",
+    "populatePacketsList",
+    "populateUsersList",
+    "prerender",
+    "saveCellToDisk",
+    "updateValues",
+    "usedMemory",
+    "variableColor",
+    "zOffsetSmallFont"
+   ],
+   "parents": [
+    "ISPanel"
    ]
   },
   "ISGarlicCataplasm": {
@@ -30397,7 +31792,10 @@
   },
   "ISInventoryMenuElements": {
    "members": [
-    "ContextMedia"
+    "ContextFluidContainer",
+    "ContextMedia",
+    "ContextMovable",
+    "ContextRadio"
    ],
    "parents": []
   },
@@ -30979,6 +32377,7 @@
     "stop",
     "stopLoopingSound",
     "transactionId",
+    "transactions",
     "transferItem",
     "update",
     "waitToStart"
@@ -31468,6 +32867,8 @@
     "filterLoot",
     "filterLootCategory",
     "filterName",
+    "filterSpawned",
+    "filterType",
     "filterWeaponType",
     "filterWidgetMap",
     "filterWidgets",
@@ -32044,7 +33445,7 @@
     "parent"
    ],
    "parents": [
-    "ISPanel"
+    "ISScrollingListBox"
    ]
   },
   "ISLiteratureMediaList": {
@@ -32071,6 +33472,7 @@
     "listbox1Filter",
     "listbox2",
     "listbox2Filter",
+    "listbox3",
     "listbox5",
     "listboxMedia",
     "miscRecipes",
@@ -33333,6 +34735,35 @@
     "ISCollapsableWindow"
    ]
   },
+  "ISMashingLogicPanel": {
+   "members": [
+    "CanCreatePanelFor",
+    "Type",
+    "calculateLayout",
+    "craftControl",
+    "craftControlDebug",
+    "craftProgress",
+    "createChildren",
+    "createEnergySlotPanel",
+    "createFluidSlotPanel",
+    "createItemSlotPanel",
+    "fluidInputs",
+    "initialise",
+    "inputsGroupName",
+    "itemInputs",
+    "new",
+    "onResize",
+    "prerender",
+    "render",
+    "resourceFluidID",
+    "resourcesComponent",
+    "tableLayout",
+    "update"
+   ],
+   "parents": [
+    "ISBaseComponentPanel"
+   ]
+  },
   "ISMediaInfo": {
    "members": [
     "Type",
@@ -34292,6 +35723,23 @@
     "ISPanel"
    ]
   },
+  "ISMoverStateMachine": {
+   "members": [
+    "IDMax",
+    "Type",
+    "changeState",
+    "getCurrent",
+    "init",
+    "mover",
+    "moverInst",
+    "new",
+    "state",
+    "update"
+   ],
+   "parents": [
+    "ISBaseObject"
+   ]
+  },
   "ISMultiStageBuild": {
    "members": [
     "Type",
@@ -34480,6 +35928,40 @@
     "ISUIElement"
    ]
   },
+  "ISNewsUpdate": {
+   "members": [
+    "Type",
+    "chatText",
+    "destroy",
+    "destroyOnClick",
+    "initialise",
+    "name",
+    "new",
+    "no",
+    "ok",
+    "onClick",
+    "onGainJoypadFocus",
+    "onJoypadDirLeft",
+    "onJoypadDirRight",
+    "onJoypadDown",
+    "onMouseDown",
+    "onVersionSelected",
+    "onclick",
+    "param1",
+    "param2",
+    "player",
+    "prerender",
+    "render",
+    "update",
+    "updateButtons",
+    "versionCombo",
+    "yes",
+    "yesno"
+   ],
+   "parents": [
+    "ISPanelJoypad"
+   ]
+  },
   "ISObjectClickHandler": {
    "members": [
     "clickTime",
@@ -34557,6 +36039,7 @@
     "Type",
     "animEvent",
     "animal",
+    "complete",
     "forceStop",
     "getDuration",
     "isValid",
@@ -34756,6 +36239,27 @@
     "ISBaseTimedAction"
    ]
   },
+  "ISOptionPanel": {
+   "members": [
+    "Type",
+    "addCombo",
+    "addY",
+    "expanded",
+    "hover",
+    "initialise",
+    "marginBottom",
+    "marginLeft",
+    "marginRight",
+    "marginTop",
+    "new",
+    "options",
+    "prerender",
+    "selected"
+   ],
+   "parents": [
+    "ISPanel"
+   ]
+  },
   "ISOvenUI": {
    "members": [
     "ChangeKnob",
@@ -34822,6 +36326,51 @@
     "pvpEvents",
     "teleport",
     "tickBox"
+   ],
+   "parents": [
+    "ISPanel"
+   ]
+  },
+  "ISPacketCounts": {
+   "members": [
+    "Type",
+    "category",
+    "clear",
+    "close",
+    "closeSelf",
+    "createChildren",
+    "instance",
+    "listbox",
+    "minusBtn",
+    "new",
+    "onClear",
+    "onClickMinus",
+    "onClickPlus",
+    "onClose",
+    "onSelectCategory",
+    "onSelectType",
+    "onTicked",
+    "ordering",
+    "period",
+    "plusBtn",
+    "priority",
+    "reliability",
+    "render",
+    "tickBoxOrdering",
+    "tickBoxPriority",
+    "tickBoxReliability",
+    "type"
+   ],
+   "parents": [
+    "ISPanel"
+   ]
+  },
+  "ISPacketCountsList": {
+   "members": [
+    "Type",
+    "new",
+    "onMouseWheel",
+    "prerender"
    ],
    "parents": [
     "ISPanel"
@@ -35107,6 +36656,47 @@
    ],
    "parents": [
     "ISBuildingObject"
+   ]
+  },
+  "ISPartsLayout": {
+   "members": [
+    "Type",
+    "blueprintLogic",
+    "borderOuterColor",
+    "buttonDbgDecay",
+    "buttonRepair",
+    "colorBroken",
+    "colorOperational",
+    "colorSemiBroken",
+    "createChildren",
+    "defaultJoypadMoveInterval",
+    "detailInnerColor",
+    "effBar",
+    "horzTexture",
+    "initialise",
+    "invalidColor",
+    "itemSlots",
+    "joypadMoveInterval",
+    "new",
+    "onButtonClick",
+    "parentPanel",
+    "parts",
+    "player",
+    "playerNum",
+    "prerender",
+    "render",
+    "setEfficiency",
+    "tagColor",
+    "textBroken",
+    "textColor",
+    "textOperational",
+    "textSemiBroken",
+    "title",
+    "update",
+    "vertTexture"
+   ],
+   "parents": [
+    "ISPanel"
    ]
   },
   "ISPathFindAction": {
@@ -35998,6 +37588,36 @@
     "ISPanelJoypad"
    ]
   },
+  "ISPrintMediaInfo": {
+   "members": [
+    "Type",
+    "data",
+    "initialise",
+    "moreTextInfo",
+    "new",
+    "nextcondition",
+    "text",
+    "title"
+   ],
+   "parents": [
+    "ISBaseObject"
+   ]
+  },
+  "ISPrintMediaListBox": {
+   "members": [
+    "Type",
+    "doDrawItem",
+    "new",
+    "onGainJoypadFocus",
+    "onJoypadDirRight",
+    "onJoypadDown",
+    "onLoseJoypadFocus",
+    "selected"
+   ],
+   "parents": [
+    "ISScrollingListBox"
+   ]
+  },
   "ISPrintMediaMap": {
    "members": [
     "Type",
@@ -36007,6 +37627,103 @@
    ],
    "parents": [
     "ISUIElement"
+   ]
+  },
+  "ISPrintMediaPage": {
+   "members": [
+    "Type",
+    "centerText",
+    "close",
+    "content",
+    "createChildren",
+    "index",
+    "initialise",
+    "isKeyConsumed",
+    "item",
+    "new",
+    "onGainJoypadFocus",
+    "onKeyRelease",
+    "onToggleVisible",
+    "player",
+    "prerender",
+    "render",
+    "title",
+    "visibleFunction",
+    "visibleTarget"
+   ],
+   "parents": [
+    "ISCollapsableWindowJoypad"
+   ]
+  },
+  "ISPrintMediaPanel": {
+   "members": [
+    "Type",
+    "chapterList",
+    "close",
+    "content",
+    "createChildren",
+    "fillChapterList",
+    "initialise",
+    "isKeyConsumed",
+    "new",
+    "onGainJoypadFocus",
+    "onKeyRelease",
+    "onToggleVisible",
+    "panel",
+    "prerender",
+    "reload",
+    "render",
+    "setPage",
+    "setUseJoypad",
+    "title",
+    "tutorialSetInfo",
+    "update",
+    "visibleFunction",
+    "visibleTarget"
+   ],
+   "parents": [
+    "ISCollapsableWindowJoypad"
+   ]
+  },
+  "ISPrintMediaRichText": {
+   "members": [
+    "Type",
+    "doRightJoystickScrolling",
+    "new",
+    "onJoypadDirDown",
+    "onJoypadDirLeft",
+    "onJoypadDirRight",
+    "onJoypadDirUp",
+    "onJoypadDown",
+    "onMouseWheel",
+    "prerender",
+    "printMedia",
+    "smoothScrollTargetY",
+    "smoothScrollY",
+    "updateSmoothScrolling",
+    "yScrollDelta"
+   ],
+   "parents": [
+    "ISPrintMediaTextPanel"
+   ]
+  },
+  "ISPrintMediaSetInfo": {
+   "members": [
+    "Type",
+    "addPage",
+    "applyPageToRichTextPanel",
+    "currentPage",
+    "getCurrent",
+    "hasNext",
+    "hasPrevious",
+    "initialise",
+    "new",
+    "pageCount",
+    "pages",
+    "update"
+   ],
+   "parents": [
+    "ISBaseObject"
    ]
   },
   "ISPrintMediaTextPanel": {
@@ -36328,7 +38045,6 @@
   "ISRadioAction": {
    "members": [
     "Type",
-    "complete",
     "device",
     "deviceData",
     "ignoreHandsWounds",
@@ -36526,6 +38242,23 @@
    ],
    "parents": [
     "ISCollapsableWindow"
+   ]
+  },
+  "ISRainPanel": {
+   "members": [
+    "Type",
+    "alpha",
+    "changeIntensity",
+    "changeSpeed",
+    "createChildren",
+    "intensity",
+    "onChangeAlpha",
+    "reloadButton",
+    "reloadTextures",
+    "speed"
+   ],
+   "parents": [
+    "ISPanel"
    ]
   },
   "ISReadABook": {
@@ -38955,6 +40688,21 @@
     "ISPanel"
    ]
   },
+  "ISSitOnChairAction": {
+   "members": [
+    "Type",
+    "isValid",
+    "item",
+    "new",
+    "perform",
+    "start",
+    "stop",
+    "update"
+   ],
+   "parents": [
+    "ISBaseTimedAction"
+   ]
+  },
   "ISSitOnGround": {
    "members": [
     "Type",
@@ -39159,6 +40907,29 @@
    ],
    "parents": [
     "ISBaseTimedAction"
+   ]
+  },
+  "ISSodaStockingLayout": {
+   "members": [
+    "Type",
+    "btnNames",
+    "buttonImg",
+    "new"
+   ],
+   "parents": [
+    "ISBaseStockingLayout"
+   ]
+  },
+  "ISSodaVendingLayout": {
+   "members": [
+    "Type",
+    "btnNames",
+    "frontImageOff",
+    "frontImageOn",
+    "new"
+   ],
+   "parents": [
+    "ISBaseVendingLayout"
    ]
   },
   "ISSpawnHordeUI": {
@@ -39396,6 +41167,7 @@
     "findPinOffset",
     "isForageable",
     "isValid",
+    "isValidSquare",
     "itemObjTable",
     "new",
     "setWorldMarkerPosition"
@@ -39638,6 +41410,63 @@
     "ISBaseObject"
    ]
   },
+  "ISSurvivalGuideListBox": {
+   "members": [
+    "Type",
+    "doDrawItem",
+    "new",
+    "onGainJoypadFocus",
+    "onJoypadDirRight",
+    "onJoypadDown",
+    "onLoseJoypadFocus",
+    "selected"
+   ],
+   "parents": [
+    "ISScrollingListBox"
+   ]
+  },
+  "ISSurvivalGuideRichText": {
+   "members": [
+    "Type",
+    "doRightJoystickScrolling",
+    "new",
+    "onJoypadDirDown",
+    "onJoypadDirLeft",
+    "onJoypadDirRight",
+    "onJoypadDirUp",
+    "onJoypadDown",
+    "onMouseWheel",
+    "prerender",
+    "smoothScrollTargetY",
+    "smoothScrollY",
+    "text",
+    "updateSmoothScrolling",
+    "yScrollDelta"
+   ],
+   "parents": [
+    "ISRichTextPanel"
+   ]
+  },
+  "ISSurvivalGuideRightPanel": {
+   "members": [
+    "Type",
+    "createChildren",
+    "new",
+    "onGainJoypadFocus",
+    "onJoypadDirDown",
+    "onJoypadDirLeft",
+    "onJoypadDirUp",
+    "onJoypadDown",
+    "onLoseJoypadFocus",
+    "onTickBox",
+    "prerender",
+    "richText",
+    "tickBox"
+   ],
+   "parents": [
+    "ISPanelJoypad"
+   ]
+  },
   "ISSwitchVehicleSeat": {
    "members": [
     "Type",
@@ -39720,6 +41549,38 @@
    ],
    "parents": [
     "ISPanel"
+   ]
+  },
+  "ISTabPanelPaginated": {
+   "members": [
+    "Type",
+    "addForwardBackwardViews",
+    "backwardIndex",
+    "backwardView",
+    "forwardIndex",
+    "forwardView",
+    "getPagesCount",
+    "getTabIndexAtX",
+    "getViewByIndex",
+    "getWidthOfAllTabs",
+    "initialise",
+    "isDragging",
+    "mouseDownHook",
+    "new",
+    "onMouseDown",
+    "pagesCount",
+    "redoTab",
+    "render",
+    "renderView",
+    "setPagesCount",
+    "shownViews",
+    "shownViewsCount",
+    "tabSelected",
+    "tabUnSelected",
+    "tooMuchViews"
+   ],
+   "parents": [
+    "ISTabPanel"
    ]
   },
   "ISTableLayout": {
@@ -40991,6 +42852,7 @@
     "OtherAddNewItem",
     "ReceiveTradeRequest",
     "RemoveItem",
+    "States",
     "Type",
     "UpdateState",
     "acceptDeal",
@@ -41015,6 +42877,7 @@
     "infoRichText",
     "initJoypadButtons",
     "initialise",
+    "instance",
     "inventoryList",
     "isInputBlocked",
     "isItemOffered",
@@ -41022,6 +42885,7 @@
     "joypadButtonsBlocked",
     "joypadButtonsSealed",
     "listHeaderColor",
+    "messages",
     "new",
     "no",
     "onAnswerTradeRequest",
@@ -41037,6 +42901,7 @@
     "otherSealedOffer",
     "pendingRequest",
     "player",
+    "populateList",
     "prerender",
     "prevFocus",
     "remove",
@@ -41053,10 +42918,11 @@
     "updateTooltip",
     "windows",
     "yourOffer",
-    "yourOfferDatas"
+    "yourOfferDatas",
+    "yourOfferMouseUp"
    ],
    "parents": [
-    "ISPanelJoypad"
+    "ISPanel"
    ]
   },
   "ISTradingUI.InventoryList": {
@@ -41082,7 +42948,9 @@
     "close",
     "drawList",
     "initialise",
+    "instance",
     "list",
+    "messages",
     "msgList",
     "new",
     "no",
@@ -41097,7 +42965,7 @@
     "render"
    ],
    "parents": [
-    "ISPanelJoypad"
+    "ISPanel"
    ]
   },
   "ISTransferAction": {
@@ -41187,6 +43055,73 @@
    ],
    "parents": [
     "ISBaseTimedAction"
+   ]
+  },
+  "ISTutorialPageInfo": {
+   "members": [
+    "Type",
+    "data",
+    "initialise",
+    "moreTextInfo",
+    "new",
+    "nextcondition",
+    "text",
+    "title"
+   ],
+   "parents": [
+    "ISBaseObject"
+   ]
+  },
+  "ISTutorialPanel": {
+   "members": [
+    "Type",
+    "centerText",
+    "chapterList",
+    "close",
+    "content",
+    "createChildren",
+    "fillChapterList",
+    "initialise",
+    "isKeyConsumed",
+    "moreInfo",
+    "new",
+    "onGainJoypadFocus",
+    "onKeyRelease",
+    "onToggleVisible",
+    "prerender",
+    "reload",
+    "render",
+    "rightPanel",
+    "rightPanelText",
+    "setPage",
+    "setUseJoypad",
+    "title",
+    "tutorialSetInfo",
+    "update",
+    "visibleFunction",
+    "visibleTarget"
+   ],
+   "parents": [
+    "ISCollapsableWindowJoypad"
+   ]
+  },
+  "ISTutorialSetInfo": {
+   "members": [
+    "Type",
+    "addPage",
+    "applyPageToRichTextPanel",
+    "currentPage",
+    "getCurrent",
+    "hasNext",
+    "hasPrevious",
+    "initialise",
+    "new",
+    "pageCount",
+    "pages",
+    "update"
+   ],
+   "parents": [
+    "ISBaseObject"
    ]
   },
   "ISUI3DModel": {
@@ -41775,6 +43710,7 @@
     "clothingAction",
     "complete",
     "fromHotbar",
+    "getDuration",
     "hotbar",
     "ignoreHandsWounds",
     "isValid",
@@ -42131,6 +44067,25 @@
     "ISCollapsableWindow"
    ]
   },
+  "ISVehicleConfirmBox": {
+   "members": [
+    "Type",
+    "close",
+    "createChildren",
+    "drawJoypadFocus",
+    "new",
+    "onGainJoypadFocus",
+    "onJoypadDirDown",
+    "onJoypadDirUp",
+    "onJoypadDown",
+    "onOptionMouseDown",
+    "prerender",
+    "texSpiffoWarning"
+   ],
+   "parents": [
+    "ISPanelJoypad"
+   ]
+  },
   "ISVehicleDashboard": {
    "members": [
     "OnGameStart",
@@ -42440,6 +44395,14 @@
    ],
    "parents": []
   },
+  "ISVehiclePartListBox": {
+   "members": [
+    "Type"
+   ],
+   "parents": [
+    "ISScrollingListBox"
+   ]
+  },
   "ISVehiclePartMenu": {
    "members": [
     "doAddFuelMenu",
@@ -42557,6 +44520,127 @@
     "walkToTrailer"
    ],
    "parents": []
+  },
+  "ISVendorSpiral": {
+   "members": [
+    "Type",
+    "initialise",
+    "new",
+    "prerender",
+    "render",
+    "renderTarget",
+    "renderToTarget",
+    "rotation",
+    "setRotation",
+    "texture"
+   ],
+   "parents": [
+    "ISPanel"
+   ]
+  },
+  "ISVendorStockingLayout": {
+   "members": [
+    "Type",
+    "new"
+   ],
+   "parents": [
+    "ISBaseStockingLayout"
+   ]
+  },
+  "ISVendorVendingLayout": {
+   "members": [
+    "Type",
+    "addVendingOption",
+    "anim",
+    "arrayList",
+    "blueprintLogic",
+    "buttonBorderColor",
+    "buttonBorderColorDisabled",
+    "buttonImg",
+    "buttons",
+    "createChildren",
+    "defaultJoypadMoveInterval",
+    "frontImageOff",
+    "frontImageOn",
+    "getCredits",
+    "getProductPrice",
+    "getVendingOption",
+    "glassPanel",
+    "glassPanelBorder",
+    "hackPane",
+    "initialise",
+    "interiorPanel",
+    "interiorTextures",
+    "interiorUnlitTextures",
+    "isRunning",
+    "isTurnedOn",
+    "itemSlotMoney",
+    "itemSlotOutput",
+    "joypadMoveInterval",
+    "ledInvalidCol",
+    "ledValidCol",
+    "moneyLcd",
+    "mouseOverButtons",
+    "new",
+    "onButtonClick",
+    "onMouseMove",
+    "onMouseMoveOutside",
+    "optionArea",
+    "parentPanel",
+    "parts",
+    "player",
+    "playerNum",
+    "prerender",
+    "productColumns",
+    "render",
+    "resourceMoney",
+    "resourceOutput",
+    "resources",
+    "texGlassBorder",
+    "texGlassPane",
+    "texSpiralBack",
+    "texSpiralFront",
+    "texVendingBar",
+    "trayImgs",
+    "trayPanel",
+    "update",
+    "vendingBarImgs",
+    "vendingBars",
+    "vendingOptions"
+   ],
+   "parents": [
+    "ISPanel"
+   ]
+  },
+  "ISVendorVendingLayout.ISVendingAnim": {
+   "members": [
+    "STAGE_DROP",
+    "STAGE_SPIRAL",
+    "angle",
+    "angleDir",
+    "drawH",
+    "drawW",
+    "drawX",
+    "drawY",
+    "forceItemDraw",
+    "hideItemSlotItem",
+    "isRunning",
+    "item",
+    "itemSlot",
+    "itemTex",
+    "maxAngle",
+    "option",
+    "running",
+    "speed",
+    "speedMax",
+    "speedMulti",
+    "spiralDelta",
+    "stage",
+    "terminationY"
+   ],
+   "parents": [
+    "ISPanel"
+   ]
   },
   "ISVersionWaterMark": {
    "members": [
@@ -44212,6 +46296,7 @@
     "doPickup",
     "findPinOffset",
     "isValid",
+    "isValidSquare",
     "isValidWorldItem",
     "itemObjTable",
     "new",
@@ -44234,6 +46319,7 @@
     "findPinOffset",
     "isTrack",
     "isValid",
+    "isValidSquare",
     "isValidWorldItem",
     "itemObjTable",
     "new",
@@ -44712,7 +46798,6 @@
     "ignoreRightMouseUp",
     "initTools",
     "isKeyConsumed",
-    "isWorldMap",
     "joypadButtons",
     "keyPressConsumed",
     "mapAPI",
@@ -44783,7 +46868,11 @@
   },
   "ISWorldMenuElements": {
    "members": [
-    "ContextEntity"
+    "ContextDebugHighlights",
+    "ContextDisassemble",
+    "ContextEntity",
+    "ContextFluidContainer",
+    "ContextTelevision"
    ],
    "parents": []
   },
@@ -44802,6 +46891,7 @@
     "canCleanGraffiti",
     "chairCheck",
     "chairCheckList",
+    "checkWeapon",
     "clearFetch",
     "compareClothingBlood",
     "createMenu",
@@ -44934,6 +47024,7 @@
     "onTakeWater",
     "onThrowCorpseOverFence",
     "onThrowCorpseThroughWindow",
+    "onTimedAction",
     "onToggleClothingDryer",
     "onToggleClothingWasher",
     "onToggleComboWasherDryer",
@@ -44968,7 +47059,6 @@
   },
   "ISWorldObjectContextMenuLogic": {
    "members": [
-    "callCustomFunction",
     "checkBlowTorchForBarricade",
     "class",
     "createMenuEntries",
@@ -45008,7 +47098,6 @@
     "isBook",
     "isValid",
     "item",
-    "modal",
     "new",
     "perform",
     "serverStart",
@@ -45412,6 +47501,7 @@
   },
   "IdleState": {
    "members": [
+    "AIM",
     "animEvent",
     "class",
     "enter",
@@ -45872,6 +47962,33 @@
     "Closeable"
    ]
   },
+  "InsomniaChallenge": {
+   "members": [
+    "Add",
+    "AddPlayer",
+    "Init",
+    "PreloadInit",
+    "RemovePlayer",
+    "Render",
+    "Tick",
+    "completionText",
+    "deadZombie",
+    "description",
+    "gameMode",
+    "hourOfDay",
+    "image",
+    "name",
+    "onBackButtonWheel",
+    "wave",
+    "waveTime",
+    "world",
+    "x",
+    "y",
+    "z",
+    "zombiesSpawned"
+   ],
+   "parents": []
+  },
   "Int": {
    "members": [
     "class",
@@ -45882,6 +47999,64 @@
   "IntGrid": {
    "members": [],
    "parents": []
+  },
+  "Integer": {
+   "members": [
+    "BYTES",
+    "MAX_VALUE",
+    "MIN_VALUE",
+    "SIZE",
+    "TYPE",
+    "bitCount",
+    "byteValue",
+    "class",
+    "compare",
+    "compareTo",
+    "compareUnsigned",
+    "compress",
+    "decode",
+    "describeConstable",
+    "divideUnsigned",
+    "doubleValue",
+    "equals",
+    "expand",
+    "floatValue",
+    "getInteger",
+    "hashCode",
+    "highestOneBit",
+    "intValue",
+    "longValue",
+    "lowestOneBit",
+    "max",
+    "min",
+    "new",
+    "numberOfLeadingZeros",
+    "numberOfTrailingZeros",
+    "parseInt",
+    "parseUnsignedInt",
+    "remainderUnsigned",
+    "resolveConstantDesc",
+    "reverse",
+    "reverseBytes",
+    "rotateLeft",
+    "rotateRight",
+    "shortValue",
+    "signum",
+    "sum",
+    "toBinaryString",
+    "toHexString",
+    "toOctalString",
+    "toString",
+    "toUnsignedLong",
+    "toUnsignedString",
+    "valueOf"
+   ],
+   "parents": [
+    "Comparable<integer>",
+    "Constable",
+    "ConstantDesc",
+    "Number"
+   ]
   },
   "IntegerConfigOption": {
    "members": [
@@ -46034,6 +48209,21 @@
    "members": [],
    "parents": []
   },
+  "InvContextFluidContainer": {
+   "members": [
+    "addDebugFluid",
+    "createMenu",
+    "emptyFluidContainer",
+    "init",
+    "invMenu",
+    "joypadHideInventoryAndLoot",
+    "showInfo",
+    "transferFluids"
+   ],
+   "parents": [
+    "ISMenuElement"
+   ]
+  },
   "InvContextMedia": {
    "members": [
     "changeRecording",
@@ -46046,11 +48236,32 @@
     "ISMenuElement"
    ]
   },
+  "InvContextMovable": {
+   "members": [
+    "createMenu",
+    "init",
+    "invMenu",
+    "openMovableCursor"
+   ],
+   "parents": [
+    "ISMenuElement"
+   ]
+  },
+  "InvContextRadio": {
+   "members": [
+    "createMenu",
+    "init",
+    "invMenu",
+    "openPanel"
+   ],
+   "parents": [
+    "ISMenuElement"
+   ]
+  },
   "InventoryContainer": {
    "members": [
     "DoTooltip",
     "IsInventoryContainer",
-    "OnBeforeRemoveFromContainer",
     "canBeEquipped",
     "class",
     "getBloodLevel",
@@ -46982,7 +49193,6 @@
     "reattachBackToHook",
     "remove",
     "removeBaby",
-    "removeFromUpdateLists",
     "removeFromWorld",
     "renderShadow",
     "renderlast",
@@ -47473,7 +49683,6 @@
     "perPlayerRender",
     "putInVehicle",
     "reloadRainTextures",
-    "removeFromStaticUpdaterObjectList",
     "removeFromWindowList",
     "removeHeatSource",
     "removeLamppost",
@@ -47659,8 +49868,7 @@
     "updatePhysicsForLevel",
     "updatePlayerInBullet",
     "updateSounds",
-    "updateVehicleStory",
-    "validateByteBufferHeader"
+    "updateVehicleStory"
    ],
    "parents": []
   },
@@ -47912,7 +50120,6 @@
     "syncIsoObjectSend"
    ],
    "parents": [
-    "GridSquareEdgeElement",
     "ICurtain",
     "IsoObject"
    ]
@@ -48149,6 +50356,7 @@
     "getNorth",
     "getObjectName",
     "getOpenSprite",
+    "getOppositeSquare",
     "getOtherSideOfDoor",
     "getRenderEffectMaster",
     "getRenderEffectObjectByIndex",
@@ -48164,7 +50372,6 @@
     "isAdjacentToSquare",
     "isBarricadeAllowed",
     "isBarricaded",
-    "isBlocked",
     "isCurtainOpen",
     "isDestroyed",
     "isDoorObstructed",
@@ -48844,7 +51051,6 @@
     "getCorpseSicknessDefense",
     "getCorpseSicknessRate",
     "getCurrentActionContextStateName",
-    "getCurrentAnimationTranslationTarget",
     "getCurrentBuildingDef",
     "getCurrentRoomDef",
     "getCurrentState",
@@ -49223,7 +51429,6 @@
     "isMovablesCheat",
     "isMoving",
     "isNearSirenVehicle",
-    "isNearWallCrouching",
     "isNetworkVehicleCollisionActive",
     "isNpc",
     "isObjectBehind",
@@ -49268,7 +51473,6 @@
     "isShowAdminTag",
     "isSitOnFurnitureObject",
     "isSitOnGround",
-    "isSitting",
     "isSittingOnFurniture",
     "isSkipResolveCollision",
     "isSneaking",
@@ -49514,7 +51718,6 @@
     "setMoveForwardVec",
     "setMoving",
     "setMusicIntensityEventModData",
-    "setNearWallCrouching",
     "setNextWander",
     "setNumSurvivorsInVicinity",
     "setOnBed",
@@ -49636,7 +51839,6 @@
     "throwGrappledIntoInventory",
     "throwGrappledOverFence",
     "throwGrappledTargetOutWindow",
-    "transmitHaloNote",
     "triggerContextualAction",
     "triggerCough",
     "tryGetAIState",
@@ -49930,10 +52132,6 @@
     "disableErosion",
     "discard",
     "doGridNav",
-    "findEdgeObject",
-    "findEdgeSpecialObject",
-    "findObject",
-    "findSpecialObject",
     "fixPlacedItemRenderOffsets",
     "flagForHotSave",
     "getAdjacentPathSquare",
@@ -49944,6 +52142,7 @@
     "getAnimals",
     "getApparentZ",
     "getBed",
+    "getBedTo",
     "getBendable",
     "getBendableTo",
     "getBrokenGlass",
@@ -49973,13 +52172,11 @@
     "getDeferedCharacters",
     "getDeviceData",
     "getDoor",
+    "getDoorFrameTo",
     "getDoorOrWindow",
     "getDoorOrWindowOrWindowFrame",
     "getDoorTo",
     "getE",
-    "getEast",
-    "getEdgeElement",
-    "getEdgeElementTo",
     "getErosionData",
     "getFarmingPlant",
     "getFire",
@@ -49996,7 +52193,6 @@
     "getHashCodeObjectsInt",
     "getHiddenStash",
     "getHoppable",
-    "getHoppableOrWindowFrame",
     "getHoppableThumpable",
     "getHoppableThumpableTo",
     "getHoppableTo",
@@ -50028,14 +52224,12 @@
     "getN",
     "getNew",
     "getNextNonItemObjectIndex",
-    "getNorth",
     "getObjectContainers",
     "getObjectWithSprite",
     "getObjects",
     "getOcclusionData",
     "getOpenAir",
     "getOpenDoor",
-    "getOppositeSquare",
     "getOrCreateOcclusionData",
     "getOre",
     "getOres",
@@ -50067,7 +52261,6 @@
     "getSlopedSurfaceHeight",
     "getSlopedSurfaceHeightMax",
     "getSlopedSurfaceHeightMin",
-    "getSouth",
     "getSpecialObjects",
     "getSquareAbove",
     "getSquareBelow",
@@ -50112,7 +52305,6 @@
     "getWallType",
     "getWater",
     "getWaterObject",
-    "getWest",
     "getWindow",
     "getWindowFrame",
     "getWindowFrameTo",
@@ -50156,9 +52348,7 @@
     "hasModData",
     "hasNaturalFloor",
     "hasNonHoppableWall",
-    "hasObject",
     "hasOpenDoorOnEdge",
-    "hasProperty",
     "hasRainBlockingTile",
     "hasRoomDef",
     "hasSand",
@@ -50189,27 +52379,19 @@
     "invalidateRenderChunkLevel",
     "invalidateVispolyChunkLevel",
     "isAdjacentTo",
-    "isAdjacentToEdgeElement",
     "isAdjacentToHoppable",
     "isAdjacentToWindow",
-    "isBlockedDoor",
     "isBlockedTo",
-    "isBlockedWindow",
     "isCacheIsFree",
     "isCachedIsFree",
     "isCanSee",
     "isCommonGrass",
     "isCouldSee",
     "isDerelict",
-    "isDiagonalTo",
-    "isDoor",
     "isDoorBlockedTo",
     "isDoorOrWallSquare",
     "isDoorSquare",
     "isDoorTo",
-    "isEastOf",
-    "isEdgeElement",
-    "isEdgeElementTo",
     "isExtraFreeSquare",
     "isFree",
     "isFreeOrMidair",
@@ -50217,14 +52399,12 @@
     "isFreeWallSquare",
     "isGoodOutsideSquare",
     "isGoodSquare",
-    "isHoppable",
     "isHoppableTo",
     "isInARoom",
     "isInsideRectangle",
     "isNoGas",
     "isNoPower",
     "isNoWater",
-    "isNorthOf",
     "isNotBlocked",
     "isOnScreenLast",
     "isOutside",
@@ -50235,7 +52415,6 @@
     "isSafeToSpawn",
     "isSameStaircase",
     "isSeen",
-    "isSeenByAnyLocalPlayer",
     "isShop",
     "isSlopedSurfaceEdgeBlocked",
     "isSolid",
@@ -50243,7 +52422,6 @@
     "isSolidFloorCached",
     "isSolidTrans",
     "isSomethingTo",
-    "isSouthOf",
     "isSpriteOnSouthOrEastWall",
     "isStairBlockedTo",
     "isStairsEdgeBlocked",
@@ -50252,13 +52430,10 @@
     "isUserDefinedRoom",
     "isVehicleIntersecting",
     "isVehicleIntersectingCrops",
-    "isWall",
     "isWallSquare",
     "isWallSquareNW",
     "isWallTo",
     "isWaterSquare",
-    "isWestOf",
-    "isWindow",
     "isWindowBlockedTo",
     "isWindowOrWindowFrame",
     "isWindowTo",
@@ -50282,6 +52457,7 @@
     "removeGraffiti",
     "removeGrass",
     "removeGrime",
+    "removeSheetRopeFromBottom",
     "removeUnderground",
     "removeWorldObject",
     "renderCharacters",
@@ -50531,7 +52707,6 @@
   },
   "IsoLightSwitch": {
    "members": [
-    "DEFAULT_LIGHT_RADIUS",
     "addBattery",
     "addLightBulb",
     "addLightSourceFromSprite",
@@ -50540,7 +52715,6 @@
     "chunkLoaded",
     "class",
     "couldBePoweredByGenerator",
-    "createLightSource",
     "getBulbItem",
     "getCanBeModified",
     "getCustomSettingsFromItem",
@@ -50837,7 +53011,6 @@
     "CreateStep1",
     "CreateStep2",
     "Dispose",
-    "IDEAL_MAX_ZONE_SIZE",
     "RemoveFromMeta",
     "TL_Location",
     "addCellToSave",
@@ -51046,7 +53219,6 @@
     "isSolid",
     "isSolidForSeparate",
     "isStanding",
-    "isTransparentWallTo",
     "isWithinRange",
     "isbAltCollide",
     "load",
@@ -51202,7 +53374,6 @@
     "getAlpha",
     "getAttachedAnimSprite",
     "getAttachedAnimSpriteCount",
-    "getBlockedEdgeDirection",
     "getCell",
     "getChildSprites",
     "getChunk",
@@ -51235,7 +53406,6 @@
     "getGameEntityType",
     "getGeneratorPowerConsumption",
     "getHighlightColor",
-    "getHoppableDirection",
     "getIsSurfaceNormalOffset",
     "getItemContainer",
     "getKeyId",
@@ -51298,7 +53468,6 @@
     "getType",
     "getUsesExternalWaterSource",
     "getWindRenderEffects",
-    "getWindowFrameDirection",
     "getWorldObjectIndex",
     "getX",
     "getY",
@@ -51346,12 +53515,12 @@
     "isHighlightRenderOnce",
     "isHighlighted",
     "isHoppable",
-    "isHoppableOrWindowFrame",
     "isItemAllowedInContainer",
     "isLit",
     "isMaskClicked",
     "isMovedThumpable",
     "isNoPicking",
+    "isNorthBlocked",
     "isNorthHoppable",
     "isObjectNoContainerOrEmpty",
     "isOnScreen",
@@ -51376,14 +53545,12 @@
     "isTallHoppable",
     "isTargetAlphaZero",
     "isTent",
-    "isUnbentObject",
     "isUseSnowSprite",
     "isWall",
     "isWallN",
     "isWallSE",
     "isWallW",
     "isWindow",
-    "isWindowFrame",
     "isZombie",
     "lastRendered",
     "lastRenderedRendered",
@@ -51560,7 +53727,6 @@
     "STOP_BURNING",
     "SWAP_ITEM",
     "USES_EXTERNAL_WATER_SOURCE",
-    "VEHICLE_HIT_OBJECT",
     "VEHICLE_NO_KEY",
     "WAKE_UP",
     "WASHER_STATE",
@@ -51868,7 +54034,6 @@
     "isPlayingAttackLoopSound",
     "isPushableForSeparate",
     "isPushedByForSeparate",
-    "isRandXp",
     "isRemoteAndHasObstacleOnPath",
     "isSafeToClimbOver",
     "isSaveFileIPValid",
@@ -52090,7 +54255,6 @@
     "CAN_BE_REMOVED",
     "CAN_BREAK",
     "CAN_SCRAP",
-    "CAR_SLOW_FACTOR",
     "CHAIR_E",
     "CHAIR_N",
     "CHAIR_S",
@@ -52422,6 +54586,59 @@
    "members": [],
    "parents": []
   },
+  "IsoRegionDebug": {
+   "members": [
+    "OnOpenPanel",
+    "Type",
+    "buttonReset",
+    "buttonToggleGrid",
+    "buttonToggleInvalidRegions",
+    "buttonToggleLoadAllChunks",
+    "buttonToggleRegions",
+    "cam",
+    "canvasY",
+    "clear",
+    "close",
+    "convertCoords",
+    "createChildren",
+    "currentTile",
+    "dayStamp",
+    "greyCol",
+    "hotKeyPanels",
+    "hourStamp",
+    "initialise",
+    "instance",
+    "isJoypadWindow",
+    "monthStamp",
+    "mouseInfo",
+    "new",
+    "onButton",
+    "onMouseDown",
+    "onResize",
+    "overrideBPrompt",
+    "palpha",
+    "palphaUp",
+    "player",
+    "playerNum",
+    "poi",
+    "prerender",
+    "regionMode",
+    "render",
+    "richtext",
+    "shiftDown",
+    "showGrid",
+    "showInvalidRegions",
+    "stayOnSplitScreen",
+    "strikes",
+    "subFocus",
+    "title",
+    "update",
+    "year"
+   ],
+   "parents": [
+    "ISCollapsableWindow"
+   ]
+  },
   "IsoRegionDetails": {
    "members": [
     "OnOpenPanel",
@@ -52712,7 +54929,6 @@
     "addPotteryWheel",
     "addSquare",
     "class",
-    "clear",
     "createLights",
     "findRoomLightByID",
     "getBuilding",
@@ -52727,7 +54943,6 @@
     "getRandomWallFreePairSquare",
     "getRandomWallFreeSquare",
     "getRandomWallSquare",
-    "getRectsBounds",
     "getRoomDef",
     "getSquares",
     "getTileList",
@@ -53090,6 +55305,7 @@
     "getFacingPosition",
     "getHealth",
     "getIndoorSquare",
+    "getInsideSquare",
     "getKeyId",
     "getLifeDelta",
     "getLifeLeft",
@@ -53105,6 +55321,7 @@
     "getNorth",
     "getObjectName",
     "getOpenSprite",
+    "getOppositeSquare",
     "getOtherSideOfDoor",
     "getRenderEffectMaster",
     "getSoundPrefix",
@@ -53124,7 +55341,6 @@
     "isBarricadeAllowed",
     "isBarricaded",
     "isBlockAllTheSquare",
-    "isBlockedDoor",
     "isCanPassThrough",
     "isCorner",
     "isDestroyed",
@@ -53286,7 +55502,6 @@
     "SIZE_JUMBO_L",
     "SIZE_JUMBO_XL",
     "SIZE_JUMBO_XXL",
-    "WIDTH_JUMBO_XXL",
     "WeaponHit",
     "WeaponHitEffects",
     "checkChopTreeIndicator",
@@ -53499,16 +55714,17 @@
     "getFirstCharacterClosing",
     "getHealth",
     "getIndoorSquare",
+    "getInsideSquare",
     "getNorth",
     "getObjectName",
     "getOpenSprite",
+    "getOppositeSquare",
     "getSmashedSprite",
     "getThumpCondition",
     "getThumpableFor",
     "haveSheetRope",
     "isBarricadeAllowed",
     "isBarricaded",
-    "isBlocked",
     "isDestroyed",
     "isExterior",
     "isGlassRemoved",
@@ -53577,6 +55793,7 @@
     "haveSheetRope",
     "isBarricadeAllowed",
     "isBarricaded",
+    "isWindowFrame",
     "load",
     "new",
     "removeSheetRope",
@@ -53587,6 +55804,10 @@
     "IsoObject"
    ]
   },
+  "IsoWindowFrame.Direction": {
+   "members": [],
+   "parents": []
+  },
   "IsoWorld": {
    "members": [
     "CreateRandomSurvivor",
@@ -53596,7 +55817,6 @@
     "FinishAnimation",
     "ForceKillAllZombies",
     "KillCell",
-    "LUA_CHECKSUM_TIMEOUT_MS",
     "LoadPlayerForInfo",
     "LoadTileDefinitions",
     "LoadTileDefinitionsPropertyStrings",
@@ -53721,7 +55941,6 @@
     "readInt",
     "readString",
     "registerMannequinZone",
-    "registerNavZones",
     "registerRoomTone",
     "registerSpawnOrigin",
     "registerVehiclesZone",
@@ -53775,7 +55994,6 @@
   "IsoWorldInventoryObject": {
    "members": [
     "DoTooltip",
-    "WeaponHit",
     "addFluid",
     "addToWorld",
     "canTransferFluidFrom",
@@ -54740,11 +56958,9 @@
     "AddItem",
     "AddItemBlind",
     "AddItems",
-    "COLD_LOSS_HOURS",
     "DoAddItem",
     "DoAddItemBlind",
     "DoRemoveItem",
-    "FRIDGE_FREEZER_TEMPERATURE",
     "Find",
     "FindAll",
     "FindAndReturn",
@@ -54753,7 +56969,6 @@
     "FindAndReturnWaterItem",
     "FindWaterSource",
     "HasType",
-    "POWER_SHUTOFF_HOUR_OF_DAY",
     "Remove",
     "RemoveAll",
     "RemoveOneOf",
@@ -54871,7 +57086,6 @@
     "getCountTypeRecurse",
     "getCustomName",
     "getCustomTemperature",
-    "getDisplayType",
     "getEffectiveCapacity",
     "getFirst",
     "getFirstAvailableFluidContainer",
@@ -54944,7 +57158,6 @@
     "getSourceGrid",
     "getSquare",
     "getTakeSound",
-    "getTemperature",
     "getTemprature",
     "getTotalFoodScore",
     "getTotalWeaponScore",
@@ -54977,14 +57190,12 @@
     "isExplored",
     "isFreezer",
     "isFridge",
-    "isFridgeOrFreezerWarming",
     "isFull",
     "isHasBeenLooted",
     "isInCharacterInventory",
     "isInside",
     "isIsDevice",
     "isItemAllowed",
-    "isLockedToCharacter",
     "isMicrowave",
     "isObjectPowered",
     "isOccupiedVehicleSeat",
@@ -55781,7 +57992,6 @@
   },
   "ItemUtils": {
    "members": [
-    "checkWeapon",
     "getContainers"
    ],
    "parents": []
@@ -56116,6 +58326,14 @@
    ],
    "parents": []
   },
+  "KahluaTable": {
+   "members": [],
+   "parents": []
+  },
+  "KahluaTableImpl": {
+   "members": [],
+   "parents": []
+  },
   "KahluaThread": {
    "members": [],
    "parents": []
@@ -56231,99 +58449,6 @@
    "parents": [
     "InventoryItem"
    ]
-  },
-  "KeybindId": {
-   "members": [
-    "AIM",
-    "ALT_TOGGLE_CHAT",
-    "ANIMAL_RADIAL_MENU",
-    "ATTACK_CLICK",
-    "BACKWARD",
-    "BRAKE",
-    "BUILDING_UI",
-    "CANCEL_ACTION",
-    "CRAFTING_UI",
-    "CROUCH",
-    "CRUISE_CONTROL",
-    "DISPLAY_FPS",
-    "DROP_BOTH_HELD_ITEMS",
-    "DROP_BOTH_HELD_ITEMS_AND_WORN_BAG",
-    "DROP_PRIMARY_HELD_ITEM",
-    "DROP_SECONDARY_HELD_ITEM",
-    "DROP_WORN_BAG",
-    "EMOTE",
-    "ENABLE_VOICE_TRANSMIT",
-    "FAST_FORWARD_X1",
-    "FAST_FORWARD_X2",
-    "FAST_FORWARD_X3",
-    "FORWARD",
-    "GRAB_CORPSE",
-    "HOTBAR_1",
-    "HOTBAR_2",
-    "HOTBAR_3",
-    "HOTBAR_4",
-    "HOTBAR_5",
-    "HOTBAR_6",
-    "HOTBAR_7",
-    "HOTBAR_8",
-    "INTERACT",
-    "LEFT",
-    "LIGHT_SOURCE",
-    "MAIN_MENU",
-    "MANUAL_FLOOR_ATTACK",
-    "MAP",
-    "MELEE",
-    "NORMAL_SPEED",
-    "PAN_CAMERA",
-    "PAUSE",
-    "RACK_FIREARM",
-    "RELEASE_ROPE",
-    "RELOAD_WEAPON",
-    "RIGHT",
-    "ROTATE_BUILDING",
-    "RUN",
-    "SHARPEN_WEAPON",
-    "SHOUT",
-    "SIT_ON_GROUND",
-    "SPRINT",
-    "START_VEHICLE_ENGINE",
-    "SWITCH_CHAT_STREAM",
-    "TAKE_SCREENSHOT",
-    "TOGGLE_ANIMATION_TEXT",
-    "TOGGLE_CHAT",
-    "TOGGLE_CLOTHING_PROTECTION_PANEL",
-    "TOGGLE_GOD_MODE",
-    "TOGGLE_HEALTH_PANEL",
-    "TOGGLE_INFO_PANEL",
-    "TOGGLE_INVENTORY",
-    "TOGGLE_LUA_CONSOLE",
-    "TOGGLE_LUA_DEBUGGER",
-    "TOGGLE_MODE",
-    "TOGGLE_MODELS_ENABLED",
-    "TOGGLE_MOVABLE_PANEL_MODE",
-    "TOGGLE_MUSIC",
-    "TOGGLE_OLD_RENDERER",
-    "TOGGLE_SAFETY",
-    "TOGGLE_SEARCH_MODE",
-    "TOGGLE_SKILL_PANEL",
-    "TOGGLE_SURVIVAL_GUIDE",
-    "TOGGLE_UI",
-    "TOGGLE_VEHICLE_HEADLIGHTS",
-    "VEHICLE_HEATER",
-    "VEHICLE_HORN",
-    "VEHICLE_MECHANICS",
-    "VEHICLE_RADIAL_MENU",
-    "VEHICLE_SWITCH_SEAT",
-    "WALK_TO",
-    "ZOOM_IN",
-    "ZOOM_OUT",
-    "class",
-    "get",
-    "getId",
-    "register",
-    "toString"
-   ],
-   "parents": []
   },
   "Keyboard": {
    "members": [
@@ -56487,6 +58612,27 @@
   },
   "KeyboardStateCache": {
    "members": [],
+   "parents": []
+  },
+  "Kingsmouth": {
+   "members": [
+    "Add",
+    "AddPlayer",
+    "Init",
+    "OnGameStart",
+    "OnInitWorld",
+    "RemovePlayer",
+    "Render",
+    "gameMode",
+    "id",
+    "image",
+    "world",
+    "x",
+    "y",
+    "z",
+    "zombiesMaxPerChunk",
+    "zombiesMinPerChunk"
+   ],
    "parents": []
   },
   "KnownBlockedEdges": {
@@ -57490,10 +59636,60 @@
   },
   "Long": {
    "members": [
+    "BYTES",
+    "MAX_VALUE",
+    "MIN_VALUE",
+    "SIZE",
+    "TYPE",
+    "bitCount",
+    "byteValue",
     "class",
-    "new"
+    "compare",
+    "compareTo",
+    "compareUnsigned",
+    "compress",
+    "decode",
+    "describeConstable",
+    "divideUnsigned",
+    "doubleValue",
+    "equals",
+    "expand",
+    "floatValue",
+    "getLong",
+    "hashCode",
+    "highestOneBit",
+    "intValue",
+    "longValue",
+    "lowestOneBit",
+    "max",
+    "min",
+    "new",
+    "numberOfLeadingZeros",
+    "numberOfTrailingZeros",
+    "parseLong",
+    "parseUnsignedLong",
+    "remainderUnsigned",
+    "resolveConstantDesc",
+    "reverse",
+    "reverseBytes",
+    "rotateLeft",
+    "rotateRight",
+    "shortValue",
+    "signum",
+    "sum",
+    "toBinaryString",
+    "toHexString",
+    "toOctalString",
+    "toString",
+    "toUnsignedString",
+    "valueOf"
    ],
-   "parents": []
+   "parents": [
+    "Comparable<integer>",
+    "Constable",
+    "ConstantDesc",
+    "Number"
+   ]
   },
   "LootMaps": {
    "members": [
@@ -57693,6 +59889,10 @@
    "members": [],
    "parents": []
   },
+  "LuaClosure": {
+   "members": [],
+   "parents": []
+  },
   "LuaComponent": {
    "members": [
     "class"
@@ -57707,6 +59907,23 @@
    ],
    "parents": [
     "ComponentScript"
+   ]
+  },
+  "LuaDebugOutput": {
+   "members": [
+    "Type",
+    "cat",
+    "clear",
+    "createChildren",
+    "debug",
+    "doDrawItem",
+    "error",
+    "instance",
+    "new",
+    "outputListbox"
+   ],
+   "parents": [
+    "ISPanel"
    ]
   },
   "LuaDebugger": {
@@ -57953,6 +60170,15 @@
    ],
    "parents": []
   },
+  "MPDebugger": {
+   "members": [
+    "Type",
+    "onKeyPressed"
+   ],
+   "parents": [
+    "ISCollapsableWindow"
+   ]
+  },
   "Magazine": {
    "members": [],
    "parents": []
@@ -58116,6 +60342,7 @@
     "StaticWidth",
     "Type",
     "abutton",
+    "animPopup",
     "bootstrapConnectPopup",
     "bottomPanel",
     "calcLogoHeight",
@@ -58841,6 +61068,16 @@
    ],
    "parents": []
   },
+  "Member": {
+   "members": [
+    "accessFlags",
+    "getDeclaringClass",
+    "getModifiers",
+    "getName",
+    "isSynthetic"
+   ],
+   "parents": []
+  },
   "MetaCellPresence": {
    "members": [],
    "parents": []
@@ -58942,10 +61179,48 @@
    ]
   },
   "Method": {
+   "members": [
+    "class",
+    "equals",
+    "getAnnotatedReturnType",
+    "getAnnotation",
+    "getDeclaredAnnotations",
+    "getDeclaringClass",
+    "getDefaultValue",
+    "getExceptionTypes",
+    "getGenericExceptionTypes",
+    "getGenericParameterTypes",
+    "getGenericReturnType",
+    "getModifiers",
+    "getName",
+    "getParameterAnnotations",
+    "getParameterCount",
+    "getParameterTypes",
+    "getReturnType",
+    "getTypeParameters",
+    "hashCode",
+    "invoke",
+    "isBridge",
+    "isDefault",
+    "isSynthetic",
+    "isVarArgs",
+    "setAccessible",
+    "toGenericString",
+    "toString"
+   ],
+   "parents": [
+    "Executable"
+   ]
+  },
+  "MethodAccessor": {
    "members": [],
    "parents": []
   },
   "MethodHandles.Lookup": {
+   "members": [],
+   "parents": []
+  },
+  "MethodRepository": {
    "members": [],
    "parents": []
   },
@@ -63467,6 +65742,24 @@
    ],
    "parents": []
   },
+  "MoveToState": {
+   "members": [
+    "Type",
+    "during",
+    "enter",
+    "exit",
+    "isFinished",
+    "mover",
+    "new",
+    "setTarget",
+    "x",
+    "y",
+    "z"
+   ],
+   "parents": [
+    "ISBaseState"
+   ]
+  },
   "Moveable": {
    "members": [
     "ANTLERS_WALL",
@@ -64038,7 +66331,7 @@
     "updateListSort"
    ],
    "parents": [
-    "ISPanelJoypad"
+    "ISPanel"
    ]
   },
   "MultiplayerZoneEditorMode": {
@@ -64324,10 +66617,6 @@
    ],
    "parents": []
   },
-  "NativeImage": {
-   "members": [],
-   "parents": []
-  },
   "NestBox": {
    "members": [
     "class",
@@ -64380,7 +66669,6 @@
   },
   "NetworkAIParams": {
    "members": [
-    "ANIMAL_CLOSE_TO_REAL_DISTANCE",
     "ANIMAL_PREDICT_INTERVAL",
     "ANIMAL_PREDICT_UPDATE_LIMIT",
     "CHARACTER_EXTRAPOLATION_UPDATE_INTERVAL_MS",
@@ -64391,7 +66679,6 @@
     "MAX_RECONNECT_DISTANCE_SQ",
     "MAX_TOWING_CAR_DISTANCE_SQ",
     "MAX_TOWING_TRAILER_DISTANCE_SQ",
-    "NUM_CONNECTION_INDICES",
     "TOWING_DISTANCE",
     "VEHICLE_BUFFER_DELAY_MS",
     "VEHICLE_BUFFER_HISTORY_MS",
@@ -65864,6 +68151,18 @@
    ],
    "parents": []
   },
+  "Object": {
+   "members": [
+    "equals",
+    "getClass",
+    "hashCode",
+    "notify",
+    "notifyAll",
+    "toString",
+    "wait"
+   ],
+   "parents": []
+  },
   "ObjectAmbientEmitters.ChunkData": {
    "members": [],
    "parents": []
@@ -66282,6 +68581,56 @@
     "State"
    ]
   },
+  "OpeningHours": {
+   "members": [
+    "Add",
+    "AddPlayer",
+    "CheckHordeSpawn",
+    "CheckMetalGates",
+    "EveryDays",
+    "EveryTenMinutes",
+    "OnGameStart",
+    "OnInitWorld",
+    "OnPlayerUpdate",
+    "RemovePlayer",
+    "Render",
+    "ResetMetalGates",
+    "dayCount",
+    "dayToRespawn",
+    "doors",
+    "gameMode",
+    "hourOfDay",
+    "id",
+    "image",
+    "metalGates",
+    "northSpawn1",
+    "northSpawn1X",
+    "northSpawn1Y",
+    "northSpawn1Z",
+    "northSpawn2",
+    "northSpawn2X",
+    "northSpawn2Y",
+    "northSpawn2Z",
+    "northUpstairsSpawn1",
+    "northUpstairsSpawn1X",
+    "northUpstairsSpawn1Y",
+    "northUpstairsSpawn1Z",
+    "openTime",
+    "southSpawn",
+    "southSpawnX",
+    "southSpawnY",
+    "southSpawnZ",
+    "westSpawn",
+    "westSpawnX",
+    "westSpawnY",
+    "westSpawnZ",
+    "world",
+    "x",
+    "y",
+    "z"
+   ],
+   "parents": []
+  },
   "OtherPainting": {
    "members": [
     "chair",
@@ -66619,7 +68968,6 @@
     "lerpFunc_EaseInQuad",
     "lerpFunc_EaseOutInQuad",
     "lerpFunc_EaseOutQuad",
-    "lineSegmentsIntersect",
     "max",
     "microsToNanos",
     "millisToMicros",
@@ -66642,7 +68990,6 @@
     "setFromAxisAngle",
     "sign",
     "slerp",
-    "smallestEncompassingPowerOfTwo",
     "sqrt",
     "squared",
     "step",
@@ -66694,6 +69041,10 @@
     "wall",
     "windowsframe"
    ],
+   "parents": []
+  },
+  "Parameter": {
+   "members": [],
    "parents": []
   },
   "ParameterCameraZoom": {
@@ -67355,7 +69706,6 @@
     "STAGE",
     "VARIABLES",
     "animEvent",
-    "awayCheckDistance",
     "class",
     "enter",
     "exit",
@@ -67537,8 +69887,6 @@
     "execute",
     "exit",
     "instance",
-    "isProcessedOnExit",
-    "processOnExit",
     "setParams"
    ],
    "parents": [
@@ -67876,6 +70224,28 @@
    ],
    "parents": []
   },
+  "PrintMediaEntries": {
+   "members": [
+    "addPrintMediaEntry",
+    "getEntry",
+    "getEntryCount",
+    "list",
+    "useJoypad"
+   ],
+   "parents": []
+  },
+  "PrintMediaManager": {
+   "members": [
+    "Type",
+    "instance",
+    "new",
+    "panel",
+    "update"
+   ],
+   "parents": [
+    "ISBaseObject"
+   ]
+  },
   "PrintMediaMaps": {
    "members": [
     "Init",
@@ -68005,6 +70375,67 @@
     "new"
    ],
    "parents": []
+  },
+  "PuddlesPeriodDebug": {
+   "members": [
+    "OnClimateTickDebug",
+    "OnOpenPanel",
+    "Type",
+    "addColor",
+    "addVarInfo",
+    "buttonD1",
+    "buttonH1",
+    "buttonM1",
+    "chartLabelsLeft",
+    "chartLabelsLeftTxt",
+    "chartLabelsRight",
+    "chartLabelsRightTxt",
+    "charts",
+    "clear",
+    "clearOnNextRun",
+    "close",
+    "colTable",
+    "createChildren",
+    "currentStage",
+    "currentTile",
+    "dayStamp",
+    "eventsAdded",
+    "greyCol",
+    "historyD1",
+    "historyH1",
+    "historyM1",
+    "hotKeyPanels",
+    "hourStamp",
+    "initVariables",
+    "initialise",
+    "instance",
+    "isJoypadWindow",
+    "monthStamp",
+    "new",
+    "onButton",
+    "onButtonToggle",
+    "onResize",
+    "overrideBPrompt",
+    "player",
+    "playerNum",
+    "prerender",
+    "render",
+    "richtext",
+    "shiftDown",
+    "stayOnSplitScreen",
+    "subFocus",
+    "title",
+    "update",
+    "updateValues",
+    "varInfo",
+    "weatherPeriod",
+    "weatherRunning",
+    "year",
+    "yearStamp"
+   ],
+   "parents": [
+    "ISCollapsableWindow"
+   ]
   },
   "Quaternion": {
    "members": [],
@@ -69922,6 +72353,18 @@
     "RandomizedZoneStoryBase"
    ]
   },
+  "Rabbit": {
+   "members": [
+    "Type",
+    "init",
+    "new",
+    "postrender",
+    "update"
+   ],
+   "parents": [
+    "ISBaseMover"
+   ]
+  },
   "RadarPanel": {
    "members": [
     "class",
@@ -70341,6 +72784,16 @@
    "members": [],
    "parents": []
   },
+  "RandomTint": {
+   "members": [
+    "FabricRoll_Cotton",
+    "Lipstick",
+    "SprayPaint",
+    "ToyPlane",
+    "Yarn"
+   ],
+   "parents": []
+  },
   "RandomizedBuildingBase": {
    "members": [
     "ChunkLoaded",
@@ -70680,7 +73133,13 @@
    "members": [
     "DoResult",
     "DoSource",
+    "GetItemTypes",
     "Load",
+    "OnCanPerform",
+    "OnCreate",
+    "OnGiveXP",
+    "OnTest",
+    "WeaponParts",
     "addRequiredSkill",
     "class",
     "clearRequiredSkills",
@@ -70709,6 +73168,12 @@
   },
   "Recipe.LuaCall": {
    "members": [],
+   "parents": []
+  },
+  "Recipe.OnCreate": {
+   "members": [
+    "OpenAndEat"
+   ],
    "parents": []
   },
   "Recipe.RequiredSkill": {
@@ -70745,6 +73210,12 @@
     "setDestroy",
     "setKeep",
     "setUse"
+   ],
+   "parents": []
+  },
+  "Recipe.WeaponParts": {
+   "members": [
+    "hasScrewdriver"
    ],
    "parents": []
   },
@@ -71018,6 +73489,10 @@
    "members": [],
    "parents": []
   },
+  "ReflectionFactory": {
+   "members": [],
+   "parents": []
+  },
   "Registries": {
    "members": [
     "AMMO_TYPE",
@@ -71038,7 +73513,6 @@
     "ITEM_TAG",
     "ITEM_TYPE",
     "JOB",
-    "KEYBIND_ID",
     "LETTER",
     "LOCKET",
     "MAGAZINE",
@@ -73456,8 +75930,6 @@
     "getLastDataUpdate",
     "getLastOnline",
     "getLastUpdate",
-    "getLastWipe",
-    "getLastWipeDate",
     "getLocalIP",
     "getMapName",
     "getMaxPlayers",
@@ -73498,7 +75970,6 @@
     "setLastOnline",
     "setLastOnlineNow",
     "setLastUpdate",
-    "setLastWipe",
     "setLocalIP",
     "setMapName",
     "setMaxPlayers",
@@ -74528,6 +76999,42 @@
     "ISPanelJoypad"
    ]
   },
+  "SpecialLootSpawns": {
+   "members": [
+    "CreateSchematic",
+    "OnCreateArmorSchematic",
+    "OnCreateBSToolsSchematic",
+    "OnCreateCatalogue",
+    "OnCreateColorFromDefinition",
+    "OnCreateCookwareSchematic",
+    "OnCreateDoodle",
+    "OnCreateDoodleKids",
+    "OnCreateExplosivesSchematic",
+    "OnCreateGasMask",
+    "OnCreateGenericMail",
+    "OnCreateHairDyeBottle",
+    "OnCreateLetterHandwritten",
+    "OnCreateLocket",
+    "OnCreateMeleeWeaponSchematic",
+    "OnCreatePopBottle",
+    "OnCreatePopCan",
+    "OnCreatePostcard",
+    "OnCreateRPGmanual",
+    "OnCreateRandomColor",
+    "OnCreateRecipeClipping",
+    "OnCreateRecipeMagazine",
+    "OnCreateRespirator",
+    "OnCreateSCBA",
+    "OnCreateScarecrow",
+    "OnCreateSewingPattern",
+    "OnCreateSkeletonDisplay",
+    "OnCreateSnowGlobe",
+    "OnCreateSodaCan",
+    "OnCreateSurvivalSchematic",
+    "OnCreateWaterBottle"
+   ],
+   "parents": []
+  },
   "SpeedControls": {
    "members": [
     "ButtonClicked",
@@ -75372,6 +77879,127 @@
    "members": [],
    "parents": []
   },
+  "StatisticChart": {
+   "members": [
+    "OnServerStatisticReceived",
+    "Type",
+    "addColor",
+    "addLabel",
+    "addLabelValue",
+    "addVarInfo",
+    "clear",
+    "clearOnNextRun",
+    "close",
+    "colTable",
+    "createChildren",
+    "currentStage",
+    "currentTile",
+    "data",
+    "dayStamp",
+    "eventsAdded",
+    "getTitleLabel",
+    "getValueLabel",
+    "greyCol",
+    "historyM1",
+    "hotKeyPanels",
+    "hourStamp",
+    "initVariables",
+    "initialise",
+    "instance",
+    "isJoypadWindow",
+    "labels",
+    "monthStamp",
+    "new",
+    "onButtonToggle",
+    "onMouseWheel",
+    "onResize",
+    "overrideBPrompt",
+    "player",
+    "playerNum",
+    "prerender",
+    "render",
+    "richtext",
+    "shiftDown",
+    "stayOnSplitScreen",
+    "subFocus",
+    "title",
+    "update",
+    "updateValues",
+    "varInfo",
+    "year"
+   ],
+   "parents": [
+    "ISCollapsableWindow"
+   ]
+  },
+  "StatisticChartDiskOperations": {
+   "members": [
+    "OnOpenPanel",
+    "OnServerStatisticReceived",
+    "Type",
+    "createChildren",
+    "doInstance",
+    "eventsAdded",
+    "initVariables",
+    "instance",
+    "shiftDown",
+    "updateValues"
+   ],
+   "parents": [
+    "StatisticChart"
+   ]
+  },
+  "StatisticChartMemory": {
+   "members": [
+    "OnOpenPanel",
+    "OnServerStatisticReceived",
+    "Type",
+    "createChildren",
+    "doInstance",
+    "eventsAdded",
+    "initVariables",
+    "instance",
+    "shiftDown",
+    "updateValues"
+   ],
+   "parents": [
+    "StatisticChart"
+   ]
+  },
+  "StatisticChartPackets": {
+   "members": [
+    "OnOpenPanel",
+    "OnServerStatisticReceived",
+    "Type",
+    "createChildren",
+    "doInstance",
+    "eventsAdded",
+    "initVariables",
+    "instance",
+    "shiftDown",
+    "updateValues"
+   ],
+   "parents": [
+    "StatisticChart"
+   ]
+  },
+  "StatisticChartUpdatePeriod": {
+   "members": [
+    "OnOpenPanel",
+    "OnServerStatisticReceived",
+    "Type",
+    "createChildren",
+    "doInstance",
+    "eventsAdded",
+    "initVariables",
+    "instance",
+    "shiftDown",
+    "updateValues"
+   ],
+   "parents": [
+    "StatisticChart"
+   ]
+  },
   "Statistics": {
    "members": [],
    "parents": []
@@ -75718,6 +78346,28 @@
    ],
    "parents": []
   },
+  "Studio": {
+   "members": [
+    "Add",
+    "AddPlayer",
+    "Init",
+    "OnGameStart",
+    "OnInitWorld",
+    "OnNewGame",
+    "RemovePlayer",
+    "Render",
+    "gameMode",
+    "id",
+    "image",
+    "world",
+    "x",
+    "y",
+    "z",
+    "zombiesMaxPerChunk",
+    "zombiesMinPerChunk"
+   ],
+   "parents": []
+  },
   "Style": {
    "members": [],
    "parents": []
@@ -75769,6 +78419,18 @@
    "parents": [
     "ISCollapsableWindowJoypad"
    ]
+  },
+  "SurvivalGuideEntries": {
+   "members": [
+    "addEntry11",
+    "addSurvivalGuideEntry",
+    "getEntry",
+    "getEntryCount",
+    "joypad",
+    "list",
+    "useJoypad"
+   ],
+   "parents": []
   },
   "SurvivalGuideEntry": {
    "members": [
@@ -75876,7 +78538,6 @@
     "getJoypadKeys",
     "getKeys",
     "getSubCategory",
-    "getText",
     "getThumbnail",
     "getTitle",
     "getVideo",
@@ -75884,6 +78545,24 @@
     "toString"
    ],
    "parents": []
+  },
+  "SurvivalGuideManager": {
+   "members": [
+    "OnCreatePlayer",
+    "OnGameStart",
+    "OnNewGame",
+    "RestoreLayout",
+    "SaveLayout",
+    "Type",
+    "instance",
+    "new",
+    "onKeyPressed",
+    "panel",
+    "update"
+   ],
+   "parents": [
+    "ISBaseObject"
+   ]
   },
   "SurvivorDesc": {
    "members": [
@@ -76391,6 +79070,50 @@
    ],
    "parents": []
   },
+  "TeamOverview": {
+   "members": [
+    "Type",
+    "a",
+    "b",
+    "c",
+    "createChildren",
+    "drawMember",
+    "group",
+    "initialise",
+    "leader",
+    "memberList",
+    "new",
+    "prerender"
+   ],
+   "parents": [
+    "ISCollapsableWindow"
+   ]
+  },
+  "TeamPicker": {
+   "members": [
+    "Type",
+    "a",
+    "b",
+    "c",
+    "changeOption",
+    "create",
+    "createChildren",
+    "except",
+    "group",
+    "headerText",
+    "initialise",
+    "leader",
+    "new",
+    "onOptionMouseDown",
+    "playButton",
+    "prerender",
+    "scriptOnOk",
+    "teamMembers"
+   ],
+   "parents": [
+    "ISPanel"
+   ]
+  },
   "Temperature": {
    "members": [
     "BodyMaxTemp",
@@ -76495,6 +79218,17 @@
   },
   "TestEnum": {
    "members": [],
+   "parents": []
+  },
+  "TestMarkers": {
+   "members": [
+    "add",
+    "enableCurrent",
+    "enabled",
+    "index",
+    "loc",
+    "ontick"
+   ],
    "parents": []
   },
   "TextAlign": {
@@ -76771,6 +79505,28 @@
    "parents": [
     "ISCollapsableWindow"
    ]
+  },
+  "TheDescendingFog": {
+   "members": [
+    "Add",
+    "AddPlayer",
+    "EveryTenMinutes",
+    "OnGameStart",
+    "OnInitSeasons",
+    "OnInitWorld",
+    "RemovePlayer",
+    "Render",
+    "gameMode",
+    "hourOfDay",
+    "id",
+    "image",
+    "spawns",
+    "world",
+    "x",
+    "y",
+    "z"
+   ],
+   "parents": []
   },
   "ThermalNode": {
    "members": [
@@ -78266,20 +81022,6 @@
    ],
    "parents": []
   },
-  "TradingState": {
-   "members": [
-    "DealWasFinalized",
-    "DealWasSealed",
-    "DealWasUnsealed",
-    "WindowWasClosed",
-    "class",
-    "valueOf",
-    "values"
-   ],
-   "parents": [
-    "Enum<TradingState>"
-   ]
-  },
   "TraitClothingSelectionDefinitions": {
    "members": [],
    "parents": []
@@ -78351,6 +81093,7 @@
     "getMapLabelText",
     "getMoveableDisplayName",
     "getMoveableDisplayNameOrNull",
+    "getRadioText",
     "getRecipeGroupName",
     "getRecipeName",
     "getText",
@@ -78422,6 +81165,10 @@
    "parents": []
   },
   "TriggerXmlFile": {
+   "members": [],
+   "parents": []
+  },
+  "TurnbasedDummyChr": {
    "members": [],
    "parents": []
   },
@@ -79395,7 +82142,6 @@
     "tableget",
     "toTop",
     "toolTip",
-    "trySetProgressBarValue",
     "uiFbo",
     "uiRenderIntervalMS",
     "uiRenderTimeMS",
@@ -79824,6 +82570,10 @@
    ]
   },
   "UnitTestsTimedActionsPanelTestResults": {
+   "members": [],
+   "parents": []
+  },
+  "UpValue": {
    "members": [],
    "parents": []
   },
@@ -80513,7 +83263,6 @@
     "getYi",
     "getZ",
     "getZi",
-    "hasEnoughGasToRun",
     "isEngineWorking",
     "setEngineFeature",
     "setLightbarLightsMode",
@@ -80923,7 +83672,6 @@
     "getItems",
     "getPerksTableForChr",
     "initHeadlight",
-    "initHeadlightWithoutItem",
     "lowerUninstalledItemCondition",
     "split",
     "testItems",
@@ -81305,7 +84053,6 @@
     "checkAndSpawnZombieForBuildingKey",
     "checkZombieKeyForBuilding",
     "class",
-    "createCorpseZombie",
     "createEatingZombies",
     "createHordeFromTo",
     "createRealZombie",
@@ -82436,6 +85183,29 @@
    ],
    "parents": []
   },
+  "WelcomeMessageUI": {
+   "members": [
+    "Type",
+    "changeLabel",
+    "create",
+    "initialise",
+    "new",
+    "refreshNeeded",
+    "render",
+    "rich",
+    "screenshot",
+    "titleLabel"
+   ],
+   "parents": [
+    "ISCollapsableWindow"
+   ]
+  },
+  "WelcomeMessages": {
+   "members": [
+    "doMsg"
+   ],
+   "parents": []
+  },
   "WelcomeStep": {
    "members": [
     "Type",
@@ -83510,16 +86280,11 @@
     "getPointY",
     "getPoints",
     "getTranslatedText",
-    "getUntranslatedText",
     "getWidth",
     "insertPoint",
     "isOnScreen",
     "new",
     "pickPoint",
-    "registerNavZone",
-    "registerNavZone2",
-    "registerNavZonePolyline",
-    "registerNavZones",
     "removePoint",
     "render",
     "renderIntersections",
@@ -83527,7 +86292,7 @@
     "resetIntersectionRenderFlag",
     "reverseDirection",
     "setPoint",
-    "setUntranslatedText",
+    "setTranslatedText",
     "setWidth",
     "triangulate"
    ],
@@ -84312,7 +87077,6 @@
     "load",
     "new",
     "processDataChunk",
-    "receiveRequestData",
     "render",
     "renderGrid",
     "renderMain",
@@ -84337,7 +87101,6 @@
     "loadUser",
     "new",
     "save",
-    "sendRequestData",
     "setKnownInSquares",
     "unloadUser",
     "update"
@@ -85432,6 +88195,29 @@
     "XuiScript"
    ]
   },
+  "XuiTestWindow": {
+   "members": [
+    "Type",
+    "buttonHello",
+    "close",
+    "createChildren",
+    "heightMod",
+    "initialise",
+    "new",
+    "onButtonClick",
+    "onResize",
+    "panelButton",
+    "player",
+    "prerender",
+    "render",
+    "th",
+    "xuiPanel",
+    "xuiScript"
+   ],
+   "parents": [
+    "ISCollapsableWindow"
+   ]
+  },
   "XuiTextAlign": {
    "members": [
     "class"
@@ -85500,6 +88286,39 @@
    ],
    "parents": []
   },
+  "YouHaveOneDay": {
+   "members": [
+    "Add",
+    "AddPlayer",
+    "EveryDays",
+    "EveryHours",
+    "Init",
+    "OnGameStart",
+    "OnInitWorld",
+    "OnPlayerUpdate",
+    "OnZombieUpdate",
+    "RemovePlayer",
+    "Render",
+    "gameMode",
+    "hordeDiner",
+    "hordeFlat",
+    "hordeGasStation",
+    "hordeOffice",
+    "hordePark",
+    "hordeSpawned",
+    "hordeTownArea",
+    "hordeWood",
+    "hordeWoodCamp",
+    "hordes",
+    "id",
+    "image",
+    "world",
+    "x",
+    "y",
+    "z"
+   ],
+   "parents": []
+  },
   "ZLayer": {
    "members": [
     "class",
@@ -85510,9 +88329,7 @@
   "ZLogger": {
    "members": [
     "class",
-    "close",
     "new",
-    "recreateLogFile",
     "write",
     "writeUnsafe"
    ],
@@ -85956,7 +88773,6 @@
     "getY",
     "getZ",
     "getZombieDensity",
-    "hasWaterSquare",
     "haveCons",
     "intersects",
     "isFullyStreamed",
@@ -86749,6 +89565,17 @@
     "updateLater",
     "updateYourInventory",
     "wasInventoryUpdated"
+   ],
+   "parents": []
+  },
+  "__ISVendorVendingLayout_ISVendingAnim": {
+   "members": [
+    "Type",
+    "new",
+    "prerender",
+    "render",
+    "start",
+    "stop"
    ],
    "parents": []
   },
@@ -88462,33 +91289,6 @@
    "members": [],
    "parents": []
   },
-  "boolean": {
-   "members": [
-    "FALSE",
-    "TRUE",
-    "TYPE",
-    "booleanValue",
-    "class",
-    "compare",
-    "compareTo",
-    "describeConstable",
-    "equals",
-    "getBoolean",
-    "hashCode",
-    "logicalAnd",
-    "logicalOr",
-    "logicalXor",
-    "new",
-    "parseBoolean",
-    "toString",
-    "valueOf"
-   ],
-   "parents": [
-    "Comparable<boolean>",
-    "Constable",
-    "Serializable"
-   ]
-  },
   "buildUtil": {
    "members": [
     "addCorner",
@@ -88716,6 +91516,7 @@
    "members": [
     "addZone",
     "clearData",
+    "getZones",
     "init",
     "removeZone",
     "requestZone",
@@ -88927,67 +91728,6 @@
    ],
    "parents": []
   },
-  "integer": {
-   "members": [
-    "BYTES",
-    "MAX_VALUE",
-    "MIN_VALUE",
-    "SIZE",
-    "TYPE",
-    "bitCount",
-    "byteValue",
-    "class",
-    "compare",
-    "compareTo",
-    "compareUnsigned",
-    "compress",
-    "decode",
-    "describeConstable",
-    "divideUnsigned",
-    "doubleValue",
-    "equals",
-    "expand",
-    "floatValue",
-    "getInteger",
-    "getLong",
-    "hashCode",
-    "highestOneBit",
-    "intValue",
-    "longValue",
-    "lowestOneBit",
-    "max",
-    "min",
-    "new",
-    "numberOfLeadingZeros",
-    "numberOfTrailingZeros",
-    "parseInt",
-    "parseLong",
-    "parseUnsignedInt",
-    "parseUnsignedLong",
-    "remainderUnsigned",
-    "resolveConstantDesc",
-    "reverse",
-    "reverseBytes",
-    "rotateLeft",
-    "rotateRight",
-    "shortValue",
-    "signum",
-    "sum",
-    "toBinaryString",
-    "toHexString",
-    "toOctalString",
-    "toString",
-    "toUnsignedLong",
-    "toUnsignedString",
-    "valueOf"
-   ],
-   "parents": [
-    "Comparable<integer>",
-    "Constable",
-    "ConstantDesc",
-    "Number"
-   ]
-  },
   "java": {
    "members": [
     "io",
@@ -89062,61 +91802,6 @@
     "sign"
    ],
    "parents": []
-  },
-  "number": {
-   "members": [
-    "BYTES",
-    "MAX_EXPONENT",
-    "MAX_VALUE",
-    "MIN_EXPONENT",
-    "MIN_NORMAL",
-    "MIN_VALUE",
-    "NEGATIVE_INFINITY",
-    "NaN",
-    "POSITIVE_INFINITY",
-    "PRECISION",
-    "SIZE",
-    "TYPE",
-    "byteValue",
-    "class",
-    "compare",
-    "compareTo",
-    "describeConstable",
-    "doubleToLongBits",
-    "doubleToRawLongBits",
-    "doubleValue",
-    "equals",
-    "float16ToFloat",
-    "floatToFloat16",
-    "floatToIntBits",
-    "floatToRawIntBits",
-    "floatValue",
-    "hashCode",
-    "intBitsToFloat",
-    "intValue",
-    "isFinite",
-    "isInfinite",
-    "isNaN",
-    "longBitsToDouble",
-    "longValue",
-    "max",
-    "min",
-    "new",
-    "parseDouble",
-    "parseFloat",
-    "resolveConstantDesc",
-    "shortValue",
-    "sum",
-    "toHexString",
-    "toString",
-    "valueOf"
-   ],
-   "parents": [
-    "Comparable<number>",
-    "Constable",
-    "ConstantDesc",
-    "Number"
-   ]
   },
   "org": {
    "members": [
@@ -89517,8 +92202,7 @@
   "umbrella.FileSpawnRegion": {
    "members": [
     "file",
-    "name",
-    "serverfile"
+    "name"
    ],
    "parents": []
   },
@@ -89755,32 +92439,6 @@
     "weather"
    ],
    "parents": []
-  },
-  "umbrella.Foraging.PoolEntry": {
-   "members": [
-    "icons",
-    "lastMs"
-   ],
-   "parents": []
-  },
-  "umbrella.Foraging.PoolIcon": {
-   "members": [
-    "iconID",
-    "zoneId"
-   ],
-   "parents": [
-    "umbrella.PoolRecord"
-   ]
-  },
-  "umbrella.Foraging.PoolRecord": {
-   "members": [
-    "catName",
-    "count",
-    "itemType"
-   ],
-   "parents": [
-    "umbrella.XYZ"
-   ]
   },
   "umbrella.Foraging.SkillDefinition": {
    "members": [
@@ -90048,6 +92706,16 @@
    ],
    "parents": []
   },
+  "umbrella.ISCheatPanelUI.Option": {
+   "members": [
+    "functionGet",
+    "functionSet",
+    "id",
+    "text",
+    "tooltip"
+   ],
+   "parents": []
+  },
   "umbrella.ISClothingInsPanel.NodeDetailsTable": {
    "members": [
     "bar",
@@ -90075,6 +92743,17 @@
     "data",
     "text",
     "tooltip"
+   ],
+   "parents": []
+  },
+  "umbrella.ISContextDisassemble.Data": {
+   "members": [
+    "chance",
+    "moveProps",
+    "object",
+    "perkName",
+    "resultScrap",
+    "square"
    ],
    "parents": []
   },
@@ -90275,6 +92954,15 @@
    "members": [
     "backLeft",
     "backRight"
+   ],
+   "parents": []
+  },
+  "umbrella.ISFishingUI.FishItem": {
+   "members": [
+    "alpha",
+    "alphaTimer",
+    "item",
+    "texture"
    ],
    "parents": []
   },
@@ -90793,7 +93481,6 @@
   },
   "umbrella.ISScrollingListBox.Column": {
    "members": [
-    "id",
     "name",
     "size"
    ],
@@ -90852,7 +93539,6 @@
   "umbrella.ISTabPanel.View": {
    "members": [
     "fade",
-    "id",
     "name",
     "tabWidth",
     "view"
@@ -91491,6 +94177,24 @@
    ],
    "parents": []
   },
+  "umbrella.OpeningHours.Spawn": {
+   "members": [
+    "x",
+    "x2",
+    "y",
+    "y2"
+   ],
+   "parents": []
+  },
+  "umbrella.PrintMediaEntry": {
+   "members": [
+    "index",
+    "info",
+    "title",
+    "type"
+   ],
+   "parents": []
+  },
   "umbrella.ProceduralDistribution": {
    "members": [
     "bags",
@@ -91833,11 +94537,10 @@
   },
   "umbrella.SpawnRegion": {
    "members": [
+    "name",
     "points"
    ],
-   "parents": [
-    "umbrella.FileSpawnRegion"
-   ]
+   "parents": []
   },
   "umbrella.SpriteGridCache.Item": {
    "members": [
@@ -91907,8 +94610,10 @@
     "category_image",
     "description",
     "id",
+    "moreInfo",
     "spiffo",
     "subCategory",
+    "text",
     "title",
     "video"
    ],
@@ -91946,6 +94651,13 @@
     "containers",
     "parts",
     "script"
+   ],
+   "parents": []
+  },
+  "umbrella.TestMarkers.Loc": {
+   "members": [
+    "circle",
+    "pointer"
    ],
    "parents": []
   },
@@ -92125,7 +94837,8 @@
     "onMakeItem",
     "onNewGame",
     "onPlayerMove",
-    "onWeaponHitXp"
+    "onWeaponHitXp",
+    "randXp"
    ],
    "parents": []
   },
@@ -92200,7 +94913,6 @@
  },
  "events": [
   "AcceptedFactionInvite",
-  "AcceptedMedicalCheck",
   "AcceptedSafehouseInvite",
   "AcceptedTrade",
   "AddXP",
@@ -92262,13 +94974,9 @@
   "OnExitVehicle",
   "OnFETick",
   "OnFillContainer",
-  "OnFillInventoryContextMenuNoItems",
   "OnFillInventoryObjectContextMenu",
   "OnFillWorldObjectContextMenu",
   "OnFishingActionMPUpdate",
-  "OnForagePool",
-  "OnForageRequestZone",
-  "OnForageSpot",
   "OnGameBoot",
   "OnGameStart",
   "OnGameStateEnter",
@@ -92289,7 +94997,6 @@
   "OnJoypadBeforeDeactivate",
   "OnJoypadBeforeReactivate",
   "OnJoypadDeactivate",
-  "OnJoypadDebugRenderUIOptionSet",
   "OnJoypadReactivate",
   "OnJoypadRenderUI",
   "OnKeyKeepPressed",
@@ -92332,7 +95039,6 @@
   "OnPostSave",
   "OnPostUIDraw",
   "OnPreDistributionMerge",
-  "OnPreFillInventoryContextMenuNoItems",
   "OnPreFillInventoryObjectContextMenu",
   "OnPreFillWorldObjectContextMenu",
   "OnPreMapLoad",
@@ -92410,13 +95116,10 @@
   "OnZombieCreate",
   "OnZombieDead",
   "OnZombieUpdate",
-  "OptionControllerButtonStyleChanged",
-  "OptionGamepadBindingPresetChanged",
   "ReceiveFactionInvite",
   "ReceiveSafehouseInvite",
   "RefreshCheats",
   "RenderOpaqueObjectsInWorld",
-  "RequestMedicalCheck",
   "RequestTrade",
   "ReuseGridsquare",
   "SendCustomModData",
@@ -92456,15 +95159,19 @@
   "DebugChunkState_InitUI",
   "DebugGlobalObjectState_InitUI",
   "DeepPrintDistributionTable",
+  "DoDebugLuaDebugOutputWindow",
   "DoDemoPopup",
   "DoLuaDebugger",
   "DoLuaDebuggerOnBreak",
   "DoLuaError",
+  "DoTickDebugLuaDebugOutputWindow",
   "DoTileBuilding",
   "DoTileBuildingJoyPad",
   "EditVehicleState_InitUI",
+  "ISGameLoadingUI_OnGameLoadingUI",
   "ISPathFindAction_pathToLocationF",
   "ISServerDisconnectUI_OnServerDisconnectUI",
+  "InitTurnbasedEngine",
   "InvMngGetItem",
   "InvMngRemoveItem",
   "InvMngUpdateItem",
@@ -92480,6 +95187,7 @@
   "ModSelector_onModsModified",
   "NewMapBinaryFile",
   "NewPlant",
+  "PrepareTurnbasedEngine",
   "RecipeTestAll",
   "RecipeTestAvailableItems",
   "RecipeTestNumberOfTimes",
@@ -92521,6 +95229,7 @@
   "addCarCrash",
   "addChallenge",
   "addPhysicsObject",
+  "addRainPanel",
   "addRole",
   "addServerToAccountList",
   "addSound",
@@ -92604,13 +95313,13 @@
   "debugstacktrace",
   "deleteAccountToAccountList",
   "deleteAllGameModeSaves",
-  "deleteDatabase",
   "deletePlayerFromDatabase",
   "deletePlayerSave",
   "deleteRole",
   "deleteSandboxPreset",
   "deleteSave",
   "deleteServerToAccountList",
+  "deserialize",
   "destroyAllPlayerData",
   "destroyPlayerData",
   "detectBadWords",
@@ -92628,7 +95337,9 @@
   "doLuaDebuggerAction",
   "doMapZones",
   "doNewUIDebug",
+  "doPrintMediaDebug",
   "doSpawnOrigins",
+  "doSurvivalGuide",
   "doTutorial",
   "doTutorialCreatePlayer",
   "doTutorialDraw",
@@ -92811,11 +95522,9 @@
   "getMapInfo",
   "getMaxActivePlayers",
   "getMaxPlayers",
-  "getMaxUsernameLength",
   "getMaximumWorldLevel",
   "getMethodParameter",
   "getMethodParameterCount",
-  "getMinUsernameLength",
   "getMinimumWorldLevel",
   "getMiscRecipeIcon",
   "getModDirectoryTable",
@@ -92865,6 +95574,7 @@
   "getPublicServersList",
   "getPuddlesManager",
   "getRadioAPI",
+  "getRadioText",
   "getRandomUUID",
   "getRecipeDisplayName",
   "getRecipeIcon",
@@ -92917,6 +95627,7 @@
   "getStreamModeActive",
   "getStreets",
   "getText",
+  "getTextList",
   "getTextManager",
   "getTextMediaEN",
   "getTextOrNull",
@@ -92953,6 +95664,7 @@
   "haveAccess",
   "ignoreFromBuildMenu",
   "initUISystem",
+  "injectInsomnia",
   "instanceItem",
   "instanceof",
   "invalidateLighting",
@@ -93041,6 +95753,7 @@
   "loadStaticZomboidModel",
   "loadVehicleModel",
   "loadZomboidModel",
+  "loadstream",
   "localVarName",
   "log",
   "logTo01",
@@ -93079,6 +95792,7 @@
   "pauseSoundAndMusic",
   "ping",
   "playServerSound",
+  "pp",
   "preLoadLastStandInit",
   "preLoadTutorialInit",
   "proceedFactionMessage",
@@ -93089,6 +95803,9 @@
   "processSayMessage",
   "processShoutMessage",
   "profanityFilterCheck",
+  "pzdebug",
+  "pzdebugenabled",
+  "pzerror",
   "querySteamWorkshopItemDetails",
   "queueCharEvent",
   "queueKeyEvent",
@@ -93112,6 +95829,7 @@
   "removeAction",
   "removeAllVehicles",
   "removeAnimal",
+  "removeInsomnia",
   "removeInventoryUI",
   "removeItemTransaction",
   "removeTicket",
@@ -93155,7 +95873,6 @@
   "sendAddAnimalInTrailer",
   "sendAddItemToContainer",
   "sendAddItemsToContainer",
-  "sendAddObjectToMap",
   "sendAnimalGenome",
   "sendAttachedItem",
   "sendButcherAnimal",
@@ -93221,6 +95938,7 @@
   "sendSyncPlayerFields",
   "sendVisual",
   "sendWarManagerUpdate",
+  "serialize",
   "serverConnect",
   "serverConnectCoop",
   "serverFileExists",
@@ -93300,7 +96018,9 @@
   "teleportPlayers",
   "teleportToHimUserAction",
   "teleportUserAction",
+  "testCreateRabbit",
   "testHelicopter",
+  "testResolutionChange",
   "testSound",
   "timSort",
   "timerGetKept",
@@ -93376,6 +96096,6 @@
   "zpopSpawnNow",
   "zpopSpawnTimeToZero"
  ],
- "release_tag": "42.21.0",
- "umbrella_commit": "13d01f9ee58fa48773553920db56d06f0005e7f8"
+ "release_tag": "42.20.0",
+ "umbrella_commit": "58204fc47895ba249592519cedecc7cfbaaebd60"
 }

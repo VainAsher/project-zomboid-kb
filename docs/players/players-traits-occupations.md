@@ -1,7 +1,7 @@
 ---
 id: players-traits-occupations
 title: "Traits and Occupations: Points, Rosters and the B42 Rework"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Players
@@ -9,13 +9,13 @@ topic: "Traits & occupations"
 build: both
 document_type: reference
 created: 2026-07-30
-updated: 2026-07-30
-review_due: 2026-10-30
-sources_verified: 2026-07-30
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [players-foundation, players-skills-xp, players-crafting-chains, players-animals-husbandry, meta-style-guide]
 tags: [players, traits, occupations, character-creation, points, build-42, adaptive-traits, rebalance]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,16 +23,16 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | players-traits-occupations |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Players |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-07-30 |
-| Review due | 2026-10-30 |
-| Game versions verified | 41.78.16, 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 |
 
 # Executive Summary
 
@@ -48,7 +48,7 @@ Document-level confidence is **Medium**. The rename-and-rebalance history rests 
 - B41 offers 21 occupations plus Unemployed; the pinned B42 roster revision lists 24 occupations plus a Custom Occupation option *(cited)*
 - Repairman→DIY Expert, Outdoorsman→Outdoorsy and Fisher→Angler are confirmed by the official 42.0.1 patch notes; Fire Officer→Firefighter, Angler→Fishing Guide and Wilderness Knowledge→Bushcrafter by the 42.16 notes; Crop Farmer/Livestock Farmer→Farmer/Rancher by the 42.13 notes *(cited)* *(B42)*
 - "Pacifist→Reluctant Fighter" and "Asthmatic→Short of Breath" circulate in the community but are **not** fully confirmed — the first is only indirectly supported by primary notes, the second not at all — see the quarantine section *(community, unverified)*
-- B42's new occupations include Blacksmith, Welder, Tailor (added mid-cycle in 42.8.1) and Rancher; Metalworker's slot and description carried over to Welder *(cited)* *(B42)*
+- B42's new occupations include Blacksmith, Welder, Tailor (added mid-cycle in 42.8.1) and Rancher; Metalworker's slot and description carried over to Welder *(cited)* *(B42)*; the 42.21 notes confirm a Welder occupation exists and now starts with Welding rather than Blacksmithing recipes, but do not mention Metalworker *(cited)* *(B42)*
 - The B41 "free points" economy was deliberately squeezed in B42: famous point-printers like High Thirst (+6→+2), Slow Healer (+6→+3) and Smoker (+4→+3) now pay far less, and Obese/Underweight-family traits are no longer purchasable *(cited)*
 - New B42 traits: Artisan, Mason, Inventive (42.4), Crafty (42.12), Tinkerer, Target Shooter (42.16), plus Whittler, Blacksmith Knowledge and Bushcrafter; Fast/Slow Metabolism replace direct weight-trait purchases *(cited)* *(B42)*
 - Adaptive traits (strength, fitness and weight tiers) are gained and lost in play in both builds — and losing a negative trait never refunds the points you took for it *(cited)* *(both)*
@@ -77,9 +77,11 @@ Not covered: per-skill XP mechanics and multipliers (see `players-skills-xp`), t
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | 41.78.16 | Roster and costs from pzwiki revisions pinned to 41.78.16 [19] [21] |
-| B42 (stable) | Yes | 42.20 | Roster from a 42.18.0-versioned revision [20]; trait list from a 42.19.0-versioned revision [22]; the 42.19 and 42.20 patch notes contain no further roster or point changes, only fixes [15] [16] |
+| B42 (stable) | Yes | 42.20; patch notes re-read through 42.21 | Roster from a 42.18.0-versioned revision [20]; trait list from a 42.19.0-versioned revision [22]; the 42.19 and 42.20 patch notes contain no further roster or point changes, only fixes [15] [16]; 42.21 adds one occupation balance note (Welder starting recipes) [27] [29] |
 
 Both cited wiki revisions were re-checked on 2026-07-30 and are the newest revisions of their pages; no post-42.20 wiki update has landed yet [20] [22]. Values were not re-verified in-game on 42.20.
+
+Revision 0.2.0 (2026-10-07) re-read the 42.20.1, 42.20.2, 42.20.3 and 42.20.4 hotfix notes [23] [24] [25] [26], the 42.21 unstable and stable announcements [27] [28] and the abridged ("selected") TIS forum 42.21 changelist [29]. The four 42.20.x hotfix notes cover multiplayer, memory, security and mod-tooling fixes and list no point-cost, trait-roster or occupation-roster changes [23] [24] [25] [26]. Statements not named as 42.21-affected are carried forward from 42.20 and the cited pzwiki revisions with no contradicting change found in those notes; this is a patch-notes review, not an in-game re-test [29]. The one occupation-relevant change in the 42.21 notes is that characters with the Welder occupation now start with Welding recipes instead of Blacksmithing recipes [27] [29].
 
 # Reference
 
@@ -166,7 +168,7 @@ Build 42's roster churned names several times, and each rename below is classed 
 **Confirmed by revision comparison plus primary name attestation:**
 
 - **Axe Man → Ax-pert.** The B41 revision lists Axe Man as Lumberjack's occupation trait; the B42 revision lists Ax-pert as Lumberjack's occupation-exclusive trait with the same icon asset (`trait_axeman.png`) and the same in-game description ("Better at chopping trees. Faster axe swing.") [21] [22]. The 42.13 notes independently attest the new name, fixing a bug where every player benefited from "Ax-pert" rather than only lumberjacks [5]. No single patch note states the rename; the identification rests on this asset-and-description continuity across the two pinned revisions.
-- **Metalworker → Welder.** No rename note was found, but the B42 Welder row keeps Metalworker's icon asset (`profession_metalworker.png`) and the same in-game description about welding foraged metal into items and barricades, with the same shape of kit (Metalworking 3 became Welding 4) [19] [20]. Method: roster-revision comparison only — treat as strongly indicated rather than officially stated.
+- **Metalworker → Welder.** No rename note was found, but the B42 Welder row keeps Metalworker's icon asset (`profession_metalworker.png`) and the same in-game description about welding foraged metal into items and barricades, with the same shape of kit (Metalworking 3 became Welding 4) [19] [20]. Method: roster-revision comparison only — treat as strongly indicated rather than officially stated. The 42.21 notes add a primary fact about the destination name: a Balance entry states that characters with the Welder occupation now start with Welding recipes instead of Blacksmithing recipes [27] [29]. That confirms an occupation labelled Welder exists on 42.21 and what recipes it starts with; it does not mention Metalworker or any rename, so the Metalworker-to-Welder identification stays inferred, not stated [27] [29]. The same forum changelist lists a fix for wrong Recipes used in CharacterTraitScriptGenerator, without naming which traits or recipes were affected [29].
 - **Cook → Keen Cook** and **Amateur Mechanic → Vehicle Knowledge** (occupation traits): same icon assets and effects across the two trait revisions, with the new names appearing throughout the B42 revision [21] [22].
 
 **Not confirmed** — "Pacifist → Reluctant Fighter" and "Asthmatic → Short of Breath" are quarantined below with their evidence status.
@@ -309,6 +311,7 @@ B42 changes the entry points into this system. You can no longer buy Obese, Over
 | Point-printer negatives | High Thirst +6, Slow Healer +6, Smoker +4, weight traits purchasable up to +10 [21] | High Thirst +2, Slow Healer +3, Smoker +3, weight traits adaptive-only; Fast/Slow Metabolism (+2) are the new entry points [11] [22] |
 | Utility positives | Low Thirst -6, Light Eater -4, First Aider -4, Nutritionist -4 [21] | Low Thirst -2, Light Eater -2, First Aider -2, Nutritionist -2 — information/comfort traits got cheap [8] [11] [22] |
 | Adaptive traits | Strength/fitness/weight ladders; B41 names (Weak, Feeble, Overweight, Obese...) [21] | Same ladders; renamed tiers (Puny, Weak, High Weight, Low Weight...) plus metabolism drift traits [6] [22] |
+| Welder starting recipes | Not documented for Metalworker in the cited revision [19] | Welder starts with Welding recipes rather than Blacksmithing recipes (42.21) [27] [29] |
 | Skill vocabulary in rosters | Sprinting, Farming, Metalworking [19] | Running, Agriculture, Welding, plus crafting skills (Masonry, Carving, Knapping, Blacksmithing) and animal skills (Animal Care, Butchering) threaded through rosters [20] |
 
 One line: B41's roster is a stable menu with famous point loopholes; B42's is a re-priced, crafting-aware menu that pays you less for fake hardship and charges you less for convenience — and several of its names changed more than once on the way to stable [1] [8] [11].
@@ -355,11 +358,11 @@ One line: B41's roster is a stable menu with famous point loopholes; B42's is a 
 
 # Risks & Caveats
 
-- **No first-hand 42.20 verification.** Every roster value here traces to pinned wiki revisions versioned 42.18.0/42.19.0 plus patch notes through 42.20; the 42.19–42.20 notes show only fixes, not roster changes [15] [16], but a stable-branch hotfix could re-price anything.
+- **No first-hand 42.20 or 42.21 verification.** Every roster value here traces to pinned wiki revisions versioned 42.18.0/42.19.0 plus patch notes through 42.20; the 42.19–42.20 notes show only fixes, not roster changes [15] [16], but a stable-branch hotfix could re-price anything.
 - **Wiki-internal naming inconsistencies.** The pinned B42 trait revision names the -2 Strength tier "Feeble" in its negatives table but "Weak" in its adaptive-traits section, and lists Night Owl both as purchasable-without-cost and as occupation-exclusive; the page itself carries a formatting-improvement banner [22]. In-game checks are the only resolution.
 - **Display names vs patch-note names.** The pinned occupation revision's display text ("Crop Farmer", "Livestock Farmer", "Fire Officer") lags the 42.13/42.16 renames its own page links reflect [5] [8] [20]. This document follows the patch notes; the in-game 42.20 labels have not been read directly.
 - **Occupation-count discrepancy with the parent document.** `players-foundation` states 23 occupations plus Custom Occupation for the same pinned revision; this document counts 24 rows. A human should recount revision 1391359 [20].
-- **Two renames rest on inference.** Metalworker→Welder (roster comparison only) and Axe Man→Ax-pert (asset/description continuity plus name attestation) are argued, not quoted, from primaries [5] [19] [20] [21] [22].
+- **Two renames rest on inference.** Metalworker→Welder (roster comparison only; the 42.21 notes confirm the name Welder exists but say nothing of a rename [27] [29]) and Axe Man→Ax-pert (asset/description continuity plus name attestation) are argued, not quoted, from primaries [5] [19] [20] [21] [22].
 - **Steam announcement mirrors.** Primary citations use Steam announcement mirrors of Indie Stone posts per project policy; those hosts bot-block automated link checkers.
 
 # Verification Steps
@@ -375,6 +378,7 @@ One line: B41's roster is a stable menu with famous point loopholes; B42's is a 
 
 - Is the in-game 42.20 label Pacifist or Reluctant Fighter (Claim 1)? One character-creation screenshot resolves it.
 - Does any 42.20 in-game trait carry the name Short of Breath (Claim 2)?
+- Does the Welder roster row (Welding 4, per the pinned 42.18.0-versioned revision) still match the 42.21 in-game kit now that Welder starts with Welding recipes [27] [29]?
 - Are the in-game 42.20 occupation labels Farmer/Rancher/Fishing Guide/Firefighter, as the patch notes imply, or do any pre-rename labels survive [5] [8]?
 - What is the exact 42.20 name of the -2 Strength adaptive tier (Feeble vs Weak) given the wiki's internal inconsistency [22]?
 - Will the announced Build 42 Support Update touch trait or occupation balance again? Watch the Thursdoid feed.
@@ -402,6 +406,13 @@ One line: B41's roster is a stable menu with famous point loopholes; B42's is a 
 - [16] **The Indie Stone** — *Build 42.20.0 Stable Released* (Steam announcement, 2026-07-29; trait-related fixes only). https://steamcommunity.com/games/108600/announcements/detail/1839676055882259. Accessed 2026-07-30.
 - [17] **The Indie Stone** — *42.7.0 UNSTABLE Released* (Steam announcement, 2025-04-07; Herbalist magazine trait-gain fix). https://steamcommunity.com/games/108600/announcements/detail/1795917897452371. Accessed 2026-07-30.
 - [18] **The Indie Stone** — *Hallodoid* (Thursdoid, Steam announcement, 2024-11-01; pre-release tester feedback on trait balance). https://steamcommunity.com/games/108600/announcements/detail/6146943657173915715. Accessed 2026-07-30.
+- [23] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766. Accessed 2026-10-07.
+- [24] **The Indie Stone** — *42.20.2 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314339441. Accessed 2026-10-07.
+- [25] **The Indie Stone** — *42.20.3 STABLE Hotfix Released* (Steam announcement, 2026-08-17). https://steamcommunity.com/games/108600/announcements/detail/1840944183785895. Accessed 2026-10-07.
+- [26] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601. Accessed 2026-10-07.
+- [27] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925. Accessed 2026-10-07.
+- [28] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [29] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first post by Rockjaw, 2026-09-23; retrieved abridged, "selected" lists only). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -435,3 +446,4 @@ One line: B41's roster is a stable menu with famous point loopholes; B42's is a 
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | 42.21 re-baseline against the 42.20.1–42.20.4 hotfix notes, the 42.21 unstable and stable Steam posts and the abridged TIS forum 42.21 changelist: Welder occupation now starts with Welding recipes instead of Blacksmithing recipes (42.21) recorded as primary confirmation of the name Welder; Metalworker-to-Welder rename kept inferred; CharacterTraitScriptGenerator recipe fix noted; no point costs changed. Rebase is a patch-notes review, not an in-game re-test. | — |

@@ -1,7 +1,7 @@
 ---
 id: modders-events-callbacks
 title: "Events and Callbacks: Hooking the Game Loop with Events.X.Add"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Modders
@@ -10,12 +10,12 @@ build: both
 document_type: reference
 created: 2026-10-07
 updated: 2026-10-07
-review_due: 2027-01-05
+review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
 related: [modders-foundation, modders-lua-api-surface, modders-modoptions-pzapi, modders-item-scripts-distributions, modders-mp-networking-porting, modders-modinfo-modid-conventions, modders-first-mod-tutorial-b42, modders-porting-b41-to-b42, players-crafting-chains, admins-workshop-mod-wiring, meta-style-guide]
 tags: [modding, lua, events, callbacks, umbrella, onTick, ongamestart, luaeventmanager, b41, b42]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | modders-events-callbacks |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Modders |
@@ -31,15 +31,15 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
 | Updated | 2026-10-07 |
-| Review due | 2027-01-05 |
-| Game versions verified | 41.78.16 (Umbrella stubs), 42.20.0 (Umbrella stubs) |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16 (Umbrella stubs), 42.21.0 (Umbrella stubs; 42.20.0 kept for comparison) |
 
 # Executive Summary
 
 Project Zomboid exposes its game loop to Lua through a global `Events`
 table. Each event is an object with an `Add` and a `Remove` function; you
 register a Lua function and the engine calls it when the event fires [1] [2].
-The Umbrella type stubs declare 234 events for 42.20.0 and 240 events for
+The Umbrella type stubs declare 244 events for 42.21.0 (234 at 42.20.0) and 240 events for
 41.78.16 (the B41 figure includes 32 events the stubs flag as deprecated),
 and every event has a `Callback_<Name>` type alias that records its parameter
 list [1] [2] [3].
@@ -47,28 +47,29 @@ list [1] [2] [3].
 This document groups the full list by purpose, tabulates the events a mod
 author reaches for most, explains the load-order and cost traps (OnGameBoot
 versus OnGameStart versus OnNewGame, per-tick events), and diffs the two
-builds' stubs. The B41 to B42 diff is concrete: 31 events were added, 37 were
-dropped (32 of them were already deprecated on B41), and 54 callback
-signatures differ in text, of which about a dozen are real parameter changes
-rather than type-notation clean-ups [1] [2] [3].
+builds' stubs. The B41 to B42 diff is concrete: 39 events were added, 35 were
+dropped (32 of them were already deprecated on B41), and 65 callback
+signatures differ in text, some of them real parameter changes rather than
+type-notation clean-ups [1] [2] [3]. Between the 42.20.0 and 42.21.0 stub sets,
+ten events were added, none removed, and 16 callback signatures changed [1] [11].
 
 Confidence is Medium. The facts come from pinned Umbrella stubs, which are
 primary code truth for what is declared, but the stubs are community-written
 type files, not a decompiled call graph, and nothing here was exercised
-in-game. The verification build also trails the current stable releases (see
-Build Applicability).
+in-game. The B42 verification build is the 42.21.0 stub set; the B41 stubs
+trail the legacy41 line (see Build Applicability).
 
 # Key Takeaways
 
 - An event is registered with `Events.OnTick.Add(fn)` and unregistered with
   `Events.OnTick.Remove(fn)`; the stubs declare exactly those two functions on
   every event. *(cited)* *(both)* [1] [2]
-- 42.20.0 declares 234 events, 41.78.16 declares 240 (208 current plus 32
-  flagged deprecated). 203 names are common to both. *(cited)* *(both)* [1] [2] [3]
-- B42 adds 31 events and drops 37 B41 names; 32 of the dropped names carry a
+- 42.21.0 declares 244 events, 41.78.16 declares 240 (208 current plus 32
+  flagged deprecated). 205 names are common to both. *(cited)* *(both)* [1] [2] [3]
+- B42 adds 39 events and drops 35 B41 names; 32 of the dropped names carry a
   deprecation flag in the B41 stubs. *(cited)* *(both)* [1] [2] [3]
 - The stub descriptions label an event `(Client)`, `(Server)` or
-  `(Multiplayer)`; 90 of the 234 B42 events carry no label at all, so the
+  `(Multiplayer)`; 89 of the 244 B42 events carry no label at all, so the
   absence of a tag is not proof of where an event runs. *(cited)* *(B42)* [1]
 - `OnGameBoot` fires before a client has run the files in `lua/server/`, so a
   callback added from a server-folder file is never called for that event on
@@ -102,7 +103,7 @@ B41 to B42 diff of the event lists.
 Not covered: what each Java class passed to a callback can do (see
 modders-lua-api-surface), client-to-server command networking in depth (see
 modders-mp-networking-porting), and per-event semantics that the stubs leave
-blank. About 17 of the 234 B42 event stubs have no description beyond the
+blank. About 18 of the 244 B42 event stubs have no description beyond the
 name, and this document says "undocumented in the stub" rather than
 guessing [1]. Unstable-branch behaviour is out of scope.
 
@@ -127,16 +128,21 @@ guessing [1]. Unstable-branch behaviour is out of scope.
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | Umbrella 41.78.16 stubs, commit fa2e7e19799740b57902f1cb4e989225c295c05e [2] [3] [9] | Newest B41 stub tag available; legacy41 itself has since moved on to 41.78.21 (2026-08-26) [7] |
-| B42 (stable) | Yes | Umbrella 42.20.0 stubs, commit 58204fc47895ba249592519cedecc7cfbaaebd60 [1] [9] | Stable 42.21 was released 2026-09-28 [6]; this document has not been checked against a 42.21 stub set |
+| B42 (stable) | Yes | Umbrella 42.21.0 stubs, commit 13d01f9ee58fa48773553920db56d06f0005e7f8 [1] [9]; 42.21 patch notes [12] | Stable 42.21 was released 2026-09-28 [6] |
 
-Verification covers 42.20.0 stubs only. Build 42.21 stable shipped after the
-stubs were pinned [6] [8], and the 42.21 announcement states the stable
-release followed an unstable period and links to full patch notes on the
-Indie Stone forums [6]. Treat any event added, removed or re-signatured in
-42.21 as unchecked. The same pin applies to B41: 41.78.21 was released after
-41.78.16, and its hotfix notes describe the removal of the `loadstring` and
-`loadstream` Lua methods as a security fix [7]; whether that touches any
-event is not established here.
+Re-baselined 2026-10-07 from 42.20.0 to 42.21. Re-checked: the 42.21.0
+`library/events.lua` against the 42.20.0 one (event list, labels, callback
+aliases, the Delta counts and tables) [1] [11], the `LuaEventManager` stub [4], and the
+42.20.1 to 42.21 official notes for any event change [12] [6] [7]. Statements
+not touched by those are carried forward from the 42.20.0 review with no
+contradicting change found; nothing was re-tested in-game. The 42.21 announcement states the stable
+release followed an unstable period and links to the full patch notes on the
+Indie Stone forums [6]; those notes name no event change [12]. Legacy 41.78.21 was released
+after 41.78.16, and its hotfix notes describe the removal of the `loadstring` and
+`loadstream` Lua methods as a security fix [7]; build 42.21 re-enabled both
+commands [6] [12], but the 42.21 notes state this for the 42.20.4 change, and no source
+read here says whether legacy41 got the same reversal. Whether any of this
+touches an event is not established here.
 
 # Reference
 
@@ -167,14 +173,16 @@ Events.OnTick.Remove(onTick)
 ## How the stubs label execution context
 
 Stub descriptions may begin with one or two bracketed labels. Counting the
-B42 stubs: 90 events are labelled `(Client)` only, 9 `(Server)` only, 34
+B42 stubs: 96 events are labelled `(Client)` only, 12 `(Server)` only, 36
 `(Multiplayer) (Client)`, 6 `(Multiplayer) (Server)`, 5 `(Multiplayer)` alone,
-and 90 carry no label [1]. The B41 counts are 92, 9, 35, 4, 3 and 65 over the
-208 non-deprecated events [2]. The nine server-only B42 events are
-`OnClientCommand`, `OnFillContainer`, `OnSGlobalObjectSystemInit`,
+and 89 carry no label [1]. The B41 counts are 92, 9, 35, 4, 3 and 65 over the
+208 non-deprecated events [2]. The twelve server-only B42 events are
+`LevelPerk`, `OnClientCommand`, `OnFillContainer`, `OnForageRequestZone`,
+`OnForageSpot`, `OnSGlobalObjectSystemInit`,
 `OnUpdateModdedWeatherStage`, `OnWeaponHitThumpable`,
 `OnWeatherPeriodComplete`, `OnWeatherPeriodStage`, `OnWeatherPeriodStart` and
-`OnWeatherPeriodStop` [1]. The labels are descriptive text; the stubs do not
+`OnWeatherPeriodStop` [1]; `LevelPerk` was labelled `(Client)` in the 42.20.0 stub
+and carries `(Server)` at 42.21.0 [11] [1]. The labels are descriptive text; the stubs do not
 say what an unlabelled event does when registered on the other side [1].
 
 ## Events by purpose
@@ -224,7 +232,7 @@ row tagged *(B42)* was not found in the B41 stubs [1] [2] [3].
 | `Events.OnZombieDead` | none | `zombie` | A zombie dies; loot is not yet filled and the corpse does not exist for a few seconds [1] |
 | `Events.OnCharacterDeath` | none | `character` | Any character dies, including zombies, players and animals [1] |
 | `Events.OnPlayerDeath` | Client | `player` | A local player dies [1] |
-| `Events.OnWeaponHitCharacter` | Client | `attacker`, `target`, `weapon`, `damage` | A non-zombie character is hit by a local player's attack [1] |
+| `Events.OnWeaponHitCharacter` | Client | `attacker`, `target`, `weapon`, `damage` | A character, zombie or player, is hit by a local player's attack (the 42.20.0 stub said non-zombie characters) [1] [11] |
 | `Events.OnHitZombie` | none | `zombie`, `attacker`, `bodyPart`, `weapon` | A character hits a zombie [1] |
 | `Events.OnZombieCreate` *(B42)* | none | `zombie` | A zombie is being spawned [1] |
 | `Events.LoadGridsquare` | none | `square` | After a new square loads [1] |
@@ -257,7 +265,7 @@ each other [1].
 
 ## LuaEventManager: custom events
 
-The stubs expose `LuaEventManager` with `LuaEventManager.AddEvent(name)`,
+The stubs (the `LuaEventManager` file is byte-identical between 42.20.0 and 42.21.0) expose `LuaEventManager` with `LuaEventManager.AddEvent(name)`,
 returning an `Event`, and `LuaEventManager.triggerEvent(event, ...)`, which
 takes the event name plus up to eight further parameters on both builds [4]
 [5]. They also declare `LuaEventManager.triggerEventGarbage` (up to four
@@ -276,14 +284,14 @@ compared per shared event [1] [2] [3] [9].
 
 ## Counts
 
-| Measure | B41 (41.78.16) | B42 (42.20.0) |
-|---------|----------------|---------------|
-| Events declared | 240 [2] [3] | 234 [1] |
-| Of which current (non-deprecated) | 208 [2] | 234 [1] |
-| Of which flagged `@deprecated` | 32 [3] | 0 [1] |
-| Names common to both | 203 [1] [2] [3] | 203 [1] [2] [3] |
+| Measure | B41 (41.78.16) | B42 (42.21.0) | B42 (42.20.0, for comparison) |
+|---------|----------------|---------------|-------------------------------|
+| Events declared | 240 [2] [3] | 244 [1] | 234 [11] |
+| Of which current (non-deprecated) | 208 [2] | 244 [1] | 234 [11] |
+| Of which flagged `@deprecated` | 32 [3] | 0 [1] | 0 [11] |
+| Names common to both builds | 205 [1] [2] [3] | 205 [1] [2] [3] | 203 [11] [2] [3] |
 
-## Added in B42 (31)
+## Added in B42 (39)
 
 `GrappleGrabCollisionCheck`, `GrapplerLetGo`, `LoadChunk`, `OnAlertMessage`,
 `OnAnimalTracks`, `OnClickedAnimalForContext`, `OnContextKey`,
@@ -295,13 +303,22 @@ compared per shared event [1] [2] [3] [9].
 `OnSourceWindowFileReload`, `OnSpawnVehicleEnd`, `OnSpawnVehicleStart`,
 `OnSteamServerFailedToRespond2`, `OnWarUpdate`, `OnZombieCreate`,
 `RefreshCheats`, `RenderOpaqueObjectsInWorld`, `SetDragItem`, `ViewBannedIPs`
-and `ViewBannedSteamIDs` [1] [2] [3]. Several are plain thematic additions the
+and `ViewBannedSteamIDs` (31 names present at 42.20.0), plus eight that first appear in the 42.21.0
+stubs: `AcceptedMedicalCheck`, `OnForagePool`, `OnForageRequestZone`,
+`OnForageSpot`, `OnJoypadDebugRenderUIOptionSet`,
+`OptionControllerButtonStyleChanged`, `OptionGamepadBindingPresetChanged` and
+`RequestMedicalCheck` [1] [2] [3] [11]. The 42.21.0 stub text describes the medical-check pair as
+a target accepting a medical check request and a requester asking for one,
+the three foraging events as a client receiving a foraging pool from the
+server, the server receiving a request to send pools, and the server
+receiving a client's report of a spotted icon, and the two option events as
+changes to the controller button style and gamepad binding preset [1]. Several are plain thematic additions the
 stubs describe: a grappler releasing its target, chunk loading, a spawning
 zombie, a dead body spawning, a vehicle beginning and finishing its spawn,
 and the context key being held for a duration [1]. Many others, such as
 `OnWarUpdate` and `OnItemFound`, have no description in the stub [1].
 
-## Dropped from B42 (37)
+## Dropped from B42 (35)
 
 32 are the B41 deprecated set: `OnAIStateEnter`, `OnAIStateExecute`,
 `OnAIStateExit`, `OnAddBuilding`, `OnBeingHitByZombie`, `OnChangeWeather`,
@@ -312,10 +329,12 @@ and the context key being held for a duration [1]. Many others, such as
 `OnPostCharactersSquareDraw`, `OnPostFloorSquareDraw`, `OnPostTileDraw`,
 `OnPostTilesSquareDraw`, `OnPostWallSquareDraw`, `OnPreGameStart`,
 `OnRadioInteraction`, `OnRainStart`, `OnRainStop`, `OnRenderUpdate`,
-`OnVehicleHorn` and `OnWorldMessage` [3]. The remaining five were current on
-B41 and are gone from the B42 stubs: `OnFillInventoryContextMenuNoItems`,
-`OnPreFillInventoryContextMenuNoItems`, `OnGetDBSchema`, `OnGetTableResult`
-and `OnServerStatisticReceived` [2] [1]. The B41 stub text for
+`OnVehicleHorn` and `OnWorldMessage` [3]. The remaining three were current on
+B41 and are gone from the B42 stubs: `OnGetDBSchema`, `OnGetTableResult`
+and `OnServerStatisticReceived` [2] [1]. Two more B41-current names,
+`OnFillInventoryContextMenuNoItems` and `OnPreFillInventoryContextMenuNoItems`,
+were missing from the 42.20.0 stubs (making that count 37 then) and are declared again in the
+42.21.0 stubs, both labelled `(Client)` [11] [1]. The B41 stub text for
 `OnFillInventoryContextMenuNoItems` warns the event is not properly
 registered, so a mod must register it before adding its function [2]. Absence
 from the B42 stubs shows the name is no longer declared; it does not prove the
@@ -323,7 +342,7 @@ engine stopped firing a same-named event [1].
 
 ## Signature changes verified in the raw stubs
 
-54 shared events have different alias text between builds [1] [2] [3]. Most are
+65 shared events have different alias text between builds (54 at 42.20.0) [1] [2] [3] [11]. Most are
 notation (`float` and `double` became `number`; `short` became `integer`;
 nullable `?` became `| nil`; `playerNum` renamed `playerIndex`). The changes
 that alter what a handler receives:
@@ -334,15 +353,39 @@ that alter what a handler receives:
 | `Events.OnMechanicActionDone` | `character`, `success`, `vehicleId`, `partType`, `itemId`, `installing` [2] | `character`, `success` only [1] |
 | `Events.OnConnectionStateChanged` | `state`, `message`, optional `place` [2] | `state`, `message` [1] |
 | `Events.OnServerWorkshopItems` | `type` only [2] | `type`, `items`, `error`, `maxSize` [1] |
-| `Events.OnReceiveUserlog` | `username`, `logs` [2] | adds `suspiciousActivity` table [1] |
+| `Events.OnReceiveUserlog` | `username`, `logs` [2] | adds `suspiciousActivity` table, typed as possibly nil at 42.21.0 (not nilable at 42.20.0) [1] [11] |
 | `Events.OnPressRackButton` | `player`, `weapon` [2] | adds a third `shift` parameter [1] |
 | `Events.OnWeaponHitXp` | `attacker`, `weapon`, `target`, `damage` [2] | adds a fifth `hitcount` parameter [1] |
-| `Events.OnUseVehicle` | first parameter typed as a game character [2] | first parameter named `player`, typed as a player [1] |
+| `Events.OnUseVehicle` | `character` (game character), `vehicle`, `pressedNotTapped` [2] | `player`, `vehicle`; the `pressedNotTapped` boolean that 42.20.0 still declared is gone at 42.21.0 [1] [11] |
 | `Events.OnDoTileBuilding3` | cursor typed as the move cursor, optional `square` [2] | cursor typed as the building object, `square` dropped [1] |
 | `Events.OnDestroyIsoThumpable` | `object` [2] | `object` plus a nil-typed `player` [1] |
 | `Events.OnFETick` | no parameters [3] | one parameter `unknown`, described as always zero [1] |
 | `Events.onItemFall` | no parameters [2] | `item` [1] |
 | `Events.OnEquipPrimary` | `item` always an item [2] | `item` may be nil [1] |
+| `Events.OnConnectFailed` | `message` [2] | `message` plus an optional `detail` string at 42.21.0 [1] [11] |
+| `Events.OnScoreboardUpdate` | `usernames`, `displayNames`, `steamIDs` [2] | adds a fourth `pingValues` list at 42.21.0 [1] [11] |
+| `Events.AcceptedTrade` | `accepted` [2] | `target`, `requester`, `accepted` at 42.21.0 [1] [2] |
+| `Events.RequestTrade` | `requester` as a string [2] | `requester`, `target` as players at 42.21.0 [1] [2] |
+| `Events.ReceiveSafehouseInvite` | `title`, `hostUsername` [2] | `safehouse` object, `hostUsername`, `invitedUsername` at 42.21.0 [1] [2] |
+
+## Stub changes between 42.20.0 and 42.21.0
+
+Comparing the two B42 `events.lua` files [11] [1]: ten events were added and
+none removed (the eight listed above plus `OnFillInventoryContextMenuNoItems` and
+`OnPreFillInventoryContextMenuNoItems`). Besides the rows tagged above,
+these callback or description changes appear: `OnItemFound`'s third parameter is
+renamed from `amount` to `distanceTraveled`; `OnInitModdedWeatherStage`
+now documents its existing `strength` parameter; `OnPlayerGetDamage`
+adds a `"FIRE"` damage type; `OnSteamRulesRefreshComplete` types `rules` as a
+server-properties object; `OnSpawnRegionsLoaded` types `regions` as a list of
+spawn regions; `ReceiveFactionInvite` now passes a faction object and an
+`invitedUsername`; and the trading UI callbacks (`TradingUIAddItem`,
+`TradingUIRemoveItem`, `TradingUIUpdateState`) gain a leading `otherPlayer`
+parameter before `player` [1] [11]. The 42.21 patch notes list no event or callback change [12], so
+these differences are known only from the stubs; whether the engine
+changed in step with them (as opposed to the stubs being corrected) is not
+established here. Handlers registered for the trading callbacks should be
+re-checked, since a leading parameter shifts every later one [1] [11].
 
 `OnClientCommand`, `OnServerCommand` and `OnReceiveItemListNet` also gained
 nilable parameters in the B42 declarations [1] [2]. The `OnFillWorldObjectContextMenu`
@@ -394,6 +437,9 @@ both builds, with the first parameter renamed [1] [2].
   use `OnKeyStartPressed` or `OnKeyKeepPressed` for press and hold [1].
 - **"A deprecated B41 event does nothing."** The 32 deprecated names are not
   declared on B42 [1] [3].
+- **"My trading-UI handler gets the wrong player."** At 42.21.0 the stubs declare
+  a leading `otherPlayer` parameter on the three trading callbacks; older
+  handlers written for the 42.20.0 shape read the wrong argument [1] [11].
 - **"I added an event handler on the server for a Client-labelled event."**
   Nothing in the stubs says it will be called there [1].
 
@@ -429,13 +475,16 @@ both builds, with the first parameter renamed [1] [2].
 
 # Risks & Caveats
 
-- **Stale pin.** Stubs are 42.20.0 and 41.78.16, while 42.21 stable and
-  41.78.21 legacy have shipped [6] [7]. Events or signatures may have changed.
+- **Stale pin.** Stubs are 42.21.0 and 41.78.16, while 41.78.21 legacy has
+  shipped [7]. B41 events or signatures may have changed after 41.78.16, and later
+  B42 hotfixes may change the list again.
+- **Stub changes without patch-note backing.** The 42.20.0 to 42.21.0 callback differences come from the
+  stubs only; the official notes name none of them [12].
 - **Stub text is not engine truth.** Descriptions are written by
   contributors; the generator named in the stub header is a community tool
   [1] [10]. Wrong wording exists, as the `OnKeyPressed` and
   `OnPreDistributionMerge` entries show [1].
-- **Blank entries.** About 17 B42 stubs have no description sentence (KB
+- **Blank entries.** About 18 B42 stubs have no description sentence (KB
   script count), so their semantics are undocumented here [1].
 - **Counts are KB-derived.** Totals come from the KB's extraction script run
   on the pinned stubs, not from a count published by the stub maintainers.
@@ -447,18 +496,22 @@ both builds, with the first parameter renamed [1] [2].
    to see the `Add`/`Remove` shape and the alias line above it.
 2. Open the B41 files [2] [3] and confirm the deprecated set lives in
    `Events-deprecated.lua`.
-3. Diff the two name lists yourself; expect 31 added, 37 removed, 203 shared.
+3. Diff the two name lists yourself; expect 39 added, 35 removed, 205 shared.
 4. In-game, register logging handlers on `OnGameBoot`, `OnGameStart`,
    `OnNewGame` and `OnCreatePlayer`, then start a new and a loaded save and
    record the order.
-5. Re-run the diff against the 42.21 Umbrella tag when one exists [9].
+5. Diff the B42 `events.lua` at `58204fc` [11] against `13d01f9` [1]; expect ten
+   added events and no removals. Re-run against the next Umbrella release [9]
+   when one exists.
 
 # Open Questions
 
-- What do the roughly 17 undocumented B42 events actually pass and when do
+- What do the roughly 18 undocumented B42 events actually pass and when do
   they fire? Resolve by reading decompiled callers or in-game logging.
-- Did 42.21 change any event list or signature? Resolve by diffing a
-  42.21 stub set.
+- Did the engine change in step with the 42.21.0 stub differences (trading
+  callbacks, `OnUseVehicle`, `OnItemFound`)? The patch notes list none [12];
+  resolve with in-game logging.
+- Did legacy41 re-enable `loadstring`/`loadstream` as 42.21 did for B42? No source read here says [7] [6] [12].
 - Does a late `AddEvent` make `Events.<Name>` available? See Claim 1.
 - Do unlabelled events fire on both client and server? See Claim 3.
 
@@ -466,15 +519,18 @@ both builds, with the first parameter renamed [1] [2].
 
 **Primary Sources** — pinned Umbrella stubs, official announcements.
 
-- [1] **PZ-Umbrella** — *library/events.lua at Umbrella commit 58204fc47895ba249592519cedecc7cfbaaebd60 (release 42.20.0)*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/events.lua Accessed 2026-10-07.
+- [1] **PZ-Umbrella** — *library/events.lua at Umbrella commit 13d01f9ee58fa48773553920db56d06f0005e7f8 (release 42.21.0)*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/events.lua Accessed 2026-10-07.
 - [2] **PZ-Umbrella** — *library/Events/Events.lua at Umbrella commit fa2e7e19799740b57902f1cb4e989225c295c05e (release 41.78.16)*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/fa2e7e19799740b57902f1cb4e989225c295c05e/library/Events/Events.lua Accessed 2026-10-07.
 - [3] **PZ-Umbrella** — *library/Events/Events-deprecated.lua at commit fa2e7e19799740b57902f1cb4e989225c295c05e*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/fa2e7e19799740b57902f1cb4e989225c295c05e/library/Events/Events-deprecated.lua Accessed 2026-10-07.
-- [4] **PZ-Umbrella** — *library/java/zombie/Lua/LuaEventManager.lua at commit 58204fc47895ba249592519cedecc7cfbaaebd60*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/java/zombie/Lua/LuaEventManager.lua Accessed 2026-10-07.
+- [4] **PZ-Umbrella** — *library/java/zombie/Lua/LuaEventManager.lua at commit 13d01f9ee58fa48773553920db56d06f0005e7f8 (identical to the 58204fc version)*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/zombie/Lua/LuaEventManager.lua Accessed 2026-10-07.
 - [5] **PZ-Umbrella** — *library/Candle/zombie.Lua/LuaEventManager.lua at commit fa2e7e19799740b57902f1cb4e989225c295c05e*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/fa2e7e19799740b57902f1cb4e989225c295c05e/library/Candle/zombie.Lua/LuaEventManager.lua Accessed 2026-10-07.
 - [6] **The Indie Stone** — *Build 42.21 Stable Released* (Steam Community announcement, 2026-09-28). https://steamcommunity.com/ogg/108600/announcements/detail/1844751498231307 — verified via the Steam news mirror [8]. Accessed 2026-10-07.
 - [7] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam Community announcement, 2026-08-26). https://steamcommunity.com/ogg/108600/announcements/detail/1842212951296601 — verified via the Steam news mirror [8]. Accessed 2026-10-07.
 - [8] **Valve** — *Steam News Web API (ISteamNews), app 108600*. https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=108600&count=40&maxlength=0 Accessed 2026-10-07.
 - [9] **PZ-Umbrella** — *Umbrella releases (per-game-version tags)*. https://github.com/PZ-Umbrella/Umbrella/releases Accessed 2026-10-07.
+
+- [11] **PZ-Umbrella** — *library/events.lua at the previous B42 pin, commit 58204fc47895ba249592519cedecc7cfbaaebd60 (42.20.0 stub set)*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/events.lua Accessed 2026-10-07.
+- [12] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, 2026-09-23). https://theindiestone.com/forums/topic/101693-4221-patch-notes/ Accessed 2026-10-07 (host bot-blocks checkers).
 
 **Fact-Only Sources (no prose reuse)** — none used.
 
@@ -510,3 +566,4 @@ both builds, with the first parameter renamed [1] [2].
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined from 42.20.0 to 42.21: Umbrella pin moved to 13d01f9 (42.21.0); event counts, labels, added/dropped lists and signature tables recomputed (244 events; 10 added since 42.20.0); new 42.20.0 to 42.21.0 stub-change subsection; `loadstring`/`loadstream` re-enabled in 42.21 noted. Sources: Steam 42.21 stable and 42.20.4; TIS forum 42.21 patch notes; Umbrella 13d01f9 vs 58204fc. | — |

@@ -1,7 +1,7 @@
 ---
 id: lore-knox-event-timeline
 title: "The Knox Event Timeline: What the Game Says Happened and When"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Lore
@@ -10,12 +10,12 @@ build: historic
 document_type: reference
 created: 2026-10-07
 updated: 2026-10-07
-review_due: 2027-01-05
+review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
 related: [lore-foundation, lore-in-world-media, players-map-locations, players-b41-to-b42-transition, players-foundation, creator-foundation, meta-style-guide]
 tags: [lore, knox-event, timeline, exclusion-zone, start-date, sandbox, b42]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | lore-knox-event-timeline |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Lore |
@@ -31,8 +31,8 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
 | Updated | 2026-10-07 |
-| Review due | 2027-01-05 |
-| Game versions verified | 41.78.16, 42.20 (fiction dates verified against the sources below, not by in-game replay) |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 (fiction dates verified against the sources below, not by in-game replay) |
 
 # Executive Summary
 
@@ -74,7 +74,7 @@ Excluded: the real-world development and build history (see `lore-foundation`); 
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes, as background | pzwiki Knox Event rev 1441597 [3]; release facts from TIS [2] | Fiction dates are build-independent; sandbox option behaviour was read from a B42-era snapshot [7] |
-| B42 (stable 42.20) | Yes | pzwiki Build 42 rev 1443663 [8]; stable date from TIS [2] | Adds broadcasts, fliers and four towns [8][9] |
+| B42 (stable 42.21) | Yes | pzwiki Build 42 rev 1443663 [8]; stable date from TIS [2]; 42.21 stable post and forum change list [14][15] | Adds broadcasts, fliers and four towns [8][9]; the 42.21 change list read for this revision names no change to broadcasts, the start date or the outbreak chronology, only an in-game credits update [15] |
 
 # Reference
 
@@ -168,7 +168,7 @@ For the build-history delta see `players-b41-to-b42-transition` and `lore-founda
 
 # Risks & Caveats
 
-- **Wiki dependence.** Most day-level entries come from one pzwiki page which flags itself as written against 42.12.0 [3]. Later story additions in 42.13 to 42.20 may be missing.
+- **Wiki dependence.** Most day-level entries come from one pzwiki page which flags itself as written against 42.12.0 [3]. Later story additions in 42.13 to 42.21 may be missing; the 42.21 change list [15] was read in the 2026-10-07 re-baseline and is a selected list for multiplayer fixes, so absence there is a weak signal.
 - **Single primary anchor.** Only the 6 July outbreak date is tied to a TIS post here [1]. The post was not re-opened for this document and is cited as recorded in `lore-foundation`.
 - **B41 parity of sandbox options.** The Custom Sandbox facts were read from a snapshot fetched on 2026-07-31 [7]. Whether every option exists identically on 41.78.16 was not checked.
 - **Spoilers and copyright.** Fiction detail is TIS's work. This document paraphrases only dates and sequence.
@@ -186,10 +186,10 @@ For the build-history delta see `players-b41-to-b42-transition` and `lore-founda
 # Open Questions
 
 - Is there an official TIS statement on the 4 July versus 6 July framing, and does the official @TheKnoxEvent retelling use the same day numbering as the wiki?
-- Do 42.13 to 42.20 broadcasts or fliers add or amend chronology entries that the wiki has not caught up on?
+- Do 42.13 to 42.21 broadcasts or fliers add or amend chronology entries that the wiki has not caught up on?
 - What exact values do the "Apocalypse", "The First Week", "Initial Infection" and "Six Months Later" presets set, and does that differ between B41 and B42?
 - What is the in-fiction date and premise of the "Many years later" challenge map, if released?
-- Is the Louisville spawn restriction unchanged on 42.20?
+- Is the Louisville spawn restriction unchanged on 42.21? The 42.21 change list mentions a spawn-point selection preview-video update to match the map glow-up but no rule change [15].
 
 # References
 
@@ -197,6 +197,8 @@ For the build-history delta see `players-b41-to-b42-transition` and `lore-founda
 
 - [1] **The Indie Stone** — *Knox Event: 30 Years On* (blog, 2023-07-06). https://projectzomboid.com/blog/news/2023/07/knox-event-30-years-on/. Accessed 2026-10-07 (as recorded in `lore-foundation`).
 - [2] **The Indie Stone** — *BUILD 42 STABLE PLANS* (blog, 2026-07-24). https://projectzomboid.com/blog/news/2026/07/build-42-stable-plans/. Accessed 2026-10-07.
+- [14] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307 Accessed 2026-10-07; host is bot-block allowlisted.
+- [15] **The Indie Stone Forums** — *42.21 Patch Notes* (topic 101693, first post by Rockjaw, 2026-09-23). https://theindiestone.com/forums/topic/101693-4221-patch-notes/ Accessed 2026-10-07 via browser page-text extraction; host bot-blocks checkers.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -239,3 +241,4 @@ For the build-history delta see `players-b41-to-b42-transition` and `lore-founda
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: reviewed against the 42.21 stable announcement and the forum change list; no chronology change found, version scope only (Build Applicability, Risks, Open Questions); added sources [14][15]. | — |

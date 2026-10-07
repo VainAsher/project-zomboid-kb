@@ -1,7 +1,7 @@
 ---
 id: modders-porting-b41-to-b42
 title: "Porting a Build 41 Mod to Build 42: A Diff-Driven Checklist"
-version: 0.2.0
+version: 0.3.0
 status: in-review
 confidence: Medium
 category: Modders
@@ -10,12 +10,12 @@ build: both
 document_type: guide
 created: 2026-10-07
 updated: 2026-10-07
-review_due: 2027-01-05
+review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
 related: [modders-foundation, modders-lua-api-surface, modders-events-callbacks, modders-modoptions-pzapi, modders-item-scripts-distributions, modders-mp-networking-porting, modders-modinfo-modid-conventions, modders-first-mod-tutorial-b42, players-crafting-chains, admins-workshop-mod-wiring, meta-style-guide]
 tags: [porting, b41, b42, api-diff, umbrella, craftrecipe, mod-structure, workshop, events, stats, traits]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | modders-porting-b41-to-b42 |
-| Version | 0.2.0 |
+| Version | 0.3.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Modders |
@@ -31,14 +31,15 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
 | Updated | 2026-10-07 |
-| Review due | 2027-01-05 |
-| Game versions verified | 41.78.16 (Umbrella stubs), 42.20.0 (Umbrella stubs) |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16 (Umbrella stubs), 42.21.0 (Umbrella stubs; 42.20.0 figures kept for comparison) |
 
 # Executive Summary
 
 This guide turns a mechanical comparison of two type-stub snapshots into a
 porting checklist. The snapshots are the Umbrella stubs pinned for Build 41
-(release tag 41.78.16) and for Build 42 (release tag 42.20.0) [1] [2]. The KB
+(release tag 41.78.16) and for Build 42 (release tag 42.21.0, commit
+13d01f9) [1] [2]. The KB
 reduced each snapshot to a symbol index (classes with their members and
 parents, Lua events, global functions) and diffed the two. The result is a set
 of "if your mod calls X, check Y" prompts, each backed by a name that appears
@@ -52,28 +53,32 @@ the B41-era `Stats` class and a generic accessor plus a `CharacterStat`
 constant list appears in B42 [3] [4] [5]. Trait and profession registration
 moves from two factory classes to a registry plus script blocks [11] [12]
 [31]. The `Recipe` class loses most of its accessors while a much larger
-`CraftRecipe` class appears [8] [9]. A few dozen Lua events and global
+`CraftRecipe` class appears [8] [9]. Dozens of Lua events and global
 functions are gone [13] [14].
 
 Two limits govern everything below. First, a name missing from the B42 index
 may have been renamed or moved rather than deleted, and the index records
 names, not behaviour, so a name that is present may still act differently.
-Second, this document was verified against the 42.20.0 stubs only. Game
-42.21 reached stable on 2026-09-28 [17] and the 41.78.21 legacy hotfix
-shipped on 2026-08-26 [18]; neither has a matching stub pin here.
-Document confidence is Medium: the symbol facts are High-grade (pinned
-stubs) but the interpretation of absences, and all behaviour, is not.
+Second, the B42 side of this document is now verified against the 42.21.0
+stubs (re-baselined from 42.20.0 on 2026-10-07), and 41.78.21 (2026-08-26)
+has no matching B41 stub pin [18]. The stubs can lag behaviour: 42.21
+re-enabled `loadstring` and `loadstream` [17], yet neither is declared as a
+global in the 42.21.0 index. Document confidence is Medium: the symbol facts
+are High-grade (pinned stubs) but the interpretation of absences, and all
+behaviour, is not. Nothing here was tested in a live game.
 
 # Key Takeaways
 
-- The B41 and B42 stub indices share 1,388 classes; 110 B41 classes are
-  absent from B42 and 2,878 classes appear only in B42. The large "added"
-  figure is inflated by wider stub coverage in the B42 pin, so treat added
-  counts as weak evidence. *(cited)* *(both)*
-- Events: 240 in the B41 index, 234 in B42, 203 shared, 37 gone, 31 new.
+- The B41 and B42 stub indices share 1,333 classes; 165 B41 classes are
+  absent from B42 and 2,791 classes appear only in B42 (42.20.0 figures were
+  1,388 / 110 / 2,878). The large "added" figure is inflated by wider stub
+  coverage in the B42 pin, so treat added counts as weak evidence. *(cited)*
+  *(both)*
+- Events: 240 in the B41 index, 244 in B42, 205 shared, 35 gone, 39 new
+  (42.20.0: 234, 203, 37, 31).
   Gone events include `Events.OnPreGameStart` *(B41)*, `Events.OnDawn` *(B41)*,
   `Events.OnDusk` *(B41)* and `Events.OnMakeItem` *(B41)*. *(cited)*
-- Globals: 64 gone and 347 new. Example: `getSaveName` is B41-only and
+- Globals: 83 gone and 349 new (42.20.0: 64 and 347). Example: `getSaveName` is B41-only and
   `getCurrentSaveName` is B42-only, a probable rename. *(cited)* *(both)*
 - Character stats moved: B41 `Stats:getHunger` *(B41)* has no same-named
   B42 counterpart; B42 offers `Stats:get(CharacterStat.HUNGER)` *(B42)*.
@@ -89,7 +94,10 @@ stubs) but the interpretation of absences, and all behaviour, is not.
 - The official 42.13 migration material adds hard requirements the stubs
   cannot show: a `registries.lua` file for new IDs, `ItemType` and tag
   registration, and the timed-action split into `perform` and `complete`.
-  It is 42.13-era, older than the 42.20.0 stubs. *(cited)* *(B42)*
+  It is 42.13-era, older than the 42.21.0 stubs. *(cited)* *(B42)*
+- Since 42.20.0: `%%` is the way to write a literal `%` in mod translation
+  strings, mods may write `.json` files, and `loadstring`/`loadstream` were
+  removed in 42.20.4 and re-enabled in 42.21. *(cited)* *(B42)*
 - Behaviour is out of reach of this method. Use the patch notes and in-game
   tests for anything the stubs cannot show. *(guidance)*
 
@@ -114,7 +122,7 @@ Not covered: behavioural changes (the stubs cannot show them), content and
 balance changes, map and 3D asset pipelines, the field-by-field script
 reference (see `modders-item-scripts-distributions`), the networking rewrite
 in depth (see `modders-mp-networking-porting`), options API porting (see
-`modders-modoptions-pzapi`) and anything newer than the 42.20.0 stub pin.
+`modders-modoptions-pzapi`) and anything newer than the 42.21.0 stub pin.
 
 # Definitions
 
@@ -139,12 +147,23 @@ in depth (see `modders-mp-networking-porting`), options API porting (see
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | Umbrella release tag 41.78.16, commit fa2e7e1 [2] | Latest legacy hotfix is 41.78.21 (2026-08-26) [18]; no newer stub pin exists, so symbol facts are as of 41.78.16 |
-| B42 (stable) | Yes | Umbrella release tag 42.20.0, commit 58204fc [1] | Stable is now 42.21 (2026-09-28) [17]; this document is verified against 42.20.0 stubs only |
+| B42 (stable) | Yes | Umbrella release tag 42.21.0, commit 13d01f9 [1] | Stable is 42.21 (2026-09-28) [17]. Previously verified against 42.20.0, commit 58204fc [36] |
 
-The B42 stub pin predates 42.21. Anything added, removed or restored in
-42.20.1 through 42.21 is not reflected in the symbol tables. One such change
-is known: 42.20.4 removed the Lua `loadstring` and `loadstream` methods and
-42.21 re-enabled them [18] [17].
+**What was re-checked for 42.21.** Every symbol count and every named example
+in the Reference tables was recomputed or re-looked-up against the 42.21.0
+index, and each example still holds with the corrections noted in the tables.
+The official posts for 42.20.1, 42.20.2, 42.20.3, 42.20.4, 42.21 unstable,
+42.21 stable and the forum change list were read for porting-relevant changes
+[37] [38] [18] [39] [17] [40]. Statements that rest on the 42.13 PDFs, the
+pzwiki pages and the 41.78.16 stubs are carried forward unchanged with no
+contradicting change found in those notes; they were not re-tested in a game.
+
+The stub pin tracks the code but can lag behaviour. 42.20.4 removed the Lua
+`loadstring` and `loadstream` methods and 42.21 re-enabled them [18] [17], yet
+the 42.21.0 index declares neither as a global (`loadstream` was declared in
+the 42.20.0 index; `loadstring` in neither) [1] [36]. A missing stub is
+therefore not proof of removal. Upstream later moved the 42.20.0 tag to a
+different commit, so cite and pin commits rather than tag names [41].
 
 # Reference
 
@@ -155,8 +174,9 @@ containing class names with member and parent lists, event names and global
 function names [1] [2]. The two pins are laid out differently: the B41 tree
 keeps Java-side stubs under a `Candle` folder and Lua-side stubs under `Lua`
 [2], while the B42 tree uses `java` and `lua` folders and a single events
-file [1] [13]. The B42 tree listing holds 3,449 entries against 1,686 for
-B41, so the B42 pin documents far more classes [1] [2]. Consequently, class
+file [1] [13]. The B42 tree listing holds 3,293 entries against 1,686 for
+B41 (3,449 at the 42.20.0 commit), so the B42 pin documents far more classes
+[1] [2] [36]. Consequently, class
 and member removals are strong evidence of change, while additions are not
 (a new entry might have existed unstubbed in B41).
 
@@ -164,15 +184,29 @@ and member removals are strong evidence of change, while additions are not
 
 | Category | B41 index | B42 index | In both | Only B41 | Only B42 |
 |----------|-----------|-----------|---------|----------|----------|
-| Classes | 1,498 | 4,266 | 1,388 | 110 | 2,878 |
-| Events | 240 | 234 | 203 | 37 | 31 |
-| Globals | 664 | 947 | 600 | 64 | 347 |
+| Classes | 1,498 | 4,124 | 1,333 | 165 | 2,791 |
+| Events | 240 | 244 | 205 | 35 | 39 |
+| Globals | 664 | 930 | 581 | 83 | 349 |
 
 These totals come from set arithmetic over the two indices built from [1]
-and [2]. Across the 1,388 shared classes, 776 classes lose at least one
-member by the effective-removal rule, for 5,222 member names in all. Many of
+and [2]. Across the 1,333 shared classes, 737 classes lose at least one
+member by the effective-removal rule, for 5,246 member names in all. Many of
 those are stub noise (see the limits below) so the per-class tables that
-follow are the usable output.
+follow are the usable output. For comparison, the 42.20.0 index [36] gave
+4,266 classes (1,388 shared, 110 B41-only, 2,878 B42-only), 234 events (203
+shared, 37 B41-only, 31 B42-only), 947 globals (600 shared, 64 B41-only, 347
+B42-only), and 776 shared classes losing 5,222 member names.
+
+**Movement from 42.20.0 to 42.21.0.** Comparing the two B42 indices [36] [1]:
+the event list gained ten names and lost none; the global list lost 21 names
+(including `loadstream`, see Build Applicability) and gained four
+(`deleteDatabase`, `getMaxUsernameLength`, `getMinUsernameLength`,
+`sendAddObjectToMap`); 155 classes dropped out of the index and 13 appeared.
+Of the 155, 26 are generated `CraftRecipeCode.*` helpers and 55 also exist in
+the B41 index, which is why the B41-only class count rose from 110 to 165
+(examples: `ISGameLoadingUI`, `ISOptionPanel`, `ISCraftingCategoryUI`,
+`ISFarmingCursor`). Whether those 55 left the game or only the stub set is not
+shown by the index.
 
 ## Removed classes worth checking
 
@@ -184,7 +218,7 @@ These classes exist in the B41 index and have no entry in the B42 index [2]
 | Trait and profession registration | `TraitFactory` *(B41)*, `ProfessionFactory` *(B41)*, `Trait` *(B41)*, `Profession` *(B41)* | B42 index has `CharacterTrait`, `CharacterProfession` and a `Registries` class [11] [12] |
 | Item creation | `InventoryItemFactory` *(B41)* | Its only members are `CreateItem` and the constructor [2]; the global `instanceItem` is in both indices [1] [2] |
 | Multi-stage build | `MultiStageBuilding` *(B41)* | The `Multistagebuild` script block is B41-only [31] |
-| Fire and furnace menus | `ISFireplaceMenu` *(B41)*, `ISBlacksmithMenu` *(B41)*, `ISBSFurnace` *(B41)* | B42 index adds `FurnaceLogic` and `ISFurnaceLogicPanel`; successor status is not provable from stubs [1] |
+| Fire and furnace menus | `ISFireplaceMenu` *(B41)*, `ISBlacksmithMenu` *(B41)*, `ISBSFurnace` *(B41)* | B42 index adds `FurnaceLogic` (the 42.20.0 index also listed `ISFurnaceLogicPanel`, absent from 42.21.0); successor status is not provable from stubs [1] [36] |
 | Reload and safety UI | `ISReloadManager` *(B41)*, `ISSafetyUI` *(B41)* | `ISReloadWeaponAction` is in both [1] [2] |
 | Login and server list | `LoginScreen` *(B41)*, `ServerList` *(B41)*, `PublicServerList` *(B41)* | UI-shell classes; matter only to total-conversion style mods [2] |
 
@@ -198,9 +232,9 @@ ship" prompt. A removed name may have a renamed or relocated successor.
 |-------|----------------------------|----------------------|
 | `IsoPlayer` | `IsoPlayer:getForname` *(B41)*, `IsoPlayer:getSurname` *(B41)*, `IsoPlayer:isDeaf` *(B41)*, `IsoPlayer:getStaticTraits` *(B41)* [25] | 109 effective removals (counting those inherited from `IsoLivingCharacter` and `IsoGameCharacter`); the B42 class inherits from `IsoLivingCharacter` and several interfaces [26] |
 | `IsoGameCharacter` | `IsoGameCharacter:HasTrait` *(B41)*, `IsoGameCharacter:getTraits` *(B41)*, `IsoGameCharacter:getTemperature` *(B41)* [16] | `IsoGameCharacter:hasTrait` *(B42)* and `IsoGameCharacter:getCharacterTraits` *(B42)* exist [15]; no same-named temperature accessor exists |
-| `IsoGridSquare` | `IsoGridSquare:explode` *(B41)*, `IsoGridSquare:smoke` *(B41)*, `IsoGridSquare:explosion` *(B41)*, `IsoGridSquare:explodeTrap` *(B41)*, `IsoGridSquare:drawCircleExplosion` *(B41)* [2] | 16 effective removals; none of the five has a same-named B42 member [1] |
+| `IsoGridSquare` | `IsoGridSquare:explode` *(B41)*, `IsoGridSquare:smoke` *(B41)*, `IsoGridSquare:explosion` *(B41)*, `IsoGridSquare:explodeTrap` *(B41)*, `IsoGridSquare:drawCircleExplosion` *(B41)* [2] | 19 effective removals (16 against the 42.20.0 index); none of the five has a same-named B42 member [1] [36] |
 | `InventoryItem` | `InventoryItem:getPlaceDir` *(B41)*, `InventoryItem:setPlaceDir` *(B41)*, `InventoryItem:isTaintedWater` *(B41)*, `InventoryItem:setTaintedWater` *(B41)* [2] | B42 adds `InventoryItem:getFluidContainer` *(B42)* and `InventoryItem:isFluidContainer` *(B42)* [1] |
-| `DrainableComboItem` | `DrainableComboItem:getDelta` *(B41)*, `DrainableComboItem:setDelta` *(B41)*, `DrainableComboItem:getRemainingUses` *(B41)*, `DrainableComboItem:getUsedDelta` *(B41)* [7] | B42 adds `DrainableComboItem:getCurrentUses` *(B42)*, `DrainableComboItem:setCurrentUses` *(B42)* and `DrainableComboItem:getMaxUses` *(B42)* [6] |
+| `DrainableComboItem` | `DrainableComboItem:getDelta` *(B41)*, `DrainableComboItem:setDelta` *(B41)*, `DrainableComboItem:getRemainingUses` *(B41)*, `DrainableComboItem:getUsedDelta` *(B41)* [7] | B42 declares `DrainableComboItem:setCurrentUses` *(B42)* and `DrainableComboItem:getMaxUses` *(B42)* [6]; `getCurrentUses` is reachable on both builds through the parent `InventoryItem` [6] [7] |
 | `HandWeapon` | `HandWeapon:getScope` *(B41)*, `HandWeapon:getClip` *(B41)*, `HandWeapon:getCanon` *(B41)*, `HandWeapon:getSling` *(B41)*, `HandWeapon:getStock` *(B41)* [2] | `HandWeapon:getWeaponPart` *(B42)* and `HandWeapon:getAllWeaponParts` *(B42)* are in both builds [1] |
 | `IsoObject` | `IsoObject:getWaterAmount` *(B41)*, `IsoObject:setWaterAmount` *(B41)*, `IsoObject:useWater` *(B41)* [2] | B42 adds `IsoObject:addFluid` *(B42)* and `IsoObject:getFluidContainer` *(B42)* [1] |
 | `ItemContainer` | `ItemContainer:getWeight` *(B41)* [2] | `ItemContainer:getContentsWeight` *(B42)* is in both builds [1] |
@@ -222,8 +256,11 @@ in game.
 
 ## Events
 
-The 37 B41-only events, listed in the B41 events file, and the 31 B42-only
-events, listed in the B42 events file, are [14] [13]:
+The 35 B41-only events, listed in the B41 events file, and the 39 B42-only
+events, listed in the B42 events file, are [14] [13]. (Two of the 37
+B41-only events of 42.20.0, `Events.OnFillInventoryContextMenuNoItems` and
+`Events.OnPreFillInventoryContextMenuNoItems`, appear in the 42.21.0 file and
+so moved to the shared set [13] [36].) The table gives examples:
 
 | Group | B41-only events *(B41)* | B42-only events *(B42)* |
 |-------|------------------------|------------------------|
@@ -233,8 +270,16 @@ events, listed in the B42 events file, are [14] [13]:
 | Crafting and items | `Events.OnMakeItem` [14] | `Events.OnItemFound`, `Events.OnProcessAction` [13] |
 | Safehouse and radio | `Events.OnPlayerSetSafehouse`, `Events.OnRadioInteraction` [14] | `Events.OnNetworkUsersReceived`, `Events.OnRolesReceived` [13] |
 
-The rows above are examples; the full lists come from the diff script in
-Verification Steps. Events common to both builds include
+The rows above are examples, each re-confirmed against the 42.21.0 index; the
+full lists come from the diff script in Verification Steps. The ten events
+new in 42.21.0 relative to 42.20.0 are `Events.AcceptedMedicalCheck`,
+`Events.OnFillInventoryContextMenuNoItems`, `Events.OnForagePool`,
+`Events.OnForageRequestZone`, `Events.OnForageSpot`,
+`Events.OnJoypadDebugRenderUIOptionSet`,
+`Events.OnPreFillInventoryContextMenuNoItems`,
+`Events.OptionControllerButtonStyleChanged`,
+`Events.OptionGamepadBindingPresetChanged` and `Events.RequestMedicalCheck`
+[13] [36]. Events common to both builds include
 `Events.OnGameBoot`, `Events.OnTick`, `Events.OnClientCommand` and
 `Events.OnServerCommand` [13] [14]. The three distribution-merge events
 `Events.OnPreDistributionMerge`, `Events.OnDistributionMerge` and
@@ -253,7 +298,7 @@ and `sendAddXp` [2]. Examples of B42-only globals: `getCurrentSaveName`,
 ## Crafting and recipe classes
 
 The B41 `Recipe` class carries accessors such as `Recipe:getTimeToMake` *(B41)*, `Recipe:getCategory` *(B41)*, `Recipe:isHidden` *(B41)* and `Recipe:getSound` *(B41)*,
-46 of which are absent from the B42 `Recipe` [9] [8]. The B42 index adds a
+51 of which are absent from the B42 `Recipe` (46 against the 42.20.0 index) [9] [8]. The B42 index adds a
 110-member `CraftRecipe` class with inputs, outputs, tags, required skills
 and a timed-action script, including `CraftRecipe:getInputs` *(B42)*,
 `CraftRecipe:getOutputs` *(B42)* and `CraftRecipe:getRequiredSkills` *(B42)* [8].
@@ -262,7 +307,7 @@ and a timed-action script, including `CraftRecipe:getInputs` *(B42)*,
 the older `ScriptManager:getAllRecipes` and `ScriptManager:getRecipe` are in both [24].
 On the interface side, the `ISCraftingUI` class shrinks from 105 declared
 members to 3 and the B42 index adds `ISHandcraftWindow` [10]. The
-`ISBuildMenu` class loses 98 members, mostly per-furniture sprite helpers,
+`ISBuildMenu` class (99 members in B41, 3 in B42) loses 98 members, mostly per-furniture sprite helpers,
 and B42 adds `ISBuildWindow` [1]. The script side uses the B42 `craftRecipe`
 and `entity` blocks, and traits and professions are defined with
 `character_trait_definition` and `character_profession_definition` blocks
@@ -314,7 +359,7 @@ root layout and the B42 `common/` plus version folders [28].
 
 **Evidence layer.** A moderator post on the Indie Stone forums, dated
 2025-12-11 and titled for the 42.13 modding migration, attaches two PDFs
-[23] [34] [35]. They are 42.13-era and were not re-checked against 42.20.0.
+[23] [34] [35]. They are 42.13-era and were not re-checked against 42.20.0 or 42.21.
 
 **Registries.** From 42.13 some identifiers used in scripts and recipes
 must be registered from Lua [34]. The listed identifier kinds are character
@@ -377,6 +422,38 @@ the document are `sendAddItemToContainer`, `sendRemoveItemFromContainer`,
 of these as globals and the B41 index none of them; the last four were not
 found as globals in either index [1] [2].
 
+## Changes in the 42.20.1 to 42.21 hotfix and update wave
+
+**Evidence layer.** The notes below are the items in the official posts that
+bear on a port; behaviour beyond what the posts state was not tested.
+
+- **Translations.** Mod translation strings should use `%%` to show a literal
+  `%` (42.20.1) [37]. A temporary workaround accepts both forms, error logs
+  point at strings that need updating, and the workaround will be removed in
+  a future unstable update (42.20.2) [38]. 42.21 updated the localization
+  system to allow more translatable strings [39] [40], and its forum notes say
+  a `RuntimeException` is raised when missing translations or missing recipes
+  are detected, replacing a `System.err.println` message [40]. The notes do not
+  say when it fires.
+- **File writing.** 42.20.1 added the ability for mods to write `.json`
+  files [37]. The notes do not name the function involved, so the
+  `getFileWriter` extension limit cited from 42.20.0 under "Multiplayer,
+  distributions and file access" may no longer be the whole picture [37] [32].
+- **Multiplayer integrity.** 42.20.1 improved Lua checksum validation as part
+  of multiplayer anti-cheat [37]; 42.21 expanded the anti-cheat system and
+  moved clothing-condition handling server-side [39] [40]. Both mean
+  client-only modifications to shared Lua are more exposed to rejection than
+  before; the posts do not describe the exact checks.
+- **Server-side items.** 42.20.1 fixed an issue that allowed broken B41
+  worlds to be hosted on B42 servers [37].
+- **Security.** `loadstring` and `loadstream` were removed in 42.20.4, with
+  the instruction to replace server-sent code with explicit commands, and were
+  re-enabled in 42.21 [18] [17].
+- **Gameplay-data changes** that can matter to item and recipe mods: the Welder
+  occupation starts with Welding recipes instead of Blacksmithing recipes, 86
+  more fluid containers can purify water in the appropriate oven type, and
+  antibiotics can use the "pack in box" crafting recipe [39] [40].
+
 ## Multiplayer, distributions and file access
 
 Multiplayer was reimplemented for B42 with release 42.13.0, whereas B41
@@ -387,7 +464,7 @@ guide for existing mods at that point [23] [34] [35]. `Events.OnClientCommand` a
 B42 also adds the globals `sendClientCommandV` and `sendServerCommandV`
 [1]. In B42 `getFileWriter` only writes files with the extensions ini, cfg,
 txt and log, while `getModFileWriter` is not limited [32]. For
-distributions, `ItemPickerJava` grows from 13 to 51 members in the index
+distributions, `ItemPickerJava` grows from 22 to 51 members in the index
 and the `VehicleDistributions` class lists 88 members in the B41 index and
 none in the B42 index, which looks like a stub-format difference rather
 than evidence of removal [1] [2].
@@ -410,12 +487,13 @@ that matter for a port, in order of how often they bite:
   container members [2] [1].
 - **Drainable uses.** Delta-style accessors replaced by use-count accessors
   on `DrainableComboItem` [7] [6].
-- **Events and globals.** 37 events and 64 globals are B41-only [14] [13]
-  [2] [1].
+- **Events and globals.** 35 events and 83 globals are B41-only (37 and 64
+  against the 42.20.0 index) [14] [13] [2] [1] [36].
 - **Security.** A 42.14 security patch removed modding-API functionality that
   42.20.0 restored [21]; 42.20.4 and 41.78.21 removed `loadstring` and
-  `loadstream` [18]; 42.21 re-enabled them in B42 [17]. The earlier March
-  2026 security updates affected only mods [19].
+  `loadstream` [18]; 42.21 re-enabled them in B42 [17]; the posts reviewed do not
+  state a B41 re-enable. The earlier March 2026 security updates affected only
+  mods [19].
 - **Multiplayer.** New networking since 42.13.0 with a migration guide [33]
   [23].
 - **Registries and script properties.** New IDs need `registries.lua`;
@@ -423,7 +501,10 @@ that matter for a port, in order of how often they bite:
   registration [34].
 - **Timed actions.** Shared-folder placement, matching `new` arguments,
   `getDuration` and the `perform`/`complete` split [35].
-- **File writes.** `getFileWriter` extension limit from 42.20.0 [32].
+- **File writes.** `getFileWriter` extension limit from 42.20.0 [32]; 42.20.1
+  added `.json` writing for mods [37].
+- **Translations.** `%%` for a literal `%` from 42.20.1 [37] [38]; localization
+  system updated in 42.21 [39].
 
 # Practical Guidance
 
@@ -481,13 +562,16 @@ detail), `modders-modinfo-modid-conventions` (IDs) and
   `Recipe:getResult` *(B42)*) may behave differently; the stubs hold
   signatures only [8] [9].
 - **Reading the added counts as new features.** The B42 pin documents far
-  more classes (3,449 against 1,686 tree entries) [1] [2].
+  more classes (3,293 against 1,686 tree entries) [1] [2].
 - **Chasing UI field removals.** `x`, `y`, `width` and `height` on UI
   subclasses are stub noise because `ISUIElement` still declares them
   [27] [1].
 - **Forgetting the post-42.20.0 changes.** 42.20.4 removed and 42.21
   restored `loadstring` and `loadstream`; code tested only on one patch can
-  fail on another [18] [17].
+  fail on another [18] [17]. Do not use a missing stub to decide that a
+  function is gone [1] [36].
+- **Literal percent signs in translations.** Use `%%`; the dual-handling
+  workaround is temporary [37] [38].
 - **Skipping `registries.lua`.** The guide requires it for new IDs and for
   tags and item types used in scripts [34].
 - **Keeping duration as a `new` argument.** The guide says it must come from
@@ -527,14 +611,17 @@ detail), `modders-modinfo-modid-conventions` (IDs) and
 - **Coverage asymmetry.** The B41 pin documents fewer classes, so additions
   are weak evidence and a few "removed" Lua classes might be unstubbed in B41
   or B42 rather than gone [1] [2].
-- **Version lag.** Verified against 42.20.0 stubs only; 42.21 stable
-  (2026-09-28) and 41.78.21 (2026-08-26) are not covered by a stub pin
-  [17] [18].
+- **Version lag.** The B42 stubs are 42.21.0, but 41.78.21 (2026-08-26) has
+  no B41 stub pin [18], and stubs can trail behaviour (`loadstring`,
+  `loadstream`) [17] [1].
+- **Abridged change list.** The retrieved 42.21 forum notes abbreviate the long
+  multiplayer and other fix lists to "selected" items, so a change absent from
+  this document may still be in the full list [40].
 - **Wiki lag.** The pzwiki pages cited for layout carry page versions of
   42.14.0 (Mod structure), 42.17.0 (mod.info) and 42.15.0 (Uploading mods)
   [28] [29] [30].
 - **Guide vintage.** The two official PDFs are 42.13-era (posted 2025-12-11)
-  while the symbol index is 42.20.0; a rule they state may have changed
+  while the symbol index is 42.21.0; a rule they state may have changed
   since, and the PDFs sit behind forum sign-in [23] [34] [35].
 - **Rename guesses.** Pairs presented as probable renames are inferences
   from name similarity, not documented renames.
@@ -544,8 +631,9 @@ detail), `modders-modinfo-modid-conventions` (IDs) and
 1. Open the two pinned stub trees [1] [2] and confirm the file you care about,
    for example the B42 Stats stub [3] and the B41 Stats stub [5].
 2. Re-run the diff. With the two index files from `sources/schemas/` in
-   hand, the following script reproduces the totals and the effective
-   removals:
+   hand (the current `api-index-B42.json` is 42.21.0; the 42.20.0 index is
+   archived as `sources/schemas/archive/api-index-B42-42.20.0.json`), the
+   following script reproduces the totals and the effective removals:
 
 ```python
 import json
@@ -576,34 +664,41 @@ print(sorted(members(A, "Stats") - members(B, "Stats")))
 # Open Questions
 
 - Which of the rename candidates (`getSaveName` to `getCurrentSaveName`,
-  typed stat getters to the generic stat accessor) preserve behaviour and units? Resolve
-  with the 42.21 patch notes and in-game tests.
+  typed stat getters to the generic stat accessor) preserve behaviour and units? The 42.20.1
+  to 42.21 posts name no renames, so this stays open: resolve with in-game
+  tests.
 - Which events replaced the removed weather and time events? The nearest B42
   events could be mapped by reading the game's Lua.
 - Do the 42.13 rules in the official PDFs (registries, `perform`/`complete`)
-  still hold unchanged on 42.21? Re-read the thread for later posts.
-- Do 42.20.1 to 42.21 add or remove API names? A re-pin of Umbrella to a
-  newer tag would answer this.
+  still hold unchanged on 42.21? The 42.20.1 to 42.21 notes reviewed neither
+  reverse nor restate them [37] [40]; the forum thread was not re-read.
+- Which function allows the `.json` writes added in 42.20.1, and does the
+  `getFileWriter` extension limit still apply? [37]
+- Which situations trigger the `RuntimeException` for missing translations and
+  recipes in 42.21? [40]
+- Resolved: whether 42.20.1 to 42.21 changed the API names. By the stub index
+  it added ten events, removed none, removed 21 globals (including the
+  stub-lag case `loadstream`) and added four [1] [36].
 
 # References
 
 **Primary Sources**
 
-- [1] **PZ-Umbrella project** — *Umbrella at commit 58204fc (release tag 42.20.0)*. https://github.com/PZ-Umbrella/Umbrella/tree/58204fc47895ba249592519cedecc7cfbaaebd60 Accessed 2026-10-07.
+- [1] **PZ-Umbrella project** — *Umbrella at commit 13d01f9ee58fa48773553920db56d06f0005e7f8 (release tag 42.21.0)*. https://github.com/PZ-Umbrella/Umbrella/tree/13d01f9ee58fa48773553920db56d06f0005e7f8 Accessed 2026-10-07.
 - [2] **PZ-Umbrella project** — *Umbrella at commit fa2e7e1 (release tag 41.78.16)*. https://github.com/PZ-Umbrella/Umbrella/tree/fa2e7e19799740b57902f1cb4e989225c295c05e Accessed 2026-10-07.
-- [3] **PZ-Umbrella project** — *Stats.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/java/zombie/characters/Stats.lua Accessed 2026-10-07.
-- [4] **PZ-Umbrella project** — *CharacterStat.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/java/zombie/characters/CharacterStat.lua Accessed 2026-10-07.
+- [3] **PZ-Umbrella project** — *Stats.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/zombie/characters/Stats.lua Accessed 2026-10-07.
+- [4] **PZ-Umbrella project** — *CharacterStat.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/zombie/characters/CharacterStat.lua Accessed 2026-10-07.
 - [5] **PZ-Umbrella project** — *Stats.lua, B41 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/fa2e7e19799740b57902f1cb4e989225c295c05e/library/Candle/zombie.characters/Stats.lua Accessed 2026-10-07.
-- [6] **PZ-Umbrella project** — *DrainableComboItem.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/java/zombie/inventory/types/DrainableComboItem.lua Accessed 2026-10-07.
+- [6] **PZ-Umbrella project** — *DrainableComboItem.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/zombie/inventory/types/DrainableComboItem.lua Accessed 2026-10-07.
 - [7] **PZ-Umbrella project** — *DrainableComboItem.lua, B41 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/fa2e7e19799740b57902f1cb4e989225c295c05e/library/Candle/zombie.inventory.types/DrainableComboItem.lua Accessed 2026-10-07.
-- [8] **PZ-Umbrella project** — *CraftRecipe.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/java/zombie/scripting/entity/components/crafting/CraftRecipe.lua Accessed 2026-10-07.
+- [8] **PZ-Umbrella project** — *CraftRecipe.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/zombie/scripting/entity/components/crafting/CraftRecipe.lua Accessed 2026-10-07.
 - [9] **PZ-Umbrella project** — *Recipe.lua, B41 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/fa2e7e19799740b57902f1cb4e989225c295c05e/library/Candle/zombie.scripting.objects/Recipe.lua Accessed 2026-10-07.
-- [10] **PZ-Umbrella project** — *ISHandcraftWindow.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/lua/client/ISUI/Crafting/ISHandcraftWindow.lua Accessed 2026-10-07.
+- [10] **PZ-Umbrella project** — *ISHandcraftWindow.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/lua/client/ISUI/Crafting/ISHandcraftWindow.lua Accessed 2026-10-07.
 - [11] **PZ-Umbrella project** — *TraitFactory.lua, B41 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/fa2e7e19799740b57902f1cb4e989225c295c05e/library/Candle/zombie.characters.traits/TraitFactory.lua Accessed 2026-10-07.
-- [12] **PZ-Umbrella project** — *Registries.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/java/zombie/scripting/objects/Registries.lua Accessed 2026-10-07.
-- [13] **PZ-Umbrella project** — *events.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/events.lua Accessed 2026-10-07.
+- [12] **PZ-Umbrella project** — *Registries.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/zombie/scripting/objects/Registries.lua Accessed 2026-10-07.
+- [13] **PZ-Umbrella project** — *events.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/events.lua Accessed 2026-10-07.
 - [14] **PZ-Umbrella project** — *Events.lua, B41 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/fa2e7e19799740b57902f1cb4e989225c295c05e/library/Events/Events.lua Accessed 2026-10-07.
-- [15] **PZ-Umbrella project** — *IsoGameCharacter.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/java/zombie/characters/IsoGameCharacter.lua Accessed 2026-10-07.
+- [15] **PZ-Umbrella project** — *IsoGameCharacter.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/zombie/characters/IsoGameCharacter.lua Accessed 2026-10-07.
 - [16] **PZ-Umbrella project** — *IsoGameCharacter.lua, B41 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/fa2e7e19799740b57902f1cb4e989225c295c05e/library/Candle/zombie.characters/IsoGameCharacter.lua Accessed 2026-10-07.
 - [17] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/ogg/108600/announcements/detail/1844751498231307 — found via the Steam news API [20]. Accessed 2026-10-07.
 - [18] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/ogg/108600/announcements/detail/1842212951296601 — found via [20]. Accessed 2026-10-07.
@@ -612,13 +707,20 @@ print(sorted(members(A, "Stats") - members(B, "Stats")))
 - [21] **The Indie Stone** — *PROJECT ZOMBOID BUILD 42.20 RELEASED!* (2026-07-29). https://projectzomboid.com/blog/news/2026/07/project-zomboid-build-42-20-released/ — verified via the Steam news mirror [20]. Accessed 2026-10-07.
 - [22] **The Indie Stone** — *Build 42 Unstable* (2024-12-17). https://projectzomboid.com/blog/news/2024/12/build-42-unstable/ Accessed 2026-10-07 (host bot-blocks checkers).
 - [23] **The Indie Stone Forums** — *Modding Migration Guide (42.13)*, first post by moderator nasKo, 2025-12-11. https://theindiestone.com/forums/topic/88499-modding-migration-guide-4213/ Accessed 2026-10-07 (host bot-blocks checkers; attachments need forum sign-in).
-- [24] **PZ-Umbrella project** — *ScriptManager.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/java/zombie/scripting/ScriptManager.lua Accessed 2026-10-07.
+- [24] **PZ-Umbrella project** — *ScriptManager.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/zombie/scripting/ScriptManager.lua Accessed 2026-10-07.
 - [25] **PZ-Umbrella project** — *IsoPlayer.lua, B41 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/fa2e7e19799740b57902f1cb4e989225c295c05e/library/Candle/zombie.characters/IsoPlayer.lua Accessed 2026-10-07.
-- [26] **PZ-Umbrella project** — *IsoPlayer.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/java/zombie/characters/IsoPlayer.lua Accessed 2026-10-07.
-- [27] **PZ-Umbrella project** — *ISUIElement.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/lua/client/ISUI/ISUIElement.lua Accessed 2026-10-07.
+- [26] **PZ-Umbrella project** — *IsoPlayer.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/zombie/characters/IsoPlayer.lua Accessed 2026-10-07.
+- [27] **PZ-Umbrella project** — *ISUIElement.lua, B42 pin*. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/lua/client/ISUI/ISUIElement.lua Accessed 2026-10-07.
 
 - [34] **The Indie Stone** — *Migration Guide.pdf*, attachment to [23] (registries, script and Lua changes for 42.13). Retrieved 2026-10-07 from the forum thread [23]; no direct file URL.
 - [35] **The Indie Stone** — *Project Zomboid: API for Inventory Items*, document version 1.0, attachment to [23]. Retrieved 2026-10-07 from the forum thread [23]; no direct file URL.
+
+- [36] **PZ-Umbrella project** — *Umbrella at commit 58204fc47895ba249592519cedecc7cfbaaebd60 (previous B42 pin, release 42.20.0)*; the archived 42.20.0 symbol index in `sources/schemas/archive/` was built from it. https://github.com/PZ-Umbrella/Umbrella/tree/58204fc47895ba249592519cedecc7cfbaaebd60 Accessed 2026-10-07.
+- [37] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766 Accessed 2026-10-07 (host bot-blocks checkers).
+- [38] **The Indie Stone** — *42.20.2 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314339441 Accessed 2026-10-07 (host bot-blocks checkers).
+- [39] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925 Accessed 2026-10-07 (host bot-blocks checkers).
+- [40] **The Indie Stone Forums** — *42.21 Patch Notes* (topic 101693, first post, 2026-09-23; the long fix lists are abridged to "selected" in the retrieved copy). https://theindiestone.com/forums/topic/101693-4221-patch-notes/ Accessed 2026-10-07 (host bot-blocks checkers).
+- [41] **PZ-Umbrella project** — *Umbrella release list* (the 42.20.0 tag now points at a later commit than the 58204fc pin; see `sources/pins.json`). https://github.com/PZ-Umbrella/Umbrella/releases Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -655,3 +757,4 @@ print(sorted(members(A, "Stats") - members(B, "Stats")))
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft from the pinned B41/B42 Umbrella symbol diff. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (virtual agent) | Added checklist items and a Reference section from the official TIS 42.13 migration guide and inventory-items API PDFs; softened Claim 1; noted guide vintage. | — |
+| 0.3.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined from 42.20 to 42.21: all index totals and named examples recomputed against Umbrella 42.21.0 (13d01f9), 42.20.0 figures kept for comparison; corrected `ISFurnaceLogicPanel`, `DrainableComboItem:getCurrentUses` and `ItemPickerJava` (13 to 22) statements; added 42.20.1-42.21 changes (`%%`, .json writes, localization, Lua checksum and anti-cheat, loadstring/loadstream stub lag). Sources: Steam posts 42.20.1, 42.20.2, 42.20.4, 42.21 unstable and stable, TIS forum 42.21 notes. | — |

@@ -29,6 +29,39 @@ Wave E follow-ups for a human or later pass:
   no secret is in the repo (grep clean) - consider rotating that key.
 - All Modders docs verified on Umbrella 42.20.0; 42.21 (2026-09-28) unverified.
 
+## 42.21 re-baseline (2026-10-07)
+
+All 41 docs reviewed against the 42.20.1-42.21 official posts (six Steam
+announcements + TIS forum topic 101693, read via browser extraction) and the
+Umbrella 42.21.0 index; `game_versions_verified` now includes 42.21 on all of
+them. Pins: B42 Umbrella 42.21.0 @ 13d01f9 (42.20.0 @ 58204fc kept as
+B42_previous; the upstream 42.20.0 tag later moved to 98f50ae - pin by
+commit); legacy41 primary-attested at 41.78.21. `check_freshness.py`: pins
+current. Gates green (validate/genre/license/API 349 refs/server-settings;
+links 412/416 live, 0 dead). The 42.20.0 API index is archived in
+sources/schemas/archive/.
+
+Frozen docs revised and awaiting human re-approval (factual changes, status
+still `approved`): admins-foundation, creator-foundation, lore-foundation,
+meta-style-guide, modders-foundation, players-foundation (all 1.1.0).
+players-foundation still carries the occupation-roster contradiction noted
+under wave A, so auto-approval was withheld.
+
+Re-baseline caveats / follow-ups:
+- Carried-forward statements were NOT re-tested in game; the forum changelist
+  was captured in abridged form (long MP/other fix lists 'selected').
+- Welder is primary-confirmed as a 42.21 occupation; the Metalworker->Welder
+  rename is still inference.
+- Open: whether legacy41 re-enabled loadstring/loadstream after 41.78.21;
+  what 41.78.20 contained (wiki-only); MaxPlayers 254 (42.20.3) vs the pinned
+  1-100 range (schema not re-extracted on a 42.21 server).
+- Stub-only 42.21.0 changes (new medical-check/foraging events,
+  sendAddObjectToMap, dropped print/radio classes and 155 classes overall, six
+  fewer Recipe members) are unexplained by the notes.
+- New primary refs sit out of numeric order inside some Primary lists
+  (contiguous; validator accepts).
+- No kb-release tag cut for this re-baseline yet (pending freeze decision).
+
 ## Wave F — Creator + Lore/meta (2026-10-07)
 
 8 docs merged `in-review` v0.1.0: creator (format catalogue, channel map,

@@ -1,7 +1,7 @@
 ---
 id: admins-server-ini-reference
 title: "server.ini Reference: The Settings That Matter, by Area"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Admins
@@ -9,13 +9,13 @@ topic: "Server configuration"
 build: both
 document_type: server-setting
 created: 2026-07-30
-updated: 2026-07-31
-review_due: 2026-10-31
-sources_verified: 2026-07-31
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [admins-foundation, admins-sandboxvars-reference, meta-style-guide, modders-foundation]
 tags: [server-ini, ports, rcon, mods, backups, anti-cheat, voip, pvp, whitelist, discord, dedicated-server]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,16 +23,16 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | admins-server-ini-reference |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Admins |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-07-31 |
-| Review due | 2026-10-31 |
-| Game versions verified | 41.78.16, 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 |
 
 # Executive Summary
 
@@ -77,9 +77,11 @@ Not covered: `SandboxVars.lua` gameplay settings (the sibling document `admins-s
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | 41.78.16 | Key facts from wiki revision 157571, page versioned 41.78.16 [3]; page self-flags as incomplete |
-| B42 (stable) | Yes | 42.20 | Key facts from wiki revision 1443167, page versioned 42.20.0 [2]; 42.20 stable since 2026-07-29 [1] |
+| B42 (stable) | Yes | 42.20, 42.21 | Key facts from wiki revision 1443167, page versioned 42.20.0 [2]; 42.20 stable since 2026-07-29 [1]; 42.21 stable since 2026-09-28 [11], with the 42.20.1-42.21 patch notes reviewed [7] [8] [9] [10] [11] [12] |
 
 The build column in every table below records *which pinned revision documents the key*: `both`, `B41` (revision 157571 only), or `B42` (revision 1443167 only). This is deliberately a documentation claim, not a game-code claim — the B41-era page carries an explicit editorial warning that it needs improvement [3], so absence there is weak evidence of absence in the 41.78.16 binary. Where that distinction matters operationally it is called out in the notes and in the quarantine section.
+
+**42.21 re-check scope.** What was re-checked for 42.21: the official 42.20.1, 42.20.3, 42.20.4 and 42.21 patch notes [7] [8] [9] [10] [11] and the TIS forum 42.21 changelist [12], against every statement in this document that they touch (player limit, anti-cheat, Steam authentication, safehouse, `SafetyDisconnectDelay`, `UsernameDisguises` and Discord entries). What could not be re-checked: the key names, defaults and ranges remain pinned to wiki revisions 1443167 and 157571 [2] [3] and were not re-extracted from a 42.21 server install; the patch notes name no changed default or new key. Statements not mentioned below are carried forward from 42.20 with no contradicting change found in those notes; they were not re-tested.
 
 # Reference
 
@@ -130,7 +132,7 @@ Admission is layered: `Open` decides whether unknown accounts may join at all, `
 
 | Key | Type | Default | Range | Build | Notes |
 |-----|------|---------|-------|-------|-------|
-| `MaxPlayers` | integer | 16 *(B41)* / 32 *(B42)* | 1–100 *(B42)* | both | Admins are not counted against the cap; the B42 revision warns that values above 32 risk map-streaming problems and desync [2] [3] |
+| `MaxPlayers` | integer | 16 *(B41)* / 32 *(B42)* | 1–100 *(B42, per the pinned revision)* | both | Admins are not counted against the cap; the B42 revision warns that values above 32 risk map-streaming problems and desync [2] [3]. The 42.20.3 notes describe improved player-limit handling with support for up to 254 players and administrator access when a server is full *(B42)* [8]; the pinned revision's 1–100 range predates that note and has not been re-extracted |
 | `Open` | boolean | true | — | both | true = anyone may join and an account is created for them; false = an administrator must pre-create username/password pairs [2] |
 | `Password` | string | (empty) | — | both | Join password; ignored when the server is run through the client's Host button [2] |
 | `AutoCreateUserInWhiteList` | boolean | false | — | B41 | Auto-enrols joining users into the whitelist; B41-era revision only [3] |
@@ -141,7 +143,7 @@ Admission is layered: `Open` decides whether unknown accounts may join at all, `
 | `DisplayUserName` | boolean | true | — | both | Renders account names over characters [2] |
 | `ShowFirstAndLastName` | boolean | false | — | both | Renders character (not account) names instead [2] |
 | `MouseOverToSeeDisplayName` | boolean | true | — | both | Requires hovering to reveal a name [2] |
-| `UsernameDisguises` | boolean | false | — | B42 | Disguise mechanic for usernames; undescribed in the pinned revision [2] |
+| `UsernameDisguises` | boolean | false | — | B42 | Disguise mechanic for usernames; undescribed in the pinned revision [2]. 42.21 fixed a failure to connect to a dedicated or host server while this option was enabled *(B42)* [12] |
 | `HideDisguisedUserName` | boolean | false | — | B42 | Companion to the above; undescribed [2] |
 | `ServerWelcomeMessage` | string | (greeting text) | — | both | First chat-panel message after login; supports RGB colour tags and a line-break token *(B42)* [2] |
 | `SpawnPoint` | coordinates | 0,0,0 | — | both | Forces all fresh spawns to fixed x,y,z; 0,0,0 disables the override [2] |
@@ -164,7 +166,7 @@ Admission is layered: `Open` decides whether unknown accounts may join at all, `
 | `ShowSafety` | boolean | true | — | both | Skull indicator over players who have PVP mode engaged [2] |
 | `SafetyToggleTimer` | integer | 2 | 0–1000 *(B42)* | both | Delay to switch PVP mode on/off [2] |
 | `SafetyCooldownTimer` | integer | 3 | 0–1000 *(B42)* | both | Cooldown before the mode can be switched again [2] |
-| `SafetyDisconnectDelay` | integer | 60 | 0–60 | B42 | Disconnect-related safety delay; semantics undescribed in the pinned revision [2] |
+| `SafetyDisconnectDelay` | integer | 60 | 0–60 | B42 | Disconnect-related safety delay; semantics undescribed in the pinned revision [2]. 42.21 lists the option as fixed, without saying what was wrong *(B42)* [12] |
 | `PVPLogToolChat` | boolean | true | — | B42 | Mirrors PVP events to admin chat [2] |
 | `PVPLogToolFile` | boolean | true | — | B42 | Writes PVP events to the server's logs [2] |
 | `PVPMeleeDamageModifier` | decimal | 30.0 | 0.00–500.00 *(B42)* | both | Multiplier on player-vs-player melee damage [2] |
@@ -194,10 +196,10 @@ Admission is layered: `Open` decides whether unknown accounts may join at all, `
 | `SafehouseAllowNonResidential` | boolean | false | — | B42 | Claiming of non-residential buildings [2] |
 | `SafehouseDisableDisguises` | boolean | true | — | B42 | Disables disguises inside safehouse context; undescribed further [2] |
 | `SafehousePreventsLootRespawn` | boolean | true | — | B42 | Claimed buildings never respawn loot [2] |
-| `DisableSafehouseWhenOwnerConnected` | boolean | false | — | B42 | Protection applies only while the owner is offline; the B41-era key was `DisableSafehouseWhenPlayerConnected` [2] [3] |
+| `DisableSafehouseWhenOwnerConnected` | boolean | false | — | B42 | Protection applies only while the owner is offline; the B41-era key was `DisableSafehouseWhenPlayerConnected` [2] [3]. 42.21 fixed a conflict between this option and the sledgehammer-in-safehouse option below *(B42)* [12] |
 | `MaxSafezoneSize` | integer | 20000 | 0–2147483647 | B42 | Upper bound on safezone area [2] |
 | `AllowDestructionBySledgehammer` | boolean | true | — | both | Sledgehammers may demolish world objects [2] |
-| `SledgehammerOnlyInSafehouse` | boolean | false | — | B42 | Restricts demolition to the player's own safehouse; requires the key above [2] |
+| `SledgehammerOnlyInSafehouse` | boolean | false | — | B42 | Restricts demolition to the player's own safehouse; requires the key above [2]. The 42.21 note on the conflict fix words the option in its own way, so the mapping to this key is inferred [12] |
 | `Faction` | boolean | true | — | both | Faction creation enabled [2] |
 | `FactionDaySurvivedToCreate` | integer | 0 | 0–2147483647 | both | Survival-days threshold to found a faction [2] |
 | `FactionPlayersRequiredForTag` | integer | 1 | 1–2147483647 | both | Member count required before the owner may set a group tag [2] |
@@ -214,7 +216,7 @@ Admission is layered: `Open` decides whether unknown accounts may join at all, `
 | `Mods` | list | (empty) | — | both | Mod loading IDs, taken from each mod's `info.txt` under the Workshop content folder [2]. The pinned B42 revision gives no separator example for this key — see Pitfalls |
 | `WorkshopItems` | list | (empty) | — | both | Steam Workshop IDs for the server to fetch, semicolon-separated; documented example `514427485;513111049` [2] |
 | `Map` | string | Muldraugh, KY | — | both | World to load; for mod maps, the folder name under the mod's `media/maps/` directory [2] |
-| `DoLuaChecksum` | boolean | true | — | both | Ejects clients whose Lua files fail the checksum comparison against the server [2] |
+| `DoLuaChecksum` | boolean | true | — | both | Ejects clients whose Lua files fail the checksum comparison against the server [2]. 42.20.1 improved Lua checksum validation as a multiplayer anti-cheat measure *(B42)* [7] |
 
 ## Saves, backups and world identity
 
@@ -234,6 +236,8 @@ Admission is layered: `Open` decides whether unknown accounts may join at all, `
 ## Anti-cheat and integrity
 
 The B42-era revision documents ten `AntiCheat*` keys and describes four handling modes — instant ban, instant kick, log-only, and do nothing [2]. The keys take numeric values, but the pinned revision does **not** state which number selects which mode; that mapping is quarantined below (Claim 2). Note also that the revision's one-line descriptions are phrased as "disables … protection" for every key regardless of value, which is internally inconsistent with per-key numeric defaults — read the Default column as "value the file ships with", nothing more [2]. Context: 42.20's release notes state anti-cheat was reworked and re-enabled at stable, with item anti-cheat moved server-side [1].
+
+**42.21 changes (B42).** The 42.21 notes state that the anti-cheat system was expanded ("various new cheats now guarded against") and that safehouse exploits were remedied [10] [12]. They list no new `AntiCheat*` key and no changed default or numeric meaning, so the table below is carried forward from the pinned revision unchanged. The same notes record a Steam authentication exploit, fixed in 42.21, that let players enter dedicated servers without authenticating through Steam, which had prevented SteamID bans from working [10] [12]; bans by SteamID are therefore described as effective from 42.21. Clothing condition is also handled server-side from 42.21 [12].
 
 | Key | Type | Default | Range | Build | Notes |
 |-----|------|---------|-------|-------|-------|
@@ -295,7 +299,7 @@ The Discord bridge relays global text chat to a Discord channel via a bot token;
 | `ChatMessageCharacterLimit` | integer | 200 | 64–1024 | B42 | Per-message length cap [2] |
 | `ChatMessageSlowModeTime` | integer | 3 | 1–30 | B42 | Minimum seconds between messages [2] |
 | `BanKickGlobalSound` | boolean | true | — | both | Audible cue on ban/kick [2] |
-| `DiscordEnable` | boolean | false | — | both | Bridge master switch [2] |
+| `DiscordEnable` | boolean | false | — | both | Bridge master switch [2]. 42.21 fixed an endless connection loop that occurred when the Discord API was unavailable *(B42)* [12] |
 | `DiscordToken` | string | (empty) | — | both | Bot access token — treat as a secret [2] |
 | `DiscordChatChannel` | string | (empty) | — | B42 | Chat relay channel, by name [2] |
 | `DiscordChannel` | string | (empty) | — | B41 | B41-era chat channel key [3] |
@@ -349,7 +353,9 @@ This delta compares the two pinned revisions of the same reference page — 1575
 
 **Keys documented only in the B41-era revision** [3]: `nightlengthmodifier` (night-length scaling, the page's first key); `AutoCreateUserInWhiteList`; `PingFrequency`; `SteamPort1`/`SteamPort2`; the extra UPnP keys; the co-op timeouts; the VOIP codec quartet (`VoiceComplexity`, `VoicePeriod`, `VoiceSampleRate`, `VoiceBuffering`); `PhysicsDelay`; `UseTCPForMapDownloads`; `PlayerSaveOnDamage`; `SaveTransactionID`; `AllowTradeUI`; the `ZombieUpdate*` quartet; `KickFastPlayers`. One key is positively recorded as removed from the game rather than merely undocumented: `LogLocalChat`, deleted in 41.66 per the official patch notes cited by that revision [3].
 
-**Context for the anti-cheat family**: the 42.20 stable release notes describe anti-cheat as reworked and re-enabled, with item anti-cheat now server-side and several exploits (item spawning, XP, foraging) closed [1] — which is why the B42-era `.ini` surface polices more than the B41-era one did.
+**Context for the anti-cheat family**: the 42.20 stable release notes describe anti-cheat as reworked and re-enabled, with item anti-cheat now server-side and several exploits (item spawning, XP, foraging) closed [1] — which is why the B42-era `.ini` surface polices more than the B41-era one did. Later notes extend this: Lua checksum validation was improved in 42.20.1 [7], and the anti-cheat system was expanded again in 42.21 [10] [12].
+
+**42.20.1 to 42.21 (B42)**: none of those notes renames, adds or re-defaults a documented `.ini` key; they change the behaviour of existing options (see the per-key notes above) [7] [8] [9] [10] [11] [12]. The pinned wiki revision was not re-extracted, so absence of a mention is not proof that no default moved.
 
 # Practical Guidance
 
@@ -421,7 +427,7 @@ The token is a credential: keep the `.ini` out of world-readable paths and out o
 
 - **Editing the wrong file for the change.** Loot respawn and reading speed are `.ini` keys on B41 but SandboxVars keys on B42 [2] [3]; a copied B41 guide will have you editing lines a B42 server ignores.
 - **B41 key names in a B42 file (and vice versa).** `DisableSafehouseWhenPlayerConnected`, `DiscordChannelID` and `VoiceComplexity` do not exist in the B42-era documentation; `UDPPort`, `BackupsCount` and the `AntiCheat*` keys have no B41-era documentation [2] [3]. An unrecognized key fails silently — the server simply never behaves as intended.
-- **`MaxPlayers` raised past 32.** The documented range runs to 100, but the same revision warns of map-streaming degradation and desync above 32 [2]. Raise it in steps and observe; do not jump to the maximum.
+- **`MaxPlayers` raised past 32.** The documented range runs to 100, but the same revision warns of map-streaming degradation and desync above 32 [2]; the 42.20.3 notes say up to 254 players are supported *(B42)* [8], and neither source gives a tested recommendation. Raise it in steps and observe; do not jump to the maximum.
 - **RCON port open with a blank password.** The default `RCONPort=27015` plus an empty `RCONPassword` on a public IP is an unauthenticated admin console; any Source-RCON client can speak to it [2] [6].
 - **`Open=true` with no `Password` "temporarily".** That is a public server. If you must, set `MaxAccountsPerUser=1` so one Steam user cannot mass-create accounts [2].
 - **Backslashes, semicolons and the `Mods=` line.** Only `WorkshopItems` has a documented separator example [2]; if mods install but never load, verify pairing (both lists populated) and check the boot console before restructuring the line to match any single hosting KB.
@@ -449,32 +455,41 @@ The token is a credential: keep the `.ini` out of world-readable paths and out o
 - **The core source is a community wiki, not the game.** Both anchor revisions are fact-only pzwiki citations [2] [3]; no key in this document was verified against a generated `servertest.ini` from a live 42.20 or 41.78.16 install. The Verification Steps below close that gap mechanically.
 - **The B41 column inherits an incomplete page.** Revision 157571 self-flags as needing improvement and mixes example values with defaults [3]; B41-only rows are correspondingly weaker than B42 rows.
 - **Wiki-revision delta ≠ game delta.** Every "B42-only"/"B41-only" tag is a statement about two page revisions (see Claim 1). Only `LogLocalChat` carries a patch-note-backed removal [3].
-- **Day-old stable.** 42.20 went stable on 2026-07-29 [1]; early hotfixes could add, remove or re-default keys faster than the wiki re-verifies them.
+- **Hotfix drift.** 42.20 went stable on 2026-07-29 [1] and 42.21 on 2026-09-28 [11]; the wiki revisions pinned here predate 42.21, and the patch notes cover behaviour rather than a key-by-key schema, so a key could have been added or re-defaulted without a note.
+- **Server-side verification gap.** The 42.21 re-check was against patch notes only; no key was re-verified on a 42.21 server install.
 - **Undescribed keys are listed, not explained.** Where a revision documents a key without semantics (`SpeedLimit`, `SafetyDisconnectDelay`, `UsernameDisguises`, `SwitchZombiesOwnershipEachUpdate`, `SaveTransactionID`), this document says "undescribed" rather than inventing behaviour.
 - **Live-check asymmetry.** pzwiki currently serves interactive challenges to some automated clients; the citation URLs below were verified reachable at access time, and the B41 revision is doubly anchored via an Internet Archive capture in case the origin hardens further.
 
 # Verification Steps
 
 1. **Regenerate ground truth (B42):** install the server (SteamCMD App 380870, stable branch), start it once, and diff the generated `Zomboid/Server/servertest.ini` key list and values against the B42 rows above; repeat with the `legacy41` beta for the B41 rows.
-2. **Confirm the live-reload boundary:** change one benign key (e.g. `PublicDescription`), run `reloadoptions`, then `showoptions`, and confirm the new value is live [4].
-3. **Probe Claim 2 empirically:** on a disposable B42 server, set `AntiCheatSpeed` to each of 1/2/3/4, trip the speed rule with a debug client, and record ban/kick/log/nothing per value.
-4. **Check the port surface:** with the server up, verify UDP listeners on `DefaultPort` and `UDPPort` and the RCON listener on `RCONPort` from another host; confirm an RCON login fails with a wrong password [2] [6].
-5. **Verify backup behaviour:** set `BackupsPeriod` to a small value, run for an hour, and timestamp the produced backups to resolve the undocumented units.
-6. **Confirm the citation pins:** both Server settings revisions are permalinked below; the B41 revision can additionally be read via its 2023-10-28 Internet Archive capture if the origin blocks you [3].
+2. **Re-extract on 42.21:** the key schema is pinned to wiki revisions, so repeat step 1 on a 42.21 install and re-run the server-settings gate.
+3. **Confirm the live-reload boundary:** change one benign key (e.g. `PublicDescription`), run `reloadoptions`, then `showoptions`, and confirm the new value is live [4].
+4. **Probe Claim 2 empirically:** on a disposable B42 server, set `AntiCheatSpeed` to each of 1/2/3/4, trip the speed rule with a debug client, and record ban/kick/log/nothing per value.
+5. **Check the port surface:** with the server up, verify UDP listeners on `DefaultPort` and `UDPPort` and the RCON listener on `RCONPort` from another host; confirm an RCON login fails with a wrong password [2] [6].
+6. **Verify backup behaviour:** set `BackupsPeriod` to a small value, run for an hour, and timestamp the produced backups to resolve the undocumented units.
+7. **Confirm the citation pins:** both Server settings revisions are permalinked below; the B41 revision can additionally be read via its 2023-10-28 Internet Archive capture if the origin blocks you [3].
 
 # Open Questions
 
-- What is the authoritative numeric-to-mode mapping for the `AntiCheat*` keys, and will The Indie Stone document it now that anti-cheat is a stable-branch feature [1] [2]? (Claim 2; Step 3 resolves behaviour, not provenance.)
+- What is the authoritative numeric-to-mode mapping for the `AntiCheat*` keys, and will The Indie Stone document it now that anti-cheat is a stable-branch feature [1] [2]? (Claim 2; Step 4 resolves behaviour, not provenance.)
 - Which "B42-only" keys actually exist and function on a 41.78.16 server despite being missing from the B41-era page (Claim 1)? Step 1's legacy41 diff answers this per key.
-- What are `BackupsPeriod`'s units, and how does it interact with `SaveWorldEveryMinutes` [2]? (Step 5.)
+- What are `BackupsPeriod`'s units, and how does it interact with `SaveWorldEveryMinutes` [2]? (Step 6.)
 - What do the undescribed keys (`SpeedLimit`, `SafetyDisconnectDelay`, `SwitchZombiesOwnershipEachUpdate`, `UsernameDisguises`) actually govern, and on which builds are they read?
-- Does 42.20's hotfix wave change any documented default in this table? Re-verify against the wiki's revision history and the patch-note feed at the next review date.
+- Does the 42.20.1-42.21 wave change any documented default in this table? The patch notes name none [7] [8] [9] [10] [11] [12]; confirm against a 42.21 server's generated `.ini` and the wiki's revision history at the next review.
+- What `MaxPlayers` range does a 42.21 server accept, given the 254-player statement [8] and the 1–100 range in the pinned revision [2]?
 
 # References
 
 **Primary Sources**
 
 - [1] **The Indie Stone** — *Build 42.20.0 Stable Released* (Steam announcement, 2026-07-29; retrieved via the ISteamNews API mirror, app 108600). https://steamcommunity.com/games/108600/announcements/detail/1839676055882259. Accessed 2026-07-31.
+- [7] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766. Accessed 2026-10-07.
+- [8] **The Indie Stone** — *42.20.3 STABLE Hotfix Released* (Steam announcement, 2026-08-17). https://steamcommunity.com/games/108600/announcements/detail/1840944183785895. Accessed 2026-10-07.
+- [9] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601. Accessed 2026-10-07.
+- [10] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925. Accessed 2026-10-07.
+- [11] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [12] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first post 2026-09-23; multiplayer list abridged to selected items in the retrieved copy). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -511,3 +526,4 @@ The token is a credential: keep the `.ini` out of world-readable paths and out o
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: reviewed against the 42.20.1, 42.20.3, 42.20.4, 42.21 unstable and stable Steam notes [7] [8] [9] [10] [11] and the TIS forum 42.21 changelist [12]; added per-key 42.21 notes, player-limit and anti-cheat updates, Applicability scope. Key schema not re-extracted. | — |

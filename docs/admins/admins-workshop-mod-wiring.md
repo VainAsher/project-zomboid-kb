@@ -1,7 +1,7 @@
 ---
 id: admins-workshop-mod-wiring
 title: "Wiring Workshop Mods into a Server: IDs, Load Order and Updates"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Admins
@@ -9,13 +9,13 @@ topic: "Server operations"
 build: both
 document_type: reference
 created: 2026-07-31
-updated: 2026-07-31
-review_due: 2026-10-31
-sources_verified: 2026-07-31
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [admins-foundation, admins-server-ini-reference, modders-foundation, meta-style-guide]
 tags: [workshop, mods, mod-id, workshop-id, load-order, server-ini, updates, b42, legacy41]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,16 +23,16 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | admins-workshop-mod-wiring |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Admins |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-07-31 |
-| Review due | 2026-10-31 |
-| Game versions verified | 41.78.16, 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 |
 
 # Executive Summary
 
@@ -164,7 +164,9 @@ out of scope.
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | 41.78.16 | The `WorkshopItems=`/`Mods=` pairing is a `both`-tagged row in the pinned `Server settings` revisions used throughout this knowledge base [3]. The `mod.info` fields covered here were **not** independently re-verified against a B41-era `mod.info` page revision — see Risks |
-| B42 (stable) | Yes | 42.20 | Stable since 2026-07-29 [1]; ScriptsDocs' `mod.info` page is titled "PZ API Documentation 42.20.0" [2], and the pzwiki `Mod.info` page's own version banner reads 42.17.0, one minor version behind [5] |
+| B42 (stable) | Yes | 42.20; notes reviewed to 42.21 | 42.20 stable from 2026-07-29 [1], superseded by 42.21 stable on 2026-09-28 [19]; ScriptsDocs' `mod.info` page is titled "PZ API Documentation 42.20.0" [2], and the pzwiki `Mod.info` page's own version banner reads 42.17.0, one minor version behind [5] |
+
+Re-baseline note (0.2.0): this revision re-checked the document against the Steam announcements 42.20.1 to 42.21 stable [16] [17] [18] [19] and the abridged TIS forum changelist for 42.21 [20] for anything touching Workshop updates, restarts, version mismatch or Lua checksums. None of those notes describes a change to how a server fetches or refreshes Workshop items or to the `WorkshopItems=`/`Mods=` keys. The pzwiki and ScriptsDocs statements remain pinned to the revisions listed in References and are carried forward from 42.20 with no contradicting change found; they were not re-tested on 42.21.
 
 The core `WorkshopItems=`/`Mods=` mechanism predates the B42 mod-folder
 restructuring and is unchanged by it; the B42-specific wrinkle is that
@@ -303,6 +305,24 @@ covered by the live `reloadoptions` path — this document does not re-derive
 that fact, only notes that it applies equally to a Workshop file update
 landing in the cache between restarts.
 
+## Version drift and the 42.20.1 to 42.21 notes
+
+Three official changes sit near the update-and-restart behaviour this document
+describes. First, 42.20.1 lists improved Lua checksum validation for
+multiplayer anti-cheat [16]; the note does not say how a mismatch between
+client and server mod Lua is handled, so no mod-specific behaviour is asserted
+here *(B42)*. Second, 42.21 adds a notification for players who try to connect
+to a multiplayer server running a different game version [18] [20]; the
+wording covers the game version, and the notes reviewed do not extend it to
+Workshop mod revisions *(B42)*. Third, the 42.20.4 hotfix removed the
+`loadstring` and `loadstream` Lua methods and told authors who ran
+server-sent code through them to replace that with commands [17]; 42.21
+re-enabled both [18] [19] *(B42)*. The 42.20.4 post is shared with the 42.19.2
+unstable and 41.78.21 legacy hotfixes and does not split the Lua change by
+build [17]. None of the notes reviewed alters the documented restart-required
+posture of mod-list changes; the author-side detail of the Lua changes lives
+in `modders-lua-api-surface` and the other Modders documents.
+
 ## Pinning a mod to a specific Workshop revision
 
 No primary or fact-only source documents a way to lock `WorkshopItems=` to a
@@ -323,11 +343,12 @@ a practical guidance-layer conclusion, not a reference-layer fact.
 
 # B41 vs B42 Delta
 
-| Area | Build 41.78 *(B41)* | Build 42.20 *(B42)* |
+| Area | Build 41.78 *(B41)* | Build 42.20 / 42.21 *(B42)* |
 |------|---------------------|----------------------|
 | `WorkshopItems=`/`Mods=` keys | Present, `both`-tagged in the pinned `Server settings` revisions [3] | Same |
 | `mod.info` location | One `mod.info` at the mod root [6] | One `mod.info` per version folder (`common/`, `42/`, `42.1/`, …); dependency fields can in principle differ per version folder [6] |
 | `require=`/`incompatible=`/`loadModAfter=`/`loadModBefore=` | Not independently verified against a B41-era `mod.info` page revision in this research | Documented against the current ScriptsDocs build (titled 42.20.0) and the pzwiki `Mod.info` page (versioned 42.17.0) [2] [5] |
+| `loadstring`/`loadstream` (affects mods that run server-sent code) | Per-build scope of the 42.20.4 removal not separated in the combined post [17] | Removed in 42.20.4 [17]; re-enabled in 42.21 [19] |
 | Mod-folder auto-detection | Flat layout; presence of `media/` + root `mod.info` is what's checked | At least one `common/` or version folder is required for detection — a fact `modders-foundation` already owns in depth [6] |
 
 The one-line version: the `WorkshopItems=`/`Mods=` server-config pairing this
@@ -492,6 +513,7 @@ its siblings — lives, per the B42 versioned-folder restructuring that
   documents during this same research pass (within the same day); the
   citations below are pinned to the revisions read for this document
   specifically.
+- **Hotfix cadence.** 42.21 has been stable since 2026-09-28 [19]; a later hotfix could change Workshop, checksum or mismatch behaviour before this document's next review.
 - **Hosting-KB sources are corroborate-only by this project's own rules** and
   are used here exclusively to document claims that this document then
   quarantines — never to source a fact in the Reference section above.
@@ -524,6 +546,9 @@ its siblings — lives, per the B42 versioned-folder restructuring that
 
 # Open Questions
 
+- Do the improved Lua checksum validation [16] or the 42.21 game-version
+  notice [18] [20] say anything about a server and client holding different
+  Workshop revisions of the same mod? The notes reviewed are silent.
 - What is the actually-supported separator (and any prefix convention) for
   `Mods=`, and will pzwiki or a future Indie Stone modding-documentation
   release (flagged as planned in `modders-foundation`) finally state it
@@ -557,6 +582,12 @@ its siblings — lives, per the B42 versioned-folder restructuring that
   generated from parsed script/Lua/Java data; page titled "PZ API
   Documentation 42.20.0"). https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/modinfo.html.
   Accessed 2026-07-31.
+
+- [16] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05; Lua checksum validation). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766. Accessed 2026-10-07.
+- [17] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26; `loadstring`/`loadstream` removal). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601. Accessed 2026-10-07.
+- [18] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23; `loadstring` re-enabled, game-version mismatch notice). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925. Accessed 2026-10-07.
+- [19] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [20] **The Indie Stone Forums** — *42.21 Patch Notes* (topic 101693, first post, 2026-09-23; abridged selection of the full changelist). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07 (host bot-block allowlisted).
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL +
 revision id; facts only, never prose.
@@ -639,3 +670,4 @@ revision id; facts only, never prose.
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21 (stable 2026-09-28): added a Reference section on 42.20.1-42.21 notes bearing on Workshop wiring (Lua checksum validation, loadstring/loadstream removal and re-enable, game-version mismatch notice, no documented change to Workshop fetch behaviour); updated Build Applicability, Delta, Risks and Open Questions. Sources: Steam posts 42.20.1, 42.20.4+41.78.21, 42.21 unstable and stable; TIS forum 42.21 patch notes. Unchanged statements carried forward from 42.20, not re-tested. | — |

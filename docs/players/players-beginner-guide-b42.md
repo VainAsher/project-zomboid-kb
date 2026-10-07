@@ -1,7 +1,7 @@
 ---
 id: players-beginner-guide-b42
-title: "Starting Project Zomboid on Build 42.20: A First-Week Survival Guide"
-version: 0.1.0
+title: "Starting Project Zomboid on Build 42.21: A First-Week Survival Guide"
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Players
@@ -9,13 +9,13 @@ topic: "Guides"
 build: B42
 document_type: tutorial
 created: 2026-07-31
-updated: 2026-07-31
-review_due: 2026-10-31
-sources_verified: 2026-07-31
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [players-foundation, players-skills-xp, players-traits-occupations, players-medical-moodles, players-map-locations, meta-style-guide]
 tags: [players, beginner, tutorial, first-week, apocalypse-preset, character-creation, spawn-towns, moodles, skill-books, build-42]
-game_versions_verified: ["42.20"]
+game_versions_verified: ["42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,24 +23,24 @@ game_versions_verified: ["42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | players-beginner-guide-b42 |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Players |
 | Build | B42 |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-07-31 |
-| Review due | 2026-10-31 |
-| Game versions verified | 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 42.20, 42.21 |
 
 # Executive Summary
 
-This document is the onboarding path for a player installing Project Zomboid for the first time on Build 42.20 stable. Where `players-foundation` maps the whole game and the deeper Players-track documents cover single systems exhaustively, this document does one narrower job: it puts the actual sequence of decisions a brand-new survivor faces — the tutorial, which game mode to start, which occupation and town to pick, and what to prioritise in the first in-game hours and days — into the order a new player meets them, and says what matters and what can wait.
+This document is the onboarding path for a player installing Project Zomboid for the first time on Build 42 stable (42.21 since 2026-09-28 [19]; 42.20 before that). Where `players-foundation` maps the whole game and the deeper Players-track documents cover single systems exhaustively, this document does one narrower job: it puts the actual sequence of decisions a brand-new survivor faces — the tutorial, which game mode to start, which occupation and town to pick, and what to prioritise in the first in-game hours and days — into the order a new player meets them, and says what matters and what can wait.
 
-The headline finding is that Build 42.20 gives a new player more up-front choice than earlier builds did. The Indie Stone rebuilt the game-mode menu during the unstable cycle into four playstyles with one explicit purpose each: Apocalypse as the "Lore Canon" reference experience, Outbreak for faster, less grind-heavy progression, Extinction for veterans only, and Rising as the mode the developers describe in the game files themselves as designed for newer players [2] [3] [5]. Layered under all of them is Custom Sandbox, where every numeric setting from that menu can be hand-tuned [5] [6]. This document treats that mode choice, plus occupation, trait and town selection, as the real "first decision" of a run, ahead of anything that happens in-world.
+The headline finding is that Build 42 gives a new player more up-front choice than earlier builds did. The Indie Stone rebuilt the game-mode menu during the unstable cycle into four playstyles with one explicit purpose each: Apocalypse as the "Lore Canon" reference experience, Outbreak for faster, less grind-heavy progression, Extinction for veterans only, and Rising as the mode the developers describe in the game files themselves as designed for newer players [2] [3] [5]. Layered under all of them is Custom Sandbox, where every numeric setting from that menu can be hand-tuned [5] [6]. This document treats that mode choice, plus occupation, trait and town selection, as the real "first decision" of a run, ahead of anything that happens in-world.
 
-Document-level confidence is **Medium**. The game-mode overhaul and its intent are primary-sourced to an Indie Stone Thursdoid and its accompanying patch notes (High), and the current game-mode roster is corroborated by a pzwiki revision fetched the day after 42.20 shipped. But several of the beginner-mechanics facts this document leans on — the Survival Guide's early-priority advice, barricade behaviour, and the zombification percentages — are cited from wiki pages stamped against 41.78.19–42.13.1 and not independently re-verified against 42.20, which is the same caveat the sibling Players-track documents carry.
+Document-level confidence is **Medium**. The game-mode overhaul and its intent are primary-sourced to an Indie Stone Thursdoid and its accompanying patch notes (High), and the current game-mode roster is corroborated by a pzwiki revision fetched the day after 42.20 shipped. But several of the beginner-mechanics facts this document leans on — the Survival Guide's early-priority advice, barricade behaviour, and the zombification percentages — are cited from wiki pages stamped against 41.78.19–42.13.1 and not independently re-verified against 42.20, which is the same caveat the sibling Players-track documents carry. Since the original draft, the 42.20 hotfixes and the 42.21 update changed a few first-week details (utility-failure food storage, water purification, farming paths); those are folded in and cited to the official notes.
 
 # Key Takeaways
 
@@ -55,13 +55,13 @@ Document-level confidence is **Medium**. The game-mode overhaul and its intent a
 
 # Purpose
 
-This document exists to answer the question a completely new player asks in the first five minutes: "I have Project Zomboid 42.20 open, what do I actually do, and in what order?" It is deliberately sequencing-first rather than mechanics-first — every deeper system it touches (skills and XP, traits and occupations, moodles and health, the map) has its own Players-track document, and this one exists to tell a beginner which of those systems to care about *this week*, and to point at the deeper document when more detail is warranted.
+This document exists to answer the question a completely new player asks in the first five minutes: "I have Project Zomboid 42.21 open, what do I actually do, and in what order?" It is deliberately sequencing-first rather than mechanics-first — every deeper system it touches (skills and XP, traits and occupations, moodles and health, the map) has its own Players-track document, and this one exists to tell a beginner which of those systems to care about *this week*, and to point at the deeper document when more detail is warranted.
 
 # Scope
 
-Covered: the in-game tutorial; the Build 42.20 game-mode menu (Apocalypse, Outbreak, Extinction, Rising, Custom Sandbox) and what each actually changes; beginner-level occupation and trait guidance (which occupations are cheap and solid, deferring full rosters and point tables); beginner-level spawn-town choice among the four canon towns (deferring full town profiles); the first-day and first-week priority order — securing a starting building, water, food, and a weapon; reading moodles at a "what to watch for" level; the beginner value of skill books; and the single biggest causes of new-player death.
+Covered: the in-game tutorial; the Build 42 game-mode menu (Apocalypse, Outbreak, Extinction, Rising, Custom Sandbox) and what each actually changes; beginner-level occupation and trait guidance (which occupations are cheap and solid, deferring full rosters and point tables); beginner-level spawn-town choice among the four canon towns (deferring full town profiles); the first-day and first-week priority order — securing a starting building, water, food, and a weapon; reading moodles at a "what to watch for" level; the beginner value of skill books; and the single biggest causes of new-player death.
 
-Not covered, and covered instead by sibling documents: the full skill and XP mathematics (`players-skills-xp`), the complete occupation and trait rosters and point economy (`players-traits-occupations`), full moodle and injury mechanics (`players-medical-moodles`), and full town profiles and the wider map (`players-map-locations`). This document is written for Build 42.20 only; it does not cover Build 41.78 play, and it does not cover multiplayer server administration (Admins track) or modding.
+Not covered, and covered instead by sibling documents: the full skill and XP mathematics (`players-skills-xp`), the complete occupation and trait rosters and point economy (`players-traits-occupations`), full moodle and injury mechanics (`players-medical-moodles`), and full town profiles and the wider map (`players-map-locations`). This document is written for Build 42.20 and 42.21 only; it does not cover Build 41.78 play, and it does not cover multiplayer server administration (Admins track) or modding.
 
 # Definitions
 
@@ -77,9 +77,9 @@ Not covered, and covered instead by sibling documents: the full skill and XP mat
 | Build | Applies | Verified against | Notes |
 |-------|---------|-------------------|-------|
 | B41 (legacy41) | No | — | Out of scope by design — see B41 vs B42 Delta below |
-| B42 (stable) | Yes | 42.20 | All facts in this document target the 42.20 stable release [1] |
+| B42 (stable) | Yes | 42.20, 42.21 (patch notes) | Facts target the 42.20 stable release [1]; current stable is 42.21 since 2026-09-28 [19] |
 
-This document only makes claims about Build 42.20. Where a cited pzwiki page's own version banner predates 42.20 (several do — see Risks & Caveats), that is flagged inline and the fact is treated as "documented pre-42.20, not independently re-verified," matching the convention used across this KB's Players-track documents.
+Re-baseline 2026-10-07: this document was re-checked against the official 42.20.1, 42.20.3, 42.20.4, 42.21 unstable and 42.21 stable posts and the abridged TIS forum 42.21 changelist [15] [16] [17] [18] [19] [20]. Statements those notes do not touch (game modes, tutorial, occupation costs, town ratings, wiki-sourced mechanics) are carried forward from 42.20 and the cited pzwiki revisions with no contradicting change found; they were not re-tested in-game. This document only makes claims about Build 42.20 and 42.21. Where a cited pzwiki page's own version banner predates 42.20 (several do — see Risks & Caveats), that is flagged inline and the fact is treated as "documented pre-42.20, not independently re-verified," matching the convention used across this KB's Players-track documents.
 
 # Reference
 
@@ -89,7 +89,7 @@ Project Zomboid ships a short, fenced-off tutorial scenario with no settings to 
 
 ## Choosing a game mode
 
-Build 42.20's mode-select screen offers five options: Apocalypse, Outbreak, Extinction, Rising, and Custom Sandbox, each pre-loading a themed settings sheet that can still be opened and hand-tuned before the run starts [5] [6]. The Indie Stone rebuilt this menu partway through the Build 42 unstable cycle, in the same release that reworked Apocalypse into the "Lore Canon" mode and introduced the other three as fresh replacements for the older mode line-up, stating plainly that "it has come time to refresh the Game Modes" for a build that had added enough new systems (animals, crafting, muscle strain) to need new defaults [2] [3].
+Build 42's mode-select screen (checked in the 42.20 sources; 42.21 notes mention no change) offers five options: Apocalypse, Outbreak, Extinction, Rising, and Custom Sandbox, each pre-loading a themed settings sheet that can still be opened and hand-tuned before the run starts [5] [6]. The Indie Stone rebuilt this menu partway through the Build 42 unstable cycle, in the same release that reworked Apocalypse into the "Lore Canon" mode and introduced the other three as fresh replacements for the older mode line-up, stating plainly that "it has come time to refresh the Game Modes" for a build that had added enough new systems (animals, crafting, muscle strain) to need new defaults [2] [3].
 
 | Mode | Stated intent | What changes for the player |
 |------|----------------|------------------------------|
@@ -109,7 +109,7 @@ Beyond the occupation, this document deliberately does not walk through the trai
 
 ## Choosing a spawn town
 
-On Build 42.20, occupation-specific spawn points exist only in four canon towns: Muldraugh, West Point, Riverside and Rosewood [4]. Anywhere else on the map — including the westward Build 42 additions — is reachable only through Custom Sandbox's town-selection option, and only with a generic, non-occupational spawn point [4]. `players-map-locations` carries full profiles of all of them; the beginner-relevant summary is the wiki's relative difficulty assessment for the four canon towns: Riverside is rated easy-to-medium and is the community's standing first-timer recommendation, with roughly two-thirds of its zombie population concentrated in its riverfront business district and a wealthy gated community, leaving quieter suburbs to learn the game in [11]. West Point, by contrast, is rated the hardest of the four, with heavy zombie presence in both its suburbs and its downtown — offset by the best firearm availability of the canon towns, which matters little to a beginner who should not be relying on guns yet [13]. Rosewood is the smallest canon town and was once the other commonly recommended beginner spawn, but the pinned Build 42 revision of its wiki page records that its zombies were redistributed to concentrate around its Main Street points of interest, and the page's own editors now rate it medium rather than the easy beginner-safe town it was on Build 41 [12].
+On Build 42, occupation-specific spawn points exist only in four canon towns: Muldraugh, West Point, Riverside and Rosewood [4]. Anywhere else on the map — including the westward Build 42 additions — is reachable only through Custom Sandbox's town-selection option, and only with a generic, non-occupational spawn point [4]. The Spawn Point Selection preview videos were refreshed in 42.21 to match the map overhaul [18] [20]. `players-map-locations` carries full profiles of all of them; the beginner-relevant summary is the wiki's relative difficulty assessment for the four canon towns: Riverside is rated easy-to-medium and is the community's standing first-timer recommendation, with roughly two-thirds of its zombie population concentrated in its riverfront business district and a wealthy gated community, leaving quieter suburbs to learn the game in [11]. West Point, by contrast, is rated the hardest of the four, with heavy zombie presence in both its suburbs and its downtown — offset by the best firearm availability of the canon towns, which matters little to a beginner who should not be relying on guns yet [13]. Rosewood is the smallest canon town and was once the other commonly recommended beginner spawn, but the pinned Build 42 revision of its wiki page records that its zombies were redistributed to concentrate around its Main Street points of interest, and the page's own editors now rate it medium rather than the easy beginner-safe town it was on Build 41 [12].
 
 ## Securing a starting base
 
@@ -119,7 +119,7 @@ Once a longer-term base is chosen, the game's actual reinforcement mechanic is t
 
 ## Water, food and the first-week clock
 
-Both utilities fail on an unannounced schedule: on Apocalypse's default settings, water and electricity both go down within the first 30 days, and unlike an in-fiction weather report, no specific warning names the exact day it happens [5] [6]. The Survival Guide's practical framing is to spend the early days consuming perishable food from refrigerators before it spoils, since once power fails, cooling stops and fresh food starts to rot — with any windfall of fresh food best moved into a working freezer immediately to buy extra time [7]. Non-perishable canned and dry goods are the fallback once the fridge empties, and the same source recommends treating carpentry materials for a rain-collection barrel, or a nearby natural water source, as the actual long-term water plan rather than depending on taps indefinitely [7]. Building a renewable food source — farming, fishing or trapping — by roughly the end of the first month is the same guide's recommended threshold for a survivable long game, well before stored food realistically runs out [7].
+Both utilities fail on an unannounced schedule: on Apocalypse's default settings, water and electricity both go down within the first 30 days, and unlike an in-fiction weather report, no specific warning names the exact day it happens [5] [6]. The Survival Guide's practical framing is to spend the early days consuming perishable food from refrigerators before it spoils, since once power fails, cooling stops and fresh food starts to rot — with any windfall of fresh food best moved into a working freezer immediately to buy extra time [7]. One 42.21 detail refines that: fridges and freezers now warm gradually on the day the power goes out rather than abruptly, and food carried in a bag inside a fridge or freezer is now refrigerated correctly [18] [20]. Non-perishable canned and dry goods are the fallback once the fridge empties, and the same source recommends treating carpentry materials for a rain-collection barrel, or a nearby natural water source, as the actual long-term water plan rather than depending on taps indefinitely [7]. Two 42.21 changes widen your options: 86 more fluid containers can now be used to purify water in the appropriate oven type, and washing machines now clean dirty rags, strips and bandages [18] [20]. Building a renewable food source — farming, fishing or trapping — by roughly the end of the first month is the same guide's recommended threshold for a survivable long game, well before stored food realistically runs out [7]. If you farm, note that since 42.21 player pathfinding avoids walking over crop plants where possible, though the notes state that stepping on crops never damaged them and the change is cosmetic; furrows trampled by zombies are now removed entirely [20].
 
 ## Arming yourself: melee first, firearms later
 
@@ -139,7 +139,7 @@ Two mechanical facts do most of the explanatory work for "how did I die." First,
 
 # B41 vs B42 Delta
 
-Not applicable — single-build document. This guide is deliberately scoped to Build 42.20 only: Build 41.78 is now the frozen `legacy41` maintenance line rather than the build a brand-new player installing the game today will land on, and `players-foundation` already documents how to reach `legacy41` for a player who specifically wants Build 41. Writing a beginner's first-week sequence that tried to serve both builds at once would blur exactly the kind of build-specific detail (the game-mode menu, the occupation roster, the muscle-strain caution around firearms and melee) that this document exists to get right for the build a newcomer is actually running.
+Not applicable — single-build document. This guide is deliberately scoped to Build 42 (42.20 and 42.21) only: Build 41.78 is now the `legacy41` maintenance line (its latest primary-attested hotfix is 41.78.21, 2026-08-26 [17]) rather than the build a brand-new player installing the game today will land on, and `players-foundation` already documents how to reach `legacy41` for a player who specifically wants Build 41. Writing a beginner's first-week sequence that tried to serve both builds at once would blur exactly the kind of build-specific detail (the game-mode menu, the occupation roster, the muscle-strain caution around firearms and melee) that this document exists to get right for the build a newcomer is actually running.
 
 # Practical Guidance
 
@@ -149,7 +149,8 @@ Not applicable — single-build document. This guide is deliberately scoped to B
 - **Take a zero-point occupation with a skill you intend to use.** Doctor, Farmer, Firefighter, Lumberjack, Nurse or Rancher hand you real starting levels for nothing, which is strictly better than spending your first run's points learning what traits do.
 - **Spawn in Riverside if you have no preference.** It is the community's standing easy recommendation among the four canon towns. Save West Point for a run where you specifically want early pressure, and do not assume Rosewood is still the soft option it was on Build 41.
 - **Stay inside your starting building at first.** Cover the windows, find a bag and a blunt weapon, and only then think about what is outside.
-- **Treat the utility shutoff as a countdown from day one**, not an emergency to react to later — start planning a rain barrel or a water-adjacent base well before the taps actually run dry.
+- **Treat the utility shutoff as a countdown from day one**, not an emergency to react to later — start planning a rain barrel or a water-adjacent base well before the taps actually run dry. Since 42.21 your fridge buys you a little more grace on the day the power fails, because it warms gradually [20].
+- **Stay on the Stable branch for your first save.** The developers recommend a manual backup before testing a new update on Unstable with an existing save [18].
 - **Leave the gun in the bag.** Melee is quieter, ammo-free, and does not require a skill most starting occupations do not give you.
 - **Read the Volume I book before you grind anything.** It is free efficiency that costs you nothing but the in-game time to read it.
 - **After any zombie wound, the first question is "what kind," not "how bad."** A scratch and a bite are not the same emergency, and no amount of first aid changes which one you have.
@@ -162,6 +163,9 @@ Not applicable — single-build document. This guide is deliberately scoped to B
 - **"My water/power just stopped and I had no warning."** Also working as documented: the utility shutoff window is randomised within roughly the first month and is not announced by an exact date in advance [5] [7].
 - **"I got scratched and panicked like it was a bite."** A scratch carries a 7% zombification chance on default settings, nowhere near the 100% of an actual bite — treat the two very differently [9].
 - **"I started Extinction as my first game and died in ten minutes."** The mode's own description tells new players not to start there; if this happened, the mode did exactly what it says on the tin [5].
+- **"The zombies I saw a minute ago are gone after I walked away and came back."** That was a chunk re-entry bug in singleplayer and multiplayer, fixed in 42.21; the developers say a few instances remain [19] [20].
+- **"The game slows down or crashes after hours of play."** 42.20.1 and 42.20.3 fixed memory leaks that did this; if out-of-memory errors persist on a new save, the developers ask for a bug report with logs and a debug profiler video [15] [16].
+- **"A huge tree is hiding my house or blocking my view while driving."** 42.21 changed XXL tree cutaway so they hide overhung houses and furniture less and cut away better for drivers; the developers call it work in progress [19] [20].
 - **"I ignored the Tired moodle and lost a fight I should have won."** Fatigue degrades combat and narrows your effective vision the longer it is ignored, and only sleep or caffeine actually clears it — pushing through it is the mistake, not bad luck [7].
 
 # Community Notes & Unverified Claims
@@ -190,19 +194,21 @@ Not applicable — single-build document. This guide is deliberately scoped to B
 - **The Game modes wiki page mixes fresh and stale content.** Its edit history shows a revision made the day after 42.20 shipped, and its playstyle descriptions (Apocalypse, Outbreak, Extinction, Rising) read as current, but its page-version banner still names Build 42.15.0 and its listed Challenge names do not match the two challenges named in the 42.20 stable release notes elsewhere in this KB — a sign that not every section of that page was updated at the same time [1] [5]. This document only draws on the playstyle section, cross-checked against the primary Thursdoid, not the challenge list.
 - **The exact Rising, Outbreak and Extinction Custom Sandbox variable sheets were not fully extracted for this document** — only Apocalypse's was read in full detail; the comparative statements above rest on the modes' documented intent and stated highlights, not a line-by-line settings diff.
 - **Zombification odds are wiki-sourced, not patch-note-sourced**, a caveat this document inherits directly from `players-medical-moodles`: no Indie Stone announcement stating 7%/25%/100% was located during this document's research, only the pzwiki Knox Infection page [9].
-- **42.20 is two days old at the time of writing.** A hotfix wave was expected at release, and the utility-shutoff window, occupation costs and any other numeric value cited here could move in an early patch.
+- **Patch recency.** Hotfixes 42.20.1 to 42.20.4 and the 42.21 update have landed since the original draft [15] [16] [17] [19]; none of their notes mention the utility-shutoff window, occupation costs or game-mode values cited here, but those were not re-tested in-game and later patches could move them.
+- **Abridged forum changelist.** The TIS forum 42.21 list [20] was captured in abridged form; an absent item is not necessarily absent from the full list.
 - **Steam announcement mirrors.** Primary citations use Steam announcement URLs, which bot-block automated link checkers by design; they were retrieved and verified through the Steam news API for app 108600.
 
 # Verification Steps
 
-1. **Confirm the mode menu:** on 42.20, open a new game and record the exact five options offered, comparing them against the Apocalypse/Outbreak/Extinction/Rising/Custom Sandbox list above.
+1. **Confirm the mode menu:** on 42.20 or 42.21, open a new game and record the exact five options offered, comparing them against the Apocalypse/Outbreak/Extinction/Rising/Custom Sandbox list above.
 2. **Confirm the tutorial's scope:** play the tutorial once and check it covers zoom, health, skills, movement, looting, moodles, equipping, world interaction and attacking, as listed [5].
 3. **Confirm the zero-point occupations:** at character creation, check that Doctor, Farmer, Firefighter, Lumberjack, Nurse and Rancher each show a Points cost of 0.
 4. **Confirm the canon-town spawn list:** verify that only Muldraugh, West Point, Riverside and Rosewood offer occupation-specific spawn points outside Custom Sandbox.
 5. **Confirm the utility-shutoff window:** on an Apocalypse-preset game, open Custom Sandbox before starting and check the Water Shutoff and Electricity Shutoff values against the "0–30 days" figure cited here.
 6. **Confirm barricade limits:** in-game, attempt to add more than four planks to one side of a window and confirm the game refuses the fifth.
 7. **Confirm the zombification odds:** cross-check against `players-medical-moodles`'s own verification steps, which propose a large-sample in-game test.
-8. **Re-verify the wiki sources:** open each cited pzwiki revision URL (each pins an `oldid`) and diff against the live page for post-42.20 corrections.
+8. **Confirm the 42.21 changes you rely on:** after a power cut, watch a fridge warm over the day, and check that a bagged food item inside it stays cold [18] [20].
+9. **Re-verify the wiki sources:** open each cited pzwiki revision URL (each pins an `oldid`) and diff against the live page for post-42.20 corrections.
 
 # Open Questions
 
@@ -220,6 +226,13 @@ Not applicable — single-build document. This guide is deliberately scoped to B
 - [2] **The Indie Stone** — *SOME NEW THINGS* (Thursdoid, Steam announcement, 2026-03-09; the Game Mode Refresh announcing Apocalypse's Lore Canon rebalance and the new Outbreak, Extinction and Rising modes). https://steamcommunity.com/games/108600/announcements/detail/1826362059930346. Accessed 2026-07-31.
 - [3] **The Indie Stone** — *Build 42.15.0 Unstable Released* (Steam announcement, 2026-03-09; the patch notes accompanying the Game Mode Refresh). https://steamcommunity.com/games/108600/announcements/detail/1826362059930323. Accessed 2026-07-31.
 - [4] **The Indie Stone** — *Location, Location* (Thursdoid, Steam announcement, 2026-04-17, covering 42.17 Unstable; states the four canon starting towns and the Sandbox-only status of other towns). https://steamcommunity.com/games/108600/announcements/detail/1830163047261202. Accessed 2026-07-31.
+
+- [15] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766. Accessed 2026-10-07.
+- [16] **The Indie Stone** — *42.20.3 STABLE Hotfix Released* (Steam announcement, 2026-08-17). https://steamcommunity.com/games/108600/announcements/detail/1840944183785895. Accessed 2026-10-07.
+- [17] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601. Accessed 2026-10-07.
+- [18] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925. Accessed 2026-10-07.
+- [19] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [20] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first post, 2026-09-23; abridged "selected" capture retrieved 2026-10-07). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cited by URL and revision id for facts only; all prose in this document is original.
 
@@ -260,3 +273,4 @@ Not applicable — single-build document. This guide is deliberately scoped to B
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baseline to 42.21: reviewed against the 42.20.1, 42.20.3, 42.20.4 (incl. 41.78.21), 42.21 unstable and 42.21 stable Steam posts and the abridged TIS forum 42.21 changelist (42.20.2 reviewed; modding/debug-only). Title and scope now 42.21; added fridge warming, bagged-food refrigeration, oven water purification, washing machines, farming path change, chunk re-entry fix, memory-leak fixes, XXL trees, save-backup note; legacy41 described as maintained (41.78.21). Unchanged statements carried forward, not re-tested in-game. | — |

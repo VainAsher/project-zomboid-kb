@@ -7,10 +7,10 @@
     "build": "both",
     "document_type": "overview",
     "category": "Admins",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "status": "approved",
     "confidence": "Medium",
-    "review_due": "2026-10-30",
+    "review_due": "2027-01-07",
     "path": "docs/admins/admins-foundation.md"
   },
   {
@@ -21,10 +21,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Admins",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-31",
+    "review_due": "2027-01-07",
     "path": "docs/admins/admins-backups-migration.md"
   },
   {
@@ -35,10 +35,10 @@
     "build": "B41",
     "document_type": "tutorial",
     "category": "Admins",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-31",
+    "review_due": "2027-01-07",
     "path": "docs/admins/admins-legacy41-runbook.md"
   },
   {
@@ -49,10 +49,10 @@
     "build": "both",
     "document_type": "tutorial",
     "category": "Admins",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-31",
+    "review_due": "2027-01-07",
     "path": "docs/admins/admins-modded-server-runbook.md"
   },
   {
@@ -63,10 +63,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Admins",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-31",
+    "review_due": "2027-01-07",
     "path": "docs/admins/admins-performance-tuning.md"
   },
   {
@@ -77,10 +77,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Admins",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-31",
+    "review_due": "2027-01-07",
     "path": "docs/admins/admins-rcon-commands.md"
   },
   {
@@ -91,10 +91,10 @@
     "build": "both",
     "document_type": "server-setting",
     "category": "Admins",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-30",
+    "review_due": "2027-01-07",
     "path": "docs/admins/admins-sandboxvars-reference.md"
   },
   {
@@ -105,10 +105,10 @@
     "build": "both",
     "document_type": "server-setting",
     "category": "Admins",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-31",
+    "review_due": "2027-01-07",
     "path": "docs/admins/admins-server-ini-reference.md"
   },
   {
@@ -119,10 +119,10 @@
     "build": "both",
     "document_type": "tutorial",
     "category": "Admins",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-31",
+    "review_due": "2027-01-07",
     "path": "docs/admins/admins-ubuntu-runbook.md"
   },
   {
@@ -133,10 +133,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Admins",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-31",
+    "review_due": "2027-01-07",
     "path": "docs/admins/admins-workshop-mod-wiring.md"
   },
   {
@@ -147,10 +147,10 @@
     "build": "B42",
     "document_type": "overview",
     "category": "Creator",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "status": "approved",
     "confidence": "Medium",
-    "review_due": "2026-10-30",
+    "review_due": "2027-01-07",
     "path": "docs/creator/creator-foundation.md"
   },
   {
@@ -161,10 +161,10 @@
     "build": "historic",
     "document_type": "overview",
     "category": "Lore",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "status": "approved",
     "confidence": "Medium",
-    "review_due": "2026-10-30",
+    "review_due": "2027-01-07",
     "path": "docs/lore/lore-foundation.md"
   },
   {
@@ -175,10 +175,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Meta",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "status": "approved",
     "confidence": "High",
-    "review_due": "2026-10-30",
+    "review_due": "2027-01-07",
     "path": "docs/meta/meta-style-guide.md"
   },
   {
@@ -189,10 +189,10 @@
     "build": "both",
     "document_type": "overview",
     "category": "Modders",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "status": "approved",
     "confidence": "Medium",
-    "review_due": "2026-10-30",
+    "review_due": "2027-01-07",
     "path": "docs/modders/modders-foundation.md"
   },
   {
@@ -203,24 +203,24 @@
     "build": "both",
     "document_type": "overview",
     "category": "Players",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "status": "approved",
     "confidence": "Medium",
-    "review_due": "2026-10-30",
+    "review_due": "2027-01-07",
     "path": "docs/players/players-foundation.md"
   },
   {
     "id": "players-beginner-guide-b42",
-    "title": "Starting Project Zomboid on Build 42.20: A First-Week Survival Guide",
+    "title": "Starting Project Zomboid on Build 42.21: A First-Week Survival Guide",
     "topic": "Guides",
     "tier": "3",
     "build": "B42",
     "document_type": "tutorial",
     "category": "Players",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-31",
+    "review_due": "2027-01-07",
     "path": "docs/players/players-beginner-guide-b42.md"
   },
   {
@@ -231,10 +231,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Players",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-31",
+    "review_due": "2027-01-07",
     "path": "docs/players/players-farming-food.md"
   },
   {
@@ -245,10 +245,10 @@
     "build": "B42",
     "document_type": "reference",
     "category": "Players",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-30",
+    "review_due": "2027-01-07",
     "path": "docs/players/players-animals-husbandry.md"
   },
   {
@@ -259,10 +259,10 @@
     "build": "both",
     "document_type": "tutorial",
     "category": "Players",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-31",
+    "review_due": "2027-01-07",
     "path": "docs/players/players-b41-to-b42-transition.md"
   },
   {
@@ -273,10 +273,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Players",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-30",
+    "review_due": "2027-01-07",
     "path": "docs/players/players-crafting-chains.md"
   },
   {
@@ -287,10 +287,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Players",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-31",
+    "review_due": "2027-01-07",
     "path": "docs/players/players-map-locations.md"
   },
   {
@@ -301,10 +301,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Players",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-31",
+    "review_due": "2027-01-07",
     "path": "docs/players/players-medical-moodles.md"
   },
   {
@@ -315,10 +315,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Players",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-30",
+    "review_due": "2027-01-07",
     "path": "docs/players/players-skills-xp.md"
   },
   {
@@ -329,10 +329,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Players",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-30",
+    "review_due": "2027-01-07",
     "path": "docs/players/players-traits-occupations.md"
   },
   {
@@ -343,10 +343,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Players",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2026-10-31",
+    "review_due": "2027-01-07",
     "path": "docs/players/players-vehicles.md"
   },
   {
@@ -357,10 +357,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Modders",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2027-01-05",
+    "review_due": "2027-01-07",
     "path": "docs/modders/modders-lua-api-surface.md"
   },
   {
@@ -371,10 +371,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Modders",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2027-01-05",
+    "review_due": "2027-01-07",
     "path": "docs/modders/modders-events-callbacks.md"
   },
   {
@@ -385,10 +385,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Modders",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2027-01-05",
+    "review_due": "2027-01-07",
     "path": "docs/modders/modders-modoptions-pzapi.md"
   },
   {
@@ -399,10 +399,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Modders",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2027-01-05",
+    "review_due": "2027-01-07",
     "path": "docs/modders/modders-item-scripts-distributions.md"
   },
   {
@@ -413,10 +413,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Modders",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2027-01-05",
+    "review_due": "2027-01-07",
     "path": "docs/modders/modders-mp-networking-porting.md"
   },
   {
@@ -427,10 +427,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Modders",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2027-01-05",
+    "review_due": "2027-01-07",
     "path": "docs/modders/modders-modinfo-modid-conventions.md"
   },
   {
@@ -441,10 +441,10 @@
     "build": "B42",
     "document_type": "tutorial",
     "category": "Modders",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2027-01-05",
+    "review_due": "2027-01-07",
     "path": "docs/modders/modders-first-mod-tutorial-b42.md"
   },
   {
@@ -455,10 +455,10 @@
     "build": "both",
     "document_type": "guide",
     "category": "Modders",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2027-01-05",
+    "review_due": "2027-01-07",
     "path": "docs/modders/modders-porting-b41-to-b42.md"
   },
   {
@@ -469,10 +469,10 @@
     "build": "B42",
     "document_type": "reference",
     "category": "Creator",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2027-01-05",
+    "review_due": "2027-01-07",
     "path": "docs/creator/creator-format-catalogue.md"
   },
   {
@@ -483,10 +483,10 @@
     "build": "B42",
     "document_type": "reference",
     "category": "Creator",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2027-01-05",
+    "review_due": "2027-01-07",
     "path": "docs/creator/creator-channel-competitor-map.md"
   },
   {
@@ -497,10 +497,10 @@
     "build": "B42",
     "document_type": "reference",
     "category": "Creator",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2027-01-05",
+    "review_due": "2027-01-07",
     "path": "docs/creator/creator-cross-promotion-funnel.md"
   },
   {
@@ -511,10 +511,10 @@
     "build": "B42",
     "document_type": "guide",
     "category": "Creator",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2027-01-05",
+    "review_due": "2027-01-07",
     "path": "docs/creator/creator-content-calendar.md"
   },
   {
@@ -525,10 +525,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Lore",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2027-01-05",
+    "review_due": "2027-01-07",
     "path": "docs/lore/lore-in-world-media.md"
   },
   {
@@ -539,10 +539,10 @@
     "build": "historic",
     "document_type": "reference",
     "category": "Lore",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2027-01-05",
+    "review_due": "2027-01-07",
     "path": "docs/lore/lore-knox-event-timeline.md"
   },
   {
@@ -553,10 +553,10 @@
     "build": "both",
     "document_type": "policy",
     "category": "Meta",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "High",
-    "review_due": "2027-01-05",
+    "review_due": "2027-01-07",
     "path": "docs/meta/meta-release-versioning-policy.md"
   },
   {
@@ -567,10 +567,10 @@
     "build": "both",
     "document_type": "reference",
     "category": "Meta",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "in-review",
     "confidence": "Medium",
-    "review_due": "2027-01-05",
+    "review_due": "2027-01-07",
     "path": "docs/meta/meta-source-registry-companion.md"
   }
 ]

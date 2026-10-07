@@ -53,7 +53,7 @@ Evidence-based, source-cited Project Zomboid reference for modders, players, ser
 - [Your First Build 42 Mod: A Verified Step-by-Step Tutorial](modders/modders-first-mod-tutorial-b42.md) — *First mod tutorial* (B42)
 - [Porting a Build 41 Mod to Build 42: A Diff-Driven Checklist](modders/modders-porting-b41-to-b42.md) — *Porting B41 mods to B42* (both)
 - [The B41 Veteran's Guide to Build 42: What Your Instincts Get Wrong](players/players-b41-to-b42-transition.md) — *Guides* (both)
-- [Starting Project Zomboid on Build 42.20: A First-Week Survival Guide](players/players-beginner-guide-b42.md) — *Guides* (B42)
+- [Starting Project Zomboid on Build 42.21: A First-Week Survival Guide](players/players-beginner-guide-b42.md) — *Guides* (B42)
 
 ## Class 4 — Meta, lore & creator strategy
 

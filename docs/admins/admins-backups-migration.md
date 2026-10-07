@@ -1,7 +1,7 @@
 ---
 id: admins-backups-migration
 title: "Backups, Saves and Migration: Protecting a Server World"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Admins
@@ -9,13 +9,13 @@ topic: "Server operations"
 build: both
 document_type: reference
 created: 2026-07-31
-updated: 2026-07-31
-review_due: 2026-10-31
-sources_verified: 2026-07-31
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [admins-foundation, admins-server-ini-reference, admins-sandboxvars-reference, lore-foundation, meta-style-guide]
 tags: [backups, saves, migration, world-data, player-database, legacy41, soft-reset, resetid, restore, runbook]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "41.78.21", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,22 +23,22 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | admins-backups-migration |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Admins |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-07-31 |
-| Review due | 2026-10-31 |
-| Game versions verified | 41.78.16, 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 41.78.21, 42.20, 42.21 |
 
 # Executive Summary
 
 A Project Zomboid server world is a handful of directories under one `Zomboid` data folder in the server user's home directory: the world state under `Saves/Multiplayer`, the configuration under `Server`, the account database under `db`, and the log output under `Logs` and the console files [4] [8] [9]. Everything an admin needs to protect, restore or move a community lives in that one tree, which is why the officially documented disaster-recovery procedure is simply to copy or compress the whole `Zomboid` folder [8]. This document is the Admins-track runbook for that tree: what each piece is, what the four built-in `Backups*` settings actually do, how to take and restore manual backups (cold and hot), how to move a world between machines and operating systems, and what the B41→B42 boundary means for old worlds.
 
-The migration headline is unforgiving: Build 41 savegames are not compatible with Build 42, and unstable 42.19 saves are not compatible with 42.20 — there is no conversion path, only the `legacy41` and `42.19` beta branches for keeping old worlds alive on the build that created them [1] [2]. A backup strategy therefore protects you against hardware loss, corruption and bad admin days, but not against a build upgrade; the only "migration" across the build boundary is a fresh world. Within a build, worlds move freely between Windows and Linux hosts as long as the server name stays consistent across the config files, the save folder and the account database, and the files end up owned by the (non-root) user the server runs as [4] [10] [11].
+The migration headline is unforgiving: Build 41 savegames are not compatible with Build 42, and unstable 42.19 saves are not compatible with 42.20 — there is no conversion path, only the `legacy41` and `42.19` beta branches for keeping old worlds alive on the build that created them [1] [2]. A backup strategy therefore protects you against hardware loss, corruption and bad admin days, but not against a build upgrade; the only "migration" across the build boundary is a fresh world. Since 42.20.1, B42 servers also refuse to host broken B41 worlds, which closes off an accidental route across the boundary [14]. Within a build, worlds move freely between Windows and Linux hosts as long as the server name stays consistent across the config files, the save folder and the account database, and the files end up owned by the (non-root) user the server runs as [4] [10] [11].
 
 Document-level confidence is **Medium**: the folder layout, backup-setting names/defaults, branch strategy and soft-reset ID mechanics rest on current primary announcements and revision-pinned wiki pages, but the pinned settings reference gives the `Backups*` keys no descriptions — their behaviour and on-disk output are corroborated only by hosting documentation that disagrees on the details, and the disagreement is quarantined rather than resolved.
 
@@ -77,8 +77,10 @@ Not covered: the full key-by-key `server.ini` and SandboxVars references (siblin
 
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
-| B41 (legacy41) | Yes | 41.78.16 | Same `Zomboid` tree and server-name keying; `legacy41` is the survival branch for B41 worlds [1] [4] |
-| B42 (stable) | Yes | 42.20 | Settings reference and folder layout verified against 42.20-era page revisions [4] [5]; `-Dsoftreset` non-functional as of 42.20.0 [6] |
+| B41 (legacy41) | Yes | 41.78.16; latest primary-attested legacy release 41.78.21 (2026-08-26, security hotfix) | Same `Zomboid` tree and server-name keying; `legacy41` is the survival branch for B41 worlds [1] [4] [17] |
+| B42 (stable) | Yes | 42.20; re-checked against 42.21 | Settings reference and folder layout verified against 42.20-era page revisions [4] [5]; `-Dsoftreset` non-functional as of 42.20.0 [6]; 42.21 is the current stable since 2026-09-28 [15] |
+
+Revision note (2026-10-07): this document was re-checked against the Steam hotfix posts 42.20.1 and 42.20.4/41.78.21, the 42.21 stable post and the TIS forum 42.21 patch notes (selected items only) [14] [15] [16] [17]. Only statements those sources affect were changed (current stable branch, B41-world hosting on B42 servers, update-safety guidance). Everything else is carried forward unchanged from the 2026-07-31 review (41.78.16, 42.20) with no contradicting change found in those sources; it was not re-tested on a live server, and the pinned wiki revisions were not refreshed.
 
 The pinned wiki revisions used here are versioned against the 42.20 era [4] [5] [8]. The `Backups*` keys, `ResetID` and `ServerPlayerID` are documented in the 42.20-versioned settings reference; their presence on B41 is consistent with the unchanged file layout but is not re-verified against a B41-era page revision in this document — treat exact B41 defaults as unconfirmed.
 
@@ -146,7 +148,9 @@ The supported strategy for keeping an old world alive is branch pinning, publish
 
 - **B41 worlds** — clients select the `legacy41` beta under Steam Properties → "Game Versions & Betas"; The Indie Stone framed this as a channel "for you (and your players) to move over to before the event", i.e. server owner and community move together [1] [2]. Dedicated servers pin the same branch in SteamCMD: `app_update 380870 -beta legacy41 validate` [4].
 - **42.19 unstable worlds** — a parallel `42.19` beta branch exists for finishing those saves, selected the same way [1] [2].
-- **New-world communities** — the default stable branch, 42.20 since 2026-07-29 [3].
+- **New-world communities** — the default stable branch: 42.20.0 on 2026-07-29 [3], advanced to 42.21 on 2026-09-28 [15].
+
+Build 42.20.1 (2026-08-05) additionally fixed an issue that allowed broken B41 worlds to be hosted on B42 servers, and a case where players switching from B41 to B42 met a missing menu [14]. The post does not describe what made a B41 world "broken" or what a B42 server now does when handed one, so treat it as a guard, not a conversion path: do not point a B42 server at a B41 world deliberately.
 
 A pinned branch must be pinned everywhere: encode the beta flag into your SteamCMD update script so a routine update can never silently hop the server onto stable while your players sit on `legacy41` [4].
 
@@ -168,7 +172,9 @@ The one documented trigger for an actual soft reset is the `-Dsoftreset` startup
 | Area | Build 41.78 *(B41)* | Build 42.20 *(B42)* |
 |------|---------------------|---------------------|
 | Save-forward compatibility | B41 worlds cannot be carried into B42 — "will not be compatible", no converter [1] [2] | 42.19-unstable saves equally cannot enter 42.20 [1] [2] |
-| Keeping the world alive | Pin client and server to the `legacy41` beta branch; SteamCMD `app_update 380870 -beta legacy41 validate` [1] [2] [4] | 42.20 is the stable branch (since 2026-07-29); a separate `42.19` branch preserves unstable-era worlds [1] [2] [3] |
+| Keeping the world alive | Pin client and server to the `legacy41` beta branch; SteamCMD `app_update 380870 -beta legacy41 validate` [1] [2] [4] | 42.20 was the stable branch from 2026-07-29 and 42.21 from 2026-09-28; a separate `42.19` branch preserves unstable-era worlds [1] [2] [3] [15] |
+| Hosting a B41 world on a B42 server | Not applicable on B41 | Broken B41 worlds could be hosted on B42 servers until the 42.20.1 fix; no conversion exists [14] |
+| Update safety statement | Legacy hotfix 41.78.21 (2026-08-26) is a security fix; its post makes no save-specific statement beyond the standard note that updates should not break saves [17] | Saves from 42.20.4 "should not be affected" by 42.21; the studio says to back up first [16] |
 | Folder anatomy | Same name-keyed tree (`Server`, `Saves/Multiplayer`, `db`) — continuity implied by the shared instructions and the `legacy41` install path, verified in this document only against 42.20-era revisions [4] | Verified against the 42.20-era Dedicated-server revision [4] |
 | `Backups*` / `ResetID` keys | Presence and defaults on B41 not re-verified against a B41-era reference in this document | Documented with defaults and ranges in the 42.20-versioned settings reference [5] |
 | Soft-reset trigger | `-Dsoftreset` status on B41 unverified here (the pinned reference records only the B42-era failure) [6] | `-Dsoftreset` documented as non-functional as of 42.20.0 [6] |
@@ -178,6 +184,10 @@ The one documented trigger for an actual soft reset is the `-Dsoftreset` startup
 The delta in one line: inside either build, backup and migration mechanics are the same file-level craft; across the build boundary they stop working entirely, and the branch system — not the backup system — is what protects an old world [1] [2] [4].
 
 # Practical Guidance
+
+## Before you update a B42 server
+
+Take a cold backup of the whole `Zomboid` tree first. The studio's own 42.21 note says saves from 42.20.4 should not be affected by 42.21 but tells players to back up first [16]; the automatic `BackupsOnVersionChange` copy is a second layer, not a replacement for an off-machine one [5] [12].
 
 ## Daily-driver backup (Linux, cold)
 
@@ -266,7 +276,7 @@ With `-Dsoftreset` non-functional on 42.20 [6], the practical "new map, same com
 - **The `Backups*` behaviour rests on secondaries.** Defaults and ranges are pinned [5], but units, output location and archive format are hosting-sourced or contested (Claim 1) — the Medium cap applies, and a hotfix or future settings-reference revision could overturn details.
 - **B41-side verification is inherited, not direct.** The layout and key facts are verified against 42.20-era page revisions [4] [5] [8]; B41 continuity is asserted from the unchanged workflow, and exact B41 defaults for the backup keys were not independently pinned.
 - **The world-folder file inventory is secondary-corroborated.** The chunk-file/character-database/vehicle-database breakdown comes from two agreeing hosting sources [10] [11], not from a primary; first-hand listing (Verification Steps, step 2) should replace this before any High rating.
-- **42.20 is days old.** The `-Dsoftreset` failure is documented "as of 42.20.0" with a fix possible in future versions [6]; any hotfix could change the soft-reset picture, and 42.20-era behaviours generally are one hotfix away from drift.
+- **42.20-era behaviours may drift.** The `-Dsoftreset` failure is documented "as of 42.20.0" with a fix possible in future versions [6]; the 42.20.1 to 42.21 notes reviewed (the forum list is a selected abridgement) do not mention it, so its status on 42.21 is unknown rather than fixed or still broken [14] [16]. The settings-reference and Dedicated-server revisions cited were not refreshed against 42.21.
 - **Bot-blocked primaries.** The Steam announcement citations were verified through the ISteamNews API mirror per project source policy; the announcement URLs themselves 403 automated checkers (allowlisted as WARN in the link gate).
 
 # Verification Steps
@@ -281,8 +291,8 @@ With `-Dsoftreset` non-functional on 42.20 [6], the practical "new map, same com
 
 # Open Questions
 
-- Where exactly do the automatic backups land on 42.20, in what format, and does `BackupsCount` rotate all trigger types in one pool or per trigger? (Claim 1; Verification step 3 resolves it empirically.)
-- What are the actual soft-reset semantics in current code, and will the reported `-Dsoftreset` failure be fixed in a post-42.20 hotfix [6]? A changelog entry or dev post would resolve both.
+- Where exactly do the automatic backups land on 42.20/42.21, in what format, and does `BackupsCount` rotate all trigger types in one pool or per trigger? (Claim 1; Verification step 3 resolves it empirically.)
+- What are the actual soft-reset semantics in current code, and will the reported `-Dsoftreset` failure be fixed in a post-42.20 hotfix [6]? The notes through 42.21 reviewed here do not say [14] [16]; a full changelog entry or dev post would resolve both.
 - Are the `Backups*` defaults identical on legacy41 41.78? A B41-era settings-reference revision or a first-hand `legacy41` server generation would close the delta table's open cell.
 - Does the automatic backup system capture the account database and the `Server/` config files, or only the world folder? No source in either tier states its coverage precisely.
 - Will The Indie Stone publish official backup/restore guidance for server operators through the GSP feedback channel now that B42 multiplayer is stable [3]?
@@ -302,6 +312,11 @@ With `-Dsoftreset` non-functional on 42.20 [6], the practical "new map, same com
 - [6] **PZwiki** — *Startup parameters* (revision 1393745). https://pzwiki.net/w/index.php?title=Startup_parameters&oldid=1393745. Accessed 2026-07-31. Fact-only source.
 - [7] **PZwiki** — *Admin commands* (revision 1385097). https://pzwiki.net/w/index.php?title=Admin_commands&oldid=1385097. Accessed 2026-07-31. Fact-only source.
 - [8] **PZwiki** — *Tech Support* (revision 1442989). https://pzwiki.net/w/index.php?title=Tech_Support&oldid=1442989. Accessed 2026-07-31. Fact-only source.
+
+- [14] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05; B41-world hosting and missing-menu fixes; retrieved via Steam news API). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766. Accessed 2026-10-07.
+- [15] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28; retrieved via Steam news API). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [16] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, selected changes only; 2026-09-23; savegame-safety statement). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07.
+- [17] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26; retrieved via Steam news API). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601. Accessed 2026-10-07.
 
 **Secondary & Corroborating**
 
@@ -334,3 +349,4 @@ With `-Dsoftreset` non-functional on 42.20 [6], the practical "new map, same com
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined against 42.20.1, 42.20.4/41.78.21 and 42.21 stable posts plus 42.21 forum notes [14] [15] [16] [17]: current stable 42.21, B41-world hosting guard (42.20.1), update-safety statement, soft-reset status caveat. | — |

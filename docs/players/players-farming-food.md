@@ -1,7 +1,7 @@
 ---
 id: players-farming-food
 title: "Farming, Foraging and Food: Feeding a Survivor Long-Term"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Players
@@ -9,13 +9,13 @@ topic: "Farming & food"
 build: both
 document_type: reference
 created: 2026-07-31
-updated: 2026-07-31
-review_due: 2026-10-31
-sources_verified: 2026-07-31
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [players-foundation, players-animals-husbandry, players-crafting-chains, players-skills-xp, meta-style-guide]
 tags: [players, farming, agriculture, foraging, cooking, fishing, food-preservation, canning, drying-racks, nutrition, growing-seasons, build-42]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,16 +23,16 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | players-farming-food |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Players |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-07-31 |
-| Review due | 2026-10-31 |
-| Game versions verified | 41.78.16, 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 |
 
 # Executive Summary
 
@@ -40,7 +40,7 @@ Every Project Zomboid run eventually collides with the same wall: looted food ru
 
 The headline build story: Build 42 turned crop farming from a small side activity into a calendar-driven system — "advanced crop farming" with a much larger crop roster and realistic growing seasons, where planting in the wrong month curses a crop and winter punishes everything not cold-hardy [21]. B42 also shipped a fishing overhaul with a new tension minigame [21] [19], drying racks as a new food-preservation route [21] [5], per-macronutrient tooltips and rebalanced calorie burn [6] [7], and a foraging system whose zones are now generated automatically and whose XP flows only from finds [21] [7].
 
-Document confidence is **Medium**: the change spine rests on official Steam patch notes (High), but the dense numeric layer — water thresholds, disease math, the crop table, foraging radii — comes from pzwiki revisions versioned against 42.18.0, before the 42.20 stable release, and has not been re-verified in-game on 42.20 or on 41.78.16.
+Document confidence is **Medium**: the change spine rests on official Steam patch notes (High), but the dense numeric layer — water thresholds, disease math, the crop table, foraging radii — comes from pzwiki revisions versioned against 42.18.0, before the 42.20 stable release, and has not been re-verified in-game on 42.20, 42.21 or 41.78.16.
 
 # Key Takeaways
 
@@ -79,9 +79,9 @@ Not covered: animal husbandry, butchering, tracking and hunting depth (see `play
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | 41.78.16 | Skill named Farming; foraging Search Mode present since 41.60 [17]; B41-only values tagged *(B41)* |
-| B42 (stable) | Yes | 42.20 | Skill named Agriculture; seasons, curses, drying racks and the fishing overhaul are B42 systems [16] [21]; B42-only values tagged *(B42)* |
+| B42 (stable) | Yes | 42.20, re-checked against 42.21 patch notes | Skill named Agriculture; seasons, curses, drying racks and the fishing overhaul are B42 systems [16] [21]; B42-only values tagged *(B42)* |
 
-The mechanical core of this document (seasons, curses, disease math, foraging radii, cooking scaling) is cited from pzwiki revisions versioned against 42.18.0 and from unstable-cycle patch notes; 42.20 stable shipped fixes in these systems but no documented redesign of them [15]. Nothing below has been re-verified first-hand on 42.20, and B41-side numeric detail is deliberately thin because pre-B42 wiki revisions could not be re-fetched during writing (see Risks & Caveats).
+The mechanical core of this document (seasons, curses, disease math, foraging radii, cooking scaling) is cited from pzwiki revisions versioned against 42.18.0 and from unstable-cycle patch notes; 42.20 stable shipped fixes in these systems but no documented redesign of them [15]. The 42.21 stable release (2026-09-28) was reviewed for this document by reading the official Steam announcements for 42.20.1 through 42.21 and the 42.21 forum changelist [24] [25] [26]; only the farming, refrigeration and water-purification items noted in the Reference section changed any statement here, and every other statement is carried forward from 42.20 and the cited pzwiki revisions with no contradicting change found in those notes. That was a patch-note review, not an in-game re-test. Nothing below has been re-verified first-hand on 42.20 or 42.21, and B41-side numeric detail is deliberately thin because pre-B42 wiki revisions could not be re-fetched during writing (see Risks & Caveats).
 
 # Reference
 
@@ -98,6 +98,8 @@ Levelling is unusually narrow: on the B42-era revision, the only XP-earning acti
 Seeds arrive by five routes on the B42-era page: looted seed packets (five seeds each, most common in barns, gardening shops and farm sheds); extracting seeds from vegetables with tweezers or a knife (destroying the vegetable, whatever its freshness short of rotten); harvesting a crop in its blooming phase, which returns seeds equal to half the vegetables harvested; planting items that carry the seed item tag directly, if fresh or stale (fresh only for herbs); and foraging, which sometimes bundles seeds with wild finds [16]. A few crops never bloom their seeds out and must be extracted, some only after drying — flax additionally requires rippling first [16].
 
 Siting rules: furrows can only be dug on grass or dirt tiles free of bushes, trees and stones; crops must be outdoors for sunlight and at ground level, though sandbox options allow indoor/greenhouse planting and planting on upper floors; dirt can be hauled in sacks with a shovel and placed as dirt flooring to farm anywhere [16]. Zombies walking over crops destroy them and vehicles damage them, while the player's own footsteps are safe; scything grass wipes out any crops caught in the swing [16]. Plowing (any tool with the dig-plow tag, such as a trowel or shovel — no hand-injury risk), sowing and harvesting each apply minor muscle strain on B42 *(B42)* [16].
+
+Build 42.21 *(B42)* adds cosmetic farm-footprint behaviour: player pathfinding now steers around farming plants where possible, and the developers state that characters do not damage crops by stepping on them [24] [26]. The same build removes furrows that zombies trampled entirely from the game and world, and fixes an error that occurred when zombies walked over un-sown furrows [26]. Players on 42.20 or earlier should not assume either behaviour.
 
 ## The B42 calendar: seasons, winter and cursed crops
 
@@ -163,7 +165,7 @@ Evolved recipes inherit age only from their base ingredient — a stale bread ma
 
 **Drying.** Build 42's feature list names food preservation with drying racks as a new system [21]. Patch notes flesh it out: plant drying racks buildable from sticks and rags (no twine needed) [2], variable batch sizes per rack [6], herb drying set to one in-game day and leather to seven [5], dried corn, peas and soybeans carrying real hunger and nutrition values [6], racks made functional in multiplayer in 42.13.2 [9], sped back up in 42.18 [12], and still collecting fixes in 42.19 and 42.20 stable [14] [15]. No salting or smoking preservation chain for food surfaced in any primary source reviewed for this document — cigarettes are the only "smoking" in the patch notes.
 
-**Refrigeration and the shutoff clock.** The sandbox defines the race: water and electricity each stop on a random day inside a configured window (instant, 0–30 days, 0–2/2–6/6–12 months, up to five years, or never), and the electricity shutoff explicitly stops refrigerators and lights working [20]. Two further sandbox dials govern the aftermath — Food Spoilage speed, and Refrigeration Effectiveness stated in days (20/50/100/200/500 across its steps) [20]. Freezers and fridges also slow animal-corpse decay [6], eggs stored in a fridge go too cold to stay fertilized [1], and unstable-cycle fixes tightened the details: non-standard fridges failing to chill properly (42.18) [12] and frozen-versus-freezing display states (42.19) [14].
+**Refrigeration and the shutoff clock.** The sandbox defines the race: water and electricity each stop on a random day inside a configured window (instant, 0–30 days, 0–2/2–6/6–12 months, up to five years, or never), and the electricity shutoff explicitly stops refrigerators and lights working [20]. Two further sandbox dials govern the aftermath — Food Spoilage speed, and Refrigeration Effectiveness stated in days (20/50/100/200/500 across its steps) [20]. Freezers and fridges also slow animal-corpse decay [6], eggs stored in a fridge go too cold to stay fertilized [1], and unstable-cycle fixes tightened the details: non-standard fridges failing to chill properly (42.18) [12] and frozen-versus-freezing display states (42.19) [14]. Build 42.21 *(B42)* changed two further details: fridges and freezers now warm gradually on the day the power goes out, and refrigeration is applied correctly to food items carried in a bag inside a fridge or freezer [25] [26]. Build 42.21 also fixes the Seasoning label not appearing on the food tooltip for food without Spices [26]. Build 42.21 also lets 86 more fluid containers purify water in the appropriate oven type and lets washing machines clean dirty rags, strips and bandages [25] [26].
 
 ## Nutrition, at overview
 
@@ -171,7 +173,7 @@ Food carries calories, proteins, lipids and carbohydrates — B42's fluid toolti
 
 # B41 vs B42 Delta
 
-| Area | Build 41.78 *(B41)* | Build 42.20 *(B42)* |
+| Area | Build 41.78 *(B41)* | Build 42.20 / 42.21 *(B42)* |
 |------|---------------------|---------------------|
 | Skill identity | Farming | Agriculture; Skill ID still `Farming`; sits in a new Farming skill group [16] |
 | Farming model | Pre-seasons crop farming (roster quarantined — Claim 1) | "Advanced crop farming": growing seasons, poor/best/bad months, winter cursing, moon-phase starting health, hardiness flags [16] [21] |
@@ -185,6 +187,8 @@ Food carries calories, proteins, lipids and carbohydrates — B42's fluid toolti
 | Preservation | Canning-era toolset; no drying racks | Drying racks added (herbs 1 day, leather 7 days; buildable from sticks and rags) [2] [5] [21] |
 | Nutrition display | Nutrition system present, coarser display | Calories/proteins/lipids/carbohydrates on fluid tooltips; per-action calorie burn rebalanced [6] [7] |
 | Trait pricing | B41-era costs | Nutritionist −4 → −2 during B42 cycle [10] |
+| Refrigeration at shutoff *(42.21)* | Not covered by the 42.21 notes | Fridges/freezers warm gradually on the day power goes out; bagged food refrigerates correctly [25] [26] |
+| Farm plots *(42.21)* | Not covered by the 42.21 notes | Pathfinding avoids plants (cosmetic); zombie-trampled furrows removed from the game [24] [26] |
 
 One-line version: the food loop's verbs are the same on both builds — plant, forage, fish, cook, preserve — but B42 wraps them in a calendar (seasons and curses), a bigger roster (crops and fish behavior), a new preservation station (drying racks), and a sharper nutrition read-out [7] [16] [21].
 
@@ -233,6 +237,7 @@ One-line version: the food loop's verbs are the same on both builds — plant, f
 
 # Risks & Caveats
 
+- **42.21 re-baseline is notes-only.** The 42.21 review read the patch notes [24] [25] [26]; the gradual fridge warm-up has no published duration, and no value in this document was re-tested in-game on 42.21.
 - **Numeric layer is 42.18-era.** The Agriculture, Foraging, Cooking and Fishing revisions cited here are all versioned against 42.18.0, two unstable releases before 42.20 stable; the Agriculture page additionally flags its per-level effects list as needing verification. 42.20's notes show fixes, not redesigns, in these systems [15], but no value below was re-verified in-game on 42.20.
 - **B41-side thinness.** pzwiki could not be reached by automated fetch during writing (two attempts, both Cloudflare-blocked), so no pre-B42 revision could be pinned for B41 crop farming; B41 specifics are quarantined rather than cited. A future revision should pin a 2024-era Farming revision the way `players-foundation` pinned the B41 occupation roster.
 - **Unstable-era patch-note citations.** Many B42 facts (drying times, foraging XP model, nutrition tooltips, metabolic rebalance) are cited from 42.x unstable announcements; they describe the lineage that produced 42.20 but each could have been adjusted again before stable without a traceable note.
@@ -246,7 +251,7 @@ One-line version: the food loop's verbs are the same on both builds — plant, f
 3. **Fertilizer penalty check:** apply fertilizer twice in one growth phase and watch health drop by 25 on the second application [16].
 4. **Foraging radius check:** compare Search Mode's visible radius at foraging 0 versus a higher level (+0.7 tiles per level), then equip a balaclava and observe the penalty [17].
 5. **Preservation clocks:** dry herbs on a rack (expect roughly one in-game day) and leather (seven) [5]; make a preserved jar at Cooking 8 and leave a world-found jar beside it to compare aging [7] [18].
-6. **Shutoff behaviour:** set Electricity Shutoff to "Instant" in a custom sandbox and confirm fridges stop preserving from day one [20].
+6. **Shutoff behaviour:** set Electricity Shutoff to "Instant" in a custom sandbox and confirm fridges stop preserving from day one [20]; on 42.21 also watch whether contents warm gradually on the shutoff day rather than instantly [26].
 7. **Sources spot-check:** open the pinned pzwiki revision URLs below (oldid links) and diff against the current pages for post-42.20 corrections; pull the cited Steam announcements via the news API (`https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=108600&count=100&maxlength=0`).
 
 # Open Questions
@@ -255,6 +260,7 @@ One-line version: the food loop's verbs are the same on both builds — plant, f
 - Do the Agriculture per-level percentages (curse reduction, bonus-yield chance) hold on 42.20? The wiki flags them for verification [16].
 - Did 42.20 stable adjust any drying-rack timings after the 42.18 "drying faster again" change [12]? The stable notes list rack fixes but no times [15].
 - Is there any primary-sourced salting or smoking food-preservation chain in B42? None surfaced in the reviewed announcements; the question stays open rather than answered in the negative.
+- How long does the 42.21 gradual fridge and freezer warm-up take on the shutoff day? The notes state the behaviour but give no duration [26].
 - How do the reworked B42 foraging zone generation and sprite-affinity systems change the wiki's B41-derived zone weight table [17]? Needs data-file inspection (`forageDefinitions.lua`) on a 42.20 install.
 
 # References
@@ -276,6 +282,9 @@ One-line version: the food loop's verbs are the same on both builds — plant, f
 - [13] **The Indie Stone** — *REINFORCING THE BARRICADES* (Thursdoid, Steam announcement, 2026-05-29). https://steamcommunity.com/games/108600/announcements/detail/1833968530890581. Accessed 2026-07-31.
 - [14] **The Indie Stone** — *Build 42.19.0 Unstable Released* (Steam announcement, 2026-06-01). https://steamcommunity.com/games/108600/announcements/detail/1833968530897275. Accessed 2026-07-31.
 - [15] **The Indie Stone** — *Build 42.20.0 Stable Released* (Steam announcement, 2026-07-29). https://steamcommunity.com/games/108600/announcements/detail/1839676055882259. Accessed 2026-07-31.
+- [24] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [25] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925. Accessed 2026-10-07.
+- [26] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first post, 2026-09-23). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -313,3 +322,4 @@ One-line version: the food loop's verbs are the same on both builds — plant, f
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: reviewed Steam announcements 42.20.1-42.21 and the 42.21 forum changelist [24] [25] [26]; added pathfinding, seasoning-tooltip fix, trampled-furrow, fridge warm-up, bagged-food refrigeration, oven water purification and washing-machine items; version-scope statements updated. | — |

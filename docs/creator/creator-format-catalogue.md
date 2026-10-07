@@ -1,7 +1,7 @@
 ---
 id: creator-format-catalogue
 title: "Project Zomboid Content Format Catalogue: What Works, What It Costs and Which Build It Needs"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Creator
@@ -10,12 +10,12 @@ build: B42
 document_type: reference
 created: 2026-10-07
 updated: 2026-10-07
-review_due: 2027-01-05
+review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
 related: [creator-foundation, creator-channel-competitor-map, creator-cross-promotion-funnel, creator-content-calendar, players-beginner-guide-b42, players-b41-to-b42-transition, players-animals-husbandry, players-crafting-chains, admins-modded-server-runbook, modders-first-mod-tutorial-b42, lore-foundation, players-foundation, admins-foundation, modders-foundation, meta-style-guide]
 tags: [creator, formats, catalogue, youtube, patch-cadence, re-record, b42-stable]
-game_versions_verified: ["42.20"]
+game_versions_verified: ["42.21"]
 ---
 
 # Document Control
@@ -23,7 +23,7 @@ game_versions_verified: ["42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | creator-format-catalogue |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Creator |
@@ -31,8 +31,8 @@ game_versions_verified: ["42.20"]
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
 | Updated | 2026-10-07 |
-| Review due | 2027-01-05 |
-| Game versions verified | 42.20 (stable since 2026-07-29; 42.21 stable since 2026-09-28) |
+| Review due | 2027-01-07 |
+| Game versions verified | 42.21 (patch posts 42.20.0 to 42.21 and the TIS forum 42.21 change list read 2026-10-07; not re-tested in game) |
 
 # Executive Summary
 
@@ -42,8 +42,9 @@ observed example that was actually opened, plus the patch events that make
 footage go stale. Existence evidence is limited to creator-track material:
 video pages on YouTube, never game-fact sourcing. The patch history that
 decides what must be re-recorded comes from the official Steam announcements:
-seven stable-branch releases or hotfix waves between 2026-07-29 and
-2026-09-28 [1][2][3][4][5][6][7].
+seven dated releases (six stable-branch posts and one Unstable post) between
+2026-07-29 and 2026-09-28 [1][2][3][4][5][6][7], plus the full 42.21 changelist
+from the TIS forum [38].
 
 The catalogue deliberately separates three things. The Reference section
 records only checkable facts: which videos exist, when they were uploaded,
@@ -59,7 +60,7 @@ evidence is a point-in-time sample found through YouTube's own search page on
 # Key Takeaways
 
 - Between stable release 42.20.0 on 2026-07-29 and 42.21 on 2026-09-28 there
-  were four 42.20.x hotfix waves, so footage recorded in the first weeks can
+  were four 42.20.x hotfix releases on three dates, so footage recorded in the first weeks can
   predate the current stable *(cited)* *(B42)* [1][2][3][4][5][7].
 - The Indie Stone says every future release should move through Unstable
   first and then to Stable, which gives creators a published preview window
@@ -117,12 +118,14 @@ rules, editing technique, and any private analytics.
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Context only | 41.78.21 mentioned in a hotfix post | The legacy branch received a security hotfix alongside 42.20.4 [5]; one sampled video is explicitly B41 [18] |
-| B42 (stable) | Yes | 42.20 verified first; stable is now 42.21 | 42.20.0 released 2026-07-29 [1]; 42.21 promoted to Stable 2026-09-28 [7] |
+| B42 (stable) | Yes | 42.21 (patch notes re-read 2026-10-07) | 42.20.0 released 2026-07-29 [1]; 42.21 promoted to Stable 2026-09-28 [7] |
 
-The `game_versions_verified` field stays at 42.20 because the patch facts
-below were read from announcements, not re-tested in-game on 42.21. Stable
-moved on to 42.21 on 2026-09-28 [7], so any statement here about "current
-stable" has a shelf life measured in weeks.
+The `game_versions_verified` field lists 42.21 because the patch table and the
+re-record matrix were re-checked against the 42.20.1 to 42.21 announcements
+[2][3][4][5][6][7] and the TIS forum 42.21 patch notes [38]; the forum list was
+retrieved in abridged form. The effects are as documented in those posts, not
+re-tested in-game. Stable is 42.21 as of 2026-09-28 [7], so any statement here
+about "current stable" has a shelf life measured in weeks.
 
 # Reference
 
@@ -135,14 +138,30 @@ stable" has a shelf life measured in weeks.
 | 2026-08-05 | 42.20.2 hotfix | Percent-symbol handling in files changed; mods should write `%%` to show `%`, and a temporary workaround accepts both forms [3] |
 | 2026-08-17 | 42.20.3 hotfix | Server player-limit handling improved with support for up to 254 players; "Loading Map" hang fixed; memory leak causes addressed; fewer black and gray boxes when moving fast [4] |
 | 2026-08-26 | 42.20.4 stable, 42.19.2 unstable, 41.78.21 legacy | Security fixes; the `loadstring` and `loadstream` Lua methods were removed [5] |
-| 2026-09-23 | 42.21 Unstable | First incremental post-B42 update; fixes for zombies vanishing after a chunk is left and re-entered, MP zombie duplication, and a change to how XXL trees cut away [6] |
+| 2026-09-23 | 42.21 Unstable | First incremental post-B42 update; fixes for zombies vanishing after a chunk is left and re-entered, MP zombie duplication, and a change to how XXL trees cut away [6][38] |
 | 2026-09-28 | 42.21 Stable | Promoted after the Unstable test; `loadstring` and `loadstream` re-enabled; Unstable-then-Stable stated as the standard procedure for all future releases [7] |
+
+The 42.21 change list on the TIS forum adds creator-visible items that the
+Steam posts only summarise [38]: Welder-occupation characters now start with
+Welding recipes instead of Blacksmithing recipes; the in-game player map was
+updated to remove inaccuracies while exploring; the Spawn Point Selection
+preview videos were updated to match the map glow-up; the localization system
+was updated to allow more translatable strings; a fix addressed spaces and
+percentages not showing in the game UI; characters automatically re-equip items
+after exercise; explosives work in basements; floorboard stash containers found
+with annotated maps were renamed; several lamp tiles are brighter; and the
+in-game credits were updated [38]. The same list says player pathfinding now
+avoids farming plants where possible, with the clarification that stepping on
+crops never damaged them, so the change is cosmetic [38]. It also lists a
+Discord-integration connection-loop fix and a Seam Editor added to the debug
+menu [38].
 
 The 42.21 announcement says the vanishing-zombie issue was most obvious in
 large-population games, and that a few instances remain for a later update
 [7]. The same announcement says the XXL tree cutaway now behaves better for
 players in vehicles, no longer hides houses and furniture beneath the tree,
-and has adjusted transparency [7].
+and has adjusted transparency [7]; the forum list calls the tree work in progress
+[38].
 
 ## The format sample
 
@@ -221,12 +240,15 @@ new factual claims.
 
 | Format | What a patch can invalidate | Evidence it matters |
 |--------|-----------------------------|---------------------|
-| Challenge run, survival series | Mostly the visual and zombie-behaviour baseline; a run recorded across 42.20.x may contain the vanishing-zombie bug | Fix documented in 42.21 [6][7] |
-| Beginner guide, tutorial | Narration claims about systems; on-screen UI | Hotfix waves of 2026-08-05 to 2026-08-26 [2][3][4][5] |
+| Challenge run, survival series | Mostly the visual and zombie-behaviour baseline; a run recorded across 42.20.x may contain the vanishing-zombie bug, MP zombie duplication, or XXL trees hiding houses and furniture | Fixes and tree-cutaway changes documented in 42.21 [6][7][38] |
+| Beginner guide, tutorial | Narration claims about systems; on-screen UI; Welder starting recipes; the map screen and Spawn Point Selection previews; re-equip after exercise; the localization strings | Hotfix waves of 2026-08-05 to 2026-08-26 [2][3][4][5]; 42.21 list [38] |
+| Farming, food and crafting tutorial | Fridge and freezer behaviour on power loss, water purification in ovens, washing machines cleaning rags and bandages, antibiotic packing, zombie-trampled furrows | 42.21 balance and fixes list [6][38] |
+| Map and exploration walkthrough | The in-game player map as shown while exploring; map glow-up spawn-selection previews | 42.21 list [38] |
+| Driving and vehicle guide | Tree cutaway for drivers, high-ping driving behaviour in MP | 42.21 [7][38] |
 | Mechanics explainer | Numbers and rules; check before each stable promotion | Unstable-first policy gives a preview [7] |
 | Patch-note breakdown | The video is the patch; it is dated by definition and best tied to the Unstable-to-Stable gap | Uploads fell in that gap [19][21] |
-| Mod showcase | Mod text containing `%`, mods that used `loadstring` or `loadstream` | [3][5][7] |
-| Modded server session | Server and client mod versions, the player limit, anti-cheat checks | [2][4][5] |
+| Mod showcase | Mod text containing `%`, mods that used `loadstring` or `loadstream`, mod translations affected by the localization-system update | [3][5][7][38] |
+| Modded server session | Server and client mod versions, the player limit, anti-cheat checks, the version-mismatch connect notice and server-browser wipe display | [2][4][5][38] |
 | Lore essay | Least affected by the patch events listed here, because none of the sampled announcements concern lore | Judgement; see Claim 3 |
 | Clips and compilations | Little beyond visible UI; date-label the build | Judgement |
 
@@ -300,11 +322,11 @@ None of the videos in the sample is a source for any game fact in this KB.
   day, so they favour already popular, recent items [9].
 - **Snapshot decay.** View counts and "latest" statuses drift daily; every
   figure carries the date 2026-10-07.
-- **Stable moved on.** The verified build is 42.20 but stable is 42.21 since
-  2026-09-28 [7]; later hotfixes could change the re-record picture.
+- **Stable moves on.** The verified build is 42.21, stable since 2026-09-28
+  [7]; later hotfixes could change the re-record picture.
 - **Announcements read, not retested.** Patch effects are as documented in
-  posts; the full 42.21 changelist lives on the forum and was not opened
-  [6][7].
+  posts; the 42.21 forum changelist was read in abridged form (several sections
+  are marked "selected") [38].
 - **Unrelated numbers excluded.** Subscriber totals are deliberately left to
   creator-foundation and creator-channel-competitor-map, which label them as
   estimates.
@@ -343,6 +365,7 @@ None of the videos in the sample is a source for any game fact in this KB.
 - [6] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released*. Steam announcement, 2026-09-23. https://steamcommunity.com/games/108600/announcements/detail/1844751498218925 Accessed 2026-10-07 via the Steam news API [8].
 - [7] **The Indie Stone** — *Build 42.21 Stable Released*. Steam announcement, 2026-09-28. https://steamcommunity.com/games/108600/announcements/detail/1844751498231307 Accessed 2026-10-07 via the Steam news API [8].
 - [8] **Valve** — *Steam news feed for app 108600 (ISteamNews GetNewsForApp)*. https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=108600&count=40&maxlength=0 Accessed 2026-10-07.
+- [38] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first post 2026-09-23; abridged change list). https://theindiestone.com/forums/topic/101693-4221-patch-notes/ Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)**
 
@@ -392,7 +415,7 @@ None of the videos in the sample is a source for any game fact in this KB.
 
 - creator-foundation, for channel profiles and the launch-window audience data.
 - creator-content-calendar, for when each format slots against patch rhythm.
-- The Indie Stone forums host the full 42.21 changelist referenced by [6][7].
+- The Indie Stone forums host the 42.21 changelist referenced by [6][7][38].
 
 # Related Documents
 
@@ -412,3 +435,4 @@ None of the videos in the sample is a source for any game fact in this KB.
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: patch table and re-record matrix extended from the TIS forum 42.21 patch notes [38] (Welder start recipes, XXL trees, map and spawn-selection UI, localization, farming and refrigeration, MP notices); corrected "hotfix waves" count; game_versions_verified set to 42.21. | — |

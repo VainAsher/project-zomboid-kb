@@ -1,7 +1,7 @@
 ---
 id: creator-content-calendar
 title: "Post-Launch Content Calendar for Build 42: Release Rhythm, Patch Hooks and Evergreen Slots"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Creator
@@ -10,12 +10,12 @@ build: B42
 document_type: guide
 created: 2026-10-07
 updated: 2026-10-07
-review_due: 2027-01-05
+review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
 related: [creator-foundation, creator-format-catalogue, creator-channel-competitor-map, creator-cross-promotion-funnel, players-beginner-guide-b42, players-b41-to-b42-transition, players-farming-food, players-animals-husbandry, players-vehicles, players-medical-moodles, admins-modded-server-runbook, modders-first-mod-tutorial-b42, meta-style-guide]
 tags: [creator, content-calendar, patch-cadence, release-timeline, hotfix, evergreen, b42-stable, 42.21]
-game_versions_verified: ["42.20"]
+game_versions_verified: ["42.21"]
 ---
 
 # Document Control
@@ -23,7 +23,7 @@ game_versions_verified: ["42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | creator-content-calendar |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Creator |
@@ -31,8 +31,8 @@ game_versions_verified: ["42.20"]
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
 | Updated | 2026-10-07 |
-| Review due | 2027-01-05 |
-| Game versions verified | 42.20 (release timeline read through 42.21 stable) |
+| Review due | 2027-01-07 |
+| Game versions verified | 42.21 (release timeline, 42.21 Steam posts and TIS forum change list read 2026-10-07) |
 
 # Executive Summary
 
@@ -55,8 +55,8 @@ patch.
 
 Confidence is **Medium**. Dates and titles come from primary Steam
 announcements, but the feed query returns only the most recent 100 items [1],
-full patch lists live on a forum host that was not opened for this revision,
-and cadence statistics rest on a small number of releases.
+the 42.21 forum change list was read in an abridged form [14], and cadence
+statistics rest on a small number of releases.
 
 # Key Takeaways
 
@@ -74,7 +74,9 @@ and cadence statistics rest on a small number of releases.
 - Announced but not shipped as of the 2026-10-07 read of the feed: a late-game
   tweak patch, mapping tools plus the AnimZed animation tool, an extensive
   modding guide, and a Build 42 Support Update planned for the rest of 2026
-  *(cited as announced, no release dates given)* [9][10].
+  *(cited as announced, no release dates given)* [9][10]. The abridged 42.21
+  forum change list does not mention the mapping tools, AnimZed or the modding
+  guide *(cited)* [14].
 - Patch hooks come from named change categories in the notes, not from
   version numbers. Section "Practical Guidance" maps 42.21 change categories
   to the KB documents that supply fact-check material *(guidance built on
@@ -102,8 +104,10 @@ Not covered: audience analytics, platform algorithm behaviour, monetisation,
 and any prediction of release dates. The feed holds at most the 100 most
 recent items per query, so releases older than that window are out of range
 [1]. The pre-2025-01 unstable history is already summarised in
-creator-foundation. Forum-hosted full patch notes were not opened; where this
-document needs patch detail, it uses the Steam announcement bodies.
+creator-foundation. For 42.21 the TIS forum change list is used alongside the
+Steam announcement bodies; that list is abridged ("selected" sections), so
+absence from it is not proof that a change did not ship [14]. Earlier hotfixes
+use the Steam announcement bodies only.
 
 # Definitions
 
@@ -123,11 +127,15 @@ document needs patch detail, it uses the Steam announcement bodies.
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Context only | 41.78.21 per announcement title | Only appears as a security hotfix line in the timeline [6][12] |
-| B42 (stable) | Yes | 42.20; timeline read through 42.21 | 42.21 stable released 2026-09-28 [8]; KB fact documents referenced in the calendar were last verified on 42.20 |
+| B42 (stable) | Yes | 42.21; timeline read through 42.21 stable | 42.21 stable released 2026-09-28 [8]; KB fact documents referenced in the calendar were last verified on 42.20 unless they have been re-baselined since |
 
-Release facts were read on 2026-10-07. The B42 stable branch is now 42.21 [8],
-while the KB game-document set referenced below mostly carries 42.20 as its
-verified version; the calendar's staleness map exists to bridge that gap.
+Release facts were read on 2026-10-07, and this revision re-checked the
+timeline, the interval arithmetic, the announced-but-unshipped table and the
+42.21 change table against the Steam posts [2]-[8] and the TIS forum 42.21
+patch notes [14]. The interval arithmetic was recomputed from the dates in the
+timeline and every figure held. The B42 stable branch is now 42.21 [8], while
+the KB game-document set referenced below may still carry 42.20 as its verified
+version; the calendar's staleness map exists to bridge that gap.
 
 # Reference
 
@@ -233,30 +241,36 @@ in the source posts.
 | An extensive modding guide | 2026-07-24 [10] | Planned alongside the tools [10] |
 | A Build 42 Support Update covering optimisation, further modding support and player-requested polish | 2026-07-09 [9]; 2026-07-24 [10] | Planned for the rest of 2026 [9][10] |
 | Continued multiplayer and controller improvements | 2026-07-24 [10] | Throughout B42 patching [10] |
-| Remaining zombie duplication and disappearing-zombie cases | 2026-09-28 [8] | Stated to be fixed in the next update [8] |
-| Further work on XXL-tree cutaway behaviour | 2026-09-23 [7]; 2026-09-28 [8] | Described as a work in progress [7][8] |
-| Further causes of black and grey boxes when travelling quickly | 2026-08-17 [5] | Still under investigation [5] |
-| Removal of the temporary percent-symbol workaround | 2026-08-05 [4] | Planned for a future unstable update [4] |
+| Remaining zombie duplication and disappearing-zombie cases | 2026-09-28 [8] | Stated to be on the radar and fixed in the next update [8]; the forum list records the cases already fixed in 42.21, including an additional multiplayer duplication case [14] |
+| Further work on XXL-tree cutaway behaviour | 2026-09-23 [7]; 2026-09-28 [8]; forum list [14] | Described as a work in progress [7][8][14] |
+| Further causes of black and grey boxes when travelling quickly | 2026-08-17 [5] | Still under investigation [5]; the abridged 42.21 forum list does not mention it [14] |
+| Removal of the temporary percent-symbol workaround | 2026-08-05 [4] | Planned for a future unstable update [4]; the abridged 42.21 forum list mentions a fix for spaces and percentages not being visible in the game UI but does not mention removing the workaround [14] |
 
 ## What 42.21 changed, by topic
 
-These are the changes stated in the unstable and stable announcement bodies.
-The full list sits on the forum thread linked from those posts, which was not
-opened here [7][8].
+These are the changes stated in the unstable and stable announcement bodies and
+in the TIS forum change list for 42.21 [7][8][14]. The forum list was retrieved
+in abridged form: several sections are marked "selected", so it is a subset of
+the full notes. The forum post also states that existing savegames on 42.20.4
+should not be affected and should be backed up first [14].
 
 | Topic | Stated change | Source |
 |-------|---------------|--------|
-| Zombies | Fix for zombies vanishing after a player leaves and re-enters a chunk, in single and multiplayer, plus a fix for multiplayer zombie duplication | [7][8] |
-| Trees and driving | XXL trees cut away better for players in vehicles, no longer hide overhung houses and furniture, and have adjusted transparency | [7][8] |
-| Modding and servers | loadstring and loadstream re-enabled after being disabled in 42.20.4 | [7][8] |
-| Occupations | Welder occupation starts with Welding recipes rather than Blacksmithing recipes | [7] |
-| Water and cleaning | 86 more fluid containers can purify water in the appropriate oven type; washing machines clean dirty rags, strips and bandages | [7] |
-| Refrigeration | Fridges and freezers warm gradually on the day power goes out; refrigeration applies correctly to food in a bag inside a fridge or freezer | [7] |
-| Medical supplies | Antibiotics can be packaged with the pack-in-box recipe | [7] |
-| Farming | Pathfinding avoids trampling farming plants where possible | [7] |
-| Basements | Explosives work in basements | [7] |
-| Multiplayer | Expanded anti-cheat, a notification when connecting with a different game version, the server browser showing the last wipe rather than the last restart, a Steam authentication exploit fix, and driving fixes at high ping | [7] |
-| Quality of life | Characters re-equip items automatically after exercise | [7] |
+| Zombies | Fix for zombies vanishing after a player leaves and re-enters a chunk, in single and multiplayer, plus fixes for multiplayer zombie duplication (including an additional case and a zombie coordinate desync) | [7][8][14] |
+| Trees and driving | XXL trees cut away better for players in vehicles, no longer hide overhung houses and furniture, and have adjusted transparency; subbiomes no longer generate trees on dirt | [7][8][14] |
+| Modding and servers | loadstring and loadstream re-enabled after being disabled in 42.20.4; a missing translation or recipe now raises a RuntimeException instead of a console print; Seam Editor added to the debug menu; an unset-by-default ToggleOldRenderer keybinding added | [7][8][14] |
+| Occupations | Welder occupation starts with Welding recipes rather than Blacksmithing recipes | [7][14] |
+| Water and cleaning | 86 more fluid containers can purify water in the appropriate oven type; washing machines clean dirty rags, strips and bandages | [7][14] |
+| Refrigeration | Fridges and freezers warm gradually on the day power goes out; refrigeration applies correctly to food in a bag inside a fridge or freezer | [7][14] |
+| Medical supplies | Antibiotics can be packaged with the pack-in-box recipe | [7][14] |
+| Farming | Pathfinding avoids walking over farming plants where possible, which the forum list says is purely cosmetic because stepping on crops does not damage them; furrows trampled by zombies are removed from the world | [7][14] |
+| Basements and explosives | Explosives work in basements | [7][14] |
+| Map and UI | In-game player map updated to remove inaccuracies while exploring; Spawn Point Selection preview videos updated to match the map glow-up; in-game credits updated; fix for spaces and percentages not showing in the UI; increased brightness on several lamp tiles | [7][14] |
+| Localization | Localization system updated to allow more translatable strings | [7][14] |
+| Items and stashes | Floorboard stash containers found with annotated maps renamed more appropriately; a deprecated tankless SCBA no longer spawns | [7][14] |
+| Quality of life | Characters re-equip items automatically after exercise | [7][14] |
+| Multiplayer | Expanded anti-cheat and safehouse exploit fixes, a notification when connecting with a different game version, the server browser showing the last wipe rather than the last restart, a Steam authentication fix that restores SteamID bans, high-ping driving fixes, a fix for an infinite connection loop when the Discord API is unavailable, and a fix for the UsernameDisguises connection failure | [7][14] |
+| Split screen | Fixes for a crash when local players share a moving vehicle, incorrectly shared read-book status and XP boosts, fishing, and controls after a gamepad disconnect | [7][14] |
 
 # B41 vs B42 Delta
 
@@ -313,13 +327,13 @@ hooks for modding-tutorial content, and the Support Update is a hook for an
 
 | Slot or topic | KB document | What it supplies | Staleness note |
 |---------------|-------------|------------------|----------------|
-| Beginner and returning-player guides | players-beginner-guide-b42 | Verified starter-guide facts | Verified on 42.20; check against the 42.21 change table before recording |
+| Beginner and returning-player guides | players-beginner-guide-b42 | Verified starter-guide facts | Verified on 42.20; check against the 42.21 change table (Welder start recipes, auto re-equip after exercise, map and spawn-selection UI) before recording [7][14] |
 | Veteran migration content | players-b41-to-b42-transition | B41 versus B42 differences | Verified on 41.78.16 and 42.20; legacy41 hotfixes do not change that comparison by themselves [6] |
-| Farming, food and refrigeration | players-farming-food | Crop and food-handling facts | 42.21 touched refrigeration, water purification, and farm-plant pathfinding [7]; re-verify those sections first |
-| Animals | players-animals-husbandry | Husbandry facts | 42.21 posts in this feed do not list animal changes in their bodies [7][8]; the forum list was not opened |
-| Vehicles and driving | players-vehicles | Vehicle facts | XXL-tree cutaway changed for drivers [7][8]; any driving footage is affected visually |
-| Medical content | players-medical-moodles | Medical and moodle facts | Antibiotic packaging changed [7] |
-| Modded server content | admins-modded-server-runbook | Server and mod operations | Reversal of the loadstring removal [6][7][8], the version-mismatch connect notice and the server browser change [7] |
+| Farming, food and refrigeration | players-farming-food | Crop and food-handling facts | 42.21 touched refrigeration, water purification, farm-plant pathfinding and zombie-trampled furrows [7][14]; re-verify those sections first |
+| Animals | players-animals-husbandry | Husbandry facts | The Steam 42.21 posts do not list animal changes [7][8]; the abridged forum list mentions only multiplayer animal fixes in general terms [14]; the full notes were not read |
+| Vehicles and driving | players-vehicles | Vehicle facts | XXL-tree cutaway changed for drivers, and high-ping driving and vehicle-sound fixes are listed [7][8][14]; any driving footage is affected visually |
+| Medical content | players-medical-moodles | Medical and moodle facts | Antibiotic packaging changed [7][14] |
+| Modded server content | admins-modded-server-runbook | Server and mod operations | Reversal of the loadstring removal [6][7][8], the version-mismatch connect notice, the server browser change, the Discord-loop and UsernameDisguises fixes [7][14] |
 | Modding tutorials | modders-first-mod-tutorial-b42 | First-mod walkthrough | Check any use of loadstring-like methods against the 42.20.4 removal and the 42.21 reversal [6][7][8] |
 | Channel strategy | creator-foundation, creator-format-catalogue, creator-channel-competitor-map, creator-cross-promotion-funnel | Format, competitor and funnel context | Audience figures are dated snapshots, not patch-bound |
 
@@ -333,7 +347,9 @@ the first stable release whose notes touch something it demonstrates.
 | Zombie-population or horde-survival runs | Zombies persisting after chunk reloads | A fix to chunk behaviour lands, as in 42.21 [7][8]; the studio expects further fixes next update [8] | Date-stamp the build; plan a re-record after the next update |
 | Driving and vehicle guides | Tree cutaway and vehicle sync | Tree or driving changes, as in 42.21 [7][8] | Replace footage that shows trees blocking the view |
 | Farming and food-storage guides | Refrigeration and pathfinding behaviour | Food-storage or farm changes, as in 42.21 [7] | Re-test the specific claims on the new build |
-| Welding or blacksmithing starter builds | Occupation starting recipes | An occupation recipe change, as in 42.21 [7] | Re-check the starting state in a new character |
+| Welding or blacksmithing starter builds | Occupation starting recipes | An occupation recipe change, as in 42.21 [7][14] | Re-check the starting state in a new character |
+| Exploration, map and character-creation walkthroughs | In-game map and spawn-selection UI | Map or UI changes, as in 42.21 [14] | Replace footage of the map screen and spawn-point preview |
+| Localised or mod-translation content | Translation system and `%` handling | Localization changes, as in 42.20.1, 42.20.2 and 42.21 [2][3][14] | Re-test translated text on the current stable |
 | Mod-heavy server videos | Script-execution methods and mod compatibility | A security-driven method removal or reversal [6][7][8] | Re-verify each mod on the current stable |
 | Map-based content | Mapping tools | Release of the announced tools, if it happens [9][10] | Reserve an A-slot; no date is implied |
 | Beginner videos | Multiple systems | Any stable release that touches an on-screen system | Use a pinned correction comment for small drifts, a re-record for large ones |
@@ -388,9 +404,10 @@ None.
 - **Titles versus bodies.** The 42.13.0, 42.19.0 and 41.78.19 rows rest on the
   announcement titles and dates in the feed, not on a read of each post body
   [11][12][13].
-- **Forum notes unopened.** The complete 42.21 change list is on a forum
-  thread that was not opened for this revision [7][8], so the 42.21 table is
-  a subset.
+- **Forum notes abridged.** The 42.21 change list was read from the TIS forum
+  thread in an abridged form [14], so the 42.21 table is a subset of the full
+  notes; the Steam posts link a slightly different thread slug for the same
+  topic number [7][8].
 - **Small sample.** The cadence statistics derive from about twenty release
   dates; the post-launch phase has only seven dated entries [2][3][4][5][6][7][8].
 - **Staleness of this document.** Any new announcement could invalidate the
@@ -410,8 +427,8 @@ None.
    the timeline [9][10].
 4. Recompute the interval table from the timeline rows with a date-difference
    calculator.
-5. Open the forum thread linked from the 42.21 posts and extend the 42.21 table
-   [7][8].
+5. Open the forum thread for 42.21 [14] in full and extend the 42.21 table
+   with any section the abridged read marked as "selected".
 6. Re-run the staleness map against any new release: for each change category
    in the new notes, flag the matching KB document and video type.
 
@@ -422,12 +439,12 @@ None.
   [9][10]. Resolution: a future announcement.
 - Does the five-day unstable-to-stable gap repeat? One observation exists
   [7][8]. Resolution: the next two release cycles.
-- Is the 42.21 forum change list longer than the announcement subset in a way
-  that touches animals, crafting or medical content? The forum thread was not
-  opened [7][8].
+- Does the full (unabridged) 42.21 forum change list touch animals, crafting or
+  medical content beyond what the abridged read shows [14]? Resolution: read
+  the thread in full.
 - Do the KB's Players documents need a 42.21 re-verification pass? Their
-  recorded verification version is 42.20; a fact-check worker should work from
-  the 42.21 table above.
+  recorded verification version may still be 42.20; a fact-check worker should
+  work from the 42.21 table above [14].
 
 # References
 
@@ -477,6 +494,9 @@ None.
   announcement, 2026-06-01 (title and date only).
   https://steamcommunity.com/games/108600/announcements/detail/1833968530897275
   Listed in [1], 2026-10-07.
+- [14] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first
+  post 2026-09-23; abridged change list). https://theindiestone.com/forums/topic/101693-4221-patch-notes/
+  Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)**
 
@@ -498,7 +518,7 @@ None.
 
 - creator-foundation, for the launch-window framing and audience data that
   this guide follows on from.
-- The Indie Stone forums host the complete 42.21 update notes, linked from
+- The Indie Stone forums host the complete 42.21 update notes [14], linked from
   the Steam announcements above.
 
 # Related Documents
@@ -519,3 +539,4 @@ None.
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: 42.21 change table completed from the TIS forum 42.21 patch notes [14] and the 42.20.1-42.21 Steam posts; announced-but-unshipped table re-checked against the forum list; interval arithmetic recomputed (no changes); staleness map and video-staleness table extended. | — |

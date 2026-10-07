@@ -1,7 +1,7 @@
 ---
 id: modders-item-scripts-distributions
 title: "Item Scripts, Recipes and Loot Distributions: Defining Content Through Script Files"
-version: 0.2.0
+version: 0.3.0
 status: in-review
 confidence: Medium
 category: Modders
@@ -10,12 +10,12 @@ build: both
 document_type: reference
 created: 2026-10-07
 updated: 2026-10-07
-review_due: 2027-01-05
+review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
 related: [modders-foundation, modders-lua-api-surface, modders-events-callbacks, modders-modinfo-modid-conventions, modders-first-mod-tutorial-b42, modders-porting-b41-to-b42, players-crafting-chains, admins-workshop-mod-wiring, meta-style-guide]
 tags: [modding, scripts, zedscripts, item-script, craftrecipe, recipe, evolvedrecipe, fixing, item-tags, distributions, proceduraldistributions, loot, b42]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | modders-item-scripts-distributions |
-| Version | 0.2.0 |
+| Version | 0.3.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Modders |
@@ -31,8 +31,8 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
 | Updated | 2026-10-07 |
-| Review due | 2027-01-05 |
-| Game versions verified | 41.78.16 (Umbrella stubs), 42.20 (Umbrella 42.20.0 stubs); ScriptsDocs pages are stamped 42.21.0 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16 (Umbrella stubs), 42.20 (Umbrella 42.20.0 stubs), 42.21 (Umbrella 42.21.0 stubs and the 42.20.1 to 42.21 notes); ScriptsDocs pages are stamped 42.21.0 |
 
 # Executive Summary
 
@@ -57,9 +57,10 @@ Script syntax is not covered by Umbrella, which is Lua-only. The API-existence
 gate therefore only validates the Lua symbols named in code spans here
 (distribution events, `ItemTag` registration); the script grammar is sourced
 from the generated ScriptsDocs reference [7] and the game's own patch notes.
-Confidence is Medium: the script reference is primary but generated against
-game version 42.21.0, one release newer than the 42.20.0 stubs this document
-was checked against, and no in-game test was run [7] [2].
+Confidence is Medium: the script reference is primary and generated against
+game version 42.21.0, which now matches the 42.21.0 stubs this document was
+re-checked against, but the 42.13-era registry guide was not re-confirmed and
+no in-game test was run [7] [2] [28].
 
 # Key Takeaways
 
@@ -78,8 +79,10 @@ was checked against, and no in-game test was run [7] [2].
   `Events.OnDistributionMerge` and `Events.OnPostDistributionMerge`. *(cited)* *(both)*
 - The two builds' Umbrella stubs describe the Pre event differently; which
   event is safest for edits is not settled by a primary source. *(cited)* *(both)*
-- ScriptsDocs is stamped 42.21.0, newer than the 42.20.0 stubs; treat any
-  parameter detail as 42.21-era until re-checked. *(cited)* *(B42)*
+- ScriptsDocs is stamped 42.21.0, the same release as the re-checked stubs;
+  parameter detail was not diffed against 42.20.0 game files. *(cited)* *(B42)*
+- The 42.21.0 distribution and `ItemTag` stubs are identical to the 42.20.0
+  ones, and the three distribution events read the same. *(cited)* *(B42)*
 
 # Purpose
 
@@ -128,15 +131,28 @@ documenting it was reachable (see Open Questions).
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes, partially | Umbrella 41.78.16 stubs [19] [21] [24]; wiki block list [27] | `Recipe` block and Lua distribution tables; ScriptsDocs does not cover B41 [7] |
-| B42 (stable) | Yes | Umbrella 42.20.0 stubs [18] [20] [22] [23]; ScriptsDocs stamped 42.21.0 [7] | Latest stable is now 42.21 (see below) |
+| B42 (stable) | Yes | Umbrella 42.21.0 stubs [32] [33] [34] [35] (earlier check: 42.20.0 stubs [18] [20] [22] [23]); ScriptsDocs stamped 42.21.0 [7] | Stable 42.21 released 2026-09-28 [2] |
 
 Game 42.21 stable was released on 2026-09-28 [2] [6] and 41.78.21 legacy
-hotfixes on 2026-08-26 [5] [6]. This document is verified against the 42.20.0
-Umbrella stubs only. The ScriptsDocs site it relies on is itself generated from
-42.21.0 data (its page title reads "PZ API Documentation 42.21.0") [7], so
-script parameter details here are 42.21-era and have not been diffed against
-42.20.0 game files. The B41 side rests on the 41.78.16 stub pin; the legacy
-line has since moved to 41.78.21 [5].
+hotfixes on 2026-08-26 [5] [6].
+
+**42.21 re-baseline (2026-10-07).** This revision re-checked the document
+against the official 42.20.1, 42.20.2, 42.20.3, 42.20.4, 42.21 unstable and
+42.21 stable posts [29] [30] [5] [36] [2], the TIS forum 42.21 patch-note list
+[31] (abridged to "selected" for its long fix lists), and the 42.21.0 Umbrella
+stubs [32] [33] [34] [35] (commit `13d01f9ee58fa48773553920db56d06f0005e7f8`;
+the upstream 42.20.0 tag was later moved, so commits are cited, not tags).
+None of those notes mentions item, `craftRecipe`, `evolvedrecipe`, `fixing`
+or loot-distribution script syntax, and the three distribution stubs and the
+`ItemTag` stub are byte-identical to their 42.20.0 versions [32] [34]. The
+ScriptsDocs site is itself generated from 42.21.0 data (its page title reads
+"PZ API Documentation 42.21.0") [7], so script parameter details were never
+42.20-specific and have not been diffed against 42.20.0 game files. Unchanged
+statements are carried forward from 42.20 with no contradicting change found;
+nothing was re-tested in-game. The TIS 42.13 migration guide [28] was not
+re-confirmed by any 42.21 source; its registry classes still exist with
+unchanged members in the 42.21.0 index [34]. The B41 side rests on the
+41.78.16 stub pin; the legacy line has since moved to 41.78.21 [5].
 
 # Reference
 
@@ -249,8 +265,13 @@ class exposes the data model behind it: a name, category, result, sources,
 required skills, time to make, a tooltip, flags such as hidden, learn
 requirement and "can be done from floor", and Lua hooks for create, test,
 can-perform and give-XP [24]. The B42.20.0 stubs still ship a `Recipe` class
-[25]; whether 42.20 still parses `Recipe` blocks in scripts is not established
-by any source cited here (see Open Questions).
+[25] and so do the 42.21.0 stubs, with the same Java methods [35]. The
+42.21.0 index lists six fewer members on the `Recipe` name than the 42.20.0
+index (`GetItemTypes`, `OnCanPerform`, `OnCreate`, `OnGiveXP`, `OnTest`,
+`WeaponParts`); these names are not in the Java stub text at either commit,
+so their origin was not traced here [25] [35]. Whether 42.21 still parses
+`Recipe` blocks in scripts is not established by any source cited here (see
+Open Questions).
 
 ## evolvedrecipe and fixing
 
@@ -324,16 +345,20 @@ the two are not contradictory but the allowed list on that page does not show
 mod-registered values. The guide's recipe example uses the spelling
 `needTobeLearn`, while the 42.13.0 patch notes say that spelling was removed in
 the builder in favour of `needToBeLearn`, and ScriptsDocs documents the latter [3] [9] [28].
-The guide dates from the 42.13 era; this document verified against 42.20.0
-stubs and 42.21-stamped ScriptsDocs, and no registry detail was changed or
-re-tested at 42.20 [28] [7].
+The guide dates from the 42.13 era; this document checked it against the
+42.20.0 and 42.21.0 stubs and 42.21-stamped ScriptsDocs, and no registry
+detail was changed or re-tested in-game. In the 42.21.0 index all eleven
+registry classes still carry a `register` member with unchanged membership
+compared with 42.20.0 [28] [7] [34]. The 42.20.1 to 42.21 notes neither
+confirm nor contradict the guide's registry or script-side statements [29] [31].
 
 ## Loot distribution files
 
 World loot is data in three Lua files that Umbrella stubs under
-`lua/server/Items/` [18] [19]: *Distributions.lua*, *ProceduralDistributions.lua*
+`lua/server/Items/` [18] [19] [32]: *Distributions.lua*, *ProceduralDistributions.lua*
 and *SuburbsDistributions.lua*. The B42 stubs describe the shapes with typed
-annotations [18]:
+annotations [18], and the 42.21.0 stubs of the same three files are unchanged
+from 42.20.0 [32]:
 
 - `ProceduralDistributions.list` maps a list name to a table with `rolls`
   (integer) and `items`, an array alternating item name and weight, plus
@@ -359,30 +384,44 @@ indexes: `ClearAllDistributionItems`, `RemoveItemFromDistribution`,
 `ReplaceItemInDistribution`, `MergeDistributionRecursive` and
 `DeepPrintDistributionTable` [18] [19]. Three events cover the merge phase:
 `Events.OnPreDistributionMerge`, `Events.OnDistributionMerge` and
-`Events.OnPostDistributionMerge`, present in both builds' stubs [20] [21]. The B42 stub
+`Events.OnPostDistributionMerge`, present in both builds' stubs [20] [21], and
+unchanged in the 42.21.0 events stub [33]. The B42 stub
 describes the Pre event as "triggered after the distribution tables have
 been merged", the same wording as the post event's near-twin, whereas the B41
-stub speaks of the plain event as "fires when the tables merge" [20] [21].
+stub speaks of the plain event as "fires when the tables merge" [20] [21]. The
+42.21.0 stub keeps the same wording for the Pre event [33].
 
 # B41 vs B42 Delta
 
-| Area | Build 41.78 *(B41)* | Build 42.20 *(B42)* |
+| Area | Build 41.78 *(B41)* | Build 42.20 to 42.21 *(B42)* |
 |------|---------------------|---------------------|
 | Recipe block | `Recipe` block [27] | `craftRecipe` with `inputs`/`outputs` children; documented in ScriptsDocs [9] [10] |
 | Recipe knowledge | Java `Recipe` exposes learn flag and Lua hooks [24] | `NeedToBeLearn`, `AutoLearn*`, `MetaRecipe`, research parameters [9]; the see-all-recipes cheat was removed in 42.13.0 and replaced by a handcraft-panel tickbox [3] |
-| Item class parameter | `Type` (wiki-era usage; deprecation noted only on B42 docs) [8] | `ItemType` with `base:` values; `Type` deprecated since 42.13.0 [8] |
+| Item class parameter | `Type` (wiki-era usage; deprecation noted only on B42 docs) [8] | `ItemType` with `base:` values; `Type` deprecated since 42.13.0 [8]; ScriptsDocs stamped 42.21.0 |
 | Item tags | No `ItemTag` class in the stub index [19] | Namespaced tags, `ItemTag` refactored to a registry-backed class in 42.13.0; mods can register tags [3] [22] |
 | Build recipes | `Multistagebuild` block [27] | `entity` script holds a `craftRecipe` as its build recipe [9] [27] |
 | Cooking recipes | `evolvedrecipe` class present [19] | Same block; `MinimumWater` and a frozen-food rule appear in the docs and notes [3] [11] |
-| Distribution stubs | Stub embeds vanilla list data [19] | Stub is annotation-only [18] |
+| Distribution stubs | Stub embeds vanilla list data [19] | Stub is annotation-only, identical at 42.20.0 and 42.21.0 [18] [32] |
 | Distribution content | Baseline | 42.13.0 "Updated loot distribution"; 42.14.0 added `agriworker`, `campworker` and `hunterstorage` rooms and removed containers unused by TIS maps; .223 references became 5.56 [3] [4] |
-| Distribution events | Pre, plain and Post events present [21] | Same three events [20] |
+| Distribution events | Pre, plain and Post events present [21] | Same three events, 42.20.0 and 42.21.0 [20] [33] |
 | Doc coverage | No ScriptsDocs for B41 [7] | ScriptsDocs generated from game data, stamped 42.21.0 [7] |
 | Tag/registry loading | n/a | `registries.lua` declares tags, item types, traits, professions and more before scripts load; 42.13.0 notes say mods may fill registries [3] [28] |
 
 The 42.20.0 stable notes add two loot-adjacent entries: a fix so the same
 building no longer shows different loot to different players, and a fix for an
 exploit allowing arbitrary item spawning through mod data [1].
+
+**42.20.1 to 42.21 changes that touch script and translation authors.** The
+42.20.1 notes say mods can now write `.json` files, and that mod translations
+should use `%%` to display a literal `%`; the 42.20.2 notes add that a
+temporary workaround accepts both ways but "will be removed in a future
+unstable update", with error logs flagging affected strings [29] [30]. The
+42.21 notes list an updated localization system enabling more translatable
+strings, and a fix replacing console printing with a RuntimeException when
+missing translations or missing recipes are detected [36] [31]. They also list
+a fix for wrong recipes used in a generated trait script class; the notes give
+no detail on script syntax for any of these [31]. The 42.20.4 notes removed
+`loadstring` and `loadstream` and 42.21 re-enabled them [5] [2] [31].
 
 # Practical Guidance
 
@@ -486,6 +525,11 @@ Working habits that follow from the sources:
   containers not used by TIS maps from the Distributions file [4].
 - **"A mod using `loadstring` broke after 42.20.4."** Those functions were
   removed in 42.20.4 and re-enabled in 42.21 [2] [5].
+- **"A `%` in my translation string shows wrongly."** Write `%%` for a literal
+  percent; the temporary both-ways handling is to be removed [30].
+- **"A missing translation or recipe now throws an error."** 42.21 turned the
+  detection of missing translations and recipes into a RuntimeException rather
+  than console output, so fix the missing entries [31].
 
 # Community Notes & Unverified Claims
 
@@ -517,9 +561,10 @@ Working habits that follow from the sources:
 
 # Risks & Caveats
 
-- **Version skew.** ScriptsDocs is stamped 42.21.0 [7] but the Umbrella stubs
-  are 42.20.0 [18]; 42.21 stable shipped 2026-09-28 [2], and parameter
-  defaults could differ from 42.20.
+- **Version skew.** ScriptsDocs is stamped 42.21.0 [7] and the Umbrella stubs
+  are now 42.21.0 [32]; the 42.13-era migration guide [28] and the wiki page
+  stamped 42.17.0 [27] are older, and parameter defaults could differ from
+  42.20.
 - **Wiki lag.** The pzwiki Scripts page is stamped 42.17.0 and says it may be
   out of date [27].
 - **Generated docs are incomplete.** Many ScriptsDocs parameters carry the
@@ -535,12 +580,12 @@ Working habits that follow from the sources:
 
 1. Open `media/scripts/` in the installed game and read an existing `item`,
    `craftRecipe` and `evolvedrecipe` block next to ScriptsDocs [7] [8] [9].
-2. Check `ItemType` is accepted: define the item snippet above on 42.20 and
+2. Check `ItemType` is accepted: define the item snippet above on 42.21 and
    spawn it with the debug item list.
 3. Test the recipe snippet; confirm the menu entry appears and the name
    resolves through the `Recipes` translation [9].
-4. In the Umbrella 42.20.0 checkout open `library/events.lua` and search for
-   `DistributionMerge` [20]; do the same at the 41.78.16 pin under
+4. In the Umbrella 42.21.0 checkout (commit 13d01f9e) open `library/events.lua`
+   and search for `DistributionMerge` [33] (42.20.0 file: [20]); do the same at the 41.78.16 pin under
    `library/Events/Events.lua` [21].
 5. Open the game's `media/lua/server/Items/ProceduralDistributions.lua` and
    record the item name format and a real list name [16] [18].
@@ -551,15 +596,15 @@ Working habits that follow from the sources:
 
 # Open Questions
 
-- Does 42.20 still parse the B41 `Recipe` block? The B42 stubs still ship the
-  class [25], but ScriptsDocs does not list the block [13].
+- Does 42.21 still parse the B41 `Recipe` block? The B42 stubs still ship the
+  class [25] [35], but ScriptsDocs does not list the block [13].
 - Which of the three merge events runs after vanilla tables are fully
   populated, and does that differ between builds? [20] [21]
 - What is the exact item-name rule in B42 distribution lists (bare or full
   type), and for custom modules?
-- Is the old `Type` parameter still honoured by 42.20, or only rejected as
+- Is the old `Type` parameter still honoured by 42.21, or only rejected as
   the guide implies? ScriptsDocs says deprecated, the guide says renamed [8] [28]
-- Did parameter defaults change between 42.20.0 and 42.21.0? [7] [2]
+- Did parameter defaults change between 42.20.0 and 42.21.0? The 42.21 notes mention no script-parameter change, but ScriptsDocs has no 42.20.0 edition to diff [7] [31]
 
 # References
 
@@ -592,6 +637,14 @@ Working habits that follow from the sources:
 - [25] **PZ-Umbrella** — *Umbrella 42.20.0 Recipe.lua*. https://github.com/PZ-Umbrella/Umbrella/blob/58204fc47895ba249592519cedecc7cfbaaebd60/library/java/zombie/scripting/objects/Recipe.lua Accessed 2026-10-07.
 - [26] **PZ-Wiki-Modding** — *pz-scripts-data* (the data repository ScriptsDocs is generated from). https://github.com/PZ-Wiki-Modding/pz-scripts-data Accessed 2026-10-07.
 - [28] **The Indie Stone Forums** — *Modding Migration Guide (42.13)*, first post by moderator nasKo, 2025-12-11, with attachments "Migration Guide.pdf" and "testmod_registries.zip" (attachments need a forum sign-in; read from the user-downloaded copies). https://theindiestone.com/forums/topic/88499-modding-migration-guide-4213/ Retrieved 2026-10-07 (host bot-blocks checkers).
+- [29] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766 Accessed 2026-10-07.
+- [30] **The Indie Stone** — *42.20.2 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314339441 Accessed 2026-10-07.
+- [31] **The Indie Stone Forums** — *42.21 Patch Notes*, topic 101693, first post by Rockjaw, 2026-09-23 (list abridged to "selected" items for its long fix lists). https://theindiestone.com/forums/topic/101693-4221-patch-notes/ Accessed 2026-10-07 (host bot-blocks automated checkers).
+- [32] **PZ-Umbrella** — *Umbrella 42.21.0 (commit 13d01f9e)*, *Distributions.lua*, *ProceduralDistributions.lua*, *SuburbsDistributions.lua*. https://github.com/PZ-Umbrella/Umbrella/blob/13d01f9ee58fa48773553920db56d06f0005e7f8/library/lua/server/Items/Distributions.lua , https://github.com/PZ-Umbrella/Umbrella/blob/13d01f9ee58fa48773553920db56d06f0005e7f8/library/lua/server/Items/ProceduralDistributions.lua and https://github.com/PZ-Umbrella/Umbrella/blob/13d01f9ee58fa48773553920db56d06f0005e7f8/library/lua/server/Items/SuburbsDistributions.lua Accessed 2026-10-07.
+- [33] **PZ-Umbrella** — *Umbrella 42.21.0 events.lua*. https://github.com/PZ-Umbrella/Umbrella/blob/13d01f9ee58fa48773553920db56d06f0005e7f8/library/events.lua Accessed 2026-10-07.
+- [34] **PZ-Umbrella** — *Umbrella 42.21.0 ItemTag.lua*. https://github.com/PZ-Umbrella/Umbrella/blob/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/zombie/scripting/objects/ItemTag.lua Accessed 2026-10-07.
+- [35] **PZ-Umbrella** — *Umbrella 42.21.0 Recipe.lua*. https://github.com/PZ-Umbrella/Umbrella/blob/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/zombie/scripting/objects/Recipe.lua Accessed 2026-10-07.
+- [36] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925 Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -629,3 +682,4 @@ Working habits that follow from the sources:
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (virtual agent) | Added the 42.13+ registry system from the official migration guide; resolved the ItemType and tag-registration open questions. | — |
+| 0.3.0 | 2026-10-07 | KB Pipeline (virtual agent) | Re-baselined 42.20 to 42.21: re-checked against Umbrella 42.21.0 stubs (distribution and ItemTag stubs unchanged; `Recipe` name loses six members) and the 42.20.1 to 42.21 notes (`%%` translations, `.json` writes, localization update, missing-translation/recipe exception, loader re-enable). Sources: Steam posts [29] [30] [36] [2] [5], forum notes [31], Umbrella 42.21.0 [32] [33] [34] [35]. | — |

@@ -1,7 +1,7 @@
 ---
 id: meta-style-guide
 title: "How This Knowledge Base Is Written: Genre, Build Tags and License Rules"
-version: 1.0.1
+version: 1.1.0
 status: approved
 confidence: High
 category: Meta
@@ -9,13 +9,13 @@ topic: "KB governance"
 build: both
 document_type: reference
 created: 2026-07-30
-updated: 2026-07-30
-review_due: 2026-10-30
-sources_verified: 2026-07-30
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [modders-foundation, players-foundation, admins-foundation, creator-foundation, lore-foundation]
 tags: [meta, governance, style-guide, licensing, build-tags, qa-gates]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,16 +23,16 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | meta-style-guide |
-| Version | 1.0.1 |
+| Version | 1.1.0 |
 | Status | approved |
 | Confidence | High |
 | Category (track) | Meta |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-07-30 |
-| Review due | 2026-10-30 |
-| Game versions verified | 41.78.16, 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 (and the 41.78.21 legacy hotfix announcement) |
 
 # Executive Summary
 
@@ -49,7 +49,7 @@ The build-tag system exists because the two supported builds genuinely
 diverge: The Indie Stone stated ahead of the Build 42 stable launch that
 "Build 41 savegames clearly will not be compatible with Build 42" [1], and
 Build 42.20 shipped as the stable branch on 2026-07-29 with Build 41 retained
-as an opt-in `legacy41` beta [2]. A knowledge base that blurred which build a
+as an opt-in `legacy41` beta [2]; stable has since moved to 42.21 (2026-09-28) [7]. A knowledge base that blurred which build a
 number belongs to would mislead every one of its readers.
 
 Most factual claims in this document are about this repository itself and are
@@ -81,7 +81,9 @@ document rests on primary sources and directly inspectable repository files.
   `SOURCE_REGISTRY.md`. *(repo rule)*
 - Five deterministic QA gates (structure/citations, genre audit, license
   hygiene, markdownlint, link check) must all be green before a document
-  merges. *(repo rule, inspectable in `scripts/`)*
+  merges; since the Modders wave, an API-existence gate also checks Modders
+  documents against the pinned Umbrella indices. *(repo rule, inspectable in
+  `scripts/`)*
 
 # Purpose
 
@@ -100,7 +102,8 @@ Covered: the reference genre and its three layers; the build-tag system and
 the enforced delta section; the four track voices; the source-priority order
 and reference classes; the licensing stance (pzwiki, The Indie Stone IP, the
 KB's own prose); and the QA gates. Covered for both builds in the sense that
-these rules govern documents about B41 41.78.16 and B42 42.20 alike.
+these rules govern documents about the B41 legacy41 line (Umbrella stubs at
+41.78.16) and B42 (verified through 42.21) alike.
 
 Not covered: the full ranked source table (see `SOURCE_REGISTRY.md`), the
 19-section template itself (see `templates/document_template.md`), the worker
@@ -119,8 +122,8 @@ reprint of the rulebook.
 - **Quarantine layer** — "Community Notes & Unverified Claims": the only
   section where an uncited community claim may appear, always as a labelled
   claim block with its own confidence rating.
-- **Build tag** — the required `build:` front-matter field: `B41` (legacy
-  41.78.16 only), `B42` (42.20+ stable only), `both`, or `historic`.
+- **Build tag** — the required `build:` front-matter field: `B41` (the
+  legacy41 line only), `B42` (42.20+ stable only), `both`, or `historic`.
 - **Fact-only source** — a source whose facts may be cited but whose prose
   and table layouts must never be copied or lightly paraphrased; in this KB,
   pzwiki.net.
@@ -131,14 +134,18 @@ reprint of the rulebook.
 
 This is a governance document: its rules apply to every document in the
 repository regardless of build tag. It is tagged `both` because the rules it
-describes exist precisely to manage the two live builds — B41 41.78.16 on
-the `legacy41` beta branch and B42 42.20 on stable [2] — and because its
-motivating examples cite both.
+describes exist precisely to manage the two live builds — B41 on the
+`legacy41` beta branch (latest primary-attested hotfix 41.78.21 [6]; Umbrella
+stub pin 41.78.16) and B42 on stable (42.21 since 2026-09-28 [7]) — and because
+its motivating examples cite both. The 2026-10-07 re-baseline re-read the
+pins, the gate list and the build statements below against `sources/pins.json`,
+`scripts/` and the 42.21 stable announcement [7]; the build-divergence
+examples still cite the 42.20 launch-week posts [1] [2] as written.
 
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
-| B41 (legacy41) | Yes | 41.78.16 | Governance rules apply; B41 remains available as an opt-in Steam beta [2] |
-| B42 (stable) | Yes | 42.20 | Stable branch since 2026-07-29 [2] |
+| B41 (legacy41) | Yes | 41.78.16 (Umbrella pin); 41.78.21 hotfix announcement [6] | Governance rules apply; B41 remains available as an opt-in Steam beta [2] |
+| B42 (stable) | Yes | 42.20 and 42.21 | Stable branch since 2026-07-29 [2]; 42.21 stable since 2026-09-28 [7] |
 
 # Reference
 
@@ -175,7 +182,7 @@ migration [2]. A `both` document must therefore fill its "B41 vs B42 Delta"
 section with real, cited content — the validator rejects an empty or
 hand-waved delta. Inside a `both` document, any value that holds on only one
 build is tagged inline as *(B41)* or *(B42)*, and a number established during
-the B42-unstable cycle that has not been re-verified on 42.20 must say so
+the B42-unstable cycle that has not been re-verified on stable must say so
 explicitly. `historic` marks older-build or lore material kept for the
 record.
 
@@ -209,6 +216,11 @@ Community & Creator, or Further Reading, numbered contiguously from `[1]`,
 with every marker resolving and every entry cited. URLs are never fabricated:
 a worker may only cite a URL it actually opened, or one on the known
 bot-block allowlist corroborated through a mirror such as the Steam news API.
+As of 2026-10-07 that allowlist (`BOT_BLOCK_HOSTS` in `scripts/check_links.py`)
+holds the official TIS hosts, `store.steampowered.com`, `steamcommunity.com`,
+`discord.com`, `discord.gg`, `support.discord.com`, `map.projectzomboid.com`,
+`pzwiki.net`, `developer.valvesoftware.com` and `legionhosting.net`; a failing
+request to one of them is a warning, not a failure.
 
 ## The licensing stance
 
@@ -246,7 +258,8 @@ Open Questions.
 ## The QA gates
 
 A document must pass five deterministic gates before it can merge, run from
-the repo root:
+the repo root (the Modders documents additionally pass the API-existence gate
+described after the list):
 
 1. `python scripts/validate.py <file>` — front matter fields valid, all 19
    template sections present in order, citations contiguous and resolving,
@@ -260,6 +273,18 @@ the repo root:
    errors against the repo's `.markdownlint.jsonc`.
 5. `python scripts/check_links.py <file>` — zero dead links; known
    bot-blocking hosts produce warnings, not failures.
+
+Further scripts in `scripts/` support the gates. `check_api_exists.py` is
+the live API-existence gate: Modders documents' code spans must exist in the
+pinned Umbrella index for the document's build(s)
+(`sources/schemas/api-index-B41.json` and `api-index-B42.json`).
+`check_server_settings.py` does the same for Admins documents against
+`sources/schemas/server-settings.json`. `extract_api_index.py` builds the
+indices from the Umbrella commits recorded in `sources/pins.json`,
+`diff_api_indices.py` reproduces the B41 vs B42 symbol-diff totals, and
+`check_freshness.py` compares the pins with the newest announcements on the
+Steam news feed for app 108600 and exits 2 on drift. On 2026-10-07 it
+reported the pins current: B42 stable 42.21 and legacy41 41.78.21 [6] [7].
 
 Cluster-level gates (`build_graph.py`, `build_rag.py`, `build_site.py`) and
 the human approval gate are the orchestrator's job; no cluster merges to
@@ -355,8 +380,8 @@ None.
   as an allowlisted URL corroborated by PZwiki's own link to it [5], not
   fetched directly; a human re-check of its current wording is cheap and
   worthwhile.
-- Internal process claims (gate behaviour, template shape) are accurate as
-  of the repo files on 2026-07-30; scripts evolve, and this document should
+- Internal process claims (gate behaviour, template shape, pins) are accurate
+  as of the repo files on 2026-10-07 (previously 2026-07-30); scripts evolve, and this document should
   be revised — with a version bump — when they do.
 
 # Verification Steps
@@ -373,6 +398,9 @@ None.
   genre and license rules as described.
 - Run the five gate commands from the repo root against any document and
   observe the enforcement first-hand.
+- Run `python scripts/check_freshness.py` and `python scripts/check_api_exists.py`
+  and compare their output with the QA gates section; open `sources/pins.json`
+  to see the current pins.
 
 # Open Questions
 
@@ -382,11 +410,10 @@ None.
   rights reserved), noting that ShareAlike obligations would only be
   triggered if pzwiki-derivative text existed — which the pipeline is
   designed to prevent.
-- **Planned deterministic gates.** The API-existence gate (Modder docs vs
-  pinned Umbrella/ZomboidDoc indices) and the server-setting gate (Admin
-  docs vs per-build server.ini / SandboxVars schemas) are specified in
-  `ROADMAP.md` but not yet live; this document should gain a section on them
-  when they land.
+- **Gate coverage.** The API-existence gate and the server-setting gate are
+  now live (see the QA gates section) but check names only, not semantics,
+  and `.github/workflows/qa.yml` does not call the API-existence or
+  freshness scripts; whether to wire them into CI is undecided.
 - **Discord provenance.** The archive-and-cite workflow for ephemeral
   Discord primaries is specified in `SOURCE_REGISTRY.md` but the local
   archive store is not yet populated.
@@ -399,6 +426,9 @@ None.
 - [2] **The Indie Stone** — *Build 42.20.0 Stable Released* (Steam announcement, 2026-07-29). https://steamcommunity.com/games/108600/announcements/detail/1839676055882259 Accessed 2026-07-30 via the Steam news API (ISteamNews, app 108600); host is bot-block allowlisted.
 - [3] **Creative Commons** — deed titled "Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0)". https://creativecommons.org/licenses/by-nc-sa/3.0/ Accessed 2026-07-30.
 - [4] **The Indie Stone** — *Project Zomboid — Terms & Conditions*. https://projectzomboid.com/blog/support/terms-conditions/ Accessed 2026-07-30. Bot-block allowlisted host; URL corroborated by the link in [5].
+
+- [6] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601 Accessed 2026-10-07; host is bot-block allowlisted.
+- [7] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307 Accessed 2026-10-07; host is bot-block allowlisted.
 
 **Fact-Only Sources (no prose reuse)**
 
@@ -431,3 +461,4 @@ None.
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
 | 1.0.1 | 2026-07-30 | Orchestrator (KB Pipeline) | License-hygiene prose rewrites after arming the pzwiki n-gram gate (no factual changes). | Standing mandate (2026-07-30) |
+| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Factual update: stable build now 42.21, legacy41 primary-attested hotfix 41.78.21, link-checker allowlist contents, API-existence and server-setting gates now live, supporting scripts listed; sources [6][7]. Proposed for re-approval. | Pending orchestrator approval |

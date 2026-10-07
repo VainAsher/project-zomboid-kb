@@ -7,6 +7,13 @@ document version with a revision note — never a silent edit.
 
 ### Added
 
+- 2026-10-07 — 42.21 re-baseline: all 41 documents revised (frozen
+  foundations to 1.1.0, others to next minor) against the 42.20.1-42.21 Steam
+  posts, the TIS forum 42.21 changelist and Umbrella 42.21.0; pins.json moved
+  to Umbrella 42.21.0 @ 13d01f9 (previous pin archived, tag-drift recorded);
+  legacy41 attested at 41.78.21; sources/schemas/archive/ holds the 42.20.0
+  API index; MASTER_INDEX synced to document versions and titles.
+
 - 2026-10-07 — Wave F: Creator (format-catalogue, channel-competitor-map,
   cross-promotion-funnel, content-calendar), Lore (in-world-media,
   knox-event-timeline) and Meta (release-versioning-policy,

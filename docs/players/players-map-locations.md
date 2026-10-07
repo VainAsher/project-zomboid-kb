@@ -1,7 +1,7 @@
 ---
 id: players-map-locations
 title: "Knox Country Locations: The B41 Towns and the B42 Expansion"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Players
@@ -9,13 +9,13 @@ topic: "Map & locations"
 build: both
 document_type: reference
 created: 2026-07-31
-updated: 2026-07-31
-review_due: 2026-10-31
-sources_verified: 2026-07-31
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [players-foundation, lore-foundation, players-vehicles, meta-style-guide]
 tags: [players, map, locations, towns, muldraugh, west-point, riverside, rosewood, louisville, brandenburg, ekron, irvington, echo-creek, basements, high-rises, build-42]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,16 +23,16 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | players-map-locations |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Players |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-07-31 |
-| Review due | 2026-10-31 |
-| Game versions verified | 41.78.16, 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 |
 
 # Executive Summary
 
@@ -77,7 +77,9 @@ Not covered: loot tables, per-building walkthroughs, coordinates, base-spot rank
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | 41.78.16 | The B41 map lacks the western towns, basements and high-rises; B41-only statements tagged *(B41)* [2] [15] |
-| B42 (stable) | Yes | 42.20 | Expansion and rework facts current to the 2026-07-29 stable release [1] [2]; B42-only statements tagged *(B42)* |
+| B42 (stable) | Yes | 42.20, re-checked against 42.21 patch notes | Expansion and rework facts current to the 2026-07-29 stable release [1] [2]; B42-only statements tagged *(B42)* |
+
+The 42.21 stable release (2026-09-28) was reviewed for this document by reading the official Steam announcements for 42.20.1 through 42.21 and the 42.21 forum changelist [16] [17] [18]. The map-related items are recorded in the glow-up section below; every other statement is carried forward from 42.20 and the cited pzwiki revisions with no contradicting change found in those notes. That was a patch-note review, not an in-game re-test, and none of the town profiles was re-checked against the post-rework map.
 
 The town-profile facts are cited from pzwiki revisions versioned between 42.0.2 (Muldraugh) and 42.19.0 (Riverside, Rosewood); the 42.20 glow-up reworked several of these towns after those revisions were written, so per-town detail should be treated as pre-rework until re-verified [1] [6] [8] [9].
 
@@ -157,14 +159,17 @@ Build 41's engine imposed height limits that kept the map shallow and low-rise *
 
 For the stable release, an enlarged map team entirely reworked seven areas — Riverside, West Point, Rosewood, Fallas Lake, Muldraugh, Ekron and Dixie — to a new standard: an individual visual identity per town, every building unique, consistent landscaping between buildings, and bespoke tiles where needed [2]. The Indie Stone states the rest of the map will be brought to the same standard in future versions [2]. The 42.20 patch notes summarise the same work as a "Map Glowup" with new tiles, buildings, locations and room definitions across a wide range of areas [1].
 
+Build 42.21 *(B42)* followed with map-adjacent changes: the in-game player map was updated to remove inaccuracies while exploring, and the Spawn Point Selection preview videos were updated to match the Map Glowup [17] [18]. The same changelist lists Road Stories not spawning in some glow-up map areas as fixed, a fix to RiversideStashMap2, floorboard stash containers found with annotated maps being named more appropriately, and subbiomes no longer generating trees on dirt [17] [18]. Explosives are also listed as now working in basements [17] [18]. The changelist further lists a fix for survivors who could spawn inside the barricaded, locked gun shop in Rosewood, and a fix for returning players seeing previously unexplored areas of the map [18]. The notes do not say which areas of the glow-up map were affected by the Road Stories fix, nor what the map inaccuracies were.
+
 # B41 vs B42 Delta
 
-| Area | Build 41.78 *(B41)* | Build 42.20 *(B42)* |
+| Area | Build 41.78 *(B41)* | Build 42.20 / 42.21 *(B42)* |
 |------|---------------------|---------------------|
 | Map extent | Original Knox Country; playable area ends at the old western edge [2] [5] | Surface area doubled; Brandenburg, Ekron, Irvington and Echo Creek added in the west; 1,400 new unique buildings, 20,000 new tiles [2] [15] |
 | Beyond the map | Premade map only | Borderless exploration with randomly generated wilderness beyond the premade map [15] |
 | Verticality | Engine height limits; no basements, no true high-rises [15] | Limits exceeded: 400 procedural + 75 unique basements; 32-level skyscrapers in Louisville [2] [3] |
 | Spawn towns | Four canon towns (Muldraugh, West Point, Riverside, Rosewood) [4] | Same canon four; Echo Creek default spawn 42.0.0–42.16.0; any Exclusion Zone town startable via Sandbox since 42.17 [4] [14] |
+| 42.21 map follow-ups *(42.21)* | Not covered by the 42.21 notes | Player-map accuracy update, spawn-preview videos matched to the Map Glowup, Road Stories and stash-map fixes, no trees on dirt in subbiomes [17] [18] |
 | Town rework | B41-era town layouts | Seven areas entirely reworked at 42.20 (Riverside, West Point, Rosewood, Fallas Lake, Muldraugh, Ekron, Dixie) [1] [2] |
 | Zombie placement | B41 distributions; Rosewood regarded as a gentle start [9] | Wiki-documented redistribution: Riverside population increased; Rosewood concentrated around Main Street and judged notably harder [8] [9] |
 | Challenge maps | "Cabin in the Woods" in rotation [1] | Replaced by "28 Minutes Later" and "Top of the World" (skyscraper start) [1] |
@@ -213,6 +218,7 @@ The short version: the towns you knew are still where you left them, but B42 dou
 
 - **Every town profile predates the 42.20 rework it describes.** The cited town revisions are versioned 42.0.2–42.19.0, and 42.20 entirely reworked Riverside, West Point, Rosewood, Fallas Lake, Muldraugh, Ekron and Dixie [1] [2] [6] [7] [8] [9] [12]. Layout-level statements (district splits, fence lines, which side the loot is on) are the most exposed. This is the main reason the document is Medium.
 - **Difficulty ratings are community judgements.** The easy/medium/hard ladder is pzwiki's editorial assessment, reproduced here with attribution — it is not a developer-stated or file-derived value [6] [7] [8] [9] [11] [12] [13] [14].
+- **42.21 follow-ups are notes-only.** The 42.21 map items [17] [18] come from patch notes with no detail; whether a given town profile here changed with them was not checked in-game.
 - **Challenge-name discrepancy.** The 42.20 release notes name the sprinter challenge "28 Minutes Later" [1]; the Big Glow Up post two days earlier called it "28 Seconds Later" [2]. This document follows the later release notes; an in-game menu check would settle it.
 - **Zombie counts are unofficial estimates** (see Claim 3) and additionally sensitive to sandbox settings.
 - **Steam announcement mirrors.** Primary citations use the Steam announcement mirrors of Indie Stone posts, verified through the Steam news API; the projectzomboid.com originals bot-block automated checkers.
@@ -230,6 +236,7 @@ The short version: the towns you knew are still where you left them, but B42 dou
 
 - How much did the 42.20 rework change the district-level layouts described by the pre-rework wiki revisions for Riverside, West Point, Rosewood, Muldraugh and Ekron? Needs first-hand or post-rework wiki re-verification.
 - Do the wiki's per-town zombie estimates still hold on 42.20 after the rework and the B42 population redistribution work? (Feeds Claim 3.)
+- Which glow-up map areas did the 42.21 Road Stories fix affect, and what inaccuracies did the updated player map correct? The notes [17] [18] give neither.
 - What is the definitive in-game name of the new sprinter challenge? (Feeds the naming discrepancy in Risks.)
 - Which of the unadvertised new locations (orphanage, new prison, boy-scout camp) sit where — and how should a spoiler-aware KB reference them, if at all?
 - When Fort Knox ships (if it ships), which document versions need revision? (Feeds Claim 2 and the freshness re-queue.)
@@ -242,6 +249,9 @@ The short version: the towns you knew are still where you left them, but B42 dou
 - [2] **The Indie Stone** — *42.20: The Big Glow Up* (Steam announcement, 2026-07-27; retrieved in full via the Steam news API). https://steamcommunity.com/games/108600/announcements/detail/1839041357036410. Accessed 2026-07-31.
 - [3] **The Indie Stone** — *Sky High* (Thursdoid, Steam announcement, 2023-09-21; retrieved in full via the Steam news API). https://steamcommunity.com/games/108600/announcements/detail/5219165352624877709. Accessed 2026-07-31.
 - [4] **The Indie Stone** — *Location, Location* (Thursdoid, Steam announcement, 2026-04-17, covering 42.17 Unstable; retrieved in full via the Steam news API). https://steamcommunity.com/games/108600/announcements/detail/1830163047261202. Accessed 2026-07-31.
+- [16] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [17] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925. Accessed 2026-10-07.
+- [18] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first post, 2026-09-23). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -281,3 +291,4 @@ The short version: the towns you knew are still where you left them, but B42 dou
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: reviewed Steam announcements 42.20.1-42.21 and the 42.21 forum changelist [16] [17] [18]; added player-map update, Rosewood gun-shop spawn fix, spawn-preview videos, Road Stories and stash-map fixes, subbiome trees and basement explosives; version-scope statements updated. | — |

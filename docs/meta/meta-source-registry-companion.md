@@ -1,7 +1,7 @@
 ---
 id: meta-source-registry-companion
 title: "Source Registry Companion: How Each Source Is Reached, What Is Ingested and What Is Blocked"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Meta
@@ -10,12 +10,12 @@ build: both
 document_type: reference
 created: 2026-10-07
 updated: 2026-10-07
-review_due: 2027-01-05
+review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
 related: [meta-style-guide, meta-release-versioning-policy, modders-lua-api-surface, modders-modinfo-modid-conventions, admins-server-ini-reference, creator-channel-competitor-map]
 tags: [meta, sources, ingestion, bot-block, umbrella, scriptsdocs, pzwiki, licensing]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | meta-source-registry-companion |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Meta |
@@ -31,8 +31,8 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
 | Updated | 2026-10-07 |
-| Review due | 2027-01-05 |
-| Game versions verified | 41.78.16, 42.20 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 (pins and index counts re-read 2026-10-07) |
 
 # Executive Summary
 
@@ -46,13 +46,17 @@ documents.
 The headline findings: Steam announcements are best read through the public
 news API rather than the bot-blocked announcement pages [1]; the Umbrella
 type stubs are pinned per build and reduced to two committed symbol indices
-(1,498 classes for B41, 4,266 for B42) [2]; the community-run ScriptsDocs
-site is stamped with a newer game version (42.21.0 when opened on
-2026-10-07) than the Umbrella pin (42.20.0) [3] [4]; the pzwiki license-gate
-corpus is 67 snapshot pages whose prose is gitignored and whose provenance
-manifest is committed [5]; and the Indie Stone forum's migration-guide PDFs
-are readable only by a signed-in browser and are deliberately not stored in
-the repository [6].
+(1,498 classes for B41, 4,124 for B42 at 42.21.0), with the previous 42.20.0
+B42 index archived beside them [2]; the upstream Umbrella 42.20.0 tag was
+later moved to a different commit, so pins are recorded by commit [2]; the
+community-run ScriptsDocs site was stamped 42.21.0 when opened on 2026-10-07,
+which now matches the Umbrella pin [3] [4]; the pzwiki license-gate corpus is
+67 snapshot pages whose prose is gitignored and whose provenance manifest is
+committed [5]; the Indie Stone forum's 42.21 patch-notes thread was readable
+through a browser page-text extraction [12], while the migration-guide PDFs
+need a signed-in download and are deliberately not stored in the repository
+[6]; and the link-checker allowlist now also holds `support.discord.com`,
+`pzwiki.net` and `developer.valvesoftware.com`.
 
 Confidence is Medium. Repository facts are directly inspectable, but the
 live-access behaviour (which sites challenge which clients, and when) is
@@ -63,18 +67,26 @@ intermittent and was observed on a single day.
 - Read TIS announcements through the Steam news API for app 108600, not the
   announcement pages, which 403 automated clients. *(cited)* [1]
 - Umbrella is pinned by release tag and commit per build; B41 is 41.78.16
-  and B42 is 42.20.0, and no newer B41 stub tag exists. *(cited, repo file)* [2]
+  and B42 is 42.21.0 (commit `13d01f9`), with 42.20.0 kept as `B42_previous`,
+  and no newer B41 stub tag exists. The upstream 42.20.0 tag was later moved
+  to commit `98f50ae`, so pin by commit, not tag. *(cited, repo file)* [2]
 - Two committed API indices back the API-existence gate: B41 has 1,498
-  classes, 240 events and 664 globals; B42 has 4,266 classes, 234 events and
-  947 globals. *(repo file counts)*
-- ScriptsDocs is community-maintained and ran one patch ahead of the Umbrella
-  pin on 2026-10-07 (its pages were stamped 42.21.0); treat a ScriptsDocs
-  fact as "B42, newer than the pin" until corroborated. *(cited, opened
+  classes, 240 events and 664 globals; B42 (42.21.0) has 4,124 classes, 244
+  events and 930 globals. The archived 42.20.0 index has 4,266 classes, 234
+  events and 947 globals. *(repo file counts)*
+- ScriptsDocs is community-maintained; its pages were stamped 42.21.0 when
+  opened on 2026-10-07, equal to the Umbrella pin since the re-baseline. Treat
+  a ScriptsDocs fact as corroboration, not as a pin. *(cited, opened
   2026-10-07)* [3] [4]
 - The pzwiki license corpus is 67 manifest entries; the `.txt` prose is
   gitignored and never published, the manifest is committed. *(repo files)* [5]
 - The 42.13 migration-guide PDFs came from a signed-in browser download on
   2026-10-07 and are not in the repo because they are TIS copyright. *(cited)* [6]
+  The 42.21 patch-notes thread (topic 101693) needed no sign-in: its text was
+  read through a browser page-text extraction. *(cited)* [12]
+- The link-checker allowlist now includes `support.discord.com`,
+  `pzwiki.net` and `developer.valvesoftware.com`, so a challenge from those
+  hosts is a WARN, not a FAIL. *(repo file)*
 - Hosting-company KBs corroborate only and are never the sole source of a
   hard number. *(repo rule)* [8]
 
@@ -89,8 +101,8 @@ workarounds are evidenced in the repository versus merely suggested.
 # Scope
 
 Covered: per-source-class access routes as practised in this repo; the
-link-checker bot-block allowlist; the Umbrella pins and the extracted
-indices under `sources/schemas/`; the pzwiki ingestion path and the corpus
+link-checker bot-block allowlist; the Umbrella pins and the extracted and
+archived indices under `sources/schemas/`; the pzwiki ingestion path and the corpus
 the license gate reads; and a table of blocked or unverified sources with
 workarounds that the repo itself evidences.
 
@@ -116,12 +128,16 @@ shows; no Discord archive has been built.
 The access routes are build-independent, but the pinned artefacts are
 per-build. The repository pins one Umbrella tag per build; the B41 baseline
 follows the legacy41 maintenance line, while the Umbrella B41 stub pin stays
-at 41.78.16 because no newer B41 stub tag exists [2].
+at 41.78.16 because no newer B41 stub tag exists [2]. The 2026-10-07
+re-baseline re-read `sources/pins.json`, recounted both committed indices and
+the archived one, re-read `BOT_BLOCK_HOSTS`, and reviewed the 41.78.21 and
+42.21 announcements and the 42.21 forum thread [10] [11] [12]; it did not
+re-open ScriptsDocs, the Steam news API endpoint or the pzwiki API.
 
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
-| B41 (legacy41) | Yes | 41.78.16 (Umbrella pin) | Latest primary-attested hotfix is 41.78.19 per the pins file; stub pin unchanged [2] |
-| B42 (stable) | Yes | 42.20 (Umbrella 42.20.0) | ScriptsDocs observed at 42.21.0 on 2026-10-07 [3] |
+| B41 (legacy41) | Yes | 41.78.16 (Umbrella pin) | Latest primary-attested hotfix is 41.78.21 per the pins file and its announcement [2] [10]; stub pin unchanged |
+| B42 (stable) | Yes | 42.21 (Umbrella 42.21.0) | Stable since 2026-09-28 [11]; ScriptsDocs observed at 42.21.0 on 2026-10-07 [3] |
 
 # Reference
 
@@ -130,11 +146,11 @@ at 41.78.16 because no newer B41 stub tag exists [2].
 | Source class | Actual access route | What is held locally | Caveat observed |
 |--------------|--------------------|----------------------|-----------------|
 | TIS announcements and patch notes | Steam news API, `ISteamNews/GetNewsForApp/v2`, app 108600; cite the `steamcommunity.com` announcement URL [1] | Nothing; fetched on demand | The announcement pages themselves 403 plain clients and sit on the allowlist; the API answered 200 on 2026-10-07 [1] |
-| Umbrella type stubs | Git checkout at the pinned commit, then `scripts/extract_api_index.py` | Two JSON indices in `sources/schemas/` | Extraction verifies HEAD against the pin when git is available [2] |
+| Umbrella type stubs | Git checkout at the pinned commit, then `scripts/extract_api_index.py` | Two JSON indices in `sources/schemas/` plus the archived 42.20.0 B42 index | Extraction verifies HEAD against the pin when git is available; the upstream 42.20.0 tag was moved after the first pin, so use the commit [2] |
 | Server settings schema | `scripts/extract_server_schema.py` into `sources/schemas/server-settings.json` | 166 `ini` keys and 277 `sandbox` keys | Feeds the server-setting gate, a different gate from the API one |
 | ScriptsDocs (PZ API Docs) | Static site at https://pz-wiki-modding.github.io/PZ-API-Docs/ ; open pages in a browser or with curl [3] | Nothing | Community-maintained; the bare host root returns a GitHub Pages "Site not found" page, only the `/PZ-API-Docs/` path works |
 | pzwiki | MediaWiki Action API `action=parse` via `scripts/ingest_pzwiki.py`, provenance by revision id [5] | 67 snapshots plus a manifest | Challenge or 403 behaviour is intermittent; see the pzwiki section |
-| TIS forum | Browser only; thread text partly readable, attachments need sign-in [6] | Not stored | Host is on the bot-block allowlist; attachment PDFs are TIS copyright |
+| TIS forum | Browser only; thread text readable through a browser page-text extraction (the 42.21 patch-notes thread), attachments need sign-in [6] [12] | Not stored | Host is on the bot-block allowlist; attachment PDFs are TIS copyright |
 | Official Discord | Not reachable by the link checker; deep links are reliably dead for bots | No archive built | The registry specifies a local archive store; none is populated |
 | Hosting-company KBs | Read in a browser when a checker 403s [8] | Nothing | Corroborate-only; never sole source for a hard number |
 
@@ -151,13 +167,20 @@ verification steps) reaches older posts [1].
 
 ## Umbrella pins and the extracted indices
 
-`sources/pins.json` pins the Umbrella repository at release tag 42.20.0
-(commit `58204fc47895ba249592519cedecc7cfbaaebd60`) for B42 and tag 41.78.16
-(commit `fa2e7e19799740b57902f1cb4e989225c295c05e`) for B41, pinned on
-2026-07-30 [2]. The same file records that the B41 baseline follows the
-legacy41 maintenance line, that 41.78.19 is the latest primary-attested B41
-hotfix (a security-only release announced 2026-04-08), and that 41.78.20 is
-attested only by pzwiki version pages pending primary confirmation [2] [7].
+`sources/pins.json` pins the Umbrella repository at release tag 42.21.0
+(commit `13d01f9ee58fa48773553920db56d06f0005e7f8`) for B42 and tag 41.78.16
+(commit `fa2e7e19799740b57902f1cb4e989225c295c05e`) for B41, with
+`pinned_at` 2026-10-07 [2]. The original B42 pin, tag 42.20.0 (commit
+`58204fc47895ba249592519cedecc7cfbaaebd60`), is kept under `B42_previous`; the
+file notes that the upstream 42.20.0 tag was later moved to `98f50ae` (two
+commits on, "Update lua", 2026-07-31), so the pin is by commit and the
+original index is archived at
+`sources/schemas/archive/api-index-B42-42.20.0.json` [2]. The same file
+records that the B41 baseline follows the legacy41 maintenance line, that
+41.78.21 (legacy hotfix, 2026-08-26) is the latest primary-attested B41 build
+[2] [10], and that 41.78.20 is attested only by pzwiki version pages pending
+primary confirmation [2]. The earlier primary-attested value, 41.78.19, was a
+security-only release announced 2026-04-08 [7].
 
 `scripts/extract_api_index.py` reads the LuaLS stub library at the pinned
 commit and writes one index per build. The committed indices contain:
@@ -165,7 +188,8 @@ commit and writes one index per build. The committed indices contain:
 | Index file | Release tag | Classes | Events | Globals |
 |------------|-------------|---------|--------|---------|
 | `sources/schemas/api-index-B41.json` | 41.78.16 | 1,498 | 240 | 664 |
-| `sources/schemas/api-index-B42.json` | 42.20.0 | 4,266 | 234 | 947 |
+| `sources/schemas/api-index-B42.json` | 42.21.0 | 4,124 | 244 | 930 |
+| `sources/schemas/archive/api-index-B42-42.20.0.json` (archived) | 42.20.0 | 4,266 | 234 | 947 |
 
 `scripts/check_api_exists.py` consumes those files: a code-span symbol in a
 Modders document must exist in the index for a build the document's tag
@@ -178,9 +202,10 @@ ScriptsDocs is published at https://pz-wiki-modding.github.io/PZ-API-Docs/
 [3]. When opened on 2026-10-07 the landing page, the ModInfo page and the
 `item` script page were all titled "PZ API Documentation 42.21.0" [3] [4].
 An earlier KB document recorded the same ModInfo page as titled 42.20.0 [4],
-so the site moves under the KB between research dates. The Umbrella B42 pin
-is 42.20.0 [2], which makes ScriptsDocs one patch ahead of the pin at the
-time of writing.
+so the site moves under the KB between research dates. At that time the
+Umbrella B42 pin was still 42.20.0; the pin has since moved to 42.21.0 [2], so
+the two now carry the same version label. This document did not re-open
+ScriptsDocs after the re-baseline.
 
 ## Link checker allowlist
 
@@ -197,13 +222,18 @@ FAIL and exits 1. The allowlist holds these hosts:
 | `store.steampowered.com` | Regional and age gates confuse plain GETs |
 | `steamcommunity.com` | Workshop and guide pages sometimes challenge |
 | `discord.com`, `discord.gg` | Invite and channel links never return 200 to bots |
+| `support.discord.com` | Discord help centre, 403s non-browser agents |
 | `map.projectzomboid.com` | Official community map, 403s non-browser agents |
+| `pzwiki.net` | Intermittent Cloudflare challenge on API and page fetches |
+| `developer.valvesoftware.com` | Valve developer wiki, challenges bots |
 | `legionhosting.net` | Hosting-company KB, 403s bots; corroborate-only source |
 
 By default the checker scans `docs`, `SOURCE_REGISTRY.md`, `GLOSSARY.md` and
-`MASTER_INDEX.md`. Note that `pzwiki.net` and `developer.valvesoftware.com`
-are not allowlisted; a challenge from either would be reported as a dead
-link.
+`MASTER_INDEX.md`. Earlier in the project `pzwiki.net` and
+`developer.valvesoftware.com` were not allowlisted and a challenge from
+either would have been reported as a dead link; they are allowlisted now, so
+a challenge from them is a WARN that still needs a human to confirm the URL in
+a browser.
 
 ## pzwiki ingestion and the license-gate corpus
 
@@ -246,21 +276,29 @@ attachment without a direct file URL [6]. The PDFs are TIS copyright and are
 not stored in the repository, so a later worker must repeat the signed-in
 download to re-read them. Only facts from them are used, cited to the thread.
 
+The 42.21 patch-notes thread (topic 101693) behaves differently: its first
+post, by Rockjaw on 2026-09-23, was readable through a browser page-text
+extraction without the signed-in download that the Migration Guide PDFs need
+[12]. The captured text is facts-only working material for the re-baseline and
+is not stored in the repository; documents cite the thread URL.
+
 # B41 vs B42 Delta
 
 The access routes do not differ by build, but the artefacts behind them do.
 
 | Concern | B41 (legacy41) | B42 (stable) |
 |---------|----------------|--------------|
-| Umbrella stub pin | Tag 41.78.16 *(B41)*; no newer B41 stub tag exists [2] | Tag 42.20.0 *(B42)* [2] |
-| Extracted API index size | 1,498 classes, 240 events, 664 globals *(B41)* | 4,266 classes, 234 events, 947 globals *(B42)* |
-| Latest primary-attested hotfix | 41.78.19, security-only, 2026-04-08 *(B41)* [2] [7] | Stable 42.20.0 *(B42)* [2] |
-| ScriptsDocs coverage | Documents the current B42 line; no B41 edition observed [3] | Stamped 42.21.0 on 2026-10-07 *(B42)* [3] |
+| Umbrella stub pin | Tag 41.78.16 *(B41)*; no newer B41 stub tag exists [2] | Tag 42.21.0, commit `13d01f9`; previous 42.20.0 kept, upstream tag later moved *(B42)* [2] |
+| Extracted API index size | 1,498 classes, 240 events, 664 globals *(B41)* | 4,124 classes, 244 events, 930 globals at 42.21.0; archived 42.20.0 index 4,266, 234, 947 *(B42)* |
+| Latest primary-attested build | 41.78.21, legacy hotfix, 2026-08-26 *(B41)* [2] [10] | Stable 42.21, 2026-09-28 *(B42)* [2] [11] |
+| ScriptsDocs coverage | Documents the current B42 line; no B41 edition observed [3] | Stamped 42.21.0 on 2026-10-07, equal to the Umbrella pin since the re-baseline *(B42)* [3] |
 | Migration guide | Not applicable | 42.13 guide covers B42 modding changes *(B42)* [6] |
 
-The class count roughly tripling between the two indices is a fact about the
-stub libraries as extracted; this document does not claim it equals the
-growth of the game's real API.
+The class count roughly tripling between the B41 and B42 indices is a fact
+about the stub libraries as extracted; this document does not claim it equals
+the growth of the game's real API. Likewise the drop from 4,266 to 4,124
+classes between the 42.20.0 and 42.21.0 B42 indices says only that the stub
+libraries differ; it is not evidence that the game lost that many classes.
 
 # Practical Guidance
 
@@ -288,7 +326,7 @@ growth of the game's real API.
 | ScriptsDocs fact disagrees with a KB doc dated earlier | The site is re-stamped with newer game versions [3] [4] | Re-open, compare titles, bump the doc at next revision |
 | `json.load` fails on the pzwiki manifest | The file starts with a byte-order mark | Open with `encoding="utf-8-sig"` |
 | License gate passes instantly with a "no corpus" note | The gitignored `.txt` snapshots are absent | Run `scripts/ingest_pzwiki.py` first |
-| A pzwiki or Valve URL reports FAIL in the link check | Neither host is allowlisted | Verify in a browser; adding a host to the allowlist is an orchestrator decision |
+| A pzwiki or Valve URL reports WARN in the link check | Both hosts are now allowlisted | Verify in a browser; allowlisting a further host is an orchestrator decision |
 | Steam announcement URL WARNs | Allowlisted bot-block [1] | Content-verify via the news API |
 | A default ingest title is missing from the manifest | Redirects store the real title, and errors skip the page | Check the manifest by the resolved title |
 
@@ -304,7 +342,8 @@ growth of the game's real API.
 | Valve SteamCMD wiki | An existing Admins document records a bot-verification challenge page during its research [9] | Read in a browser; cite as unfetched by automation |
 | Hosting-company KBs (legionhosting.net) | Allowlisted; the host 403s bots [8] | Browser read; corroborate-only |
 | Umbrella B41 beyond 41.78.16 | `pins.json` states no newer B41 stub tag exists [2] | Keep the 41.78.16 pin and say so |
-| 41.78.20 hotfix | Attested only by pzwiki version pages, pending a primary [2] | Do not state as fact; quarantine until a TIS post is found |
+| Umbrella 42.20.0 tag | `pins.json` records that the upstream tag was moved to `98f50ae` after the first pin [2] | Pin and cite by commit id; keep the archived index |
+| 41.78.20 hotfix | Attested only by pzwiki version pages, pending a primary; 41.78.21 is primary-attested [2] [10] | Do not state 41.78.20 as fact; quarantine until a TIS post is found |
 
 # Community Notes & Unverified Claims
 
@@ -320,9 +359,13 @@ growth of the game's real API.
   one day and changes without notice.
 - ScriptsDocs is a community site; its version stamp moved from 42.20.0 to
   42.21.0 between two KB research dates [3] [4], so any ScriptsDocs-derived
-  fact may already be stale against the pin.
-- Counts in this document are as of the committed files on 2026-10-07;
-  re-extracting an index or re-ingesting pzwiki changes them.
+  fact may already be stale against the pin, and it can move again.
+- Counts in this document are as of the repository files on 2026-10-07 after
+  the 42.21 re-baseline (the 42.21.0 index and `pins.json` were uncommitted
+  working-tree changes when this revision was written); re-extracting an
+  index or re-ingesting pzwiki changes them.
+- The 42.21 forum thread was read via a browser page-text extraction and is
+  not archived in the repository [12].
 - The signed-in forum download cannot be reproduced by an unattended worker.
 - The allowlist is a reviewer convenience, not proof a URL is live.
 
@@ -330,7 +373,8 @@ growth of the game's real API.
 
 - Open `sources/pins.json` and compare the tags and commits to this document [2].
 - Count classes, events and globals in each `sources/schemas/api-index-*.json`
-  (top-level keys `classes`, `events`, `globals`).
+  and in `sources/schemas/archive/api-index-B42-42.20.0.json` (top-level keys
+  `classes`, `events`, `globals`).
 - Count entries in `sources/pzwiki/manifest.json`, opening it as `utf-8-sig`.
 - Run `curl` against the Steam news endpoint and confirm HTTP 200 [1].
 - Open https://pz-wiki-modding.github.io/PZ-API-Docs/  and read the page
@@ -341,10 +385,12 @@ growth of the game's real API.
 
 # Open Questions
 
-- Should `pzwiki.net` be allowlisted, or is a WARN-versus-FAIL distinction
-  better kept strict for it?
+- Now that `pzwiki.net` is allowlisted, does the WARN-only treatment risk
+  hiding a genuinely dead wiki link? A periodic browser spot-check is the only
+  safeguard.
 - Should the manifest be re-saved without a byte-order mark?
-- When will 41.78.20 receive a primary-source confirmation?
+- When will 41.78.20 receive a primary-source confirmation? 41.78.21 now has
+  one [10].
 - Is a Discord archive store worth building, given its ephemeral nature?
 - Should ScriptsDocs pages be snapshotted with their version stamp per release?
 
@@ -353,9 +399,12 @@ growth of the game's real API.
 **Primary Sources**
 
 - [1] **Valve / The Indie Stone** — *Steam news API, GetNewsForApp, app 108600*. https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=108600&count=25&maxlength=0 Accessed 2026-10-07 (HTTP 200).
-- [2] **PZ-Umbrella** — *Umbrella repository* (pins per `sources/pins.json`: 42.20.0 and 41.78.16). https://github.com/PZ-Umbrella/Umbrella Accessed 2026-10-07 (HTTP 200).
+- [2] **PZ-Umbrella** — *Umbrella repository* (pins per `sources/pins.json`: B42 42.21.0, previous 42.20.0, and B41 41.78.16). https://github.com/PZ-Umbrella/Umbrella Accessed 2026-10-07 (HTTP 200).
 - [6] **The Indie Stone Forums** — *Modding Migration Guide (42.13)*, first post by nasKo, 2025-12-11, with PDF attachment (sign-in required). https://theindiestone.com/forums/topic/88499-modding-migration-guide-4213/ Accessed 2026-10-07 (host bot-blocks checkers).
 - [7] **The Indie Stone** — *Stable(41.78.19) + UNSTABLE(42.16.3) Hotfixes Released* (Steam announcement, 2026-04-08; retrieved via the ISteamNews API mirror). https://steamcommunity.com/games/108600/announcements/detail/1829528821304362 Accessed 2026-10-07.
+- [10] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601 Accessed 2026-10-07; host is bot-block allowlisted.
+- [11] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307 Accessed 2026-10-07; host is bot-block allowlisted.
+- [12] **The Indie Stone Forums** — *42.21 Patch Notes* (topic 101693, first post by Rockjaw, 2026-09-23). https://theindiestone.com/forums/topic/101693-4221-patch-notes/ Accessed 2026-10-07 via browser page-text extraction; host bot-blocks checkers.
 
 **Fact-Only Sources (no prose reuse)**
 
@@ -395,3 +444,4 @@ growth of the game's real API.
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: refreshed pins, index counts (B42 42.21.0 now 4,124 classes, 244 events, 930 globals; archived 42.20.0 index), the Umbrella tag-move finding, allowlist contents, forum 101693 readability finding; sources [10][11][12]. | — |

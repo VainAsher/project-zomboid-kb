@@ -1,7 +1,7 @@
 ---
 id: lore-foundation
 title: "The Knox Event and the History of Project Zomboid's Builds"
-version: 1.0.1
+version: 1.1.0
 status: approved
 confidence: Medium
 category: Lore
@@ -9,13 +9,13 @@ topic: "Lore & history"
 build: historic
 document_type: overview
 created: 2026-07-30
-updated: 2026-07-30
-review_due: 2026-10-30
-sources_verified: 2026-07-30
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [modders-foundation, players-foundation, admins-foundation, creator-foundation, meta-style-guide]
 tags: [lore, knox-event, build-history, thursdoid, b41, b42, early-access, legacy41]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,24 +23,24 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | lore-foundation |
-| Version | 1.0.1 |
+| Version | 1.1.0 |
 | Status | approved |
 | Confidence | Medium |
 | Category (track) | Lore |
 | Build | historic |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-07-30 |
-| Review due | 2026-10-30 |
-| Game versions verified | 41.78.16, 42.20 (via patch announcements; historic material verified against sources, not in-game) |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 (via patch announcements; historic material verified against sources, not in-game) |
 
 # Executive Summary
 
 This document is the Lore-track foundation for the knowledge base. It does two jobs. First, it describes — at overview level and in original words — the fictional setting of Project Zomboid: the Knox Event, a 1993 zombie outbreak in rural Kentucky, and the radio, television and social-media devices The Indie Stone (TIS) uses to deliver that story. It deliberately does *not* retell the fiction; the narrative itself is TIS's copyrighted work, and this document only records dates, places and mechanisms with citations so that other documents can anchor lore references correctly.
 
-Second, it records the real-world history of the game's builds: the 2011 origins and the November 2013 Steam Early Access launch [11][19], the Build 41 "animation overhaul" era that culminated in multiplayer (December 2021) and the long-lived 41.78.x patch line [5][6][15], the Build 42 era from the single-player unstable release of 17 December 2024 [3] through unstable multiplayer in 42.13.0 (11 December 2025) [4] to the stable 42.20 release of 29 July 2026 [1][2], the `legacy41` Steam branch that preserves Build 41 [1], and the shifting cadence of TIS's development blogs ("Mondoids", then "Thursdoids") [7][8][10].
+Second, it records the real-world history of the game's builds: the 2011 origins and the November 2013 Steam Early Access launch [11][19], the Build 41 "animation overhaul" era that culminated in multiplayer (December 2021) and the long-lived 41.78.x patch line [5][6][15], the Build 42 era from the single-player unstable release of 17 December 2024 [3] through unstable multiplayer in 42.13.0 (11 December 2025) [4] to the stable 42.20 release of 29 July 2026 [1][2], the August 2026 42.20.x hotfixes and the 42.21 incremental update (unstable 23 September, stable 28 September 2026) [20][21][22][23][24][25], the `legacy41` Steam branch that preserves Build 41 [1], and the shifting cadence of TIS's development blogs ("Mondoids", then "Thursdoids") [7][8][10].
 
-Document confidence is **Medium**: the load-bearing release dates rest on official TIS blog posts and Steam records (primary sources), but several secondary dates (e.g. the exact 41.78.16 hotfix date and the 2026 maintenance patches to Build 41) are currently sourced only from pzwiki, and the blog-cadence analysis is an observation of the archive rather than a stated TIS policy.
+Document confidence is **Medium**: the load-bearing release dates rest on official TIS blog posts and Steam records (primary sources), but several secondary dates (e.g. the exact 41.78.16 hotfix date and the 41.78.17 to 41.78.20 maintenance patches to Build 41) are currently sourced only from pzwiki, and the blog-cadence analysis is an observation of the archive rather than a stated TIS policy.
 
 # Key Takeaways
 
@@ -49,6 +49,7 @@ Document confidence is **Medium**: the load-bearing release dates rest on offici
 - Project Zomboid entered Steam Early Access on 8 November 2013 and, as of 30 July 2026, is still classed as an Early Access title *(cited)* [11][12][19].
 - Build 41, "the animation overhaul", spent 2019–2021 in beta, gained multiplayer in the 41.60 test branch (December 2021), went stable on 20 December 2021, and its last patch of the active era was 41.78.16 (December 2022, date wiki-sourced) *(cited)* [5][6][15][17].
 - Build 42 launched as a single-player-only unstable on 17 December 2024; multiplayer returned in unstable 42.13.0 on 11 December 2025; stable 42.20 shipped on 29 July 2026 *(cited)* [1][2][3][4][18].
+- After 42.20.0, TIS shipped four stable hotfixes (42.20.1 to 42.20.4, 5 to 26 August 2026, the last alongside the 41.78.21 legacy hotfix), then 42.21 as its first incremental update: unstable on 23 September, stable on 28 September 2026. TIS stated that unstable-first testing is the standard procedure going forward *(cited)* [20][21][22][23][24][25].
 - Players and server owners can stay on Build 41 via the `legacy41` Steam beta branch; B41 saves are not compatible with B42 *(cited)* [1].
 - TIS dev blogs moved from Mondays ("Mondoid") to Thursdays ("Thursdoid") in September 2017; the observable cadence then slowed from weekly to roughly fortnightly (2022–2023) to monthly (2024), and paused for most of 2025 during heavy Build 42 work *(cited, cadence observed from the archive)* [7][8][10].
 - A "Build 42 Support Update" focused on optimisation, modding support and polish is planned for the rest of 2026 *(cited)* [1].
@@ -81,13 +82,13 @@ Excluded:
 
 # Build Applicability
 
-This is a `historic` document: its subject is the game's setting and release history, not a mechanic that differs between builds. Its facts were verified against the sources below as of 2026-07-30, when the current builds were 41.78.x on the `legacy41` branch and 42.20 stable [1][2].
+This is a `historic` document: its subject is the game's setting and release history, not a mechanic that differs between builds. Its facts were first verified against the sources below as of 2026-07-30, when the current builds were 41.78.x on the `legacy41` branch and 42.20 stable [1][2]. The 2026-10-07 re-baseline added the post-42.20.0 release timeline from the official Steam announcements for 42.20.1 through 42.21 stable and the 42.21 forum change list [20][21][22][23][24][25][26]; the earlier milestones were not re-verified, and the pzwiki-sourced dates were not re-read.
 
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | Pre-B41 (2011–2019) | Background only | Official blog archive, Steam records [10][11][12] | Covered as history, not verified in-game |
-| B41 (legacy41) | Yes, as background | Release announcements [5][6]; patch list wiki-sourced [15] | Setting facts and dates apply |
-| B42 (stable 42.20) | Yes, as background | Release announcements [1][2][3][4] | Setting facts and dates apply; B42 added further lore broadcasts [16] |
+| B41 (legacy41) | Yes, as background | Release announcements [5][6]; 41.78.21 legacy hotfix announcement [23]; 41.78.17 to 41.78.20 wiki-sourced [15] | Setting facts and dates apply |
+| B42 (stable 42.21) | Yes, as background | Release announcements [1][2][3][4][20][21][22][23][24][25][26] | Setting facts and dates apply; B42 added further lore broadcasts [16]; 42.21 is the stable build as of 2026-09-28 [25] |
 
 # Reference
 
@@ -109,13 +110,21 @@ Project Zomboid was announced by The Indie Stone in March 2011 and first sold as
 
 Build 41, known as the Animation Overhaul, rebuilt the game's animation, character and combat systems and added the city of Louisville; its first opt-in IWBUMS beta arrived in October 2019 [15]. Multiplayer — rebuilt from the ground up for B41 — arrived on 9 December 2021 in the dedicated 41.60 test branch [5], initially capped to 16-player servers [17]. Build 41 was then released as the stable build on 20 December 2021 [6][15].
 
-Through 2022 the 41.x line received a steady stream of patches, ending its active development era at 41.78.16, which pzwiki dates to 12 December 2022 [15]. That version remained the de-facto stable Build 41 for over three years and is the version this knowledge base tags as B41 (41.78.16). The wiki's version table also records a later wave of 41.78.x maintenance releases during 2026 (41.78.17 through 41.78.20, the last dated 29 July 2026, the same day B42 went stable), which this document treats as legacy41-branch maintenance; no official patch notes for these have been located yet [15].
+Through 2022 the 41.x line received a steady stream of patches, ending its active development era at 41.78.16, which pzwiki dates to 12 December 2022 [15]. That version remained the de-facto stable Build 41 for over three years and is the version this knowledge base tags as B41 (41.78.16). The wiki's version table also records a later wave of 41.78.x maintenance releases during 2026 (41.78.17 through 41.78.20, the last dated 29 July 2026, the same day B42 went stable), which this document treats as legacy41-branch maintenance; no official patch notes for these have been located yet [15]. A primary source now exists for the next one: TIS announced a 41.78.21 legacy hotfix on 26 August 2026, in a single post that also covers the 42.20.4 stable and 42.19.2 unstable hotfixes [23].
 
 ## Build 42 — the expanded crafting and balance era (2024–2026)
 
 Build 42, themed around expanded crafting, balance, animals and engine upgrades (new lighting, basements, taller buildings, map expansion), was released to the unstable beta on 17 December 2024 as version 42.0.0 [3][16]. The unstable release plans had been set out in the preceding "WhatZ Next" blog of 28 November 2024 [13]. This initial B42 release was single-player only; online multiplayer did not return until unstable 42.13.0 on 11 December 2025, which TIS announced as the first Build 42 version with online multiplayer, recommended at the time for co-op and whitelisted servers with modest player caps while stress-testing continued [4][18].
 
-After a further run of unstable versions (42.14 through 42.19), TIS announced on 24 July 2026 that version 42.20 would go directly to the stable public branch on Wednesday 29 July 2026 [1], and the stable release shipped on that date [2]. For the remainder of 2026 TIS has stated it will work on a "Build 42 Support Update" focused on optimisation, additional modding support, and player-requested polish, alongside continued multiplayer and controller improvements, plus releases of its mapping tools and the AnimZed animation editor [1].
+After a further run of unstable versions (42.14 through 42.19), TIS announced on 24 July 2026 that version 42.20 would go directly to the stable public branch on Wednesday 29 July 2026 [1], and the stable release shipped on that date [2].
+
+## After 42.20.0: hotfixes and the 42.21 update
+
+Four stable hotfixes followed. 42.20.1 and 42.20.2 were both announced on 5 August 2026: 42.20.1 improved multiplayer Lua checksum validation, fixed a chunk-unloading performance problem on multiplayer servers and a memory leak, and let mods write `.json` files [20]; 42.20.2 added a temporary workaround so that both ways of writing a percent sign in translation files work, with mod authors told to use `%%` [21]. 42.20.3 (17 August 2026) improved server player-limit handling, including support for up to 254 players, and made further memory fixes [22]. 42.20.4 (26 August 2026) fixed security vulnerabilities and removed the `loadstring` and `loadstream` Lua methods; the same announcement covers the 42.19.2 unstable and 41.78.21 legacy hotfixes [23].
+
+42.21 followed the unstable-first pattern. TIS released it to the Unstable branch on 23 September 2026, describing it as the first incremental update after Build 42 [24], and promoted it to stable on 28 September 2026 because the community reported no major issues [25]. Its headline items were fixes for zombies disappearing after a player left and re-entered a chunk, fixes for multiplayer zombie duplication, changes to how very large trees are cut away, and the re-enabling of `loadstring` and `loadstream` after TIS reconsidered the 42.20.4 removal [24][25]; the full change list is on the TIS forum [26]. TIS stated that this unstable-then-stable procedure should be standard for all future releases [24][25].
+
+For the remainder of 2026 TIS has stated it will work on a "Build 42 Support Update" focused on optimisation, additional modding support, and player-requested polish, alongside continued multiplayer and controller improvements, plus releases of its mapping tools and the AnimZed animation editor [1].
 
 ## The legacy41 branch
 
@@ -151,6 +160,11 @@ No blog post formally announcing the fortnightly or monthly shifts has been loca
 | 2024-12-17 | Build 42 unstable released (single-player only) | Primary [3] |
 | 2025-12-11 | Unstable 42.13.0 — first B42 with multiplayer | Primary [4] |
 | 2026-07-29 | Build 42.20 released to stable; `legacy41` branch preserves B41 | Primary [1][2] |
+| 2026-08-05 | 42.20.1 and 42.20.2 stable hotfixes | Primary [20][21] |
+| 2026-08-17 | 42.20.3 stable hotfix | Primary [22] |
+| 2026-08-26 | 42.20.4 stable, 42.19.2 unstable and 41.78.21 legacy hotfixes | Primary [23] |
+| 2026-09-23 | Build 42.21 released to Unstable | Primary [24] |
+| 2026-09-28 | Build 42.21 released to stable | Primary [25] |
 
 # B41 vs B42 Delta
 
@@ -158,7 +172,7 @@ Not applicable — this is a `historic` document; the build-to-build story *is* 
 
 # Practical Guidance
 
-- **Date every fact you inherit.** Any guide, video or wiki statement about Project Zomboid should be mentally stamped with an era: pre-B41 (before October 2019), B41 beta (2019–2021), B41 stable (December 2021 – December 2024 as the default branch), B42 unstable single-player (December 2024 – December 2025), B42 unstable with MP (December 2025 – July 2026), or B42 stable (from 29 July 2026). Community material written during the B42 unstable window is especially likely to describe values that changed before 42.20 [1][3][4].
+- **Date every fact you inherit.** Any guide, video or wiki statement about Project Zomboid should be mentally stamped with an era: pre-B41 (before October 2019), B41 beta (2019–2021), B41 stable (December 2021 – December 2024 as the default branch), B42 unstable single-player (December 2024 – December 2025), B42 unstable with MP (December 2025 – July 2026), or B42 stable (from 29 July 2026; the current stable build is 42.21 since 28 September 2026 [25]). Community material written during the B42 unstable window is especially likely to describe values that changed before 42.20 [1][3][4].
 - **Check the branch before checking the fact.** A player or server on `legacy41` is on 41.78.x behaviour; the default branch is B42 stable. The branch switch is in Steam library → Properties → Game Versions & Betas [1].
 - **Treat lore as citable, not copyable.** When a document needs a lore anchor (a date, a place, a broadcast's existence), cite the primary TIS post or a pzwiki lore page as a fact source and paraphrase in original words — never reproduce broadcast or timeline text [9][14].
 - **For "when did X arrive" questions,** reach first for the official blog archive [10] and the Steam announcement mirror [12]; use pzwiki's per-version pages to fill gaps, at fact-only status [15][16][17][18].
@@ -166,7 +180,7 @@ Not applicable — this is a `historic` document; the build-to-build story *is* 
 # Common Pitfalls & Troubleshooting
 
 - **Conflating the B42 unstable launch with multiplayer availability.** B42 had no online multiplayer for almost a year: 17 December 2024 (42.0.0, single-player) to 11 December 2025 (42.13.0) [3][4]. Community server guides written in that window may wrongly imply B42 MP does not exist, or describe B41 MP behaviour.
-- **Assuming "stable" always meant B41 41.78.16.** Since 29 July 2026 the default stable branch is B42 42.20; B41 lives on only via `legacy41` [1][2]. Conversely, sources written before that date use "stable" to mean 41.78.x.
+- **Assuming "stable" always meant B41 41.78.16.** Since 29 July 2026 the default stable branch is B42 (42.20, then 42.21 from 28 September 2026); B41 lives on only via `legacy41` [1][2][25]. Conversely, sources written before that date use "stable" to mean 41.78.x.
 - **Save incompatibility surprises.** B41 saves do not load in B42, and unstable 42.19 saves do not load in 42.20; TIS provided the `legacy41` and `42.19` branches specifically for this [1].
 - **Outbreak-date confusion.** TIS marks the Knox Event outbreak as 6 July 1993 [9], while the community wiki's timeline treats 4 July 1993 as the incident's notional beginning with the blockade following on 6 July [14]. Documents should prefer the TIS date and say which convention they use.
 - **Mondoid/Thursdoid anachronisms.** Posts before late September 2017 are Monday blogs; citing a "Thursdoid" from 2015 is a dating error [7].
@@ -187,8 +201,8 @@ Not applicable — this is a `historic` document; the build-to-build story *is* 
 
 # Risks & Caveats
 
-- **Recency:** Stable 42.20 shipped on 2026-07-29, one day before this document's verification date. Hotfixes and the announced Build 42 Support Update [1] may quickly change "current version" statements; the historic milestones themselves are stable.
-- **Wiki-sourced dates:** The 41.78.16 date (2022-12-12), the 2019-10 start of the B41 beta, and the 2026 41.78.17–41.78.20 maintenance patches are currently sourced only from pzwiki version pages [15]; per the source rules they are capped at Medium confidence until corroborated by official patch notes.
+- **Recency:** Stable 42.21 shipped on 2026-09-28, nine days before this document's 2026-10-07 re-baseline [25]. Hotfixes and the announced Build 42 Support Update [1] may quickly change "current version" statements; the historic milestones themselves are stable. The 42.21 forum change list [26] was read through a browser page-text extraction and the Steam announcements [20][21][22][23][24][25] from captured Steam news text; neither was re-read in game.
+- **Wiki-sourced dates:** The 41.78.16 date (2022-12-12), the 2019-10 start of the B41 beta, and the 2026 41.78.17–41.78.20 maintenance patches are currently sourced only from pzwiki version pages [15] (41.78.21 is primary-sourced [23]); per the source rules they are capped at Medium confidence until corroborated by official patch notes.
 - **Cadence analysis is observational:** The Thursdoid cadence table is derived from post dates in the official archive [10], not from a TIS statement; a formal announcement, if found, could adjust era boundaries.
 - **Steam feed gap:** The Steam community-announcement feed used for corroboration has a sparse window for 2019–2021 (Steam's announcement system changed), so that era is corroborated mainly by the blog archive itself [10][12].
 - **Fiction dates are in-universe:** All 1993 dates are facts *about the fiction*, cited to TIS or the wiki's archived record of TIS material; they are not claims about real events.
@@ -200,15 +214,16 @@ Not applicable — this is a `historic` document; the build-to-build story *is* 
 3. **Steam history:** Query the Steam news API (`ISteamNews/GetNewsForApp`, appid 108600) and confirm the oldest community announcement is dated 8 November 2013 and that "Build 42 Unstable Out Now" is dated 17 December 2024 [12].
 4. **Branches:** In a Steam client, right-click Project Zomboid → Properties → Game Versions & Betas, and confirm `legacy41` (and `42.19`) appear as selectable branches [1].
 5. **Version tables:** Fetch the pzwiki pages "Build 41" and "Build 42" via the MediaWiki API (`action=parse&prop=wikitext`) at the cited revision ids and re-check the per-version dates used here [15][16].
-6. **Lore dates:** Open "Knox Event: 30 Years On" [9] for the TIS-stated outbreak date, and the pzwiki "Knox Event" page (cited revision) for the timeline facts [14].
+6. **Post-42.20.0 timeline:** Query the Steam news API (`ISteamNews/GetNewsForApp`, appid 108600, a `count` of 40 or more) and confirm the announcement dates for 42.20.1 through 42.20.4, 42.21 unstable and 42.21 stable [20][21][22][23][24][25]; open forum topic 101693 for the change list [26].
+7. **Lore dates:** Open "Knox Event: 30 Years On" [9] for the TIS-stated outbreak date, and the pzwiki "Knox Event" page (cited revision) for the timeline facts [14].
 
 # Open Questions
 
 - Did TIS ever formally announce the fortnightly (2022) or monthly (2024) blog cadence, and where? Locating such a post would upgrade the cadence table from observation to stated policy.
-- Are there official patch notes for 41.78.17–41.78.20 (2026 maintenance releases on `legacy41`), and what do they change? Currently wiki-sourced only [15].
+- Are there official patch notes for 41.78.17–41.78.20 (2026 maintenance releases on `legacy41`), and what do they change? Currently wiki-sourced only [15]. The 41.78.21 announcement [23] does not itemise its changes per branch.
 - Will TIS designate a "final" Build 41 version for the legacy41 branch, or does maintenance continue indefinitely alongside the B42 Support Update [1]?
 - What is the official position of the July 4 vs July 6 1993 outbreak-date framing within TIS's own materials [9][14]?
-- When the Build 42 Support Update ships, does the KB need a new `historic` milestone entry and re-verification of the "current stable" statements [1]?
+- When the Build 42 Support Update ships, does the KB need a new `historic` milestone entry and re-verification of the "current stable" statements [1]? Is 42.21 itself part of that effort? The 42.21 posts do not say [24][25].
 
 # References
 
@@ -227,6 +242,13 @@ Not applicable — this is a `historic` document; the build-to-build story *is* 
 - [11] **The Indie Stone / Valve** — *Project Zomboid* Steam store page (release date 8 Nov 2013; Early Access category). https://store.steampowered.com/app/108600/Project_Zomboid/. Accessed 2026-07-30.
 - [12] **Valve (Steam news, app 108600)** — Community announcements feed, queried via the ISteamNews API; oldest item "PZ Launch Weekend Streams", 2013-11-08. https://steamcommunity.com/app/108600/announcements/. Accessed 2026-07-30.
 - [13] **The Indie Stone** — *WhatZ Next* (blog, 2024-11-28). https://projectzomboid.com/blog/news/2024/11/whatz-next/. Accessed 2026-07-30.
+- [20] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766 Accessed 2026-10-07; host is bot-block allowlisted.
+- [21] **The Indie Stone** — *42.20.2 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314339441 Accessed 2026-10-07; host is bot-block allowlisted.
+- [22] **The Indie Stone** — *42.20.3 STABLE Hotfix Released* (Steam announcement, 2026-08-17). https://steamcommunity.com/games/108600/announcements/detail/1840944183785895 Accessed 2026-10-07; host is bot-block allowlisted.
+- [23] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601 Accessed 2026-10-07; host is bot-block allowlisted.
+- [24] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925 Accessed 2026-10-07; host is bot-block allowlisted.
+- [25] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307 Accessed 2026-10-07; host is bot-block allowlisted.
+- [26] **The Indie Stone Forums** — *42.21 Patch Notes* (topic 101693, first post by Rockjaw, 2026-09-23). https://theindiestone.com/forums/topic/101693-4221-patch-notes/ Accessed 2026-10-07 via browser page-text extraction; host bot-blocks checkers.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -264,3 +286,4 @@ Not applicable — this is a `historic` document; the build-to-build story *is* 
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
 | 1.0.1 | 2026-07-30 | Orchestrator (KB Pipeline) | License-hygiene prose rewrites after arming the pzwiki n-gram gate (no factual changes). | Standing mandate (2026-07-30) |
+| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Factual update: added the post-42.20.0 release timeline (42.20.1 to 42.20.4 hotfixes, 41.78.21 legacy hotfix, 42.21 unstable 2026-09-23 and stable 2026-09-28, the unstable-first statement); stable build now 42.21; sources [20]-[26]. Proposed for re-approval. | Pending orchestrator approval |

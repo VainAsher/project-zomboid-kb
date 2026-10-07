@@ -1,7 +1,7 @@
 ---
 id: players-crafting-chains
 title: "The B42 Crafting Overhaul: From Knapping to Blacksmithing"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Players
@@ -9,13 +9,13 @@ topic: "Crafting"
 build: both
 document_type: reference
 created: 2026-07-30
-updated: 2026-07-30
-review_due: 2026-10-30
-sources_verified: 2026-07-30
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [players-foundation, players-skills-xp, players-traits-occupations, players-animals-husbandry, modders-foundation, meta-style-guide]
 tags: [players, crafting, build-42, knapping, carving, pottery, masonry, welding, blacksmithing, glassmaking, fluids, self-sufficiency, workstations]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,16 +23,16 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | players-crafting-chains |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Players |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-07-30 |
-| Review due | 2026-10-30 |
-| Game versions verified | 41.78.16, 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 |
 
 # Executive Summary
 
@@ -78,9 +78,11 @@ Not covered: per-recipe ingredient lists and XP tables (see pzwiki's per-skill p
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | 41.78.16 | Flat-recipe crafting; single Metalworking skill; no primitive chain, no fluids system [10] [15] |
-| B42 (stable) | Yes | 42.20 | The crafting-chain system described here; per-chain details cited from wiki revisions versioned 42.11.0–42.18.0, not individually re-verified on 42.20 [7] [9] |
+| B42 (stable) | Yes | 42.20; patch notes re-read through 42.21 | The crafting-chain system described here; per-chain details cited from wiki revisions versioned 42.11.0–42.18.0, not individually re-verified on 42.20 [7] [9]; 42.21 adds small recipe and fluid balance notes (see Reference) [25] [27] |
 
 The overhaul's skills shipped with B42 unstable on 2024-12-17 and evolved across the unstable cycle — notably the 42.3 research system and the 42.12 skill rename — so any B42 guide should be date-checked against those patches [4] [5] [6].
+
+Revision 0.2.0 (2026-10-07) re-read the 42.20.1, 42.20.2, 42.20.3 and 42.20.4 hotfix notes [21] [22] [23] [24], the 42.21 unstable and stable announcements [25] [26] and the abridged ("selected") TIS forum 42.21 changelist [27]. The four 42.20.x hotfix notes cover multiplayer, memory, security and mod-tooling fixes and list no crafting-chain, skill-gate or station-requirement changes [21] [22] [23] [24]. Statements not named as 42.21-affected are carried forward from 42.20 and the cited pzwiki revisions with no contradicting change found in those notes; this is a patch-notes review, not an in-game re-test [27].
 
 # Reference
 
@@ -139,6 +141,10 @@ B42 replaced ad-hoc, per-item liquid handling with a unified fluids system. A fl
 
 The stable release's crafting notes are polish, not redesign: fixes to the crafting queue stopping when tools break, bulk-craft progress bars, the Favourites tab in the Crafting and Build UIs, double-click errors, and molotov ingredient consumption [7]. The chains described above are the shipped 42.20 system, inherited from the unstable cycle [7].
 
+## What 42.21 changed
+
+The 42.21 balance notes (stable 2026-09-28) touch crafting at the edges rather than the chains [26]. Characters with the Welder occupation now start with Welding recipes instead of Blacksmithing recipes [25] [27]. Another 86 fluid containers can be used to purify water in the appropriate oven type [25] [27]. Washing machines now clean dirty rags, strips or bandages [25] [27]. Antibiotics can be packaged with the "pack in box" crafting recipe [25] [27]. The forum changelist also lists a fix for wrong Recipes used in CharacterTraitScriptGenerator, without naming which recipes were affected [27]. The same list records fixes for the crafting UI not closing after removing a crafting station and for the Making Sinew animation using the wrong items [27]. The retrieved (abridged) changelist lists no change to a skill gate, station requirement or fuel value for the primitive, Blacksmithing or Glassmaking chains [27].
+
 # B41 vs B42 Delta
 
 | Area | Build 41.78 *(B41)* | Build 42.20 *(B42)* |
@@ -149,6 +155,7 @@ The stable release's crafting notes are polish, not redesign: fixes to the craft
 | Forging | Smithing recipes existed in data but were unobtainable outside debug/admin spawning of The Smithing Magazine [10] | Full Blacksmithing chain: charcoal, furnaces, forges, casting, smithing [16] |
 | Primitive crafts | None — no Knapping, Carving, Pottery, Masonry or Glassmaking [20] | Six new crafting skills forming the primitive chain and glass branch [20] |
 | Recipe learning | Occupation/traits, magazines, skill-level unlocks for construction [10] | Same routes plus item research ("Research Craft", 42.3) and broader auto-learns [5] [9] |
+| Starting recipes for the torch trade | No Welder occupation (Metalworker) [10] | Welder starts with Welding recipes, not Blacksmithing recipes (42.21) [25] [27] |
 | Welding XP | Levelled by dismantling metal objects and furniture [15] | Furniture dismantling XP off by default (sandbox option); car wrecks remain [15] |
 | Liquids | Per-item water/fuel tracking; no unified system [10] [19] | Unified fluids: any container, any fluid, mL-tracked, mixing and taint propagation [18] [19] |
 | Design goal | Loot-centric survival with crafting as support | Stated goal of full settlement self-sufficiency without looting [1] |
@@ -163,7 +170,7 @@ The one-line version: B41 crafting asked "do I have the items?"; B42 crafting as
 - **Car wrecks are the metal mine.** They are the one dismantling target that still grants Welding XP on default settings and a prime source of steel for the forge — and stripping wrecks outside town is safer than looting metal in dense areas.
 - **Plan the advanced forge as a multi-skill project.** Its bellows needs the animal-husbandry leather loop (see `players-animals-husbandry`) and its anvil needs Pottery level 1 plus a kiln. Starting Blacksmithing without touching animals or clay means stalling at the primitive forge tier.
 - **Use Research Craft on your loot.** Since 42.3, items with a lightbulb tooltip can teach you their recipe and pay the same XP as crafting them — scissors, saws, scythes and drills all unlock stone equivalents this way.
-- **Pick your character for your chain.** Blacksmith (+4 Blacksmithing), Metalworker (+4 Welding with recipes), Construction Worker (+2 Masonry) and the Whittler/Mason/Blacksmith Knowledge traits are large head starts in skills whose level-0 rungs are the slowest; see `players-traits-occupations`.
+- **Pick your character for your chain.** Blacksmith (+4 Blacksmithing), Welder (+4 Welding per the pinned roster; on 42.21 it starts with Welding recipes [25]), Construction Worker (+2 Masonry) and the Whittler/Mason/Blacksmith Knowledge traits are large head starts in skills whose level-0 rungs are the slowest; see `players-traits-occupations`.
 - **Respect fluid purity.** Tainted always wins when fluids meet, and rain slowly taints open floor containers — keep drinking water covered or indoors, and decant from anything over 3 L.
 
 # Common Pitfalls & Troubleshooting
@@ -198,10 +205,10 @@ The one-line version: B41 crafting asked "do I have the items?"; B42 crafting as
 
 # Risks & Caveats
 
-- **Wiki revisions trail the stable build.** Every per-chain detail is cited from pzwiki revisions versioned 42.11.0–42.18.0; 42.20 shipped 2026-07-29 and its notes show continued crafting-UI and recipe fixes [7]. Specific gates (e.g. Welding 2/8 for wall tiers, the Masonry 0→1 bottleneck, clay rarity) could have shifted at stable without a traceable note. This is the main reason the document is Medium.
+- **Wiki revisions trail the stable build.** Every per-chain detail is cited from pzwiki revisions versioned 42.11.0–42.18.0; 42.20 shipped 2026-07-29 and its notes show continued crafting-UI and recipe fixes [7]. Specific gates (e.g. Welding 2/8 for wall tiers, the Masonry 0→1 bottleneck, clay rarity) could have shifted at stable without a traceable note; the selected 42.21 changelist lists none of these gates as changed, which is an absence in a partial list, not a confirmation. This is the main reason the document is Medium.
 - **Occupation/trait boost lists are point-in-time.** The cited +N values (Blacksmith +4, Whittler +2, etc.) come from unstable-era page revisions; the roster itself changed during B42 development [16] and may change in the announced Support Update.
 - **Design-goal statements are not shipped-feature statements.** The self-sufficiency goal, wilderness-map test case and item-attribute system are cited from 2022–2023 developer posts describing intent [1] [2]; this document does not claim every stated goal is fully realised in 42.20.
-- **Hotfix-wave recency.** 42.20 is days old at the time of writing; the first hotfix wave could adjust ingredient counts, XP or station requirements faster than sources update.
+- **Post-stable change is continuing.** 42.20 was followed by four hotfixes and then 42.21, which adjusted several recipes and fluid-container rules [21] [22] [23] [24] [26]; later patches could adjust ingredient counts, XP or station requirements faster than sources update.
 - **Steam announcement mirrors.** Primary citations use Steam announcement URLs (per project source policy); these hosts bot-block automated link checkers, so the checker reports warnings, not failures, on them.
 
 # Verification Steps
@@ -233,6 +240,13 @@ The one-line version: B41 crafting asked "do I have the items?"; B42 crafting as
 - [6] **The Indie Stone** — *42.12.0 UNSTABLE Released* (patch notes, Steam announcement, 2025-09-25). https://steamcommunity.com/games/108600/announcements/detail/1811772772244324. Accessed 2026-07-30.
 - [7] **The Indie Stone** — *Build 42.20.0 Stable Released* (Steam announcement, 2026-07-29). https://steamcommunity.com/games/108600/announcements/detail/1839676055882259. Accessed 2026-07-30.
 - [8] **The Indie Stone** — *Heat of the Night* (Thursdoid, Steam announcement, 2024-09-26). https://steamcommunity.com/games/108600/announcements/detail/6339469370182469339. Accessed 2026-07-30.
+- [21] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766. Accessed 2026-10-07.
+- [22] **The Indie Stone** — *42.20.2 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314339441. Accessed 2026-10-07.
+- [23] **The Indie Stone** — *42.20.3 STABLE Hotfix Released* (Steam announcement, 2026-08-17). https://steamcommunity.com/games/108600/announcements/detail/1840944183785895. Accessed 2026-10-07.
+- [24] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601. Accessed 2026-10-07.
+- [25] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925. Accessed 2026-10-07.
+- [26] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [27] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first post by Rockjaw, 2026-09-23; retrieved abridged, "selected" lists only). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -275,3 +289,4 @@ The one-line version: B41 crafting asked "do I have the items?"; B42 crafting as
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | 42.21 re-baseline against the 42.20.1–42.20.4 hotfix notes, the 42.21 unstable and stable Steam posts and the abridged TIS forum 42.21 changelist: new 'What 42.21 changed' section (Welder Welding recipes, 86 more oven water-purification containers, washing machines clean rags/strips/bandages, antibiotics pack-in-box, CharacterTraitScriptGenerator recipe fix); crafting UI station-removal and Making Sinew animation fixes; stale 'Metalworker' guidance corrected to Welder. Rebase is a patch-notes review, not an in-game re-test. | — |

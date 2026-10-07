@@ -1,7 +1,7 @@
 ---
 id: modders-mp-networking-porting
 title: "Multiplayer Mod Networking: Client/Server Lua, sendClientCommand and Porting for B42 MP"
-version: 0.2.0
+version: 0.3.0
 status: in-review
 confidence: Medium
 category: Modders
@@ -10,12 +10,12 @@ build: both
 document_type: reference
 created: 2026-10-07
 updated: 2026-10-07
-review_due: 2027-01-05
+review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
 related: [modders-foundation, modders-lua-api-surface, modders-events-callbacks, modders-modoptions-pzapi, modders-item-scripts-distributions, modders-modinfo-modid-conventions, modders-first-mod-tutorial-b42, modders-porting-b41-to-b42, players-crafting-chains, admins-workshop-mod-wiring, meta-style-guide]
 tags: [modding, multiplayer, networking, sendClientCommand, sendServerCommand, moddata, lua, b42, umbrella]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | modders-mp-networking-porting |
-| Version | 0.2.0 |
+| Version | 0.3.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Modders |
@@ -31,8 +31,8 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
 | Updated | 2026-10-07 |
-| Review due | 2027-01-05 |
-| Game versions verified | 41.78.16, 42.20.0 (API stubs only; see Build Applicability) |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16 (stubs), 42.20.0 and 42.21.0 (API stubs plus the 42.20.1 to 42.21 official notes; see Build Applicability) |
 
 # Executive Summary
 
@@ -42,7 +42,8 @@ command functions `sendClientCommand` and `sendServerCommand` with their
 receiving events `Events.OnClientCommand` and `Events.OnServerCommand`, the
 `ModData` synchronisation functions, and the `isClient()` / `isServer()`
 guards. Every symbol named here was checked against the pinned Umbrella type
-stubs for both builds: 41.78.16 and 42.20.0 [1] [2] [3] [4] [5] [6].
+stubs for both builds: 41.78.16 and, for B42, 42.21.0 (previously 42.20.0)
+[1] [2] [3] [4] [5] [6] [23] [24].
 
 The central fact is that the command API shape is the same on both builds:
 a client sends `(module, command, args)`, the server receives
@@ -53,7 +54,11 @@ unstable branch with 42.13.0 on 2025-12-11, together with an official
 forum migration guide for modders [9] [10]; Build 42 stable (42.20.0,
 2026-07-29) is therefore the first stable build where B42 mods can be
 networked [9]. The 42.20.x line also tightened security around mod data and
-removed, then restored, the Lua loaders `loadstring` and `loadstream` [9].
+removed, then restored, the Lua loaders `loadstring` and `loadstream` (removed
+in 42.20.4, re-enabled in 42.21) [26] [25]. The 42.20.1 to 42.21 hotfix and
+update notes add server-side anti-cheat changes that matter to MP mods:
+improved Lua checksum validation (42.20.1), an expanded anti-cheat system and
+server-side clothing condition (42.21) [18] [22].
 
 Document confidence is Medium. The signatures and event shapes are High
 (pinned stubs) and the Timed Action / item-sync model comes from official
@@ -61,8 +66,10 @@ TIS modder documents attached to the 42.13 forum thread [10] [14] [15] (dated
 December 2025, so older than the 42.20.0 stubs); the semantics of
 `ModData.transmit` are not described in any stub comment or in those
 documents. This document is verified against the 42.20.0 stubs only;
-Build 42.21 stable (2026-09-28) and 41.78.21 legacy (2026-08-26) shipped
-afterwards and no stubs for them were checked.
+The 42.21.0 stubs and the 42.20.1 to 42.21 official notes were re-read for
+this revision; unchanged statements are carried forward from 42.20 and were
+not re-tested in-game. 41.78.21 legacy (2026-08-26) shipped after the B41
+stub pin and no newer B41 stubs exist [5].
 
 # Key Takeaways
 
@@ -82,8 +89,16 @@ afterwards and no stubs for them were checked.
   the B41 stubs. *(cited)* *(B42)*
 - Online multiplayer arrived in unstable 42.13.0 (2025-12-11) and is part of
   stable 42.20.0 (2026-07-29). *(cited)* *(B42)*
-- In 42.20.4 `loadstring` / `loadstream` were removed (server-sent code is
-  no longer a workable pattern); 42.21 re-enabled them. *(cited)* *(B42)*
+- In 42.20.4 `loadstring` / `loadstream` were removed (the notes told authors
+  of server-sent code to use named handlers invoked by commands); 42.21
+  re-enabled them. *(cited)* *(B42)*
+- Lua checksum validation for MP anti-cheat was improved in 42.20.1, and 42.21
+  expanded the anti-cheat system; the stub for `getModFileWriter` warns that
+  writing into a mod's Lua or scripts directories changes the checksum.
+  *(cited)* *(B42)*
+- 42.21.0 stubs add `Events.RequestMedicalCheck`, `Events.AcceptedMedicalCheck`
+  and three foraging events, plus the global `sendAddObjectToMap`; the command
+  functions and receiving events are unchanged from 42.20.0. *(cited)* *(B42)*
 - Server-authoritative design (client requests, server validates and
   mutates) is community-guide advice, not an engine rule. *(community
   guide, corroborating)*
@@ -105,7 +120,7 @@ differences as far as primary sources state them.
 
 Not covered: packet-level protocol internals; anti-cheat design; server
 admin deployment (see admins-workshop-mod-wiring); registry
-mechanics beyond the summary in Reference; behaviour after 42.20.0 beyond the Steam release notes cited.
+mechanics beyond the summary in Reference; behaviour after 42.21.0 beyond the Steam and forum release notes cited.
 
 # Definitions
 
@@ -124,24 +139,41 @@ mechanics beyond the summary in Reference; behaviour after 42.20.0 beyond the St
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | Umbrella stubs at tag 41.78.16 (commit `fa2e7e19799740b57902f1cb4e989225c295c05e`) [4] [5] [6] | 41.78.17 to 41.78.21 shipped later; no newer B41 stub tag exists |
-| B42 (stable) | Yes | Umbrella stubs at tag 42.20.0 (commit `58204fc47895ba249592519cedecc7cfbaaebd60`) [1] [2] [3] | Stable 42.21 was released 2026-09-28 [9]; not verified here |
+| B42 (stable) | Yes | Umbrella stubs at release 42.21.0 (commit `13d01f9ee58fa48773553920db56d06f0005e7f8`) [23] [24]; earlier check at 42.20.0 (commit `58204fc47895ba249592519cedecc7cfbaaebd60`) [1] [2] [3] | Stable 42.21 was released 2026-09-28 [25]. The upstream 42.20.0 tag was later moved, so this document cites commits, not tags |
 
 Release facts: 42.20.0 stable shipped 2026-07-29, 42.21 stable shipped
 2026-09-28, and a 41.78.21 legacy hotfix shipped 2026-08-26, all announced
-on Steam [9]. This document is verified against the 42.20.0 stubs only; the
-42.21 changes relevant to modders that the Steam post states are limited to
-the loader re-enable described below [9].
+on Steam [9].
+
+**42.21 re-baseline (2026-10-07).** This revision re-checked the statements
+here against the official 42.20.1, 42.20.2, 42.20.3, 42.20.4, 42.21 unstable
+and 42.21 stable posts [18] [19] [20] [26] [21] [25], the TIS forum 42.21
+patch-note list [22] (abridged to "selected" for its long multiplayer list),
+and the 42.21.0 Umbrella `__global.lua` and `events.lua` stubs [23] [24].
+Recomputed against the 42.21.0 index, every function and event named in
+Reference still exists, and the diff to 42.20.0 adds ten events and four
+globals (listed under Release and security record). Everything not mentioned
+as changed is carried forward from 42.20 with no contradicting change found;
+it was not re-tested in-game. The signatures and descriptions of
+`sendClientCommand`, `sendClientCommandV`, `sendServerCommand`,
+`sendServerCommandV` and the two receiving events read the same in the
+42.21.0 stubs as in the 42.20.0 stubs [23] [24].
 
 **Official 42.13 documents.** The Timed Action, item-sync and registry
 material in Reference comes from two TIS documents dated 2025-12-11 [14]
-[15], about seven months older than 42.20.0. Checked against the 42.20.0
+[15], about ten months older than 42.21. Checked against the 42.20.0
 stubs and their B41 counterparts: the global sync functions, `emulateAnimEvent`,
 `ISBaseTimedAction.getDuration`, `NetTimedAction`, the `register` functions,
 `sendClientCommand` and `Events.OnClientCommand` [1] [2] [16] [17]. Guide-only
 (not in any stub): the `getProgress` call, the base-class `complete` and
 `serverStart` contracts, the supported-type list, and the relogin deletion
-rule for client-made items [14]. Any of the guide-only statements may have
-moved since December 2025.
+rule for client-made items [14]. In the 42.21.0 index the Timed Action
+and item-sync symbols named in that check
+(`ISBaseTimedAction`, `NetTimedAction`, `InventoryItem`, the sync globals) have
+the same members as in 42.20.0 [23]. The 42.20.1 to 42.21 notes contain no
+statement that contradicts the guides, but they also do not mention the guide-only
+points, so those remain unconfirmed rather than re-verified [18] [22]. Any of
+the guide-only statements may have moved since December 2025.
 
 # Reference
 
@@ -190,7 +222,8 @@ should be written to tolerate nil on both builds (see Practical Guidance).
 
 `isClient()`, `isServer()`, `isCoopHost()`, `isAdmin()` and
 `getOnlinePlayers()` exist in the stub surface of both builds, and
-`isMultiplayer()` exists in the B42 stubs only [1] [4]. The stubs give no
+`isMultiplayer()` exists in the B42 stubs only (confirmed again in the 42.21.0
+stubs) [1] [4] [23]. The stubs give no
 descriptive comment for these guards, so their exact truth table on a
 host, dedicated server and single-player game is not primary-sourced here
 (Claim 2).
@@ -362,20 +395,63 @@ exposed functions [9]. The 42.20.0 stable notes list fixes for exploits
 including arbitrary item spawning via mod data [9] [12]. In 42.20.4, the
 `loadstring` and `loadstream` Lua methods were removed as a security fix,
 and the note told mod authors who executed server-sent code to replace that
-with named handlers invoked by commands [9]. The 42.21 stable post states
-those two methods were re-enabled [9].
+with named handlers invoked by commands [26]. The 42.21 stable post states
+those two methods were re-enabled after further investigation of the security
+issue, and the 42.21 forum notes list the re-enable under "big ticket items"
+[25] [22]. A stub absence is not evidence either way here: the 42.21.0 index
+no longer lists a global `loadstream` although TIS states the methods were
+re-enabled, so stubs can lag the game on this point [23] [22].
+
+**42.20.1 to 42.21 multiplayer changes.** The 42.20.1 hotfix lists improved Lua
+checksum validation for multiplayer anti-cheat, a fix that stopped broken B41
+worlds being hosted on B42 servers, and a fix for a missing menu when players
+switched from B41 to B42 [18]. The 42.20.3 hotfix lists improved server player
+limit handling, including support for up to 254 players and administrator
+access when a server is full [20]. The 42.21 notes list an expanded anti-cheat
+system (new cheats guarded against, safehouse exploits remedied), clothing
+condition now handled server-side, and a notification for players who try to
+connect to an MP server running a different game version [21] [22]. The
+42.21 forum list is abridged here to the "selected" multiplayer items it
+publishes, so it is not a complete record [22]. None of these notes describes a
+change to the command functions or their events; for mod authors the stated
+consequence is limited to the checksum and anti-cheat items above, and the
+`getModFileWriter` stub warns that writing into a mod's Lua or scripts
+directories changes the checksum [18] [22] [23].
+
+**Mod file writes and translations.** The 42.20.1 notes state that mods can
+now write `.json` files, and the 42.21.0 stubs list `json` among the allowed
+extensions of `getFileWriter` (Lua cache root) and `getModFileWriter` (a mod's
+common folder), alongside `ini`, `cfg`, `txt` and `log` [18] [23]. The 42.20.1
+and 42.20.2 notes also say mod translation strings should use `%%` to show a
+literal `%`; 42.20.2 adds that a temporary workaround accepts both ways and
+"will be removed in a future unstable update" [18] [19]. The 42.21 notes add
+an updated localization system that enables more translatable strings [21] [22].
+
+**New in the 42.21.0 stubs.** Diffing the archived 42.20.0 index against the
+42.21.0 index (classes 4266 to 4124, events 234 to 244, globals 947 to 930)
+shows ten added events and no removed events [23] [24]. Those relevant to
+multiplayer are `Events.RequestMedicalCheck` and `Events.AcceptedMedicalCheck`
+(both marked multiplayer and client, each with callback parameters
+`target, requester`), and three foraging events: `Events.OnForagePool`
+(client; `player, zoneId, icons`, fired when a pool is received from the
+server), `Events.OnForageRequestZone` (server; `player, focus`) and
+`Events.OnForageSpot` (server; `player, iconID`) [24]. The global
+`sendAddObjectToMap(square, sprite)` is new in the 42.21.0 stubs; the stub gives
+it no description, so its behaviour is not stated here [23].
 
 # B41 vs B42 Delta
 
-| Aspect | B41 (41.78.16 stubs) | B42 (42.20.0 stubs) |
+| Aspect | B41 (41.78.16 stubs) | B42 (42.21.0 stubs; 42.20.0 identical for the command rows) |
 |--------|----------------------|---------------------|
-| Online multiplayer | Present in the B41 lifecycle (command events and `isClient`/`isServer` exist) [4] [5] | Returned in unstable 42.13.0 (2025-12-11), in stable from 42.20.0 [9] |
-| Command core | `sendClientCommand`, `sendServerCommand` with a one-player overload; `Events.OnClientCommand`, `Events.OnServerCommand` [4] [5] | Same four, with documented overloads [1] [2] |
+| Online multiplayer | Present in the B41 lifecycle (command events and `isClient`/`isServer` exist) [4] [5] | Returned in unstable 42.13.0 (2025-12-11), in stable from 42.20.0; 42.20.3 supports up to 254 players with administrator access when full [9] [20] |
+| Command core | `sendClientCommand`, `sendServerCommand` with a one-player overload; `Events.OnClientCommand`, `Events.OnServerCommand` [4] [5] | Same four, with documented overloads, unchanged between 42.20.0 and 42.21.0 [1] [2] [23] [24] |
 | Array-valued variants | Not in stubs [4] | `sendClientCommandV`, `sendServerCommandV` [1] |
 | Empty args | Typed as plain table [5] | Typed table or nil; empty table arrives as nil [2] |
 | `isMultiplayer()` | Not in stubs [4] | In stubs [1] |
 | Extra event | Not in stubs [5] | `Events.OnServerCustomizationDataReceived` (no description in the stub) [2] *(B42)* |
-| Security posture | Security-only hotfixes on legacy (see Steam record) [9] | Mod data item-spawn exploit fixed in 42.20.0; loaders removed in 42.20.4 and re-enabled in 42.21 [9] |
+| Security posture | Security-only hotfixes on legacy (see Steam record) [9] | Mod data item-spawn exploit fixed in 42.20.0 [9]; improved Lua checksum validation in 42.20.1 [18]; loaders removed in 42.20.4 and re-enabled in 42.21 [26] [25]; expanded anti-cheat in 42.21 [21] [22] |
+| Cross-version connect | Not covered by any source read | 42.20.1 stops broken B41 worlds being hosted on B42 servers [18]; 42.21 adds a notification when connecting to a server with a different game version [21] |
+| Medical-check and foraging events | Not in stubs [5] | `Events.RequestMedicalCheck`, `Events.AcceptedMedicalCheck`, `Events.OnForagePool`, `Events.OnForageRequestZone`, `Events.OnForageSpot` in the 42.21.0 stubs, not in 42.20.0 [24] *(B42)* |
 | Modder guidance | None cited | Official forum thread with a Migration Guide and an inventory-items API document (2025-12-11) [9] [10] [14] [15]; server-authoritative items and Timed Action split, see Reference |
 
 The practical reading of the table is that the transport functions are
@@ -401,9 +477,14 @@ holds authority [9].
   their sync call in `complete` [14].
 - **Never create items on the client.** Create them on the server and sync
   them, because client-made items are not honoured [14].
-- **Replace server-sent code with named commands.** After the 42.20.4 notice,
-  expose a fixed set of handlers and trigger them with commands rather than
-  shipping code strings [9].
+- **Replace server-sent code with named commands.** The 42.20.4 notice asked
+  for exactly this; even though 42.21 re-enabled the loaders, a fixed set of
+  handlers triggered by commands does not depend on that decision [26] [25].
+- **Write `%%` for a literal percent in translations.** The 42.20.2 notes say
+  the tolerant workaround will be removed in a future unstable update [19].
+- **Do not edit your mod's own Lua or scripts at runtime.** The
+  `getModFileWriter` stub notes this changes the checksum, and checksum
+  validation for MP anti-cheat was improved in 42.20.1 [23] [18].
 - **Test on a dedicated server, not only in single-player or a host game.**
   Both of the receiving events are labelled for server or client contexts in
   the stubs, so a single-player run cannot prove them [2].
@@ -453,11 +534,16 @@ Events.OnServerCommand.Add(onServerCommand)
 - **Index error on empty args.** B42 delivers nil for an empty table [2].
 - **Cross-mod collisions.** Without a module filter every command reaches
   every handler registered on the event [2].
-- **Server-supplied code stopped working in 42.20.4 to 42.20.x.** The loader
-  functions were removed in that window and restored in 42.21 [9].
+- **Server-supplied code stopped working in 42.20.4.** The loader functions
+  were removed in 42.20.4 and restored in 42.21 [26] [25].
+- **Literal percent signs vanish or double in mod translations.** Use `%%`;
+  the temporary both-ways handling is slated for removal [19].
 - **Mod data seems stale after joining.** `Events.OnReceiveGlobalModData`
   reports `false` when no table exists for the requested key; check for it
   [2].
+- **Players cannot join after a version mismatch.** 42.21 added a
+  notification for connecting to a server with a different game version, and
+  42.20.1 blocked broken B41 worlds from being hosted on B42 servers [21] [18].
 - **Mod broke when MP landed (B42).** Official notes say much changed under
   the hood in 42.13, and early MP testing advised disabling mods [9].
 
@@ -495,7 +581,8 @@ Events.OnServerCommand.Add(onServerCommand)
   describe direction or timing [3] [6] [2]; no dev post found.
 - **Confidence:** Low. Inferred from names and event comments, with no
   primary behavioural statement, and 42.20.0 fixed a mod-data exploit that may
-  have altered server-side acceptance rules [9].
+  have altered server-side acceptance rules, and the expanded 42.21 anti-cheat could
+  have too [9] [22].
 
 ## Claim 4 — Mods that only use script and registry changes need no further MP-specific work
 
@@ -508,13 +595,18 @@ Events.OnServerCommand.Add(onServerCommand)
 
 # Risks & Caveats
 
-- Verified against 42.20.0 stubs only; 42.21 stable (2026-09-28) and 41.78.21
-  legacy (2026-08-26) are not covered by pinned stubs [9].
+- B42 stubs re-checked at 42.21.0; the B41 stub pin is still 41.78.16, and
+  41.78.21 legacy (2026-08-26) has no newer stub tag [5] [26].
+- The 42.21 forum notes publish only "selected" multiplayer items [22]; the
+  full list was not available, so further MP changes may exist.
+- Umbrella stubs can lag the game: `loadstream` is absent from the 42.21.0
+  index although TIS says it was re-enabled [23] [22].
 - The stubs are community-generated type annotations, not engine
   documentation; comments such as the "does nothing if called on the server"
   statements are the stub authors' descriptions [1].
 - The official 42.13 documents date from December 2025; their guide-only
-  statements were not re-verified on 42.20.0 and 42.21 [14] [15]. The
+  statements were not re-verified on 42.20.0 or 42.21; only the symbol-level
+  check against the 42.21.0 index was repeated [14] [15] [23]. The
   attachments need a forum sign-in, so readers cannot open them anonymously.
 - The loader removal and restoration (42.20.4, 42.21) shows the security
   posture of the mod API is still moving [9].
@@ -522,29 +614,35 @@ Events.OnServerCommand.Add(onServerCommand)
 
 # Verification Steps
 
-1. Open the Umbrella B42 tag 42.20.0 and read `library/java/__global.lua`
+1. Open the Umbrella B42 commit 13d01f9ee58fa48773553920db56d06f0005e7f8 (release 42.21.0) and read `library/java/__global.lua`
    around `sendClientCommand` / `sendServerCommand`, and
-   `library/events.lua` for `OnClientCommand` / `OnServerCommand` [1] [2].
+   `library/events.lua` for `OnClientCommand` / `OnServerCommand` [23] [24]
+   (the 42.20.0 files are [1] [2]).
 2. Repeat on the B41 tag 41.78.16 in `library/Candle/__global.lua` and
    `library/Events/Events.lua` [4] [5].
 3. Run `python scripts/check_api_exists.py docs/modders/modders-mp-networking-porting.md`.
 4. Start a dedicated server with the skeleton mod and confirm the `pong`
    round trip; then run it host-mode and observe how often each file executes
    to settle Claims 1 and 2.
-5. Pull the Steam news feed for app 108600 and read the 42.13.0, 42.20.4 and
-   42.21 posts [9].
+5. Pull the Steam news feed for app 108600 and read the 42.13.0, 42.20.1, 42.20.4 and
+   42.21 posts [9] [18] [26] [25], and the forum patch notes [22].
 6. Open the forum thread signed in, download both PDF attachments and compare
    them with the Reference subsections [10] [14] [15].
 
 # Open Questions
 
 - Has the Timed Action contract (`getProgress`, base `complete` and
-  `serverStart`, supported types) changed between 42.13 and 42.20.0 or 42.21?
-  Resolve by decompiling the game's Java and diffing against [14].
+  `serverStart`, supported types) changed between 42.13 and 42.21? The 42.21.0
+  index shows no member change on the related symbols, but the guide-only points
+  have no stub counterpart; resolve by decompiling the game's Java and diffing
+  against [14].
 - What are the direction and timing semantics of `ModData.transmit` and
   `ModData.request` on 42.20+, and did the 42.20.0 mod-data exploit fix change
   what a server accepts from clients? [9]
-- Did 42.21 change the networking stubs? Re-pin Umbrella and diff.
+- What do `sendAddObjectToMap` and the medical-check events do in practice?
+  The 42.21.0 stubs give a signature or one-line trigger and nothing more [23] [24].
+- What exactly does the 42.20.1 and 42.21 anti-cheat reject from a mod's
+  point of view? The notes name no mod-facing rule [18] [22].
 - Is there an official statement of host (co-op) Lua execution behaviour?
 
 # References
@@ -566,6 +664,15 @@ Events.OnServerCommand.Add(onServerCommand)
 - [15] **The Indie Stone** — *Migration Guide*, PDF attached to the forum thread [10] (text extracted from the signed-in download, retrieved 2026-10-07). Copyright The Indie Stone; facts only, original prose here.
 - [16] **PZ-Umbrella** — `library/java` folder and `library/lua` folder at commit 58204fc47895ba249592519cedecc7cfbaaebd60 (42.20.0 stubs, class and member index). https://github.com/PZ-Umbrella/Umbrella/tree/58204fc47895ba249592519cedecc7cfbaaebd60/library/java Accessed 2026-10-07.
 - [17] **PZ-Umbrella** — `library/Candle` folder at commit fa2e7e19799740b57902f1cb4e989225c295c05e (41.78.16 stubs). https://github.com/PZ-Umbrella/Umbrella/tree/fa2e7e19799740b57902f1cb4e989225c295c05e/library/Candle Accessed 2026-10-07.
+- [18] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766 Accessed 2026-10-07.
+- [19] **The Indie Stone** — *42.20.2 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314339441 Accessed 2026-10-07.
+- [20] **The Indie Stone** — *42.20.3 STABLE Hotfix Released* (Steam announcement, 2026-08-17). https://steamcommunity.com/games/108600/announcements/detail/1840944183785895 Accessed 2026-10-07.
+- [21] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925 Accessed 2026-10-07.
+- [22] **The Indie Stone Forums** — *42.21 Patch Notes*, topic 101693, first post by Rockjaw, 2026-09-23 (list abridged to "selected" items for its long MP and other fix lists). https://theindiestone.com/forums/topic/101693-4221-patch-notes/ Accessed 2026-10-07 (host bot-blocks automated checkers).
+- [23] **PZ-Umbrella** — `library/java/__global.lua` at commit 13d01f9ee58fa48773553920db56d06f0005e7f8 (release 42.21.0). https://github.com/PZ-Umbrella/Umbrella/blob/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/__global.lua Accessed 2026-10-07.
+- [24] **PZ-Umbrella** — `library/events.lua` at commit 13d01f9ee58fa48773553920db56d06f0005e7f8 (release 42.21.0). https://github.com/PZ-Umbrella/Umbrella/blob/13d01f9ee58fa48773553920db56d06f0005e7f8/library/events.lua Accessed 2026-10-07.
+- [25] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307 Accessed 2026-10-07.
+- [26] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601 Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)**
 
@@ -605,3 +712,4 @@ Events.OnServerCommand.Add(onServerCommand)
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (virtual agent) | Added the official 42.13 TIS documents (Timed Action split, item sync, registries); resolved the unread-guide claim; Build Applicability notes stub-checked vs guide-only statements. | — |
+| 0.3.0 | 2026-10-07 | KB Pipeline (virtual agent) | Re-baselined 42.20 to 42.21: added the 42.20.1 to 42.21 MP notes (Lua checksum validation, 254-player limit, expanded anti-cheat, server-side clothing condition, version-mismatch notification, B41 worlds blocked), `%%` translation rule, `.json` writes, loader removal and re-enable chronology, and the 42.21.0 stub diff (medical-check and foraging events, `sendAddObjectToMap`). Sources: Steam posts 42.20.1 to 42.21 [18] [19] [20] [26] [21] [25], forum notes [22], Umbrella 42.21.0 [23] [24]. | — |

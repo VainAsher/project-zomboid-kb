@@ -1,7 +1,7 @@
 ---
 id: admins-modded-server-runbook
 title: "Running a Modded Server: Selection, Rollout and Update Discipline"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Admins
@@ -9,13 +9,13 @@ topic: "Server runbooks"
 build: both
 document_type: tutorial
 created: 2026-07-31
-updated: 2026-07-31
-review_due: 2026-10-31
-sources_verified: 2026-07-31
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [admins-foundation, admins-workshop-mod-wiring, admins-ubuntu-runbook, admins-backups-migration, meta-style-guide]
 tags: [dedicated-server, mods, workshop, updates, rollout, staging, troubleshooting, b42, legacy41]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,16 +23,16 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | admins-modded-server-runbook |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Admins |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-07-31 |
-| Review due | 2026-10-31 |
-| Game versions verified | 41.78.16, 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 |
 
 # Executive Summary
 
@@ -168,8 +168,10 @@ Modders track.
 
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
-| B41 (legacy41) | Yes | 41.78.16 | The mod-manager version/dependency fields, the restart-required posture, and the backup-before-mod-change advice are documented on wiki pages not separately versioned for B41; the underlying mechanism (mods are version-specific, main-menu mod changes are launch-risk) is generic client behaviour with no build-specific carve-out in the sources found [4] [5] |
-| B42 (stable) | Yes | 42.20 | The B41→B42 mod-folder restructuring (deepened in `admins-workshop-mod-wiring`) is the one build-specific fact this document leans on; the dated forum log signature [16] is from the 42.13-era unstable-MP stress-test window, not re-verified against 42.20 |
+| B41 (legacy41) | Yes | 41.78.16 | The mod-manager version/dependency fields, the restart-required posture, and the backup-before-mod-change advice are documented on wiki pages not separately versioned for B41; the underlying mechanism (mods are version-specific, main-menu mod changes are launch-risk) is generic client behaviour with no build-specific carve-out in the sources found [4] [5]; the legacy line's latest primary-attested hotfix is 41.78.21 (2026-08-26), published in a combined post with 42.20.4 [20] |
+| B42 (stable) | Yes | 42.20; notes reviewed to 42.21 | 42.21 has been the stable build since 2026-09-28 [22]. The B41→B42 mod-folder restructuring (deepened in `admins-workshop-mod-wiring`) is the one build-specific fact this document leans on; the dated forum log signature [16] is from the 42.13-era unstable-MP stress-test window, not re-verified against 42.20 or 42.21 |
+
+Re-baseline note (0.2.0): this revision re-checked the document against the six Steam announcements from 42.20.1 through 42.21 stable [17] [18] [19] [20] [21] [22] and the abridged TIS forum changelist for 42.21 [23], looking for changes to modded-server operation. Every other statement, including the wiki-derived mechanics and the quoted log lines, is carried forward from the 42.20 review with no contradicting change found in those notes; it was not re-tested on 42.21.
 
 Several fact-only pages cited here — the `Mods` reference [4], the mod
 problem-solving guide [5], and the multiplayer mod-testing walkthrough [6] —
@@ -318,7 +320,8 @@ stress-test phase, the documented guidance was to disable all mods, including
 client-side ones [2] (already established at `admins-foundation` and
 `admins-performance-tuning`). That guidance was written for an unstable
 stress-test window and has not been restated or rescinded for 42.20 stable
-[1]; it is nonetheless the clearest official signal that the developers
+[1], and the 42.21 stable announcement and unstable-release notes reviewed do not
+restate it either [21] [22]; it is nonetheless the clearest official signal that the developers
 themselves treat a build transition and an active mod list as a combination
 worth separating rather than testing together.
 
@@ -338,6 +341,54 @@ This is one dated, build-transition-era data point from a community forum
 thread, not a confirmed-permanent signature of current 42.20 behaviour — but
 it is a real example of exactly the log lines the Common Pitfalls section
 below tells an admin to search for.
+
+## What changed from 42.20.1 through 42.21 for modded servers
+
+Six official posts sit between the 42.20.0 baseline and today's stable, and
+several bear directly on how a modded server behaves. They are grouped by
+operational effect rather than by date.
+
+**Lua checksum validation.** The 42.20.1 hotfix lists "improved Lua checksum
+validation for multiplayer anti-cheat" [17]. The notes do not say what the
+server does when a client's mod Lua differs from the server's, so this
+document treats the exact mismatch behaviour as unspecified (see Open
+Questions) *(B42)*.
+
+**Percent signs in mod translation strings.** 42.20.1 changed how percent
+symbols in translation files are handled and tells mod authors to write `%%`
+for a literal `%` [17]. 42.20.2 added a temporary workaround that accepts both
+styles, writes error-log entries naming the offending strings, and states that
+the workaround will be removed in a future unstable update [18] *(B42)*. For a
+server admin, error-log lines of that kind point at a mod's translation files;
+the fix belongs to the mod author (see `modders-lua-api-surface` and the
+other Modders documents for the author-side detail).
+
+**`loadstring` and `loadstream`.** The 42.20.4 hotfix removed both Lua methods
+as part of a security fix. It told authors who used them to execute code sent
+from the server to create the necessary methods and call them by sending the
+appropriate commands instead [20]. 42.21 re-enabled both methods, with an
+apology to modders and server admins for the disruption [21] [22] *(B42)*. The
+42.20.4 post covers 42.20.4 stable, 42.19.2 unstable and 41.78.21 legacy
+together and does not separate the Lua change by build [20], so its effect on
+the legacy line is not established here.
+
+**Connection and server-browser changes in 42.21.** 42.21 adds a notification
+for players who try to connect to a multiplayer server running a different game
+version [21] [23]. It also fixes an exploit that let players enter dedicated
+servers without correctly authenticating through Steam, which had prevented
+SteamID bans, and makes the server browser's "Server Update" column show the
+last wipe rather than the last restart [21] [23] *(B42)*. 42.20.3 added support
+for up to 254 players and administrator access when a server is full [19]
+*(B42)*.
+
+**Stability fixes.** 42.20.1 fixed a chunk-unloading performance problem on
+multiplayer servers and a memory leak that could cause degradation and crashes
+over time [17]; 42.21 fixed a further memory leak tied to eating food directly
+from a vehicle trunk [23] *(B42)*.
+
+**Release cadence.** The 42.21 stable post states that going forward a new
+update goes to Unstable, is tested by the community, may change further, and
+then goes to Stable [22].
 
 ## Recommended pinning / freeze posture
 
@@ -360,7 +411,7 @@ an accident, once an admin knows to treat it that way.
 
 # B41 vs B42 Delta
 
-| Area | Build 41.78 *(B41)* | Build 42.20 *(B42)* |
+| Area | Build 41.78 *(B41)* | Build 42.20 / 42.21 *(B42)* |
 |------|---------------------|----------------------|
 | Mod folder layout an evaluated mod must match | Flat `media/` layout (established in `admins-workshop-mod-wiring`; not re-derived here) | Versioned `common/` + `42.x` folder structure; a Build 41-only package needs author restructuring before it runs at all, which is the direct cause of the log signature this document traces in [16] |
 | Workshop tag set | Same predefined tag list, including a "Build 41" category [13] | Same mechanism, with "Build 42" added as its own predefined category [13] |
@@ -368,6 +419,9 @@ an accident, once an admin knows to treat it that way.
 | Official mods-as-rollout-risk statement | None on record | 42.13 unstable MP release: disable all mods, including client-side, during the stress-test phase [2] |
 | Documented MP mod support status at the time of the cited failure signature | Long-stable MP; not the subject of the cited thread | Reply in the cited 2025-12-12 thread describes MP mod support as not yet in place "at the moment," during the unstable-MP window [16] |
 | Restart-required posture for mod-list changes | Same posture, same absence of a documented live-reload path [9] [10] | Same [9] [10] |
+| `loadstring`/`loadstream` availability | Per-build scope of the 42.20.4 removal not stated in the combined 41.78.21 post [20] | Removed in 42.20.4 [20]; re-enabled in 42.21 [22] |
+| Lua checksum validation | Not mentioned in the 41.78.21 post [20] | Improved in 42.20.1 [17] |
+| Notice on connecting with a different game version | Not mentioned in the sources reviewed | Added in 42.21 [21] [23] |
 
 The one-line version: the *discipline* this document describes — evaluate
 before adding, stage before rolling out, back up before touching an existing
@@ -489,6 +543,17 @@ its author restructures it [16].
   restore it.** The wiki states this outcome plainly — the save can be
   permanently broken — which is precisely why the backup-before-changing-mods
   step in this document's checklist is not optional [5].
+- **A mod that pushed code from the server stopped working at 42.20.4, or
+  recovered at 42.21.** The 42.20.4 hotfix removed `loadstring`/`loadstream`
+  and told authors to replace server-sent code with commands, and 42.21
+  re-enabled the methods [20] [22]. Check which game build the server was on
+  and whether the author shipped a replacement before blaming another mod.
+- **Error-log lines about `%` in a mod's translation files.** These follow
+  from the `%%` escaping rule and the temporary dual-handling workaround in
+  42.20.2 [17] [18]; the correction is the author's.
+- **Client and server disagree after a hotfix.** Keep both on the same game
+  build and the same mod revisions; 42.20.1 improved Lua checksum validation
+  [17] and 42.21 shows a notice when the game versions differ [21].
 - **A version-gate error reads as "mod too old" when the mod is actually too
   new for your server.** Documented display-message bug: check the mod's
   actual `versionMin` value against your server's game version before
@@ -548,7 +613,7 @@ its author restructures it [16].
   / `required mod "..." not found` log excerpt [16] is real and quoted
   verbatim, but it comes from one Help-forum report during the 42.13-era
   unstable MP stress-test window, not a primary changelog or a reproduction
-  against current 42.20 stable. Treat it as an illustrative, not exhaustive,
+  against current 42.20 or 42.21 stable. Treat it as an illustrative, not exhaustive,
   example of what a failed mod load can look like in the server console.
 - **The risk-tiering and verification-checklist framing in Practical
   Guidance leans on a single secondary, marketing-adjacent source** [14].
@@ -571,8 +636,8 @@ its author restructures it [16].
   evidence is the documented existence of forked/duplicated Workshop listings
   for the same mod concept across builds [14] and the general, primary-cited
   fact that mods are version-specific [4].
-- **Day-two-plus stable.** 42.20 has been stable for a matter of days at the
-  time of writing; any hotfix could change mod-loading behaviour, the
+- **Recently stable.** 42.21 has been stable since 2026-09-28 [22], about nine
+  days at the time of this revision; any hotfix could change mod-loading behaviour, the
   Workshop "Update Required" state's exact semantics, or the version-gate
   display bug's status before this document's next review.
 
@@ -603,13 +668,18 @@ its author restructures it [16].
    `admins-workshop-mod-wiring`'s Verification Steps already prescribes, and
    resolving it there resolves the mechanism this document's staging
    guidance rests on.
-7. **Re-run the [16] scenario on current 42.20 stable** with a mod
+7. **Re-run the [16] scenario on current 42.21 stable** with a mod
    restructured for the B42 `common/`+`42.x` folder layout, to confirm
    whether the specific `ERROR`/`WARN` log lines quoted here still occur on a
    properly-restructured mod, or were specific to the unstable-era report.
 
 # Open Questions
 
+- What does the improved Lua checksum validation [17] do when a client's mod
+  Lua differs from the server's: refuse, kick or ignore? The 42.20.1 notes do
+  not say.
+- Did the 42.20.4 removal of `loadstring`/`loadstream` apply to the legacy41
+  line as well? The combined 41.78.21 post does not separate it by build [20].
 - What proportion of actively-maintained Build 41 mods have been ported to
   Build 42 as of 42.20 stable, and is there any citable tracker beyond
   individual Workshop pages and forked listings [14]? No primary source
@@ -644,6 +714,28 @@ its author restructures it [16].
   reconfirmed for maximum-version gating 2025-12-13). https://theindiestone.com/forums/index.php?/topic/87949-42123-rev31595-mod-minimum-version-shows-wrong-error-message/.
   Accessed 2026-07-31 (host bot-block allowlisted; page retrieved
   successfully).
+
+- [17] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam
+  announcement, 2026-08-05; Lua checksum validation, memory and chunk-unloading
+  fixes, `%%` in mod translations). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766. Accessed 2026-10-07.
+- [18] **The Indie Stone** — *42.20.2 STABLE Hotfix Released* (Steam
+  announcement, 2026-08-05; temporary dual-handling workaround for `%%`).
+  https://steamcommunity.com/games/108600/announcements/detail/1840310314339441. Accessed 2026-10-07.
+- [19] **The Indie Stone** — *42.20.3 STABLE Hotfix Released* (Steam
+  announcement, 2026-08-17; support for up to 254 players). https://steamcommunity.com/games/108600/announcements/detail/1840944183785895.
+  Accessed 2026-10-07.
+- [20] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21
+  LEGACY Hotfixes Released* (Steam announcement, 2026-08-26;
+  `loadstring`/`loadstream` removal). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601. Accessed 2026-10-07.
+- [21] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable
+  Released* (Steam announcement, 2026-09-23; `loadstring` re-enabled,
+  version-mismatch notice, Steam authentication fix, server browser). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925.
+  Accessed 2026-10-07.
+- [22] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement,
+  2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [23] **The Indie Stone Forums** — *42.21 Patch Notes* (topic 101693, first
+  post, 2026-09-23; abridged selection of the full changelist). https://theindiestone.com/forums/topic/101693-4221-patch-notes/.
+  Accessed 2026-10-07 (host bot-block allowlisted).
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL +
 revision id; facts only, never prose.
@@ -741,3 +833,4 @@ revision id; facts only, never prose.
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21 (stable 2026-09-28): added a Reference section on 42.20.1-42.21 changes relevant to modded servers (Lua checksum validation, %% translation escaping, loadstring/loadstream removal in 42.20.4 and re-enable in 42.21, version-mismatch notice, 254-player cap, Steam authentication fix, memory fixes); updated Build Applicability, Delta, Pitfalls, Risks, Open Questions and Verification scope. Sources: Steam posts 42.20.1, 42.20.2, 42.20.3, 42.20.4+41.78.21, 42.21 unstable, 42.21 stable; TIS forum 42.21 patch notes. Unchanged statements carried forward from 42.20, not re-tested. | — |

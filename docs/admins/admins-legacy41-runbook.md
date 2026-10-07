@@ -1,7 +1,7 @@
 ---
 id: admins-legacy41-runbook
 title: "Keeping a Build 41 Server Alive: The legacy41 Runbook"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Admins
@@ -9,13 +9,13 @@ topic: "Server runbooks"
 build: B41
 document_type: tutorial
 created: 2026-07-31
-updated: 2026-07-31
-review_due: 2026-10-31
-sources_verified: 2026-07-31
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [admins-foundation, admins-backups-migration, admins-server-ini-reference, lore-foundation, meta-style-guide]
 tags: [legacy41, build-41, steamcmd, beta-branch, maintenance-line, hotfix, workshop-mods, dedicated-server, runbook]
-game_versions_verified: ["41.78.16", "41.78.19"]
+game_versions_verified: ["41.78.16", "41.78.19", "41.78.21", "42.21"]
 ---
 
 # Document Control
@@ -23,31 +23,31 @@ game_versions_verified: ["41.78.16", "41.78.19"]
 | Field | Value |
 |-------|-------|
 | Document ID | admins-legacy41-runbook |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Admins |
 | Build | B41 |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-07-31 |
-| Review due | 2026-10-31 |
-| Game versions verified | 41.78.16, 41.78.19 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 41.78.19, 41.78.21, 42.21 |
 
 # Executive Summary
 
-Since 2026-07-29, Build 42.20 is Project Zomboid's stable public build, and a community that wants to keep playing Build 41 does so on a named Steam beta branch: `legacy41` [1] [2] [3]. The Indie Stone published the branch ahead of the switch precisely so that server owners could move themselves *and their players* before launch day, because Build 41 savegames cannot be carried into Build 42 [1] [2]. This document is the operating runbook for that choice: how to install or switch a dedicated server onto `legacy41`, how to keep every client on the matching branch (and what happens to the player who forgets), what "staying on 41" actually means now that B41 is a maintenance line rather than a frozen artifact, how the B41-era configuration surface differs from the B42 documentation most guides now assume, and what the branch decision does to your mod ecosystem.
+Since 2026-07-29, Build 42 (42.20.0, now 42.21 since 2026-09-28) is Project Zomboid's stable public build [3] [14], and a community that wants to keep playing Build 41 does so on a named Steam beta branch: `legacy41` [1] [2] [3]. The Indie Stone published the branch ahead of the switch precisely so that server owners could move themselves *and their players* before launch day, because Build 41 savegames cannot be carried into Build 42 [1] [2]. This document is the operating runbook for that choice: how to install or switch a dedicated server onto `legacy41`, how to keep every client on the matching branch (and what happens to the player who forgets), what "staying on 41" actually means now that B41 is a maintenance line rather than a frozen artifact, how the B41-era configuration surface differs from the B42 documentation most guides now assume, and what the branch decision does to your mod ecosystem.
 
-The core operational surprise this runbook exists to deliver: **legacy41 is not frozen**. Build 41 received a wave of security hotfixes in March and April 2026 — 41.78.17, 41.78.18 and the 41.78.19 security-vulnerability update — driven by a Workshop malware incident and an internal security audit [4] [5] [6], and the wiki's Build 41 version history additionally records a 41.78.20 released the same day Build 42 went stable [8]. A legacy41 server therefore still needs a working, branch-pinned update procedure, and its operator still needs to watch the official announcement feed. At the same time, The Indie Stone has committed to no end-of-support date in either direction — the honest position on lifespan is that nobody outside the studio knows, and this document quarantines the community's speculation rather than repeating it.
+The core operational surprise this runbook exists to deliver: **legacy41 is not frozen**. Build 41 received a wave of security hotfixes in March and April 2026 — 41.78.17, 41.78.18 and the 41.78.19 security-vulnerability update — driven by a Workshop malware incident and an internal security audit [4] [5] [6]; a further legacy hotfix, 41.78.21, shipped on 2026-08-26 as a security fix [13], and the wiki's Build 41 version history additionally records a 41.78.20 released the same day Build 42 went stable [8]. A legacy41 server therefore still needs a working, branch-pinned update procedure, and its operator still needs to watch the official announcement feed. At the same time, The Indie Stone has committed to no end-of-support date in either direction — the honest position on lifespan is that nobody outside the studio knows, and this document quarantines the community's speculation rather than repeating it.
 
-Document-level confidence is **Medium**: the branch mechanics, hotfix timeline and mod-structure facts rest on official announcements and revision-pinned wiki pages, but the B41-era configuration documentation is thinner than B42's (the pinned B41 settings revision self-describes as incomplete), 41.78.20 is currently wiki-attested only, and several operationally important behaviours (exact client version-mismatch handling, Workshop-update breakage) rest on community experience and are quarantined below.
+Document-level confidence is **Medium**: the branch mechanics, hotfix timeline and mod-structure facts rest on official announcements and revision-pinned wiki pages, but the B41-era configuration documentation is thinner than B42's (the pinned B41 settings revision self-describes as incomplete), 41.78.20 is wiki-attested only (no official post for it was found, while 41.78.21 is primary-attested), and several operationally important behaviours (exact client version-mismatch handling, Workshop-update breakage) rest on community experience and are quarantined below.
 
 # Key Takeaways
 
 - Build 41 lives on the `legacy41` Steam beta branch: clients opt in via Steam Properties → "Game Versions & Betas" → `legacy41`; dedicated servers pin it in SteamCMD with `app_update 380870 -beta legacy41 validate` *(cited)*
 - B41 saves cannot migrate to B42, and a separate `42.19` beta branch exists solely for finishing unstable-era 42.19 saves — neither branch is a conversion path *(cited)*
 - Server and players must move branch **together**, before the switch; the 42.20 release notes document the client's switch-back path for anyone who updated by accident *(cited)*
-- legacy41 is a maintenance line, not a museum piece: 41.78.17 (2026-03-19), 41.78.18 (2026-03-20) and the 41.78.19 security patch (2026-04-08) all shipped in 2026 *(cited)*; a 41.78.20 (2026-07-29) is wiki-attested, with no matching official announcement found *(cited, fact-only source)*
+- legacy41 is a maintenance line, not a museum piece: 41.78.17 (2026-03-19), 41.78.18 (2026-03-20) and the 41.78.19 security patch (2026-04-08) all shipped in 2026, followed by the 41.78.21 legacy security hotfix (2026-08-26) *(cited)*; a 41.78.20 (2026-07-29) is wiki-attested, with no matching official announcement found *(cited, fact-only source)*
 - Keep your update script running and branch-pinned — skipping updates on a "frozen" build means skipping security patches *(cited synthesis)*
 - The B41 `.ini` surface differs from current B42 documentation: B41-only key families exist, the loot-respawn keys live in the `.ini` on B41 rather than SandboxVars, and the `AntiCheat*`/`Backups*` families have no B41-era documentation — see `admins-server-ini-reference` *(cited)*
 - One Workshop item can carry B41 and B42 content side by side (flat `media/` folder for B41; `common/` plus version folders for B42), and Workshop items carry author-set "Build 41"/"Build 42" filter tags — but nothing forces an author to keep the B41 side alive *(cited)*
@@ -67,7 +67,7 @@ Not covered: backup, restore and world-migration procedure (owned by `admins-bac
 
 - **`legacy41`** — the Steam beta branch, for both the game client and the dedicated-server tool, that keeps Build 41.78 installed after Build 42 became the default stable build [1] [2] [7].
 - **`42.19`** — a parallel beta branch preserving unstable 42.19, published because 42.19 saves are incompatible with 42.20; it is a bridge for finishing unstable-era worlds, not a B41 concern beyond not confusing the two [1] [2].
-- **Maintenance line** — this knowledge base's term for B41 as it now exists: a branch that receives security/maintenance hotfixes (41.78.17 through at least 41.78.19) but no content development [4] [5].
+- **Maintenance line** — this knowledge base's term for B41 as it now exists: a branch that receives security/maintenance hotfixes (41.78.17 through at least 41.78.21) but no content development [4] [5] [13].
 - **Branch pinning** — encoding the beta flag into every install/update command so routine updates can never silently hop the server onto the default (B42) branch [7].
 - **Build matching** — the operational duty that server and all clients run the same build; the announcements instruct owners to move "(and your players)" together [1] [2].
 - **`outdatedunstable`** — an official branch that lags one content update behind `unstable`; part of the studio's 2026 security-driven branch policy and useful context for how The Indie Stone manages legacy versions [4] [6].
@@ -76,8 +76,10 @@ Not covered: backup, restore and world-migration procedure (owned by `admins-bac
 
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
-| B41 (legacy41) | Yes | 41.78.16 baseline; 41.78.19 primary-attested | This document's subject. The KB's B41 baseline follows the legacy41 maintenance line; 41.78.17–.19 are announcement-attested security/maintenance patches [4] [5], 41.78.20 wiki-attested only [8] |
-| B42 (stable) | Context only | 42.20 | Cited only where the branch split itself is the fact (release date, incompatibility, switch instructions) [1] [2] [3] |
+| B41 (legacy41) | Yes | 41.78.16 baseline; 41.78.21 is the latest primary-attested version | This document's subject. The KB's B41 baseline follows the legacy41 maintenance line; 41.78.17–.19 and 41.78.21 are announcement-attested security/maintenance patches [4] [5] [13], 41.78.20 wiki-attested only [8] |
+| B42 (stable) | Context only | 42.20, re-checked against 42.21 | Cited only where the branch split itself is the fact (release date, incompatibility, switch instructions) [1] [2] [3] |
+
+Revision note (2026-10-07): this document was re-checked against the Steam announcements for 42.20.4/41.78.21 (2026-08-26) and 42.21 stable (2026-09-28) and the TIS forum 42.21 patch notes [13] [14] [15]; only the statements those sources affect were changed (41.78.21 hotfix row, the "current stable" wording, the loadstring status, the version-mismatch notification). Everything else is carried forward unchanged from the 2026-07-31 review (41.78.16-19, 42.20) with no contradicting change found in those sources; it was not re-tested on a live server.
 
 This is a single-build (B41) document. Facts that describe the B42 side of the boundary — the stable release date, save incompatibility, the client switch-back instructions — are cited to the primary announcements rather than asserted about B42 behaviour generally.
 
@@ -116,7 +118,7 @@ Two consequences follow from the mechanics. First, switching an existing B41 ser
 
 The announcements treat build matching as the server owner's job: the channel exists "for you (and your players) to move over to before the event" [1] [2]. The client-side procedure is the three Steam Properties steps above [1] [2] [3]; there is no server-side switch you can perform on your players' behalf.
 
-What the primary record documents about a mismatched client is indirect but sufficient: a client on 42.20 is running a build whose saves and content are incompatible with B41's [1] [2], and the server-side `DoLuaChecksum` setting (default true) ejects clients whose Lua files fail the checksum comparison against the server's [9]. The exact refusal behaviour a 42.20 client sees when it targets a legacy41 server — at what stage the connection fails and with what message — is not described in any primary source this document could find, and is quarantined below (Claim 2). Operationally the distinction barely matters: a client on the wrong branch cannot play, and the fix is the same three Steam steps followed by a restart of the client [2] [3].
+What the primary record documents about a mismatched client is indirect but sufficient: a client on 42.20 is running a build whose saves and content are incompatible with B41's [1] [2], and the server-side `DoLuaChecksum` setting (default true) ejects clients whose Lua files fail the checksum comparison against the server's [9]. Build 42.21 added a client-side notification for players who try to join a multiplayer server running a different game version [15]; the notes do not say whether it appears when a 42.21 client targets a legacy41 server. The exact refusal behaviour a 42.20 client sees when it targets a legacy41 server — at what stage the connection fails and with what message — is not described in any primary source this document could find, and is quarantined below (Claim 2). Operationally the distinction barely matters: a client on the wrong branch cannot play, and the fix is the same three Steam steps followed by a restart of the client [2] [3].
 
 The day-one failure mode is predictable from the instructions themselves: any player whose Steam installation sat on the default branch received Build 42 when it became the stable public version, because `legacy41` is opt-in [1] [2] [3]. The 42.20 release notes' "switch back" section exists precisely for that player [3].
 
@@ -130,12 +132,15 @@ Build 41.78.16 shipped in December 2022 and stood as the stable version for over
 | 41.78.18 | 2026-03-20 | Announcement (named as the then-current default public version) [4]; wiki [8] | Security patch wave, plus rare-crash hotfixes [4] |
 | 41.78.19 | 2026-04-08 | Announcement [5] | "Security Vulnerability Update" [5] |
 | 41.78.20 | 2026-07-29 | Wiki version history only [8] | No official announcement or patch notes found; contents unknown |
+| 41.78.21 | 2026-08-26 | Announcement ("42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released") [13] | Security-vulnerability fixes; one shared note covers all three hotfixed branches |
 
 The context behind that wave is documented in two announcements. In March 2026, following a responsibly disclosed vulnerability and the studio's own internal security audit, The Indie Stone patched the stable (then-B41) and unstable branches and temporarily removed unpatched legacy version branches from circulation entirely, stating that older legacy versions "will remain unavailable" because the team's priority "needs to be Build 42 stable, and future content updates" [4]. In April 2026, fourteen Steam Workshop mods by a single banned author were found to contain obfuscated code creating malicious files outside the game directory; the exploit itself only affected Build 42 branches, but the same day's hotfix pair shipped 41.78.19 to Build 41 to close a *separate* vulnerability found during the internal audit [5] [6].
 
-Three operational conclusions, each anchored in that record. First, legacy41 still updates: a server on the branch received at least one security-critical binary update in 2026, so an operator who disabled updates "because B41 is done" was running a known-vulnerable server after 2026-04-08 [5]. Second, the studio patches B41 for security, not content — every 2026 B41 change in the primary record is security- or crash-driven [4] [5]. Third, the studio has demonstrated it will remove legacy branches it cannot secure [4] — which is the single most concrete data point available about legacy41's long-term future, and it cuts both ways (they patched B41 rather than pulling it; they also proved willing to pull what they could not patch).
+Three operational conclusions, each anchored in that record. First, legacy41 still updates: a server on the branch received at least two security-driven binary updates in 2026 (41.78.19 on 2026-04-08 and 41.78.21 on 2026-08-26), so an operator who disabled updates "because B41 is done" was running a known-vulnerable server after 2026-04-08 [5] [13]. Second, the studio patches B41 for security, not content — every 2026 B41 change in the primary record is security- or crash-driven [4] [5] [13]. Third, the studio has demonstrated it will remove legacy branches it cannot secure [4] — which is the single most concrete data point available about legacy41's long-term future, and it cuts both ways (they patched B41 rather than pulling it; they also proved willing to pull what they could not patch).
 
-The 41.78.20 row deserves its own honesty note: the wiki's Build 41 version-history table lists it with a 2026-07-29 release date — the same day 42.20 went stable — but this document found no Steam announcement, blog post or patch note naming it, after scanning the official announcement feed for the period [8]. Treat "current legacy41 = 41.78.20" as fact-only-sourced until a primary confirms it; the KB's pinned B41 baseline follows the maintenance line accordingly.
+The 41.78.20 row deserves its own honesty note: the wiki's Build 41 version-history table lists it with a 2026-07-29 release date — the same day 42.20 went stable — but this document found no Steam announcement, blog post or patch note naming it, after scanning the official announcement feed for the period [8]. A second scan on 2026-10-07 (Steam news feed for app 108600, 100 items reaching back to October 2025) again found no post naming 41.78.20; the only 41.78.2x version named in an official post is 41.78.21 [13]. What 41.78.20 contained therefore remains unknown, and the KB's primary-attested B41 baseline is now 41.78.21 rather than 41.78.20.
+
+The 41.78.21 hotfix post is a single note covering the 42.20.4 stable, 42.19.2 unstable and 41.78.21 legacy hotfixes: it reports fixed security vulnerabilities and warns mod makers that the `loadstring` and `loadstream` methods "have been removed", asking affected authors to move to command-based calls [13]. The post does not itemise changes per branch. Build 42.21 later re-enabled those two methods on the stable line, with the studio stating they had been disabled in 42.20.4 and that further investigation led to re-enabling them [14] [15]; neither the 42.21 stable post nor the forum notes say whether the re-enablement applies to the legacy41 line, so a legacy41 server's current `loadstring`/`loadstream` status is unconfirmed (Open Questions).
 
 ## The B41 configuration surface: what your B42-era guides get wrong
 
@@ -183,7 +188,7 @@ Not applicable — single-build document. This runbook covers the B41 (legacy41)
 
 ## Steady state — the recurring duties
 
-- **Keep updating.** Schedule the branch-pinned SteamCMD update regularly and after every official security announcement. The 2026 record shows B41 receives security patches with no advance notice [4] [5]; an unpatched "frozen" server is the worst of both worlds.
+- **Keep updating.** Schedule the branch-pinned SteamCMD update regularly and after every official security announcement. The 2026 record shows B41 receives security patches with no advance notice [4] [5] [13]; an unpatched "frozen" server is the worst of both worlds.
 - **Watch the announcement feed.** The Steam news feed for app 108600 is where every 2026 B41 hotfix was announced [4] [5] [6]; check it (or mirror it via the ISteamNews API, Further Reading) as part of your weekly routine.
 - **Use B41-era documentation for configuration.** Before applying any settings guide, check its build vintage against `admins-server-ini-reference`'s per-key build tags; remember the loot-respawn keys are `.ini`-side on B41, and ignore `AntiCheat*`/`Backups*` advice written for B42.
 - **Run the standard backup runbook.** Nothing about legacy41 changes `admins-backups-migration`'s procedures; if anything, a branch with an uncommitted future raises the value of cold, off-machine backups of the whole `Zomboid` tree.
@@ -201,12 +206,13 @@ Plan as if legacy41 continues but is not guaranteed: keep full cold backups (wor
 
 # Common Pitfalls & Troubleshooting
 
-- **Routine update hopped the server to 42.20.** The update command lacked `-beta legacy41`; SteamCMD's default branch is now Build 42 [3] [7]. Re-run with the flag and validate. The world data is untouched by the binary swap — but do not boot a 42.20 server against a B41 world; restore discipline per `admins-backups-migration`.
+- **Routine update hopped the server to Build 42.** The update command lacked `-beta legacy41`; SteamCMD's default branch is now Build 42 (42.21 stable) [3] [7] [14]. Re-run with the flag and validate. The world data is untouched by the binary swap — but do not boot a Build 42 server against a B41 world; restore discipline per `admins-backups-migration`.
 - **Player "can't join since the update".** Their client auto-updated to 42.20 because `legacy41` is opt-in [2] [3]. Fix is client-side only: Properties → Game Versions & Betas → `legacy41`, wait for the download, restart [3].
 - **Player picked `42.19` instead of `legacy41`.** Wrong branch — that channel preserves unstable 42.19 saves, not Build 41 [1] [2]. Same menu, correct selection.
 - **Config edits do nothing.** Check the build vintage of the guide you followed: B42-only keys fail silently in a B41 `.ini`, and on B41 the loot-respawn settings are `.ini` keys, not SandboxVars entries [9] [10].
+- **A B41 mod that relies on `loadstring`/`loadstream` errors after the 41.78.21 update.** The 2026-08-26 hotfix note says those methods were removed [13]; whether legacy41 got them back when 42.21 re-enabled them on stable is not stated [14] [15]. Test on a staging copy, and check the mod author's changelog.
 - **Mods stopped working after a Workshop update.** Likely an author restructuring for B42; check whether the item still contains a B41 flat `media/` layout [11], and see Claim 3 before assuming foul play. Roll back by pinning a known-good local copy on a test box while you contact the author.
-- **Assumed no updates were needed because "B41 is done".** 41.78.19 was a security-vulnerability update [5]; treat update discipline on legacy41 exactly as seriously as on stable.
+- **Assumed no updates were needed because "B41 is done".** 41.78.19 and 41.78.21 were security-driven updates [5] [13]; treat update discipline on legacy41 exactly as seriously as on stable.
 - **Trusting Workshop build tags as compatibility proof.** Tags are author-set filter metadata [12]; the mod's actual folder structure and changelog are the evidence.
 
 # Community Notes & Unverified Claims
@@ -220,7 +226,7 @@ Plan as if legacy41 continues but is not guaranteed: keep full cold backups (wor
 ## Claim 2 — A 42.20 client that targets a legacy41 server is refused at connect with a version-mismatch error
 
 - **Claim:** Community reports describe a mismatched client failing at the connection stage with a version/mismatch message (rather than, say, crashing mid-join), which is why admins routinely diagnose "can't join since the update" as a branch problem sight unseen.
-- **Why unverified:** The primary record establishes that builds must match (owners move "(and your players)" together [1] [2]) and documents the file-checksum kick for mismatched Lua [9], but no primary source describes the exact client-side failure mode and message text for a cross-build connection attempt.
+- **Why unverified:** The primary record establishes that builds must match (owners move "(and your players)" together [1] [2]) and documents the file-checksum kick for mismatched Lua [9], but no primary source describes the exact client-side failure mode and message text for a cross-build connection attempt (42.21 added a notification for connecting to a server on a different game version [15], but the notes do not say it covers a 42.21 client against a legacy41 server).
 - **Confidence:** Medium. The behaviour is universally reported and the mechanism is consistent with the documented build-matching design, but the specific refusal semantics are unverified against a primary source or first-hand test.
 
 ## Claim 3 — B42-focused Workshop updates routinely break mods on legacy41 servers
@@ -231,18 +237,18 @@ Plan as if legacy41 continues but is not guaranteed: keep full cold backups (wor
 
 # Risks & Caveats
 
-- **41.78.20 is single-sourced.** Its existence and 2026-07-29 date rest on the wiki's Build 41 version history alone [8]; no announcement, patch note, or contents description was found. If a primary surfaces (or the wiki entry proves wrong), this document's version table changes.
+- **41.78.20 is single-sourced.** Its existence and 2026-07-29 date rest on the wiki's Build 41 version history alone [8]; no announcement, patch note, or contents description was found, including in the 2026-10-07 re-scan of the official feed, and the primary 41.78.21 post does not mention it [13]. If a primary surfaces (or the wiki entry proves wrong), this document's version table changes.
 - **The B41 configuration picture inherits an incomplete page.** The B41-era settings revision self-describes as needing improvement [10]; "B41-only" and "B42-only" statements here are documentation facts, not verified game-code facts (see `admins-server-ini-reference`, Claim 1).
 - **The hotfix timeline is announcement-shaped.** 41.78.17's exact date rests on the wiki table [8] plus the announcement's description of the patch wave [4]; only .18 (as "Default Public Version") and .19 are named directly in announcements [4] [5].
-- **Post-42.20 drift.** The wiki pages cited were captured in the 42.20 launch window; the Dedicated server and Mod structure pages will continue evolving B42-ward, and their B41 content may thin over time. Pinned revision IDs in References protect this document's citations, not the live pages.
+- **Post-42.20 drift (re-checked 2026-10-07 against 42.21 sources only; the pinned wiki revisions were not refreshed).** The wiki pages cited were captured in the 42.20 launch window; the Dedicated server and Mod structure pages will continue evolving B42-ward, and their B41 content may thin over time. Pinned revision IDs in References protect this document's citations, not the live pages.
 - **Steam announcement URLs bot-block.** All primary citations were content-verified through the ISteamNews API mirror per project source policy; the steamcommunity.com URLs 403 automated checkers (allowlisted WARN in the link gate).
 - **Lifespan honesty.** Nothing in this document should be read as an assurance the branch persists; the studio's only relevant commitments are quoted in Reference, and they concern B42.
 
 # Verification Steps
 
 1. **Confirm the branch primaries:** query `https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=108600&count=100&maxlength=0` and read "BUILD 42 STABLE PLANS" (2026-07-24), "B42 CHECKLIST" (2026-07-28) and "Build 42.20.0 Stable Released" (2026-07-29) for the legacy41/42.19 instructions and incompatibility statements, and "Stable(41.78.19) + UNSTABLE(42.16.3) Hotfixes Released" plus "Patching a Zero Day Exploit" (both 2026-04-08) and "[Updated 2026-03-20] Important Security Updates" for the maintenance-line record.
-2. **Confirm the branch exists and installs:** in SteamCMD, log in anonymously and run `app_update 380870 -beta legacy41 validate` against a scratch directory; verify the installed server reports a 41.78.x version at startup, and record which exact version the branch currently serves (this also resolves the 41.78.20 question first-hand).
-3. **Confirm the client path:** on a test Steam account, select `legacy41` under Properties → Game Versions & Betas, verify the client downloads and reports Build 41.78.x on the main menu, then switch back to the default branch and confirm it returns to 42.20.
+2. **Confirm the branch exists and installs:** in SteamCMD, log in anonymously and run `app_update 380870 -beta legacy41 validate` against a scratch directory; verify the installed server reports a 41.78.x version at startup, and record which exact version the branch currently serves (expected 41.78.21 or later per [13]; this also resolves the 41.78.20 question first-hand), and whether `loadstring` is callable on it.
+3. **Confirm the client path:** on a test Steam account, select `legacy41` under Properties → Game Versions & Betas, verify the client downloads and reports Build 41.78.x on the main menu, then switch back to the default branch and confirm it returns to the current Build 42 stable (42.21 at the time of the 2026-10-07 revision).
 4. **Test the mismatch behaviour (resolves Claim 2):** point a 42.20 client at the scratch legacy41 server and record where the connection fails and with what message.
 5. **Verify the B41 config surface:** on the scratch legacy41 server, generate a fresh `servertest.ini` and check it against `admins-server-ini-reference`'s B41 rows — presence of the B41-only keys, absence (or undocumented presence) of `AntiCheat*`/`Backups*`, and the loot-respawn keys in the `.ini`.
 6. **Verify the mixed mod structure:** subscribe the scratch server and a test client to a Workshop mod whose item contains both a flat `media/` folder and `common/` + `42/` folders, and confirm the B41 server loads the flat side [11].
@@ -250,7 +256,8 @@ Plan as if legacy41 continues but is not guaranteed: keep full cold backups (wor
 
 # Open Questions
 
-- What does 41.78.20 actually contain, and why did it ship without an announcement on B42's launch day [8]? A patch note, dev post, or first-hand server-version check (Verification step 2) would resolve it.
+- What does 41.78.20 actually contain, and why did it ship without an announcement on B42's launch day [8]? (The 41.78.21 post [13] does not describe it.) A patch note, dev post, or first-hand server-version check (Verification step 2) would resolve it.
+- Were `loadstring` and `loadstream` re-enabled on legacy41 when 42.21 re-enabled them on stable, or do they remain removed in 41.78.21 [13] [14] [15]? A legacy changelog entry or a first-hand check (Verification step 2) would resolve it.
 - Will The Indie Stone state any support policy for legacy41 — even a soft one — as the B42 hotfix wave settles and the "Build 42 Support Update" work proceeds [1] [4]? (Claim 1 hangs on this.)
 - What is the exact cross-build connection-refusal behaviour (Claim 2)? Verification step 4 resolves it empirically.
 - How much of the B41 Workshop catalogue still ships a functional flat `media/` layout post-42-stable, and at what rate is it decaying (Claim 3)? A structured sample of top "Build 41"-tagged items would quantify it.
@@ -266,6 +273,10 @@ Plan as if legacy41 continues but is not guaranteed: keep full cold backups (wor
 - [4] **The Indie Stone** — *[Updated 2026-03-20] Important Security Updates* (Steam announcement, 2026-03-18, updated 2026-03-20; names 41.78.18 as the then-current default public version and documents the legacy-branch removals and `outdatedunstable` policy; retrieved via the ISteamNews API mirror). https://steamcommunity.com/games/108600/announcements/detail/1827626365750608. Accessed 2026-07-31.
 - [5] **The Indie Stone** — *Stable(41.78.19) + UNSTABLE(42.16.3) Hotfixes Released* (Steam announcement, 2026-04-08; retrieved via the ISteamNews API mirror). https://steamcommunity.com/games/108600/announcements/detail/1829528821304362. Accessed 2026-07-31.
 - [6] **The Indie Stone** — *Patching a Zero Day Exploit* (Steam announcement, 2026-04-08; the Workshop malware incident, affected-mod list, and the B42-only scope statement; retrieved via the ISteamNews API mirror). https://steamcommunity.com/games/108600/announcements/detail/1829528821304702. Accessed 2026-07-31.
+
+- [13] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26; security fixes, `loadstring`/`loadstream` removal note; retrieved via the ISteamNews API mirror). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601. Accessed 2026-10-07.
+- [14] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28; `loadstring`/`loadstream` re-enabled; retrieved via the ISteamNews API mirror). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [15] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, selected changes only; 2026-09-23). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -305,3 +316,4 @@ Plan as if legacy41 continues but is not guaranteed: keep full cold backups (wor
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined against 42.20.4/41.78.21 hotfix post, 42.21 stable post and 42.21 forum patch notes [13] [14] [15]: added 41.78.21 to the hotfix record, loadstring/loadstream status, 42.21 version-mismatch notification, current-stable wording; 41.78.20 remains wiki-only. | — |

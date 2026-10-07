@@ -1,7 +1,7 @@
 ---
 id: modders-foundation
 title: "Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives"
-version: 1.0.1
+version: 1.1.0
 status: approved
 confidence: Medium
 category: Modders
@@ -9,13 +9,13 @@ topic: "Modding foundations"
 build: both
 document_type: overview
 created: 2026-07-30
-updated: 2026-07-30
-review_due: 2026-10-30
-sources_verified: 2026-07-30
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [players-foundation, admins-foundation, creator-foundation, lore-foundation, meta-style-guide]
 tags: [modding, lua, kahlua, umbrella, zomboiddoc, javadocs, mod-info, workshop, b42]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,23 +23,24 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | modders-foundation |
-| Version | 1.0.1 |
+| Version | 1.1.0 |
 | Status | approved |
 | Confidence | Medium |
 | Category (track) | Modders |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-07-30 |
-| Review due | 2026-10-30 |
-| Game versions verified | 41.78.16, 42.20.0 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20.0, 42.21.0 (42.21 by review of patch notes and API stubs, not in-game) |
 
 # Executive Summary
 
 This is the foundation document for the Modders track. It maps what "modding
 Project Zomboid" means across the two live builds — Build 41.78 (kept on the
-`legacy41` Steam beta branch) and Build 42.20.0, which went stable on
-29 July 2026 [1] [4] — and tells a new modder where the load-bearing pieces
+`legacy41` Steam beta branch) and Build 42, stable since 29 July 2026 as
+42.20.0 [1] [4] and currently at 42.21 (stable since 28 September 2026) [34] —
+and tells a new modder where the load-bearing pieces
 are: the Kahlua-based Lua 5.1 scripting environment [15], the mod folder
 anatomy and `mod.info` manifest (including the Build 42 versioned-folder
 layout) [17] [18], and the small set of community-maintained artifacts that
@@ -52,18 +53,20 @@ compatible with Build 42 [3]. The mod structure, the recipe script format and
 the options API all changed [17] [21] [19], and the modding API itself was
 restricted by a security patch in 42.14 whose lost functionality was only
 restored in 42.20 [1]. Meanwhile the official modding guide and the next
-generation of official tools (WorldZed, TileZed updates, AnimZed) are
-announced but, as of 2026-07-30, not yet shipped [2].
+generation of official tools (WorldZed, TileZed updates, AnimZed) are announced but, as of 2026-10-07, not announced as shipped in any
+official post reviewed through the 42.21 stable release [2] [28] [34].
 
 Document confidence is Medium: the release facts and repository facts come
-from primary sources checked on 2026-07-30, but much of the structural detail
-rests on pzwiki fact citations whose page versions trail the 42.20.0 release
-by a few patches, and nothing here has been re-verified in-game.
+from primary sources (re-checked on 2026-10-07 against the 42.20.1 to 42.21
+posts and the 42.21.0 stubs), but much of the structural detail rests on
+pzwiki fact citations whose page versions trail the current release by
+several patches, and nothing here has been re-verified in-game.
 
 # Key Takeaways
 
-- Build 42.20.0 is the current stable build (released 29 July 2026); Build 41
-  remains available on the `legacy41` beta branch. *(cited)* *(both)*
+- Build 42.21 is the current stable build (released 28 September 2026,
+  following 42.20.0 on 29 July 2026); Build 41 remains available on the
+  `legacy41` beta branch. *(cited)* *(both)*
 - B41 mods and saves do not work on B42 — The Indie Stone said so explicitly
   when B42 entered unstable. Porting is required, not optional. *(cited)*
 - PZ Lua is Kahlua, a Java implementation based on Lua 5.1 with differences,
@@ -75,7 +78,7 @@ by a few patches, and nothing here has been re-verified in-game.
   builds because the two layouts do not collide. *(cited)*
 - There is no complete official API documentation. The working truth lives in
   community artifacts: Umbrella EmmyLua stubs (release-tagged per game
-  version, 41.78.16 through 42.20.0), the unofficial B42 JavaDocs (42.20.0),
+  version, 41.78.16 through 42.21.0), the unofficial B42 JavaDocs (42.21.0),
   LuaDocs, and ZomboidDoc for compiling your own annotated library. *(cited)*
 - B42 added a native options API, `PZAPI.ModOptions`, replacing the B41-era
   community "Mod Options" framework mod. *(cited)* *(B42)*
@@ -83,8 +86,11 @@ by a few patches, and nothing here has been re-verified in-game.
   the legacy format. New B42-only script types include `entity` and
   `fluid`. *(cited)*
 - The official modding guide, WorldZed/TileZed releases and AnimZed are
-  announced for after the stable hotfix wave — pending, not shipped, as of
-  2026-07-30. *(cited)*
+  announced for after the stable hotfix wave; no reviewed official post up to
+  42.21 stable announces them as released. *(cited)*
+- Since 42.20.0: use `%%` for a literal `%` in mod translation strings, mods
+  may write `.json` files, and `loadstring`/`loadstream` were removed in
+  42.20.4 and re-enabled in 42.21. *(cited)* *(B42)*
 
 # Purpose
 
@@ -108,7 +114,7 @@ Not covered (deeper documents own these): Lua API details and events, script
 block parameter references, per-field `mod.info` parameter tables, mapping
 and 3D-asset pipelines, multiplayer/networking mod porting specifics, and
 server-side mod deployment (Admins track). Unstable-branch behaviour after
-42.20.0 is out of scope.
+42.21 stable is out of scope.
 
 # Definitions
 
@@ -139,12 +145,23 @@ server-side mod deployment (Admins track). Unstable-branch behaviour after
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | 41.78.16 (via sources dated to the B41 era; not re-run in-game) | Flat mod layout, `Recipe` scripts, community Mod Options framework [17] [21] [20] |
-| B42 (stable) | Yes | 42.20.0, released 2026-07-29 [1] [27] | Versioned mod layout, `craftRecipe`, native `PZAPI.ModOptions` [17] [21] [19] |
+| B42 (stable) | Yes | 42.20.0, released 2026-07-29 [1] [27]; re-baselined to 42.21 (stable 2026-09-28) [34] | Versioned mod layout, `craftRecipe`, native `PZAPI.ModOptions` [17] [21] [19] |
 
-Facts in this document were verified against sources retrieved on
+Facts in this document were first verified against sources retrieved on
 2026-07-30, the day after 42.20.0 shipped. Several pzwiki pages cited here
 carry page-version stamps between 42.8.1 and 42.20.0; where a fact was last
 wiki-verified before 42.20.0 this is noted in Risks & Caveats [17] [18] [19].
+
+**What was re-checked for 42.21 (2026-10-07).** The official Steam posts for
+42.20.1, 42.20.2, 42.20.3, 42.20.4 with 41.78.21, 42.21 unstable and 42.21
+stable, and the 42.21 forum change list, were read for anything touching mod
+structure, scripts, the Lua environment, tooling or the announced official
+modding deliverables [30] [31] [32] [33] [34] [35]; the Umbrella 42.21.0
+release and the Steam news feed were consulted for the tooling and
+announcement status [9] [36] [28]; and the unofficial JavaDocs and LuaDocs
+version stamps were re-read [11] [12]. Every other statement is carried
+forward from the 2026-07-30 revision with no contradicting change found; it
+was not re-tested in a game.
 
 # Reference
 
@@ -234,10 +251,10 @@ is community-built:
 
 | Artifact | What it is | Build coverage | Where |
 |----------|------------|----------------|-------|
-| Umbrella | EmmyLua type stubs for the PZ Lua API; drives intellisense and type checking in EmmyLua (recommended) or LuaLS language servers [8] | Releases tagged per game version from 41.78.16 through 42.20.0 (42.20.0 stubs published 2026-07-29) [9] | github.com/asledgehammer/Umbrella (now the PZ-Umbrella org) [8] |
+| Umbrella | EmmyLua type stubs for the PZ Lua API; drives intellisense and type checking in EmmyLua (recommended) or LuaLS language servers [8] | Releases tagged per game version from 41.78.16 through 42.21.0 (42.21.0 stubs published 2026-09-28, 42.20.0 on 2026-07-29) [9] | github.com/asledgehammer/Umbrella (now the PZ-Umbrella org) [8] |
 | ZomboidDoc (pz-zdoc) | GPL-3.0 Lua library compiler that generates an annotated, EmmyLua-ready library from an installed game, aimed at IntelliJ IDEA [10] | Built in the B41 era; repository last pushed May 2023, so treat B42 output with caution [10] | github.com/cocolabs/pz-zdoc [10] |
-| Unofficial JavaDocs (B42) | JavaDoc-style reference of the game's Java classes, maintained by Albion; documents 42.20.0 as of 2026-07-30 [11] [23] | B42 (a separate community project covers B41.78) [22] | albion.codeberg.page/PZ-JavaDocs [11] |
-| LuaDocs | Doxygen-generated documentation of the game-side Lua: events, callbacks, hooks, classes and file locations; self-described as WIP and inference-reliant [12] [25] | 42.13.0 as of 2026-07-30 [12] | demiurgequantified.github.io/ProjectZomboidLuaDocs [12] |
+| Unofficial JavaDocs (B42) | JavaDoc-style reference of the game's Java classes, maintained by Albion; its site stamp read 42.20.0 on 2026-07-30 and 42.21.0 on 2026-10-07 [11] [23] | B42 (a separate community project covers B41.78) [22] | albion.codeberg.page/PZ-JavaDocs [11] |
+| LuaDocs | Doxygen-generated documentation of the game-side Lua: events, callbacks, hooks, classes and file locations; self-described as WIP and inference-reliant [12] [25] | 42.13.0 on 2026-07-30; its site stamp read 42.20.3 on 2026-10-07 [12] | demiurgequantified.github.io/ProjectZomboidLuaDocs [12] |
 | Game files | The installed game's `media/scripts/` and `media/lua/` trees are the ultimate ground truth for both builds; decompiling the Java fills the remaining gaps [21] [22] | Per installed build | Local install |
 
 The JavaDocs matter because they document exactly the Java classes and
@@ -245,6 +262,27 @@ methods exposed to Lua — if a name does not appear there, it is not in the
 Java surface [22]. A further community alternative, a B42 JavaDoc with
 source viewer (geromet.github.io/PZJavaDocs, at 42.15 when wiki-checked),
 exists as a fallback [22].
+
+## Modding-relevant changes in 42.20.1 to 42.21
+
+Mods gained the ability to write `.json` files in 42.20.1 [30]. Translation
+strings that contain a percent sign must use `%%` to show a literal `%`
+(42.20.1), a temporary workaround accepts both forms, and the developers said
+it will be removed in a future unstable update, with error logs pointing at
+strings needing the fix (42.20.2) [30] [31]. 42.21 updated the localization
+system to enable more translatable strings [33] [35]. For multiplayer, 42.20.1
+improved Lua checksum validation as part of anti-cheat, and 42.21 expanded the
+anti-cheat system [30] [33].
+
+The 42.20.4 hotfix (shipped for stable, unstable and legacy) fixed security
+vulnerabilities and, as part of that, removed the `loadstring` and
+`loadstream` methods; authors who used them to run server-sent code were told
+to create explicit methods and call them through commands, and to report
+unsolvable cases in the official Discord's mod-portal channel [32]. 42.21
+re-enabled both after further investigation of the security issue, with an
+apology to modders and server admins [33] [34]. The 42.21.0 Umbrella index
+declares neither as a global, so type stubs alone cannot tell you whether
+they are callable [36].
 
 ## Steam Workshop publishing basics
 
@@ -259,24 +297,35 @@ empty) [24]. Alternative pipelines exist — SteamCMD with a build config for
 controlled uploads, plus community tools for preview images and partial
 page updates [24].
 
-## Announced but not shipped (as of 2026-07-30)
+## Announced but not shipped (as of 2026-10-07)
 
 In the pre-stable "NEXT STEPS" post, The Indie Stone committed to releasing,
 once stable hotfixing settles: their latest mapping tools (WorldZed,
 TileZed, etc.), the in-house animation editor and integration tool AnimZed,
-and an extensive modding guide [2]. None of these had shipped by 2026-07-30;
-the currently available official mapping tools remain the B41-era TileZed
-and WorldEd distributed free on the forums, with an outdated copy on Steam
-under "Project Zomboid Modding Tools" [25]. Treat any workflow built on
-WorldZed or AnimZed as future work, not present capability [2].
+and an extensive modding guide [2]. The Steam announcement "BUILD 42 STABLE
+PLANS" (2026-07-24) repeats the tools and the modding guide, and both it and
+the earlier Steam "NEXT STEPS" announcement (2026-07-09) say the team will
+also work, through the rest of 2026, on a Build 42 Support Update covering
+optimization, additional modding support and player-requested polish [28]
+[29]. None of the official posts from 42.20.1 through 42.21 stable (a
+review of the posts, not of the whole internet) announces the release of the
+tools or the modding guide, and the 42.21 posts describe 42.21 as the first
+incremental update after Build 42 without calling it the Support Update [30]
+[31] [32] [33] [34]. The currently available official
+mapping tools remain, per the last wiki check on 2026-07-30, the B41-era
+TileZed and WorldEd distributed free on the forums, with an outdated copy on
+Steam under "Project Zomboid Modding Tools" [25]; that wiki page was not
+re-fetched on 2026-10-07. Treat any workflow built on WorldZed or AnimZed as
+future work, not present capability [2] [28].
 
 # B41 vs B42 Delta
 
 - **Compatibility break.** The Indie Stone's Build 42 unstable announcement
   (17 December 2024) states that Build 41 saves and mods are NOT compatible
   with Build 42 [3]. B41 remains playable — and B41 mods usable — via the
-  `legacy41` beta branch [4]. Build 42 entered unstable 2024-12-17 and
-  reached stable as 42.20.0 on 2026-07-29 [27] [1].
+  `legacy41` beta branch [4]. Build 42 entered unstable 2024-12-17,
+  reached stable as 42.20.0 on 2026-07-29 [27] [1], and stable moved to 42.21
+  on 2026-09-28 [34].
 - **Mod structure.** B41: flat layout, `media/` and `mod.info` at the mod
   root. B42: mandatory `common/` folder plus per-game-version folders each
   with their own `mod.info`; `common/` loads first and the closest version
@@ -295,23 +344,25 @@ WorldZed or AnimZed as future work, not present capability [2].
 - **Modding API churn within B42.** A security patch in 42.14 removed
   modding API functionality; 42.20 restored it, and TIS asked mod authors to
   report residual compatibility breakage in the official Discord's
-  mod-portal channel [1]. Multiplayer returned in unstable 42.13
+  mod-portal channel [1]. Within the 42.20 line, 42.20.4 removed and 42.21
+  re-enabled `loadstring` and `loadstream` [32] [34]. Multiplayer returned in unstable 42.13
   (December 2025) with an official forum migration guide for updating
   existing mods to the new networking [14] [7].
 - **Documentation surfaces.** The official JavaDoc covers only B41.77; B42
-  API truth currently lives in the community stack (Umbrella 42.20.0 stubs,
-  unofficial B42 JavaDocs at 42.20.0, LuaDocs at 42.13.0) [22] [9] [11]
-  [12].
+  API truth currently lives in the community stack (Umbrella 42.21.0 stubs,
+  unofficial B42 JavaDocs stamped 42.21.0, LuaDocs stamped 42.20.3 on
+  2026-10-07) [22] [9] [11] [12].
 
 # Practical Guidance
 
-- **Pick your build deliberately.** New mods should target B42 (42.20.0
+- **Pick your build deliberately.** New mods should target B42 (42.21
   stable); maintain a B41 variant only if your audience sits on `legacy41`.
   The dual-layout trick — B41 files at the mod root, `common/` + `42/` for
   B42 — lets one Workshop item serve both [17] [4].
 - **Set up type-checked Lua from day one.** Install EmmyLua (or LuaLS) in
   your editor and point it at the Umbrella release matching your target game
-  version; pin that release and bump it when the game updates [8] [9].
+  version; pin that release by commit hash (the upstream 42.20.0 tag was moved
+  after publication) and bump it when the game updates [8] [9] [36].
 - **Develop in `Zomboid/Workshop/`, not `Zomboid/mods/`,** so the in-game
   uploader can see your mod, and keep exactly one loaded copy of your Mod ID
   on the machine — unsubscribe from your own published mod while
@@ -348,6 +399,10 @@ WorldZed or AnimZed as future work, not present capability [2].
 - **"It worked on 42.13 but broke later."** Intra-B42 churn is real: the
   42.14 security patch removed API functionality that only returned in
   42.20, and TIS warned that 42.20 changes may affect some mods [1].
+- **"A `%` in my translation shows wrong."** Mod translations should write
+  `%%` for a literal `%`; the tolerant workaround is temporary [30] [31].
+- **"My code calls `loadstring` and fails on some 42.20 builds."** The methods
+  were absent on 42.20.4 and are back in 42.21 [32] [34].
 - **"A Lua idiom from stock 5.1 misbehaves."** Kahlua is based on Lua 5.1
   with differences; verify against the game, not an external
   interpreter [15] [16].
@@ -357,19 +412,7 @@ WorldZed or AnimZed as future work, not present capability [2].
 
 # Community Notes & Unverified Claims
 
-## Claim 1 — A dedicated B42 "Support Update" later in 2026 will bring further modding support
-
-- **Claim:** Gaming press and hosting-company blog coverage of the 42.20
-  stable release say The Indie Stone plans a follow-up support update later
-  in 2026 focused on optimization and additional modding support.
-- **Why unverified:** I could not verify this wording against a primary
-  Indie Stone post; the officially verified commitments are the tools and
-  modding guide listed in [2] and the "additional Modding API
-  documentation" line in [1].
-- **Confidence:** Medium. It is consistent with the verified announcements,
-  but the specific "Support Update" framing is secondary-sourced.
-
-## Claim 2 — Kahlua executes Lua noticeably slower than native Lua/LuaJIT, so per-tick mod code must be kept lean
+## Claim 1 — Kahlua executes Lua noticeably slower than native Lua/LuaJIT, so per-tick mod code must be kept lean
 
 - **Claim:** A long-standing modding-community belief (modding Discord,
   Reddit performance threads) holds that the Java-hosted Kahlua interpreter
@@ -383,9 +426,14 @@ WorldZed or AnimZed as future work, not present capability [2].
 
 # Risks & Caveats
 
-- **Hotfix-wave volatility.** 42.20.0 shipped one day before this document's
-  verification date; hotfixes may change modding-relevant behaviour, and TIS
-  itself flagged possible mod breakage from 42.20 changes [1].
+- **Hotfix-wave volatility.** Four hotfixes (42.20.1 to 42.20.4) and one
+  incremental update (42.21) followed 42.20.0 within about two months, and
+  they changed modding-relevant behaviour (translations, file writing,
+  `loadstring`); TIS itself flagged possible mod breakage from 42.20 changes
+  [1] [30] [31] [32] [34].
+- **Abridged change list.** The retrieved copy of the 42.21 forum notes
+  abbreviates the long multiplayer and other fix lists to "selected" items,
+  so a modding-relevant change could be missing from this document [35].
 - **Wiki lag.** Several structural facts rest on pzwiki pages stamped before
   42.20.0 (Mod structure at 42.14.0, mod.info at 42.17.0, ModOptions at
   42.12.1, LuaDocs at 42.8.1); the layouts are stable but values could have
@@ -396,15 +444,17 @@ WorldZed or AnimZed as future work, not present capability [2].
   since May 2023 [10].
 - **Repository relocation.** The Umbrella repo has moved to a PZ-Umbrella
   GitHub organisation (the asledgehammer URL redirects); pin commits/releases
-  rather than trusting URL stability [8] [9].
+  rather than trusting URL stability [8] [9]. The 42.20.0 tag was later moved
+  upstream to a different commit, so tag names are not stable pins either [9].
 - **Announced tooling.** Everything in the WorldZed/TileZed/AnimZed/modding
-  guide list is a stated intention, with no shipped artifact to verify [2].
+  guide list is a stated intention, with no shipped artifact to verify [2]
+  [28].
 
 # Verification Steps
 
 1. **Build/version:** In Steam, check Project Zomboid's current build and
    confirm the `legacy41` entry under Betas [4]; cross-check the 42.20.0
-   release announcement [1] [5].
+   release announcement [1] [5] and the 42.21 stable announcement [34].
 2. **B41→B42 incompatibility:** Read the "Build 42 Unstable" post's
    Important section for the saves/mods statement [3].
 3. **Mod structure:** Create a minimal B42 mod with only a `common/` folder
@@ -415,7 +465,8 @@ WorldZed or AnimZed as future work, not present capability [2].
 4. **Kahlua:** Grep the installed game's `media/lua/` for engine calls, and
    confirm Kahlua's presence via the pzwiki Lua API description [15] and
    the game's bundled Java (decompile) [22].
-5. **API truth:** Download the Umbrella release tagged 42.20.0 [9], point
+5. **API truth:** Download the Umbrella release tagged 42.21.0 (commit
+   `13d01f9ee58fa48773553920db56d06f0005e7f8`) [9] [36], point
    EmmyLua at its `library/` folder [8], and confirm intellisense resolves a
    known game class; spot-check the same class in the unofficial B42
    JavaDocs [11].
@@ -423,14 +474,14 @@ WorldZed or AnimZed as future work, not present capability [2].
    `media/lua/client/PZAPI/ModOptions.lua` and confirm the create API
    matches [19].
 7. **Pending tools:** Search Spiffo's Workshop and the official site for
-   WorldZed/AnimZed releases; as of 2026-07-30 none exist, only the
-   announcement [2] [25].
+   WorldZed/AnimZed releases; as of 2026-10-07 no official post reviewed
+   announces them as released, only the plans [2] [28] [25].
 
 # Open Questions
 
 - When will the official modding guide, WorldZed/TileZed and AnimZed
-  actually ship, and will AnimZed's release change the animation-modding
-  workflow documented by the community? [2]
+  actually ship (still open on 2026-10-07), and will AnimZed's release change
+  the animation-modding workflow documented by the community? [2] [28]
 - What exactly did the 42.14 security patch remove and the 42.20 fix
   restore, in API-surface terms? A deeper Modders document should diff the
   Umbrella stubs between 42.13/42.14/42.20 releases [1] [9].
@@ -439,7 +490,12 @@ WorldZed or AnimZed as future work, not present capability [2].
   what timeline?
 - Does B42.20 change any `mod.info` parameter semantics beyond what the
   42.17-stamped wiki page records? [18]
-- Is Claim 1's "Support Update" a real, primary-sourced commitment?
+- Resolved: the Build 42 Support Update is a primary-sourced plan for the rest
+  of 2026 [28] [29]; what it will contain beyond "optimization, additional
+  modding support" is open.
+- Which situations trigger the 42.21 `RuntimeException` for missing
+  translations, and what does the localization-system update change for mod
+  authors? [35]
 
 # References
 
@@ -453,11 +509,20 @@ WorldZed or AnimZed as future work, not present capability [2].
 - [6] **The Indie Stone** — *Modding Policy*. https://projectzomboid.com/blog/modding-policy/ Accessed 2026-07-30 (host bot-blocks checkers; policy terms corroborated by [14]).
 - [7] **The Indie Stone Forums** — *Modding migration guide 42.13* (December 2025). https://theindiestone.com/forums/index.php?/topic/88499-modding-migration-guide-4213/ Accessed 2026-07-30 (host bot-blocks checkers; existence corroborated by [14]).
 - [8] **PZ-Umbrella project (asledgehammer)** — *Umbrella: EmmyLua type stubs for Project Zomboid's modding API* (repository README). https://github.com/asledgehammer/Umbrella Accessed 2026-07-30.
-- [9] **PZ-Umbrella project** — *Umbrella releases* (per-game-version release tags 41.78.16 – 42.20.0; 42.20.0 published 2026-07-29). https://github.com/PZ-Umbrella/Umbrella/releases Accessed 2026-07-30.
+- [9] **PZ-Umbrella project** — *Umbrella releases* (per-game-version release tags 41.78.16 – 42.21.0; 42.20.0 published 2026-07-29, 42.21.0 published 2026-09-28). https://github.com/PZ-Umbrella/Umbrella/releases Accessed 2026-07-30 and 2026-10-07.
 - [10] **cocolabs** — *pz-zdoc (ZomboidDoc): Lua library compiler for Project Zomboid* (repository; GPL-3.0; last push 2023-05-13). https://github.com/cocolabs/pz-zdoc Accessed 2026-07-30.
-- [11] **Albion** — *Unofficial PZ JavaDocs (Build 42)* (site header states 42.20.0). https://albion.codeberg.page/PZ-JavaDocs/ Accessed 2026-07-30.
-- [12] **demiurgeQuantified** — *Project Zomboid LuaDocs* (site states version 42.13.0; WIP, inference-based). https://demiurgequantified.github.io/ProjectZomboidLuaDocs/ Accessed 2026-07-30.
+- [11] **Albion** — *Unofficial PZ JavaDocs (Build 42)* (site header stated 42.20.0 on 2026-07-30 and 42.21.0 on 2026-10-07). https://albion.codeberg.page/PZ-JavaDocs/ Accessed 2026-07-30 and 2026-10-07.
+- [12] **demiurgeQuantified** — *Project Zomboid LuaDocs* (site stated version 42.13.0 on 2026-07-30 and 42.20.3 on 2026-10-07; WIP, inference-based). https://demiurgequantified.github.io/ProjectZomboidLuaDocs/ Accessed 2026-07-30 and 2026-10-07.
 - [13] **Lua.org** — *Lua 5.1 Reference Manual*. https://www.lua.org/manual/5.1/ Accessed 2026-07-30.
+- [28] **The Indie Stone** — *BUILD 42 STABLE PLANS* (Steam announcement, 2026-07-24; the Steam title differs from the blog title "NEXT STEPS" cited at [2], and the two were not confirmed to be the same text). https://steamcommunity.com/games/108600/announcements/detail/1839041357029453 Accessed 2026-10-07 (host bot-blocks checkers).
+- [29] **The Indie Stone** — *NEXT STEPS* (Steam announcement, 2026-07-09). https://steamcommunity.com/games/108600/announcements/detail/1836506165584147 Accessed 2026-10-07 (host bot-blocks checkers).
+- [30] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766 Accessed 2026-10-07 (host bot-blocks checkers).
+- [31] **The Indie Stone** — *42.20.2 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314339441 Accessed 2026-10-07 (host bot-blocks checkers).
+- [32] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601 Accessed 2026-10-07 (host bot-blocks checkers).
+- [33] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925 Accessed 2026-10-07 (host bot-blocks checkers).
+- [34] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307 Accessed 2026-10-07 (host bot-blocks checkers).
+- [35] **The Indie Stone Forums** — *42.21 Patch Notes* (topic 101693, first post, 2026-09-23; the long fix lists are abridged to "selected" in the retrieved copy). https://theindiestone.com/forums/topic/101693-4221-patch-notes/ Accessed 2026-10-07 (host bot-blocks checkers).
+- [36] **PZ-Umbrella project** — *Umbrella at commit 13d01f9ee58fa48773553920db56d06f0005e7f8 (release tag 42.21.0)*. https://github.com/PZ-Umbrella/Umbrella/tree/13d01f9ee58fa48773553920db56d06f0005e7f8 Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cited URL + revision id; facts only, never prose.
 
@@ -511,3 +576,4 @@ WorldZed or AnimZed as future work, not present capability [2].
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
 | 1.0.1 | 2026-07-30 | Orchestrator (KB Pipeline) | License-hygiene prose rewrites after arming the pzwiki n-gram gate (no factual changes). | Standing mandate (2026-07-30) |
+| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined from 42.20 to 42.21 (factual update to an approved document; status stays approved pending orchestrator re-approval): current stable 42.21, Umbrella 42.21.0, JavaDocs/LuaDocs stamps, added 42.20.1-42.21 modding changes (`%%`, .json writes, localization, anti-cheat, loadstring/loadstream removed then re-enabled), refreshed Announced-but-not-shipped as of 2026-10-07, resolved the Support Update claim from Steam primary posts (former Claim 1 removed, former Claim 2 renumbered). Sources: Steam posts 42.20.1, 42.20.2, 42.20.4, 42.21 unstable and stable, NEXT STEPS, BUILD 42 STABLE PLANS, TIS forum 42.21 notes. | — |

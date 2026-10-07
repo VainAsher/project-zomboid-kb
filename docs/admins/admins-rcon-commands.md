@@ -1,7 +1,7 @@
 ---
 id: admins-rcon-commands
 title: "RCON and Admin Commands: Operating a Live Server"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Admins
@@ -9,13 +9,13 @@ topic: "Server operations"
 build: both
 document_type: reference
 created: 2026-07-31
-updated: 2026-07-31
-review_due: 2026-10-31
-sources_verified: 2026-07-31
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [admins-foundation, admins-server-ini-reference, admins-sandboxvars-reference, meta-style-guide]
 tags: [rcon, admin-commands, server-operations, moderation, rcon-cli, mcrcon, zomboid-rcon, pz-admin, b42, legacy41]
-game_versions_verified: ["41.78.16", "42.17.0"]
+game_versions_verified: ["41.78.16", "42.17.0", "42.21"]
 ---
 
 # Document Control
@@ -23,16 +23,16 @@ game_versions_verified: ["41.78.16", "42.17.0"]
 | Field | Value |
 |-------|-------|
 | Document ID | admins-rcon-commands |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Admins |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-07-31 |
-| Review due | 2026-10-31 |
-| Game versions verified | 41.78.16 (B41 page revision); 42.17.0 (B42 page revision; stable is 42.20) |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16 (B41 page revision); 42.17.0 (B42 page revision); 42.21 (patch notes reviewed; stable is 42.21) |
 
 # Executive Summary
 
@@ -40,7 +40,7 @@ This document is the operating catalogue for a live Project Zomboid server: ever
 
 The command surface is pinned to two wiki revisions: the Build 41 roster at a revision explicitly verified against 41.78.16 (44 documented commands), and the current roster at a revision versioned against 42.17.0 (59 documented commands). Diffing the two pinned revisions yields a concrete delta — 17 commands appear only in the B42-era revision (among them `/banip`, `/teleportplayer`, `/removeitem`, `/reloadalllua`, `/setpassword` and the B42 world-generator control `/worldgen`) and two appear only in the B41-era revision (`/clear`, `/replay`). A load-bearing caveat runs through the whole document: that diff is a *documentation* delta, and how much of it reflects actual game-code change is quarantined rather than asserted.
 
-Document-level confidence is **Medium**. The catalogue rests on pzwiki as a fact-only source, and the current revision is versioned 42.17.0 while the stable build is 42.20 — no primary changelog re-verifies the roster at 42.20. Tooling invocations rest on the tools' own repositories and are stronger; anything that could not be traced to a pinned source (RCON behaviour of self-targeting commands, the `godmod`/`godmode` spelling oddity, mcrcon's fitness for Zomboid) is quarantined below.
+Document-level confidence is **Medium**. The catalogue rests on pzwiki as a fact-only source, and the current revision is versioned 42.17.0 while the stable build is 42.21 — the 42.20.1-42.21 patch notes fix several admin-command behaviours but do not enumerate the roster, so nothing re-verifies the roster at 42.21. Tooling invocations rest on the tools' own repositories and are stronger; anything that could not be traced to a pinned source (RCON behaviour of self-targeting commands, the `godmod`/`godmode` spelling oddity, mcrcon's fitness for Zomboid) is quarantined below.
 
 # Key Takeaways
 
@@ -77,9 +77,9 @@ Not covered: the meaning and ranges of `.ini` keys (owned by `admins-server-ini-
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | 41.78.16 | Roster from wiki revision 648141, whose page-version tag was checked for 41.78.16 [3] |
-| B42 (stable) | Yes | 42.17.0 (page revision); stable is 42.20 | Roster from wiki revision 1385097, versioned 42.17.0 and carrying the wiki's own staleness banner against 42.20 [1] [2] |
+| B42 (stable) | Yes | 42.17.0 (page revision); stable is 42.21; 42.20.3-42.21 patch notes reviewed [8] [10] [11] | Roster from wiki revision 1385097, versioned 42.17.0 and carrying the wiki's own staleness banner against 42.20 [1] [2]; 42.21 stable since 2026-09-28 [10] |
 
-Build 42.20.0 has been the stable build since 2026-07-29 [1]. No pinned source re-verifies the command roster at 42.20 exactly; every B42 statement below is therefore "as documented at 42.17.0" unless otherwise tagged. The RCON tooling sections are build-independent: the tools speak to the RCON listener, which both builds expose through the same two `.ini` keys [5].
+Build 42.20.0 became stable on 2026-07-29 [1] and 42.21 on 2026-09-28 [10]. No pinned source re-verifies the command roster at 42.20 or 42.21; every B42 statement below is therefore "as documented at 42.17.0" unless otherwise tagged. **42.21 re-check scope:** the 42.20.3 and 42.21 Steam notes [8] [9] [10] and the TIS forum changelist [11] were read for admin-command changes; the fixes they name are recorded in the per-command notes below, and no added or removed command is named. The roster itself was not re-run against a 42.21 server (`help` dump); unchanged rows are carried forward from the pinned revisions with no contradicting change found, not re-tested. The RCON tooling sections are build-independent: the tools speak to the RCON listener, which both builds expose through the same two `.ini` keys [5].
 
 # Reference
 
@@ -121,7 +121,7 @@ The B41-pinned revision's type list is identical except that it ends at `Statist
 | `/removesteamid` | Removes a SteamID from that allow-list *(B42)* [2] | `/removesteamid "76561198000000000"` |
 | `/setaccesslevel` | Assigns a staff tier to an account [2] [3] | `/setaccesslevel "sasha" "moderator"` |
 
-The access-level roster is Admin, Moderator, Overseer, GM and Observer; the B42-era revision additionally documents `none`, which returns the account to an ordinary player [2] [3]. Whether `Open`, `Password` and the whitelist keys admit a player in the first place is `.ini` territory — see `admins-server-ini-reference`.
+The access-level roster is Admin, Moderator, Overseer, GM and Observer; the B42-era revision additionally documents `none`, which returns the account to an ordinary player [2] [3]. 42.21 fixed `grantadmin` and `setaccesslevel` failing for a user who is not on the whitelist, and moved a newly created role to the bottom of the role list in the UI *(B42)* [11]. 42.20.3 added administrator access when a server is full *(B42)* [8]. Whether `Open`, `Password` and the whitelist keys admit a player in the first place is `.ini` territory — see `admins-server-ini-reference`.
 
 ## Moderation: kick, ban, mute
 
@@ -130,7 +130,7 @@ The access-level roster is Admin, Moderator, Overseer, GM and Observer; the B42-
 | `/kick` | Disconnects a user; `-r` attaches a reason. The wiki's usage string spells the verb `kickuser` [2] [3] | `/kickuser "griefer01" -r "safehouse griefing"` |
 | `/banuser` | Bans an account; `-ip` extends the ban to the IP, `-r` attaches a reason [2] [3] | `/banuser "griefer01" -ip -r "duping"` |
 | `/unbanuser` | Lifts an account ban [2] [3] | `/unbanuser "griefer01"` |
-| `/banid` | Bans a SteamID directly [2] [3] | `/banid 76561198000000000` |
+| `/banid` | Bans a SteamID directly [2] [3]. Before 42.21 a Steam authentication exploit let players enter dedicated servers without authenticating, which prevented SteamID bans from taking effect; 42.21 fixed it *(B42)* [10] [11] | `/banid 76561198000000000` |
 | `/unbanid` | Lifts a SteamID ban [2] [3] | `/unbanid 76561198000000000` |
 | `/banip` | Bans an IP address *(B42)* [2] | `/banip 198.51.100.7` |
 | `/unbanip` | Lifts an IP ban *(B42)* [2] | `/unbanip 198.51.100.7` |
@@ -140,7 +140,7 @@ The access-level roster is Admin, Moderator, Overseer, GM and Observer; the B42-
 
 | Command | What it does | Invocation |
 |---------|--------------|------------|
-| `/teleport` | Moves you to a player, or (two-argument form) one player to another; after arrival, wait for the map to stream in [2] [3] | `/teleport "sasha"` · `/teleport "sasha" "marek"` |
+| `/teleport` | Moves you to a player, or (two-argument form) one player to another; after arrival, wait for the map to stream in [2] [3]. 42.21 lists the two-player form (`teleport "Player1" "Player2"`) as fixed *(B42)* [11] | `/teleport "sasha"` · `/teleport "sasha" "marek"` |
 | `/teleportplayer` | Moves one player to another — the explicit two-target form *(B42)* [2] | `/teleportplayer "sasha" "marek"` |
 | `/teleportto` | Moves you to absolute x,y,z coordinates [2] [3] | `/teleportto 10500,9300,0` |
 | `/godmode` | Toggles invulnerability with `-true`/`-false`; username omitted = yourself. Listed under the name `godmod` — see Claim 3 [2] [3] | `/godmode "sasha" -true` |
@@ -334,7 +334,7 @@ Operationally: a B41 (`legacy41`) runbook loses `/replay` and `/clear` nothing e
 
 # Risks & Caveats
 
-- **The B42 roster is pinned two versions behind stable.** Revision 1385097 is versioned 42.17.0 while stable is 42.20 [1] [2]; 42.18–42.20 may have added, removed or fixed commands (the 42.20 release notes' anti-cheat rework [1] plausibly touched command handling) without this document knowing.
+- **The B42 roster is pinned behind stable.** Revision 1385097 is versioned 42.17.0 while stable is 42.21 [2] [10]; 42.18–42.21 may have added, removed or fixed commands without this document knowing. The 42.21 notes also record a fix for players being kicked when executing a server command [11], and the anti-cheat system was expanded in 42.21 [9] [11], so command behaviour on hardened servers may differ from the pinned page.
 - **Documentation delta ≠ game delta.** The headline B41/B42 comparison inherits Claim 1's caveat wholesale; do not cite this document for "command X was added in Build 42" beyond `worldgen`-class inferences.
 - **Placeholder rows conceal real behaviour.** Six-plus commands carry raw localisation keys as their only description [2]; their actual syntax on a live server is unknown to the pinned sources.
 - **Tool facts are repo-README facts.** Flags, method lists and licenses for the four tools were read from their repositories on the access date [7] [8] [9] [10]; releases after that date can change invocations.
@@ -352,7 +352,7 @@ Operationally: a B41 (`legacy41`) runbook loses `/replay` and `/clear` nothing e
 
 # Open Questions
 
-- What did 42.18–42.20 change in the command surface, if anything? A wiki re-verification against 42.20 or a TIS changelog line would close the two-version gap [1] [2].
+- What did 42.18–42.21 change in the command surface beyond the fixes named in the 42.21 notes [11]? A wiki re-verification or a `help` dump on a 42.21 server would close the gap [1] [2].
 - What are the real syntaxes of the WIP-flagged commands (`createhorde2`, `removezombies`, `list`, `remove`, `addtosafehouse`, `kickfromsafehouse`) [2]? First-hand `/help <command>` output on 42.20 would document them.
 - Were `clear` and `replay` actually removed from the B42 server, or merely dropped from the page [2] [3]? A `help` dump on 42.20 answers it.
 - Does the B42 anti-cheat rework [1] constrain any admin commands (e.g. item grants tripping server-side item checks) on hardened servers?
@@ -363,6 +363,10 @@ Operationally: a B41 (`legacy41`) runbook loses `/replay` and `/clear` nothing e
 **Primary Sources**
 
 - [1] **The Indie Stone** — *Build 42.20.0 Stable Released* (Steam announcement, 2026-07-29; retrieved via Steam news API, ISteamNews app 108600). https://steamcommunity.com/games/108600/announcements/detail/1839676055882259. Accessed 2026-07-31.
+- [8] **The Indie Stone** — *42.20.3 STABLE Hotfix Released* (Steam announcement, 2026-08-17). https://steamcommunity.com/games/108600/announcements/detail/1840944183785895. Accessed 2026-10-07.
+- [9] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925. Accessed 2026-10-07.
+- [10] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [11] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first post 2026-09-23; multiplayer list abridged to selected items in the retrieved copy). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -402,3 +406,4 @@ Operationally: a B41 (`legacy41`) runbook loses `/replay` and `/clear` nothing e
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: reviewed 42.20.3 [8], 42.21 unstable [9] and stable [10] Steam notes and the TIS forum changelist [11]; added admin-command fix notes (teleport, grantadmin/setaccesslevel, SteamID bans), scope statement; roster not re-run on 42.21. | — |

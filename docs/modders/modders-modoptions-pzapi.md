@@ -1,7 +1,7 @@
 ---
 id: modders-modoptions-pzapi
 title: "PZAPI.ModOptions and the B42 Mod Settings API: Building an Options Screen"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Modders
@@ -10,12 +10,12 @@ build: both
 document_type: reference
 created: 2026-10-07
 updated: 2026-10-07
-review_due: 2027-01-05
+review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
 related: [modders-foundation, modders-lua-api-surface, modders-events-callbacks, modders-mp-networking-porting, modders-modinfo-modid-conventions, modders-first-mod-tutorial-b42, modders-porting-b41-to-b42, admins-workshop-mod-wiring, meta-style-guide]
 tags: [modding, lua, pzapi, modoptions, options, keybind, ui, b42]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | modders-modoptions-pzapi |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Modders |
@@ -31,16 +31,16 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
 | Updated | 2026-10-07 |
-| Review due | 2027-01-05 |
-| Game versions verified | 41.78.16 (Umbrella index), 42.20.0 (Umbrella stubs) |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16 (Umbrella index), 42.21.0 (Umbrella stubs; identical to 42.20.0 for ModOptions) |
 
 # Executive Summary
 
-Build 42 ships a native mod-settings API: `PZAPI.ModOptions`. A mod calls `create` once to obtain an options section, then adds typed controls to it (tick box, multiple tick box, combo box, slider, text entry, colour picker, key bind, button) plus three layout helpers (title, description, separator). The stubs pinned at Umbrella 42.20.0 describe the whole surface, including the exact `add*` signatures and the `load` / `save` pair that persists values to a `ModOptions.ini` file [1].
+Build 42 ships a native mod-settings API: `PZAPI.ModOptions`. A mod calls `create` once to obtain an options section, then adds typed controls to it (tick box, multiple tick box, combo box, slider, text entry, colour picker, key bind, button) plus three layout helpers (title, description, separator). The stubs pinned at Umbrella 42.21.0 describe the whole surface, including the exact `add*` signatures and the `load` / `save` pair that persists values to a `ModOptions.ini` file [1].
 
 Build 41 has no such API. The B41 Umbrella pin (41.78.16) contains no `PZAPI` or ModOptions library file, so everything here marked *(B42)* simply does not exist on `legacy41` [3]. The B41 world used a community framework mod named "Mod Options", which the wiki describes as a separate implementation; code does not port unchanged [11] [10].
 
-Confidence is Medium. The signatures are stub-sourced (strong), but the file location, several bug reports and the call-order semantics of `onChange` versus `onChangeApply` rest on a pzwiki page last updated for 42.12.1, and nothing was run in-game. This document was verified against 42.20.0 stubs only: Build 42.21 went stable on 2026-09-28 and 41.78.21 shipped on 2026-08-26 [5] [6].
+Confidence is Medium. The signatures are stub-sourced (strong), but the file location, several bug reports and the call-order semantics of `onChange` versus `onChangeApply` rest on a pzwiki page last updated for 42.12.1, and nothing was run in-game. This document was re-verified against the 42.21.0 stubs, whose `ModOptions.lua` is identical to the 42.20.0 file [1] [15]; Build 42.21 went stable on 2026-09-28 and 41.78.21 shipped on 2026-08-26 [5] [6]. The 42.21 notes list no change to mod options [12].
 
 # Key Takeaways
 
@@ -59,9 +59,9 @@ This document answers one question for a modder: how do I give my mod a settings
 
 # Scope
 
-Covered: the `PZAPI.ModOptions` library as defined in the Umbrella 42.20.0 stubs, every option type and its `add*` signature, value access, persistence, change callbacks, key-bind handling, the `PZAPI.UI` namespace as it appears in the same stubs, and a verified minimal example. Also covered: the B41 situation, limited to what is primary-sourceable.
+Covered: the `PZAPI.ModOptions` library as defined in the Umbrella 42.21.0 stubs, every option type and its `add*` signature, value access, persistence, change callbacks, key-bind handling, the `PZAPI.UI` namespace as it appears in the same stubs, and a verified minimal example. Also covered: the B41 situation, limited to what is primary-sourceable.
 
-Not covered: the Lua client option screens of the base game, translation-file layout, sandbox options (server-controlled settings), and unstable branches after 42.20.0. Networking and multiplayer sync belong to the MP porting document.
+Not covered: the Lua client option screens of the base game, translation-file layout, sandbox options (server-controlled settings), and unstable branches after 42.21.0. Networking and multiplayer sync belong to the MP porting document.
 
 # Definitions
 
@@ -75,9 +75,9 @@ Not covered: the Lua client option screens of the base game, translation-file la
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | No native API | Umbrella 41.78.16 pin (library tree contains no PZAPI/ModOptions file) [3] | Community "Mod Options" framework only [11] |
-| B42 (stable) | Yes | Umbrella 42.20.0 stubs [1]; game 42.20.0 released 2026-07-29 [4] | Not re-run in-game |
+| B42 (stable) | Yes | Umbrella 42.21.0 stubs, commit 13d01f9 [1]; game 42.20.0 released 2026-07-29 [4]; 42.21 stable 2026-09-28 [5] | Not re-run in-game |
 
-Build 42.21 went stable on 2026-09-28 [5] and the legacy line reached 41.78.21 on 2026-08-26 [6]. This document is verified against the 42.20.0 stubs only; no 42.21 stub release was checked, and the 42.21 stable announcement text contains no mention of mod options [5]. Re-verify before relying on any signature for 42.21.
+Build 42.21 went stable on 2026-09-28 [5] and the legacy line reached 41.78.21 on 2026-08-26 [6]. Re-baselined 2026-10-07 from 42.20.0 to 42.21: the `ModOptions.lua` stub at the 42.21.0 pin was compared with the 42.20.0 one and is identical (the `PZAPI/ui` tree holds the same 23 files at both pins) [1] [2] [15] [16]; the 42.20.1 to 42.21 official notes were read for anything touching mod options, translation strings or Lua files, and none names mod options [12] [13] [14] [6] [5]. Statements not touched by those sources, including the wiki-sourced behaviour, are carried forward from 42.20 with no contradicting change found; they were not re-tested in-game.
 
 # Reference
 
@@ -100,7 +100,7 @@ A section carries `data` (array of every element including layout elements), `di
 
 ## Option types and add* signatures
 
-All signatures below are quoted from the 42.20.0 stub [1]. Parameters prefixed with an underscore are optional tooltips in the stub.
+All signatures below are quoted from the 42.21.0 stub (unchanged from 42.20.0) [1] [15]. Parameters prefixed with an underscore are optional tooltips in the stub.
 
 | Type tag | Method | Signature | Value accessors |
 |----------|--------|-----------|-----------------|
@@ -138,7 +138,7 @@ The same stub tree defines `PZAPI.UI` and `PZAPI.UI.Extensions`; in the extracte
 
 ## Minimal verified example
 
-Every API name in this example appears in the 42.20.0 stub or the pinned event list [1]. It follows the wiki's documented access patterns [10]. It has not been run in-game.
+Every API name in this example appears in the 42.21.0 stub or the pinned event list [1]. It follows the wiki's documented access patterns [10]. It has not been run in-game.
 
 ```lua
 -- media/lua/client/MyMod_Options.lua  (B42 only)
@@ -175,13 +175,16 @@ end)
 
 # B41 vs B42 Delta
 
-- **Native API.** *(B42)* `PZAPI.ModOptions` with `create`, `getOptions`, `load` and `save` is defined in the 42.20.0 stubs [1]. The B41 pin 41.78.16 contains no PZAPI or ModOptions library path, and the extracted B41 index has no `PZAPI` class [3].
+- **Native API.** *(B42)* `PZAPI.ModOptions` with `create`, `getOptions`, `load` and `save` is defined in the 42.21.0 stubs, identically to 42.20.0 [1] [15]. The B41 pin 41.78.16 contains no PZAPI or ModOptions library path, and the extracted B41 index has no `PZAPI` class [3].
 - **Predecessor.** On B41 the wiki says the options facility was an unofficial framework mod called "Mod Options", and that Build 42 now has the feature natively but with a different implementation [11] [10].
 - **Porting consequence.** Option-definition code written against the B41 framework must be rewritten for the native API; there is no documented compatibility shim [10] [11].
 - **Layout of the call.** *(B42)* Options are added with method-call syntax on the object returned by `create`, and values are read with `getValue()` on the returned option objects [1].
 - **Events.** `Events.OnKeyPressed`, `Events.OnKeyStartPressed`, `Events.OnKeyKeepPressed` and `Events.OnMainMenuEnter` exist in both index files, so the key-handling half of a key-bind implementation is portable even though the option-definition half is not [1] [3].
 - **Fixes within B42.** Saving was fixed in 42.3.0 unstable [8] and empty text-entry handling in 42.13.0 unstable [7]; both fixes predate 42.20.0 [4].
-- **Security patch.** The 42.20.4 hotfix removed the `loadstring` and `loadstream` methods; mods that used those should be updated [6].
+- **Security patch and reversal.** *(B42)* The 42.20.4 hotfix removed the `loadstring` and `loadstream` methods [6]; the 42.21 release re-enabled both [5] [12]. Legacy 41.78.21 shipped the original removal [6]; no source read here says whether the legacy line got the reversal.
+- **Translation strings.** *(B42)* 42.20.1 fixed percent-symbol handling in translation files and told mods to write `%%` for a literal `%` [13]; 42.20.2 added a temporary workaround accepting both forms, said to be removed in a future unstable update, and writes error-log entries for the old form [14]. 42.21 updated the localization system to allow more translatable strings [12]. The `addDescription` stub says its text is processed by `getText` [1].
+- **Writing `.json` files.** *(B42)* 42.20.1 added the ability for mods to write `.json` files [13]. The notes do not connect this to `PZAPI.ModOptions`, which persists to `ModOptions.ini` [1] [13].
+- **Multiplayer Lua validation.** *(B42)* 42.20.1 improved Lua checksum validation for multiplayer anti-cheat [13], and 42.21 expanded the anti-cheat system [12]; neither note says how this applies to client-only options files.
 
 # Practical Guidance
 
@@ -191,6 +194,7 @@ end)
 - **Keep gameplay out of ModOptions.** Anything that changes shared state belongs in sandbox options [10] [11].
 - **Guard for B41.** If one Workshop item serves both builds, put the options file in the B42 version folder, or test that `PZAPI` is non-nil before use; the B41 pin has no such table [3].
 - **Prefer translated names.** Pass `getText`-resolved names to key binds per the wiki's workaround [10].
+- **Escape `%` in option text.** Option names, descriptions and tooltips that are resolved through translation strings should use `%%` for a literal percent sign, following the 42.20.1 and 42.20.2 guidance [13] [14] [1].
 - **Validate empty text.** An empty text entry is substituted with a single space in 42.13.0 and later, so trim before testing for empty [7].
 
 # Common Pitfalls & Troubleshooting
@@ -227,14 +231,14 @@ end)
 
 - Stubs are community-written type annotations, not the game's own source; the file path the wiki quotes (`media/lua/client/PZAPI/ModOptions.lua`) should be opened in an install to confirm the stub [1] [10].
 - The wiki page is stamped 42.12.1 and warns it may be inaccurate for 42.20.0; its example snippets were retrieved from 42.0.2 source [10].
-- No 42.21 stub release was checked [5].
+- The 42.21 forum list is abridged to "selected" for its long fix lists, so absence of a mod-options line there is not proof that nothing changed [12]; the identical stub file is the stronger evidence [1] [15].
 - The stub's `apply` is documented as a placeholder, so how the game triggers a user-supplied `apply` is wiki-sourced only [1] [10].
 - The B41 absence rests on a path search of the pinned tree and the extracted index; there is no positive statement from the developers [3].
 
 # Verification Steps
 
-1. Open `media/lua/client/PZAPI/ModOptions.lua` in a 42.20.x install and compare each `add*` signature with the table above [1] [10].
-2. Download the Umbrella 42.20.0 release and open `library/lua/client/PZAPI/ModOptions.lua` [1].
+1. Open `media/lua/client/PZAPI/ModOptions.lua` in a 42.21 install and compare each `add*` signature with the table above [1] [10].
+2. Check out Umbrella commit `13d01f9ee58fa48773553920db56d06f0005e7f8` and open `library/lua/client/PZAPI/ModOptions.lua` [1]; diff it against the same path at `58204fc47895ba249592519cedecc7cfbaaebd60` (expect no difference) [15].
 3. Browse the B41 pin's `library` tree and confirm no `PZAPI` folder [3].
 4. Run the minimal example on B42, change a value, exit, and inspect `ModOptions.ini` in the cache folder to settle Claim 2.
 5. Press the mod key bind with the overlay example and log `key` to confirm the comparison pattern [10].
@@ -245,15 +249,16 @@ end)
 - What are the timing and ordering semantics of `onChange` versus `onChangeApply`? The stub gives signatures only [1].
 - Does the base game call `apply` on a user-assigned section function, and when? [1] [10]
 - Is the ini filename `ModOptions.ini` or `modOptions.ini`, and in which folder? (Claim 2)
-- Is the button `arg4` shift still present on 42.20.0? (Claim 1)
-- Did 42.21 change any ModOptions behaviour? The announcement text mentions none [5], but the forum patch notes were not read.
+- Is the button `arg4` shift still present on 42.21? (Claim 1)
+- Did 42.21 change any ModOptions behaviour? Resolved as far as the sources allow: the stub is identical and neither the stable announcement nor the forum patch notes mention mod options [5] [12] [15]; in-game behaviour is untested.
+- Are mod-options labels affected by the `%%` workaround removal? The notes say it will be removed in a future unstable update [14]; the stub says nothing about which option strings pass through translation beyond `addDescription` [1].
 
 # References
 
 **Primary Sources** — Umbrella stubs at pinned commits, Steam announcements.
 
-- [1] **PZ-Umbrella** — *library/lua/client/PZAPI/ModOptions.lua at commit 58204fc (release 42.20.0)*. https://github.com/PZ-Umbrella/Umbrella/blob/58204fc47895ba249592519cedecc7cfbaaebd60/library/lua/client/PZAPI/ModOptions.lua Accessed 2026-10-07.
-- [2] **PZ-Umbrella** — *library/lua/client/PZAPI/ui at commit 58204fc (release 42.20.0)*. https://github.com/PZ-Umbrella/Umbrella/tree/58204fc47895ba249592519cedecc7cfbaaebd60/library/lua/client/PZAPI/ui Accessed 2026-10-07.
+- [1] **PZ-Umbrella** — *library/lua/client/PZAPI/ModOptions.lua at commit 13d01f9 (release 42.21.0)*. https://github.com/PZ-Umbrella/Umbrella/blob/13d01f9ee58fa48773553920db56d06f0005e7f8/library/lua/client/PZAPI/ModOptions.lua Accessed 2026-10-07.
+- [2] **PZ-Umbrella** — *library/lua/client/PZAPI/ui at commit 13d01f9 (release 42.21.0)*. https://github.com/PZ-Umbrella/Umbrella/tree/13d01f9ee58fa48773553920db56d06f0005e7f8/library/lua/client/PZAPI/ui Accessed 2026-10-07.
 - [3] **PZ-Umbrella** — *library tree at commit fa2e7e1 (release 41.78.16)*. https://github.com/PZ-Umbrella/Umbrella/tree/fa2e7e19799740b57902f1cb4e989225c295c05e/library Accessed 2026-10-07.
 - [4] **The Indie Stone** — *Build 42.20.0 Stable Released* (Steam announcement, 2026-07-29). https://steamcommunity.com/ogg/108600/announcements/detail/1839676055882259 Accessed 2026-10-07 (host bot-blocks checkers; located via the Steam news API [9]).
 - [5] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/ogg/108600/announcements/detail/1844751498231307 Accessed 2026-10-07.
@@ -261,6 +266,12 @@ end)
 - [7] **The Indie Stone** — *Build 42.13.0 UNSTABLE Multiplayer Released* (Steam announcement). https://steamcommunity.com/ogg/108600/announcements/detail/1818752592122972 Accessed 2026-10-07.
 - [8] **The Indie Stone** — *42.3.0 UNSTABLE Released* (Steam announcement). https://steamcommunity.com/ogg/108600/announcements/detail/1790848102789684 Accessed 2026-10-07.
 - [9] **Valve** — *Steam News Web API (ISteamNews), app 108600*. https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=108600&count=200&maxlength=0 Accessed 2026-10-07.
+
+- [12] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, 2026-09-23). https://theindiestone.com/forums/topic/101693-4221-patch-notes/ Accessed 2026-10-07 (host bot-blocks checkers).
+- [13] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766 Accessed 2026-10-07 (host bot-blocks checkers).
+- [14] **The Indie Stone** — *42.20.2 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314339441 Accessed 2026-10-07 (host bot-blocks checkers).
+- [15] **PZ-Umbrella** — *library/lua/client/PZAPI/ModOptions.lua at the previous B42 pin, commit 58204fc (42.20.0 stub set)*. https://github.com/PZ-Umbrella/Umbrella/blob/58204fc47895ba249592519cedecc7cfbaaebd60/library/lua/client/PZAPI/ModOptions.lua Accessed 2026-10-07.
+- [16] **PZ-Umbrella** — *library/lua/client/PZAPI/ui at the previous B42 pin, commit 58204fc (42.20.0 stub set)*. https://github.com/PZ-Umbrella/Umbrella/tree/58204fc47895ba249592519cedecc7cfbaaebd60/library/lua/client/PZAPI/ui Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): URL + revision id; facts only.
 
@@ -295,3 +306,4 @@ end)
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined from 42.20.0 to 42.21: Umbrella pin moved to 13d01f9; ModOptions stub verified identical to 42.20.0; added 42.20.1/42.20.2 `%%` translation guidance, `.json` writing, MP Lua checksum and 42.21 localization notes; `loadstring`/`loadstream` removed in 42.20.4 and re-enabled in 42.21; open question on 42.21 resolved. Sources: Steam 42.20.1, 42.20.2, 42.20.4, 42.21 stable; TIS forum 42.21 patch notes; Umbrella 13d01f9 vs 58204fc. | — |

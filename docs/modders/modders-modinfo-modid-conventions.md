@@ -1,7 +1,7 @@
 ---
 id: modders-modinfo-modid-conventions
 title: "mod.info, Mod IDs and the B42 Versioned Mod Folder Layout"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Modders
@@ -10,12 +10,12 @@ build: both
 document_type: reference
 created: 2026-10-07
 updated: 2026-10-07
-review_due: 2027-01-05
+review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
 related: [modders-foundation, admins-workshop-mod-wiring, modders-lua-api-surface, modders-events-callbacks, modders-modoptions-pzapi, modders-item-scripts-distributions, modders-mp-networking-porting, modders-first-mod-tutorial-b42, modders-porting-b41-to-b42, players-crafting-chains, meta-style-guide]
 tags: [mod-info, mod-id, workshop-txt, versioned-folders, common-folder, load-order, require, b42, legacy41]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | modders-modinfo-modid-conventions |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Modders |
@@ -31,8 +31,8 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
 | Updated | 2026-10-07 |
-| Review due | 2027-01-05 |
-| Game versions verified | 41.78.16 (Umbrella stub pin only), 42.20.0 (stubs and docs); not verified against 42.21 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16 (Umbrella stub pin only), 42.20.0 (stubs and docs), 42.21 (Umbrella 42.21.0 stubs, ScriptsDocs page titled 42.21.0, and the 42.20.1 to 42.21 notes; not re-tested in-game) |
 
 # Executive Summary
 
@@ -54,11 +54,12 @@ share one folder because they do not collide [9]. The `versionMin` and
 directories, are documented only for the Build 42 side [4] [5].
 
 Confidence is Medium. The key list rests on a code-truth-generated page
-titled for 42.20.0 [4] and pinned stubs [5], but the folder-resolution rules
+titled for 42.21.0 [4] and pinned stubs [5] [16], but the folder-resolution rules
 rest on a fact-only wiki revision stamped 42.14.0 [9], the wiki `mod.info`
 snapshot we hold contains only navigation text [10], and nothing was run
-in-game. The game has since reached 42.21 stable [2]; this document was
-verified against 42.20.0 stubs only.
+in-game. The game reached 42.21 stable on 2026-09-28 [2]; this revision
+re-checked the key list and accessor names against 42.21 sources and found no
+change (see Build Applicability).
 
 # Key Takeaways
 
@@ -115,11 +116,21 @@ Lua content inside `media/`, the options API, and unstable-branch behaviour.
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Partly | Umbrella 41.78.16 stub pin [6] [8]; layout from wiki [9] | Flat layout documented [9]. No B41 confirmation of the key set was found; the B41 stub index has no mod-record class [8]. Latest legacy line is 41.78.21 (2026-08-26) [3] |
-| B42 (stable) | Yes | 42.20.0 stubs [5] and ScriptsDocs page titled 42.20.0 [4] | 42.21 stable was released 2026-09-28 [2]; not verified against it. The wiki layout page is stamped 42.14.0 [9] and `workshop.txt` page 42.5.1 [12] |
+| B42 (stable) | Yes | 42.21.0 stubs [16] [17] (earlier check: 42.20.0 stubs [5] [7]) and ScriptsDocs page titled 42.21.0 [4] | 42.21 stable was released 2026-09-28 [2]. The wiki layout page is stamped 42.14.0 [9] and `workshop.txt` page 42.5.1 [12] |
 
-The 42.21 stable announcement text we read does not mention `mod.info` or
-folder layout, but its full forum patch notes were not read [2]. The 42.20.0
-release preceded both [1].
+**42.21 re-baseline (2026-10-07).** This revision re-read the ScriptsDocs
+`mod.info` page, which is now titled 42.21.0 and lists the same 17 keys as the
+table below [4]; compared the 42.21.0 `ChooseGameInfo.Mod` and `ActiveMods`
+stubs with the 42.20.0 ones (text-identical for `ChooseGameInfo.Mod`, no member
+changes for `ActiveMods` in the index diff) [16] [17] [5] [7]; and read the
+42.20.1, 42.20.2, 42.20.3, 42.20.4, 42.21 unstable and 42.21 stable posts
+[19] [20] [21] [3] [22] [2] plus the TIS forum 42.21 patch-note list (abridged to
+"selected" for its long fix lists) [18]. None of them mentions `mod.info`,
+Mod IDs, the `common/` or version folders, `versionMin`/`versionMax` or
+`workshop.txt`. The wiki layout, uploading and `workshop.txt` pages were not
+re-fetched, so their statements are carried forward from 42.20 with no
+contradicting change found; nothing was re-tested in-game. The upstream 42.20.0
+Umbrella tag was later moved, so this document cites commits, not tags.
 
 # Reference
 
@@ -266,17 +277,17 @@ several Mod IDs [4] [9]. Dependencies are comma-separated lists under
 
 # B41 vs B42 Delta
 
-| Area | Build 41.78 *(B41)* | Build 42.20 *(B42)* |
+| Area | Build 41.78 *(B41)* | Build 42.20 to 42.21 *(B42)* |
 |------|---------------------|---------------------|
 | Mod folder | `media/`, `mod.info`, `poster.png` directly in the mod folder [9] | `common/` plus version folders each able to hold `media/`, `mod.info`, `poster.png` [9] |
 | Version matching | None; no versioned folders [9] | Folder names resolve at build.major; closest folder to the running version overrides `common/` [9] |
 | Shared assets | Not applicable | `common/` loads first and is meant for large assets [9] |
 | `versionMin` / `versionMax` | Not found in any B41-side source read | Documented, `build.major` minimum form [4] |
-| In-game mod record stubs | No mod-record class in the pinned B41 stub index [8] | A mod-record class with accessors for all documented keys plus `getCommonDir` and `getVersionDir` [5] |
-| `ActiveMods` stub | Present [6] | Present [7] |
+| In-game mod record stubs | No mod-record class in the pinned B41 stub index [8] | A mod-record class with accessors for all documented keys plus `getCommonDir` and `getVersionDir`, identical at 42.20.0 and 42.21.0 [5] [16] |
+| `ActiveMods` stub | Present [6] | Present at 42.20.0 and 42.21.0 [7] [17] |
 | Detection | `media/` plus root `mod.info` | At least one `common/` or version folder [9] |
 | Dual-build items | B41 files at the root remain usable | B42 folders ignored by B41, B41 `media/` ignored by B42 [9] |
-| Hotfix line | Legacy 41.78.21 as of 2026-08-26 [3] | 42.20.0 stable, then 42.21 stable on 2026-09-28 [1] [2] |
+| Hotfix line | Legacy 41.78.21 as of 2026-08-26 [3] | 42.20.0 stable, hotfixes 42.20.1 to 42.20.4, then 42.21 stable on 2026-09-28 [1] [19] [3] [2] |
 
 Whether the other `mod.info` keys (such as `require`, `loadModAfter`) behave
 identically on B41 is not established by any source read here; the admins
@@ -356,8 +367,11 @@ sibling document records the same gap [see `admins-workshop-mod-wiring`].
 
 # Risks & Caveats
 
-- Verified against 42.20.0 stubs only; 42.21 stable (2026-09-28) shipped since
-  [2].
+- Stubs and the ScriptsDocs page were re-checked at 42.21.0; the wiki pages
+  behind the folder and upload rules were not re-fetched for 42.21 [4] [16].
+- The 42.21 notes mention an updated localization system [22] [18]; whether it
+  changes how `name` and `description` translations in the mod translation file are read is
+  not stated by any source read.
 - The wiki `mod.info` snapshot we hold (revision 1363935) contains
   navigation text only, so the key list rests solely on the ScriptsDocs page
   [4] [10].
@@ -390,7 +404,11 @@ sibling document records the same gap [see `admins-workshop-mod-wiring`].
 - Is `versionMin` and `versionMax` enforced on B41, or ignored?
 - What does the game do with a missing `require` target or a load-order
   cycle?
-- Does 42.21 change anything in this document? [2]
+- Does 42.21 change anything in this document? The ScriptsDocs page, the
+  `ChooseGameInfo.Mod` and `ActiveMods` stubs and the 42.20.1 to 42.21 notes
+  show no change [4] [16] [17] [18]; the wiki-sourced folder rules were not
+  re-fetched, and the localization update's effect on mod-translation-file handling
+  is unknown [22].
 
 # References
 
@@ -399,11 +417,18 @@ sibling document records the same gap [see `admins-workshop-mod-wiring`].
 - [1] **The Indie Stone** — *Build 42.20.0 Stable Released* (Steam announcement, 2026-07-29). https://steamcommunity.com/games/108600/announcements/detail/1839676055882259 Accessed 2026-10-07 (via ISteamNews app 108600).
 - [2] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307 Accessed 2026-10-07 (via ISteamNews app 108600).
 - [3] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601 Accessed 2026-10-07 (via ISteamNews app 108600).
-- [4] **PZ-Wiki-Modding** — *PZ API Documentation: ROOT-ModInfo (mod.info)*, generated docs titled 42.20.0. https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/modinfo.html Accessed 2026-10-07.
+- [4] **PZ-Wiki-Modding** — *PZ API Documentation: ROOT-ModInfo (mod.info)*, generated docs titled 42.21.0 (re-read 2026-10-07; titled 42.20.0 at the first read). https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/modinfo.html Accessed 2026-10-07.
 - [5] **PZ-Umbrella** — *ChooseGameInfo.Mod stub*, commit 58204fc47895ba249592519cedecc7cfbaaebd60 (B42 42.20.0). https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/java/zombie/gameStates/ChooseGameInfo.Mod.lua Accessed 2026-10-07.
 - [6] **PZ-Umbrella** — *ActiveMods stub*, commit fa2e7e19799740b57902f1cb4e989225c295c05e (B41 41.78.16). https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/fa2e7e19799740b57902f1cb4e989225c295c05e/library/Candle/zombie.modding/ActiveMods.lua Accessed 2026-10-07.
 - [7] **PZ-Umbrella** — *ActiveMods stub*, commit 58204fc47895ba249592519cedecc7cfbaaebd60 (B42). https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/java/zombie/modding/ActiveMods.lua Accessed 2026-10-07.
 - [8] **PZ-Umbrella** — *Repository tree at the B41 pinned commit* fa2e7e19799740b57902f1cb4e989225c295c05e (no ChooseGameInfo file present). https://github.com/PZ-Umbrella/Umbrella/tree/fa2e7e19799740b57902f1cb4e989225c295c05e Accessed 2026-10-07.
+- [16] **PZ-Umbrella** — *ChooseGameInfo.Mod stub*, commit 13d01f9ee58fa48773553920db56d06f0005e7f8 (B42 42.21.0). https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/zombie/gameStates/ChooseGameInfo.Mod.lua Accessed 2026-10-07.
+- [17] **PZ-Umbrella** — *ActiveMods stub*, commit 13d01f9ee58fa48773553920db56d06f0005e7f8 (B42 42.21.0). https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/zombie/modding/ActiveMods.lua Accessed 2026-10-07.
+- [18] **The Indie Stone Forums** — *42.21 Patch Notes*, topic 101693, first post by Rockjaw, 2026-09-23 (list abridged to "selected" items for its long fix lists). https://theindiestone.com/forums/topic/101693-4221-patch-notes/ Accessed 2026-10-07 (host bot-blocks automated checkers).
+- [19] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766 Accessed 2026-10-07.
+- [20] **The Indie Stone** — *42.20.2 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314339441 Accessed 2026-10-07.
+- [21] **The Indie Stone** — *42.20.3 STABLE Hotfix Released* (Steam announcement, 2026-08-17). https://steamcommunity.com/games/108600/announcements/detail/1840944183785895 Accessed 2026-10-07.
+- [22] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925 Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): URL + revision id; facts only.
 
@@ -447,3 +472,4 @@ sibling document records the same gap [see `admins-workshop-mod-wiring`].
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (virtual agent) | Re-baselined 42.20 to 42.21: re-read the ScriptsDocs `mod.info` page (now titled 42.21.0, same 17 keys), compared 42.21.0 `ChooseGameInfo.Mod` and `ActiveMods` stubs, and read the 42.20.1 to 42.21 notes (no `mod.info` or folder-layout change; localization update noted as an open question). Sources: [4] [16] [17] [19] [20] [21] [3] [22] [2] [18]. | — |

@@ -1,7 +1,7 @@
 ---
 id: creator-cross-promotion-funnel
 title: "From Video to Server to Mod: A Cross-Promotion Funnel for a Project Zomboid Creator"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Creator
@@ -10,12 +10,12 @@ build: B42
 document_type: reference
 created: 2026-10-07
 updated: 2026-10-07
-review_due: 2027-01-05
+review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
 related: [creator-foundation, creator-format-catalogue, creator-channel-competitor-map, creator-content-calendar, admins-ubuntu-runbook, admins-modded-server-runbook, admins-workshop-mod-wiring, modders-first-mod-tutorial-b42, modders-modinfo-modid-conventions, players-beginner-guide-b42, meta-style-guide]
 tags: [creator, cross-promotion, funnel, youtube, twitch, discord, steam-workshop, server-listing, compliance, monetisation, terms]
-game_versions_verified: ["42.20"]
+game_versions_verified: ["42.21"]
 ---
 
 # Document Control
@@ -23,7 +23,7 @@ game_versions_verified: ["42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | creator-cross-promotion-funnel |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Creator |
@@ -31,8 +31,8 @@ game_versions_verified: ["42.20"]
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
 | Updated | 2026-10-07 |
-| Review due | 2027-01-05 |
-| Game versions verified | 42.20 |
+| Review due | 2027-01-07 |
+| Game versions verified | 42.21 (change list re-read 2026-10-07; server-setting names are from a 42.20-era pzwiki snapshot) |
 
 # Executive Summary
 
@@ -126,11 +126,19 @@ not legal advice.
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Context only | — | Policy and platform facts are not build-scoped [1][2]; server setting names were not checked against 41.78 |
-| B42 (stable) | Yes | 42.20 | Server-setting facts come from the pzwiki Server settings snapshot rev 1443167 [8], taken in the 42.20 era; the TIS site header showed stable build 42.21 on 2026-10-07 [1] |
+| B42 (stable) | Yes | 42.21 (change list); server-setting names from a 42.20-era snapshot | Server-setting facts come from the pzwiki Server settings snapshot rev 1443167 [8], taken in the 42.20 era; the TIS site header showed stable build 42.21 on 2026-10-07 [1] |
 
 B42 stable is now **42.21**, as shown in the header of TIS's own pages on the
-access date [1]. This document was verified against 42.20, and no 42.21 change
-to the cited settings was checked. Platform facts (YouTube, Discord, Steam,
+access date [1]. This revision re-read the TIS forum 42.21 patch notes [10]
+(abridged) for changes touching the cited server settings and Discord hooks.
+It lists a fix for an infinite connection loop when the Discord API is
+unavailable, a fix for connection failures when the `UsernameDisguises` option
+is enabled, and a server-browser change showing the last wipe rather than the
+last restart [10]. It does not list a change to `Public`, `PublicName`,
+`PublicDescription`, `ServerWelcomeMessage`, `WorkshopItems` or the Discord
+setting names, but the list is abridged, so that absence is not proof of no
+change [10]. The setting names themselves were not checked against an
+installed 42.21 file. Platform facts (YouTube, Discord, Steam,
 TIS terms) are not tied to a game build; they are tied to their access date,
 2026-10-07.
 
@@ -372,7 +380,7 @@ Judgements built on the cited facts above; no new factual claims.
   years before access [7].
 - **Server settings from a snapshot.** The `server.ini` facts come from a
   community wiki snapshot, a fact-only source [8], not from an installed 42.21
-  copy of the file. Corroborate against the game's own file before publishing
+  copy of the file; the 42.21 forum list was read in abridged form [10]. Corroborate against the game's own file before publishing
   setup instructions.
 - **Steam agreement scope.** Only the Workshop-related sections of the Steam
   Subscriber Agreement were read for this draft [3].
@@ -403,8 +411,9 @@ Judgements built on the cited facts above; no new factual claims.
 - How does TIS read the overlap between clause 2.2 and clause 2.5 of its Terms
   for trailers and promotional reels? A direct answer would settle a common
   creator question.
-- Have the `Public` and Discord settings changed in 42.21? A first-hand check
-  against an installed 42.21 server file would resolve it.
+- Have the `Public` and Discord settings changed in 42.21? The abridged forum
+  list shows a Discord-integration fix but no setting change [10]; a first-hand
+  check against an installed 42.21 server file would resolve it.
 - Valve's Mod Content Usage Policy, referenced by the Modding Policy [2], was
   not opened and should be read before publishing any guidance on Workshop
   monetisation.
@@ -420,6 +429,8 @@ Judgements built on the cited facts above; no new factual claims.
 - [5] **Google** — *YouTube Partner Program overview and eligibility* (YouTube Help). https://support.google.com/youtube/answer/72857 Accessed 2026-10-07.
 - [6] **Google** — *YouTube channel monetization policies* (YouTube Help). https://support.google.com/youtube/answer/1311392 Accessed 2026-10-07.
 - [7] **Discord** — *Invites 101* (Discord Support). https://support.discord.com/hc/en-us/articles/208866998-Invites-101 Accessed 2026-10-07.
+
+- [10] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first post 2026-09-23; abridged change list). https://theindiestone.com/forums/topic/101693-4221-patch-notes/ Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)**
 
@@ -466,3 +477,4 @@ Judgements built on the cited facts above; no new factual claims.
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: checked the TIS forum 42.21 patch notes [10] for changes touching server listing and Discord hooks; TIS Terms and Modding Policy statements unchanged (those pages were not re-fetched in this revision; the 2026-10-07 read showed 2022 update dates [1][2]). | — |

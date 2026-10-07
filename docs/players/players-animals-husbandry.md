@@ -1,7 +1,7 @@
 ---
 id: players-animals-husbandry
 title: "Animals and Husbandry in Build 42"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Players
@@ -9,13 +9,13 @@ topic: "Animals & husbandry"
 build: B42
 document_type: reference
 created: 2026-07-30
-updated: 2026-07-30
-review_due: 2026-10-30
-sources_verified: 2026-07-30
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [players-foundation, players-skills-xp, players-crafting-chains, players-traits-occupations, meta-style-guide]
 tags: [players, animals, husbandry, animal-care, butchering, tracking, breeding, genetics, hunting, build-42]
-game_versions_verified: ["42.20"]
+game_versions_verified: ["42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,16 +23,16 @@ game_versions_verified: ["42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | players-animals-husbandry |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Players |
 | Build | B42 |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-07-30 |
-| Review due | 2026-10-30 |
-| Game versions verified | 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 42.20, 42.21 |
 
 # Executive Summary
 
@@ -81,9 +81,11 @@ Not covered: per-breed stat tables beyond illustrative examples, trapping and fi
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | No | — | No living animal system exists in B41; see the Delta section for what B41 had instead [8] |
-| B42 (stable) | Yes | 42.20 | Release-note facts verified against the 42.20 announcement of 2026-07-29 [3]; wiki-derived values carry unstable-era revision stamps noted inline |
+| B42 (stable) | Yes | 42.20; patch notes re-read through 42.21 | Release-note facts verified against the 42.20 announcement of 2026-07-29 [3]; 42.21 adds animal bug fixes, no listed value changes [21]; wiki-derived values carry unstable-era revision stamps noted inline |
 
 The most detailed fact source used here, the pzwiki Animal page, is versioned against unstable **42.6.0** and its numeric values (weights, enclosure sizes, gene ranges) have **not** been re-verified on 42.20 [8]. Thursdoid citations from 2022–2024 describe the system as designed and announced during development; where the 42.20 release notes or the wiki corroborate that a feature shipped, that is stated.
+
+Revision 0.2.0 (2026-10-07) re-read the 42.20.1, 42.20.2, 42.20.3 and 42.20.4 hotfix notes [15] [16] [17] [18], the 42.21 unstable and stable announcements [19] [20] and the abridged ("selected") TIS forum 42.21 changelist [21]. The four 42.20.x hotfix notes cover multiplayer, memory, security and mod-tooling fixes and list no animal-husbandry, butchering or tracking changes [15] [16] [17] [18]. Statements not named as 42.21-affected are carried forward from 42.20 and the cited pzwiki revisions with no contradicting change found in those notes; this is a patch-notes review, not an in-game re-test [21]. The forum changelist's animal-related fixes, from its multiplayer and singleplayer lists, are: animals not spawning on the map due to a server error; a long delay between an animal kill and its final death state; animals not playing the attack animation when destroying an object; and animal deaths counting as player deaths in kill-count totals [21]. It also lists a server-side error when reloading a butcher hook with an animal attached, being unable to butcher or mount on butcher hooks dead animals found in trailers, certain animals being put into the player inventory by dropping them inside a vehicle, overlapping butcher-hook UIs when using several hooks, and the debug 'Kill' command not working on animals in trailers [21]. The retrieved list is a selection and still says there are many more animal fixes [21].
 
 # Reference
 
@@ -225,7 +227,7 @@ B41 saves and mods are not compatible with Build 42, so none of this back-ports 
 - **Design-era Thursdoid facts may have shifted in shipping.** Milking behaviour, henhouse/fox raids, breed positioning and genetics details come from 2022–2023 development posts explicitly labelled work-in-progress [4] [5]; the wiki corroborates most of them as shipped, but each could differ in detail on stable.
 - **Occupation naming is inconsistent across sources.** The Occupation table snapshot used here (revision 1391359) lists Farmer, Rancher and Fishing Guide, while this knowledge base's foundation document describes the same revision's roster using the names Crop Farmer, Livestock Farmer and Angler [12]. One of the two readings is wrong or the wiki page mixes naming eras; an in-game check should settle it (flagged for human review).
 - **The pzwiki Husbandry and Animal Care pages were unreachable** at research time (Cloudflare bot protection blocked both the API and page fetches twice), so Animal Care detail rests on the Skill page summary and the Animal page rather than the dedicated skill page [8] [11].
-- **42.20 is one day old.** Hotfix waves following stable release could adjust any animal value cited here, as The Indie Stone has signalled ongoing patching [3].
+- **Patching is ongoing.** 42.20 was followed by four hotfixes and then 42.21, whose retrieved changelist is a selection that lists animal bug fixes but no value changes, so other animal behaviour changes in 42.21 may exist that this document does not capture [3] [15] [16] [17] [18] [20] [21].
 
 # Verification Steps
 
@@ -239,6 +241,7 @@ B41 saves and mods are not compatible with Build 42, so none of this back-ports 
 
 # Open Questions
 
+- Which further animal fixes did 42.21 include beyond those itemised in the Build Applicability section? The retrieved changelist is a selection and mentions "many animal" fixes [21].
 - Did the fox henhouse raid ship in 42.20, and does closing the hutch door prevent it? An overnight in-game test resolves this.
 - What are Animal Care's exact per-level effects (inspection detail thresholds, harvest bonuses)? Needs the currently unreachable wiki page or first-hand testing.
 - Which species roam wild on 42.20 — are raccoons and turkeys huntable or livestock-only (Claim 2)?
@@ -257,6 +260,13 @@ B41 saves and mods are not compatible with Build 42, so none of this back-ports 
 - [5] **The Indie Stone** — *The Skillful HuntZman* (Thursdoid, Steam announcement, 2023-05-11; wild-animal migration and tracking design). https://steamcommunity.com/games/108600/announcements/detail/6557848386942319011. Accessed 2026-07-30.
 - [6] **The Indie Stone** — *Mizter McGregor's Garden* (Thursdoid, Steam announcement, 2023-05-25; rabbits on the migration system). https://steamcommunity.com/games/108600/announcements/detail/5151600576588209524. Accessed 2026-07-30.
 - [7] **The Indie Stone** — *Eine Kleine NachtmooZik* (Thursdoid, Steam announcement, 2023-03-31; animal life named among Build 42's pillar features). https://steamcommunity.com/games/108600/announcements/detail/6839319551984212717. Accessed 2026-07-30.
+- [15] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766. Accessed 2026-10-07.
+- [16] **The Indie Stone** — *42.20.2 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314339441. Accessed 2026-10-07.
+- [17] **The Indie Stone** — *42.20.3 STABLE Hotfix Released* (Steam announcement, 2026-08-17). https://steamcommunity.com/games/108600/announcements/detail/1840944183785895. Accessed 2026-10-07.
+- [18] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601. Accessed 2026-10-07.
+- [19] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925. Accessed 2026-10-07.
+- [20] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [21] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first post by Rockjaw, 2026-09-23; retrieved abridged, "selected" lists only). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -294,3 +304,4 @@ B41 saves and mods are not compatible with Build 42, so none of this back-ports 
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | 42.21 re-baseline against the 42.20.1–42.20.4 hotfix notes, the 42.21 unstable and stable Steam posts and the abridged TIS forum 42.21 changelist (incl. supplement): Build Applicability, Risks and Open Questions updated; animal bug fixes itemised (spawn error, death-state delay, attack animation, kill-count, butcher hook and trailer fixes); no animal values changed. Rebase is a patch-notes review, not an in-game re-test. | — |

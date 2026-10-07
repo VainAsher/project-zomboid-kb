@@ -1,7 +1,7 @@
 ---
 id: lore-in-world-media
 title: "In-World Media: Radio, Television, Print and Found Documents in Knox Country"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Lore
@@ -10,12 +10,12 @@ build: both
 document_type: reference
 created: 2026-10-07
 updated: 2026-10-07
-review_due: 2027-01-05
+review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
 related: [lore-foundation, lore-knox-event-timeline, players-map-locations, players-b41-to-b42-transition, modders-item-scripts-distributions, modders-modinfo-modid-conventions]
 tags: [lore, radio, television, newspaper, brochure, flier, skill-book, emergency-broadcast, environmental-storytelling]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | lore-in-world-media |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Lore |
@@ -31,8 +31,8 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
 | Updated | 2026-10-07 |
-| Review due | 2027-01-05 |
-| Game versions verified | 41.78.16 (Umbrella stub index), 42.20 (Umbrella stub index, release notes); B42 stable is 42.21 as of 2026-09-28 [2] |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16 (Umbrella stub index), 42.20 (Umbrella 42.20.0 stub index, release notes), 42.21 (Umbrella 42.21.0 stub index, stable announcement and forum change list); B42 stable is 42.21 as of 2026-09-28 [2] |
 
 # Executive Summary
 
@@ -46,10 +46,12 @@ build, and what the Build 42 line changed. It does not reproduce any
 broadcast, article or note: all of that text is The Indie Stone's copyright,
 and the document only describes and points to it.
 
-The headline Build 41 to Build 42 change is on the print side. The 42.20.0
+The headline Build 41 to Build 42 change is on the print side. The 42.21.0
 stub index carries a set of print-media classes (a newspaper registry,
-brochure and flier registries, a print-media manager and a family of reader
-UI classes) that the 41.78.16 index does not [5][6]. From 42.13 onward,
+brochure and flier registries, print-media definitions and map classes, and
+two reader UI classes) that the 41.78.16 index does not [5][6]. The earlier
+42.20.0 index listed a larger reader-UI family and a print-media manager that
+the 42.21.0 index no longer lists [5][13]. From 42.13 onward,
 newspaper, brochure and flier identifiers are declared through a mod-facing
 registry system [4]. Radio and TV share one code lineage across both builds,
 with a handful of renamed or relocated members [5][6].
@@ -75,8 +77,12 @@ could open (see the quarantined claims).
   cease or give way to an Emergency Broadcast on 18 July 1993 *(cited)*
   [7][8].
 - Print media gained its own class family in B42: `Newspaper`, `Brochure`,
-  `Flier`, `PrintMediaManager` and the reader UI; none appear in the B41
-  index *(B42, cited)* [5][6].
+  `Flier` and reader UI classes; none appear in the B41 index. The 42.20.0
+  index also listed `PrintMediaManager` and six more `ISPrintMedia*` UI
+  classes that the 42.21.0 index does not *(B42, cited)* [5][6][13].
+- The 42.21 change list updates the localization system, fixes crossword
+  magazine and skill-book page reading, and fixes notes made in the backpack
+  not saving *(B42, cited)* [14].
 - From 42.13, mods declare newspapers, brochures and fliers in
   `registries.lua`; the mechanics are documented elsewhere in this KB, not
   here *(B42, cited)* [4].
@@ -102,7 +108,7 @@ Covered: radio and television as game systems and as a story channel;
 print media (newspapers, brochures, fliers, magazines, skill books) at the
 level of existence, taxonomy and code names; found documents as a category;
 and the B41 to B42 delta for all of those. Both builds, with B41 tagged
-41.78.16 (the pinned Umbrella tag) and B42 tagged 42.20.
+41.78.16 (the pinned Umbrella tag) and B42 tagged 42.21 (Umbrella 42.21.0, with 42.20.0 used for comparison).
 
 Not covered: transcripts, article text or note text of any kind (TIS
 copyright); the day-by-day Knox Event timeline (see `lore-knox-event-timeline`);
@@ -120,7 +126,7 @@ pointer; and the @TheKnoxEvent social-media retelling, already summarised in
 - **Broadcast** — one airing, modelled as an object holding lines plus start
   and end stamps [5][6].
 - **Print media** — in this document, the B42 family of readable newspapers,
-  brochures and fliers with their own manager and UI classes [5].
+  brochures and fliers with their own registry and reader UI classes [5].
 - **Recorded media** — the code system for CDs, tapes and similar playable
   media, including a record of which lines the player has heard [5][6].
 - **Found document** — any readable item placed in the world that is neither
@@ -132,16 +138,22 @@ pointer; and the @TheKnoxEvent social-media retelling, already summarised in
 # Build Applicability
 
 Facts about code vocabulary were taken from the Umbrella stub indexes pinned
-for this repository: tag 41.78.16 for B41 and tag 42.20.0 for B42, both
-extracted into the repository's `sources/schemas/` indexes [5][6]. Release
-notes for 42.13.0 and 42.20.0 were read from the ingested pzwiki snapshots at
-the revisions cited below. B42 went stable at 42.20 on 2026-07-29 [1] and moved on to 42.21 on 2026-09-28 [2];
-nothing here was re-verified against 42.21.
+for this repository: tag 41.78.16 for B41 and tag 42.21.0 for B42, extracted
+into the repository's `sources/schemas/` indexes [5][6]; the previous B42 pin,
+tag 42.20.0, is archived at `sources/schemas/archive/api-index-B42-42.20.0.json`
+and was used for comparison [13]. Release notes for 42.13.0 and 42.20.0 were
+read from the ingested pzwiki snapshots at the revisions cited below. B42 went
+stable at 42.20 on 2026-07-29 [1] and moved on to 42.21 on 2026-09-28 [2].
+The 2026-10-07 re-baseline re-checked every class, event and global name used
+in this document against the 42.21.0 index, and read the 42.21 stable
+announcement [2] and the 42.21 forum change list [14] for media-related
+entries. Not re-checked: the pzwiki-derived channel and skill-book facts [7][8],
+which have no 42.21 equivalent in the sources opened.
 
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | Umbrella 41.78.16 stub index [6] | No print-media class family in the index; radio/TV classes present |
-| B42 (stable) | Yes | Umbrella 42.20.0 stub index [5]; 42.13.0 and 42.20.0 notes [10][11] | Current stable is 42.21 [2]; not re-checked |
+| B42 (stable) | Yes | Umbrella 42.21.0 stub index [5], compared with 42.20.0 [13]; 42.13.0 and 42.20.0 notes [10][11]; 42.21 notes [2][14] | Current stable is 42.21 [2]; wiki-derived channel facts not re-checked |
 
 # Reference
 
@@ -158,7 +170,7 @@ cited note says so.
 | Recorded media | CDs, tapes and similar | `RecordedMedia`, `MediaData` | both [5][6] |
 | Newspapers | Readable newspaper items | `Newspaper` registry, `OldNewspaper` | B42 [5] |
 | Brochures and fliers | Readable paper items tied to places | `Brochure`, `Flier` registries | B42 [5] |
-| Reader UI | The windows that display print items | `ISPrintMedia*` classes, `PrintMediaManager` | B42 [5] |
+| Reader UI | The windows that display print items | `ISPrintMediaMap`, `ISPrintMediaTextPanel` (42.21.0); more `ISPrintMedia*` classes and `PrintMediaManager` in 42.20.0 only | B42 [5][13] |
 | Literature items | Books, magazines | `Literature`, `ISLiteratureUI`, `ISLiteratureList` | both [5][6] |
 
 ## Radio and television
@@ -174,7 +186,10 @@ stamps, with setters for pre- and post-segments [5][6]. `RadioScriptManager`
 exposes channel add and remove members and a `simulateScriptsUntil` member
 alongside `getCurrentTimeStamp` [5][6].
 
-Two Lua events concerning broadcast loading exist in both indexes:
+Every radio and TV class named above has the same member list in the 42.20.0
+and 42.21.0 indices [5][13]. Two radio-related Lua classes listed in 42.20.0,
+`ISContextTelevision` and `InvContextRadio`, are not listed in 42.21.0 *(B42)*
+[5][13]. Two Lua events concerning broadcast loading exist in both indexes:
 `OnLoadRadioScripts` and `OnInitRecordedMedia` [5][6].
 
 On the content side, the Skill book page's navigation block lists the media
@@ -219,16 +234,22 @@ random pick from a category, and `hasListenedToLine` and
 
 ## Print media (B42)
 
-The 42.20.0 index lists a `Newspaper` registry class whose constants name four
+The 42.21.0 index lists a `Newspaper` registry class (unchanged from 42.20.0) whose constants name four
 in-fiction papers (Kentucky Herald, Knox Knews, Louisville Sun Times and
 National Dispatch) and which has `register`, `get` and `getIssues` members
 *(B42)* [5]. A `Brochure` registry class lists constants named after
 in-world places such as an airport, an art gallery in Louisville, two malls
 and a sanatorium, and also has `register` *(B42)* [5]. A `Flier` class is
-present as well *(B42)* [5]. Around them the index lists `PrintMediaManager`,
-`PrintMediaDefinitions`, `PrintMediaEntries`, `PrintMediaMaps` and a set of
-`ISPrintMedia*` UI classes for page, list box, map, rich text and text panel
-*(B42)* [5]. An `OldNewspaper` class is also present *(B42)* [5].
+present as well *(B42)* [5]. Around them the 42.21.0 index lists
+`PrintMediaDefinitions`, `PrintMediaMaps` and two reader UI classes,
+`ISPrintMediaMap` and `ISPrintMediaTextPanel` *(B42)* [5]. The 42.20.0 index
+additionally listed `PrintMediaManager`, `PrintMediaEntries`, a
+`PrintMediaEntry` type and six more UI classes (`ISPrintMediaInfo`,
+`ISPrintMediaListBox`, `ISPrintMediaPage`, `ISPrintMediaPanel`,
+`ISPrintMediaRichText`, `ISPrintMediaSetInfo`); none of those nine names is in
+the 42.21.0 index *(B42)* [5][13]. The 42.21 change list says nothing about
+why; it records an updated localization system [14], and this document does
+not link the two. An `OldNewspaper` class is present in both *(B42)* [5][13].
 
 The official 42.13 modding migration guide lists Brochure, Flier and
 Newspaper among eleven registries that must be declared in `registries.lua`;
@@ -238,7 +259,9 @@ registry mechanics are in `modders-item-scripts-distributions`.
 ## Literature, skill books and recipe magazines
 
 The Umbrella indexes list `Literature` and reader UI classes (`ISLiteratureUI`,
-`ISLiteratureList`) in both builds [5][6]. The Skill book wiki page records
+`ISLiteratureList`) in both builds [5][6]. The 42.21 change list includes
+fixes for crossword magazine, book-reading progress bar and skill-book page
+reading *(B42)* [14]. The Skill book wiki page records
 that skill books are readable items that boost XP gain for one skill via a
 multiplier, that each volume covers a pair of skill levels, and that a fully
 read book cannot be read again [8]. The same page's navigation lists recipe
@@ -248,7 +271,9 @@ predates B42 stable, so those statements carry a B41-era caveat [8].
 
 ## Notes and found documents
 
-No ingested source documents a distinct "note" item class in either index.
+No ingested source documents a distinct "note" item class in either index. The
+42.21 change list records a fix for "notes made in the backpack" not saving,
+without saying which in-game feature that names *(B42)* [14].
 The nearest documented mechanisms are the print-media reader classes (B42)
 [5] and the Literature classes (both) [5][6]. Environmental storytelling in
 B42 is also described as including decorative items alongside fliers and
@@ -258,9 +283,9 @@ newspapers [9].
 
 **Evidence layer.**
 
-| Area | B41 (41.78.16) | B42 (42.20) | Source |
+| Area | B41 (41.78.16) | B42 (42.20 / 42.21) | Source |
 |------|----------------|-------------|--------|
-| Print-media classes | No `Newspaper`, `Brochure`, `Flier`, `PrintMediaManager` or `ISPrintMedia*` in the stub index | All present in the stub index | [6] vs [5] |
+| Print-media classes | No `Newspaper`, `Brochure`, `Flier`, `PrintMediaManager` or `ISPrintMedia*` in the stub index | 42.21.0: `Newspaper`, `Brochure`, `Flier`, `ISPrintMediaMap`, `ISPrintMediaTextPanel` present; `PrintMediaManager` and six other `ISPrintMedia*` classes were in 42.20.0 only | [6] vs [5][13] |
 | Registry declaration | Registry classes absent from the index | Newspaper, Brochure and Flier among eleven registries required from 42.13 | [6] vs [4] |
 | Broadcast flags on `ZomboidRadio` | `DISABLE_BROADCASTING`, `LOUISVILLE_OBFUSCATION`, `POST_RADIO_SILENCE` listed as constants | `disableBroadcasting`, `louisvilleObfuscation`, `postRadioSilence` listed instead | [6] vs [5] |
 | Transmission members | `ReceiveTransmission` listed | `DistributeTransmission` listed instead | [6] vs [5] |
@@ -268,12 +293,14 @@ newspapers [9].
 | Recorded media | Base members only | Adds `disableLineLearning`, save-file and version constants | [6] vs [5] |
 | Narrative intent | n/a | B42's feature list includes more fliers and newspapers, extra radio and TV broadcasts and channels, and findable characters from broadcasts at their workplaces and places of death | [9] |
 | Emergency vehicles | n/a | Emergency vehicles with a radio get the Automated Broadcast channel in presets (42.13.0); all police vehicles get a HAM radio (42.13.0) | [10] |
+| Removed Lua globals (42.21.0) | n/a | `getRadioText`, `doSurvivalGuide` and `doPrintMediaDebug` are in the 42.20.0 globals list and not in the 42.21.0 list; the survival-guide classes (`SurvivalGuideManager`, `ISSurvivalGuide*`) are likewise absent from 42.21.0 | [5][13] |
+| 42.21 change list | n/a | Updated localization system, crossword magazine and skill-book page reading fixes, backpack notes saving fix, updated in-game credits | [14] |
 | Map labels | n/a | Hovering brochure and flier icons on the in-game map shows labels (42.13.0) | [10] |
 | Fixes | n/a | Empty brochure, flier and newspaper text under Russian localization fixed (42.13.0); a Lua crash on rereading a brochure and the map button failing to close brochures fixed (42.20.0) | [10][11] |
 
 Absence from a stub index shows only that the symbol is not in that index,
 not that the feature never existed in game code; the table records what the
-pinned indexes show [5][6]. How B41 delivered newspaper text is left as an
+pinned indexes show [5][6][13]. How B41 delivered newspaper text is left as an
 open question.
 
 # Practical Guidance
@@ -310,7 +337,10 @@ open question.
 - **Assuming the wiki's media navigation is build-scoped.** The navigation
   block lists channels and items from one wiki revision with no build marker
   [8].
-- **Assuming 42.20 equals current stable.** Stable is now 42.21 [2].
+- **Assuming the 42.20.0 index still describes stable.** Stable is 42.21 [2],
+  and its stub index drops several print-media UI classes and three Lua globals
+  that the 42.20.0 index listed [5][13]. Check the current stubs before calling
+  any of the removed names.
 
 # Community Notes & Unverified Claims
 
@@ -342,17 +372,25 @@ open question.
   notes in this document [8].
 - B41 evidence is the 41.78.16 Umbrella pin, while the legacy41 line has
   since reached later maintenance releases that have no stub tag.
-- Stable is 42.21 as of 2026-09-28 [2]; facts here were verified on 42.20.
+- Stable is 42.21 as of 2026-09-28 [2]. Code-vocabulary facts were re-checked
+  on the 42.21.0 index; wiki-derived facts were last read on 42.20-era
+  snapshots.
+- The 42.21 forum change list was read through a browser page-text
+  extraction and marks several sections as selected lists [14]; media-related
+  entries it does not mention may exist.
+- A headphones or radio fix was expected in the 42.21 material for this
+  re-baseline but none of the 42.21 sources opened here mentions one, so none
+  is stated.
 - Absence from a stub index is a weak signal [5][6].
 - All fiction content is TIS copyright; this document indexes it only.
 
 # Verification Steps
 
-1. Open the pinned Umbrella trees [5][6] and search for `RadioChannel`,
-   `PrintMediaManager`, `Newspaper`, `Brochure` and `Flier`.
-2. In the repository, inspect `sources/schemas/api-index-B42.json` and
-   `api-index-B41.json` for the same names and for the `ZomboidRadio` member
-   lists.
+1. Open the pinned Umbrella trees [5][6][13] and search for `RadioChannel`,
+   `PrintMediaManager` (42.20.0 only), `Newspaper`, `Brochure` and `Flier`.
+2. In the repository, inspect `sources/schemas/api-index-B42.json` (42.21.0),
+   `sources/schemas/archive/api-index-B42-42.20.0.json` and `api-index-B41.json`
+   for the same names and for the `ZomboidRadio` member lists.
 3. Read the 42.13.0 and 42.20.0 release notes [10][11] and the migration
    guide [4] for the print-media items cited.
 4. In game on each build, tune a radio and a television across several
@@ -370,7 +408,12 @@ open question.
 - What is the effect of the `louisvilleObfuscation` setting?
 - Is there a distinct note item type in B42, or are notes covered by
   Literature and print-media readers?
-- Do 42.21 hotfixes change any of the print-media or radio items?
+- Why do the 42.21.0 stubs drop `PrintMediaManager` and six `ISPrintMedia*`
+  UI classes, and what replaced them in game? The 42.21 change list does not
+  say [14].
+- Which feature does "notes made in the backpack" name in the 42.21 change
+  list [14]?
+- Do hotfixes after 42.21 change any of the print-media or radio items?
 
 # References
 
@@ -380,8 +423,10 @@ open question.
 - [2] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307 Accessed 2026-10-07; host is bot-block allowlisted.
 - [3] **The Indie Stone** — *Build 42.13.0 UNSTABLE Multiplayer Released* (Steam announcement, 2025-12-11). https://steamcommunity.com/games/108600/announcements/detail/1818752592122972 Accessed 2026-10-07; host is bot-block allowlisted.
 - [4] **The Indie Stone Forums** — *Modding Migration Guide (42.13)*, first post by moderator nasKo, 2025-12-11. https://theindiestone.com/forums/topic/88499-modding-migration-guide-4213/ Accessed 2026-10-07; host bot-blocks checkers; read from a user-downloaded copy as noted in `modders-item-scripts-distributions`.
-- [5] **PZ-Umbrella** — *Umbrella 42.20.0 (commit 58204fc4)*, library tree. https://github.com/PZ-Umbrella/Umbrella/tree/58204fc47895ba249592519cedecc7cfbaaebd60 Accessed 2026-10-07 via the repository's extracted `sources/schemas/api-index-B42.json`.
+- [5] **PZ-Umbrella** — *Umbrella 42.21.0 (commit 13d01f9e)*, library tree. https://github.com/PZ-Umbrella/Umbrella/tree/13d01f9ee58fa48773553920db56d06f0005e7f8 Accessed 2026-10-07 via the repository's extracted `sources/schemas/api-index-B42.json`.
 - [6] **PZ-Umbrella** — *Umbrella 41.78.16 (commit fa2e7e19)*, library tree. https://github.com/PZ-Umbrella/Umbrella/tree/fa2e7e19799740b57902f1cb4e989225c295c05e Accessed 2026-10-07 via the repository's extracted `sources/schemas/api-index-B41.json`.
+- [13] **PZ-Umbrella** — *Umbrella 42.20.0 (commit 58204fc4)*, library tree, the previous B42 pin. https://github.com/PZ-Umbrella/Umbrella/tree/58204fc47895ba249592519cedecc7cfbaaebd60 Accessed 2026-10-07 via the repository's archived `sources/schemas/archive/api-index-B42-42.20.0.json`.
+- [14] **The Indie Stone Forums** — *42.21 Patch Notes* (topic 101693, first post by Rockjaw, 2026-09-23). https://theindiestone.com/forums/topic/101693-4221-patch-notes/ Accessed 2026-10-07 via browser page-text extraction; host bot-blocks checkers.
 
 **Fact-Only Sources (no prose reuse)**
 
@@ -421,3 +466,4 @@ open question.
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: B42 pin moved to Umbrella 42.21.0 (42.20.0 archived index kept for comparison); recorded removal of PrintMediaManager, six ISPrintMedia* classes and three Lua globals from the stubs; added 42.21 media-related change-list entries; sources [13][14]. | — |

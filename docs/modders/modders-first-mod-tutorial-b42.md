@@ -1,7 +1,7 @@
 ---
 id: modders-first-mod-tutorial-b42
 title: "Your First Build 42 Mod: A Verified Step-by-Step Tutorial"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Modders
@@ -10,12 +10,12 @@ build: B42
 document_type: tutorial
 created: 2026-10-07
 updated: 2026-10-07
-review_due: 2027-01-05
+review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
 related: [modders-foundation, modders-lua-api-surface, modders-events-callbacks, modders-modoptions-pzapi, modders-item-scripts-distributions, modders-mp-networking-porting, modders-modinfo-modid-conventions, modders-porting-b41-to-b42, players-crafting-chains, admins-workshop-mod-wiring, meta-style-guide]
 tags: [tutorial, first-mod, b42, lua, mod-info, events, halo-text, item-script, workshop, debug]
-game_versions_verified: ["42.20"]
+game_versions_verified: ["42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,7 +23,7 @@ game_versions_verified: ["42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | modders-first-mod-tutorial-b42 |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Modders |
@@ -31,8 +31,8 @@ game_versions_verified: ["42.20"]
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
 | Updated | 2026-10-07 |
-| Review due | 2027-01-05 |
-| Game versions verified | 42.20 (API names checked against the Umbrella 42.20.0 stubs only) |
+| Review due | 2027-01-07 |
+| Game versions verified | 42.20 and 42.21 (API names checked against the Umbrella 42.21.0 stubs; 42.20.0 stubs kept as comparison; code never run in a live game) |
 
 # Executive Summary
 
@@ -44,16 +44,19 @@ scripted item handed to a brand-new character. It then covers local testing,
 the log file to read when something fails, Debug mode, and packaging for the
 Steam Workshop.
 
-Every API name used in the code is confirmed to exist in the Umbrella 42.20.0
+Every API name used in the code is confirmed to exist in the Umbrella 42.21.0
 stubs [1] [2] [3] [4], and every path or key claim is cited to a stub, a
 documentation site generated from game data, or a pinned pzwiki revision
 used as a fact source only. The code itself has not been executed in a live
 game by the author of this document; the Verification Steps section is
 the test plan. For that reason document confidence is Medium.
 
-Version note: Build 42.21 stable was released on 2026-09-28 [7], after the
-42.20.0 stubs this document was verified against. Nothing here was re-checked
-against 42.21.
+Version note: this revision re-baselines the tutorial from 42.20 to 42.21,
+which reached stable on 2026-09-28 [7]. The API names were re-checked against
+the 42.21.0 stubs and the 42.20.1 to 42.21 patch notes were read for anything
+that touches the steps [21] [22] [23] [24]; no step needed to change. Nothing
+was run in a live game, so the 42.21 check is a stub-and-notes review, not a
+play test.
 
 # Key Takeaways
 
@@ -88,7 +91,8 @@ to `modders-lua-api-surface` and `modders-events-callbacks`.
 
 Covered: folder and `mod.info` set-up, one client Lua file, one optional item
 script, local testing, the log file, Debug mode, and Workshop packaging, all
-for Build 42.20 (stable). Not covered: recipes (see
+for Build 42.21 (stable), with wiki-sourced layout facts carried forward from
+the 42.20 revision. Not covered: recipes (see
 `modders-item-scripts-distributions` and `players-crafting-chains`), mod
 options (see `modders-modoptions-pzapi`), multiplayer networking (see
 `modders-mp-networking-porting`), Mod ID rules in depth (see
@@ -112,7 +116,18 @@ options (see `modders-modoptions-pzapi`), multiplayer networking (see
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | No | Not verified | This is a B42 tutorial; see Delta for what differs. Legacy 41.78.21 was released 2026-08-26 [13] |
-| B42 (stable) | Yes | API names against Umbrella 42.20.0 (commit `58204fc`) [1]; scripts and mod.info against a ScriptsDocs site labelled 42.21.0 [8] [9] | 42.20.0 went stable 2026-07-29 [12]; 42.21 stable followed on 2026-09-28 [7] and was not re-verified |
+| B42 (stable) | Yes | API names against Umbrella 42.21.0 (commit `13d01f9`) [1]; scripts and mod.info against a ScriptsDocs site labelled 42.21.0 [8] [9] | 42.20.0 went stable 2026-07-29 [12]; 42.21 stable followed on 2026-09-28 [7]. Previously verified against the 42.20.0 stubs (commit `58204fc`) [25] |
+
+**What was re-checked for 42.21.** The five symbols in the table under
+"Events and API used in this tutorial" were re-opened in the 42.21.0 stubs and
+their signatures and descriptions match the 42.20.0 text [1] [2] [3] [4] [25].
+The 42.20.1, 42.20.2, 42.20.4, 42.21 unstable, 42.21 stable and forum patch
+notes were read for changes to mod folders, mod.info, scripts, item naming,
+events or halo text [21] [22] [13] [23] [7] [24]; the changes that bear on this
+tutorial are listed in Reference. Statements that cite the pzwiki pages, the
+documentation-site pages and the ScriptsDocs site are carried forward from the
+42.20 revision with no contradicting change found in those notes; they were
+not re-tested in a game.
 
 # Reference
 
@@ -175,6 +190,24 @@ provided through an `ItemName` translation entry keyed by the full type, and
 defaults to 1.0, and the page warns an item needs a translation entry
 for weight to work in game [8].
 
+## Changes since 42.20.0 that touch this tutorial
+
+Mods gained the ability to write `.json` files in 42.20.1 [21]. Translation
+files needed a fix for the percent sign: mod translations should write `%%` to
+show a literal `%` [21], a temporary workaround accepts both forms, and the
+developers said it will be removed in a future unstable update [22]. 42.21
+updated the localization system to allow more translatable strings [23] [24],
+and its notes say a `RuntimeException` is now raised when missing translations
+or missing recipes are detected, in place of a `System.err.println` message
+[24]. The notes do not say in which situations the exception fires. The
+42.21.0 `events.lua` stub declares ten events that the 42.20.0 stub does not
+(`AcceptedMedicalCheck`, `OnFillInventoryContextMenuNoItems`, `OnForagePool`,
+`OnForageRequestZone`, `OnForageSpot`, `OnJoypadDebugRenderUIOptionSet`,
+`OnPreFillInventoryContextMenuNoItems`, `OptionControllerButtonStyleChanged`,
+`OptionGamepadBindingPresetChanged`, `RequestMedicalCheck`) and drops none; the
+tutorial uses none of them [1] [25]. The `loadstring` and `loadstream` methods
+removed in 42.20.4 were re-enabled in 42.21; the tutorial uses neither [13] [7].
+
 ## Logs and Debug mode
 
 The main game log is `console.txt` in the `Zomboid` folder, which defaults to
@@ -201,7 +234,7 @@ the workflow are below.
 - **Layout.** B41 used `media/` and `mod.info` directly in the mod folder;
   B42 adds `common/` and version folders, and both layouts can coexist in one
   mod folder [14].
-- **Halo helper.** The 42.20.0 stub declares `HaloTextHelper.addGoodText` and
+- **Halo helper.** The 42.21.0 stub declares `HaloTextHelper.addGoodText` and
   `HaloTextHelper.addBadText` *(B42)* [2]; the 41.78.16 stub lists only
   `HaloTextHelper.addText` and `HaloTextHelper.addTextWithArrow` *(B41)* [5].
 - **Item naming.** `DisplayName` is deprecated from 42.13.0 in favour of an
@@ -209,8 +242,8 @@ the workflow are below.
 - **Script syntax.** The `ItemType = base:normal` form comes from a B42
   documentation site [8]; the B41 item format is outside this document.
 - **Events.** `OnGameStart`, `OnNewGame` and `OnCreatePlayer` appear in both
-  stub sets, as checked by the repository's index builder against [1] and the
-  41.78.16 stubs [6].
+  stub sets, as checked by the repository's index builder against the 42.21.0 stubs [1]
+  and the 41.78.16 stubs [6].
 - **Wider B41 to B42 differences** are covered in `modders-porting-b41-to-b42`.
 
 # Practical Guidance
@@ -327,7 +360,8 @@ overwrites it [19].
   other; remove the duplicate [14].
 - **Nothing happens at start.** The Lua file is outside `media/lua/client`, or
   has a typo; read `console.txt` for the error [15] [17].
-- **Item has no proper name or odd weight.** Missing `ItemName` entry [8].
+- **Item has no proper name or odd weight.** Missing `ItemName` entry [8]. On 42.21 missing translations may also surface as an exception rather than a log line [24].
+- **Percent sign in a translation string.** Write `%%` for a literal `%` [21] [22].
 - **Case errors on Linux and macOS.** Folder and file names are
   case-sensitive, so `common` is not `Common` [14] [20].
 - **Ghost files after an update.** The Workshop does not delete removed files
@@ -356,16 +390,19 @@ overwrites it [19].
   format [11] but gives no folder path, and the folder convention changed in
   the 42.x cycle (wiki mentions a move to JSON) without a primary path
   statement.
-- **Confidence:** Low. Path and file naming are unconfirmed on 42.20.
+- **Confidence:** Low. Path and file naming are unconfirmed on 42.20 and 42.21 (the 42.21 localization-system update is not documented in enough detail to settle it [23]).
 
 # Risks & Caveats
 
 - The tutorial code was not run in a live game during authoring; treat it as
   checked-against-stubs, not play-tested.
-- ScriptsDocs is community-maintained and labelled 42.21.0, newer than the
-  42.20.0 stubs [8] [9]; a script parameter may differ on 42.20.
-- 42.21 stable (2026-09-28) was not re-verified; its announcement also notes
-  that `loadstring` and `loadstream`, disabled in 42.20.4, were re-enabled [7].
+- ScriptsDocs is community-maintained and labelled 42.21.0, which now matches
+  the stub pin [8] [9]; it was not re-fetched during this revision.
+- The 42.21 re-baseline is a review of stubs and patch notes. The tutorial was
+  not run on 42.21 or 42.20, and its multiplayer behaviour is not covered (see
+  `modders-mp-networking-porting`).
+- The Umbrella `42.20.0` tag was later moved upstream, so pin by commit, not
+  by tag name [6].
 - The startup-parameters, mod-structure and uploading wiki pages are stamped
   older than 42.20.0 [18] [14] [19].
 - Whether `Workshop/` items load locally without copying to `mods/` is not
@@ -373,9 +410,9 @@ overwrites it [19].
 
 # Verification Steps
 
-1. Pin Umbrella to the 42.20.0 tag and grep `library/events.lua` for
+1. Pin Umbrella to commit `13d01f9ee58fa48773553920db56d06f0005e7f8` (release 42.21.0) and grep `library/events.lua` for
    `Events.OnGameStart` and `Events.OnNewGame` [1].
-2. Open the HaloTextHelper stub file in the same tag and confirm `addGoodText` [2].
+2. Open the HaloTextHelper stub file in the same commit and confirm `addGoodText` [2].
 3. Build the folder from Step 1 and start the game; confirm the mod appears
    under its `name` [9].
 4. Start a new game and confirm the halo text and, for Step 4, the item.
@@ -390,7 +427,8 @@ overwrites it [19].
 - Which of `Workshop/` or `mods/` is loaded for local testing on a stock
   install? [14]
 - Exact path of the B42 `ItemName` JSON file (Claim 2).
-- Does 42.21 change any script keys used here? [7]
+- Resolved for the keys used here: the 42.21 stable post and forum notes list no change to item script keys, `mod.info` or folder layout [7] [24]; still untested in game.
+- Where do `ItemName` entries live after the 42.21 localization-system update, and when does the missing-translation exception fire? [23] [24]
 - Does `OnGameStart` also fire when a save is loaded, not only on new games?
   The stub says "upon finishing loading and entering the game" [1], which
   suggests yes, but it was not tested.
@@ -399,12 +437,12 @@ overwrites it [19].
 
 **Primary Sources** — pinned Umbrella stubs, official announcements, ScriptsDocs.
 
-- [1] **PZ-Umbrella** — *library/events.lua* at commit 58204fc47895ba249592519cedecc7cfbaaebd60 (release 42.20.0). https://github.com/PZ-Umbrella/Umbrella/blob/58204fc47895ba249592519cedecc7cfbaaebd60/library/events.lua Accessed 2026-10-07.
-- [2] **PZ-Umbrella** — *HaloTextHelper.lua* at 42.20.0 commit 58204fc. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/java/zombie/characters/HaloTextHelper.lua Accessed 2026-10-07.
-- [3] **PZ-Umbrella** — *library/java/__global.lua* at 42.20.0 commit 58204fc (`getSpecificPlayer`, `getPlayer`). https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/java/__global.lua Accessed 2026-10-07.
-- [4] **PZ-Umbrella** — *ItemContainer.lua* at 42.20.0 commit 58204fc. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/58204fc47895ba249592519cedecc7cfbaaebd60/library/java/zombie/inventory/ItemContainer.lua Accessed 2026-10-07.
+- [1] **PZ-Umbrella** — *library/events.lua* at commit 13d01f9ee58fa48773553920db56d06f0005e7f8 (release 42.21.0). https://github.com/PZ-Umbrella/Umbrella/blob/13d01f9ee58fa48773553920db56d06f0005e7f8/library/events.lua Accessed 2026-10-07.
+- [2] **PZ-Umbrella** — *HaloTextHelper.lua* at 42.21.0 commit 13d01f9. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/zombie/characters/HaloTextHelper.lua Accessed 2026-10-07.
+- [3] **PZ-Umbrella** — *library/java/__global.lua* at 42.21.0 commit 13d01f9 (`getSpecificPlayer`, `getPlayer`). https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/__global.lua Accessed 2026-10-07.
+- [4] **PZ-Umbrella** — *ItemContainer.lua* at 42.21.0 commit 13d01f9. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/13d01f9ee58fa48773553920db56d06f0005e7f8/library/java/zombie/inventory/ItemContainer.lua Accessed 2026-10-07.
 - [5] **PZ-Umbrella** — *Candle HaloTextHelper.lua* at the 41.78.16 commit fa2e7e1. https://raw.githubusercontent.com/PZ-Umbrella/Umbrella/fa2e7e19799740b57902f1cb4e989225c295c05e/library/Candle/zombie.characters/HaloTextHelper.lua Accessed 2026-10-07.
-- [6] **PZ-Umbrella** — *Umbrella releases* (tags 41.78.16 to 42.20.0); pins recorded in this repository's `sources/pins.json`. https://github.com/PZ-Umbrella/Umbrella/releases Accessed 2026-10-07.
+- [6] **PZ-Umbrella** — *Umbrella releases* (tags 41.78.16 to 42.21.0); pins recorded in this repository's `sources/pins.json`. https://github.com/PZ-Umbrella/Umbrella/releases Accessed 2026-10-07.
 - [7] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28; located through the Steam news API). https://steamcommunity.com/ogg/108600/announcements/detail/1844751498231307 Accessed 2026-10-07 (host bot-blocks checkers).
 - [8] **PZ-Wiki-Modding** — *ScriptsDocs: item* (documentation site labelled 42.21.0). https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html Accessed 2026-10-07.
 - [9] **PZ-Wiki-Modding** — *ScriptsDocs: ROOT-ModInfo*. https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/modinfo.html Accessed 2026-10-07.
@@ -412,6 +450,12 @@ overwrites it [19].
 - [11] **PZ-Wiki-Modding** — *ScriptsDocs: Translation Files*. https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html Accessed 2026-10-07.
 - [12] **The Indie Stone** — *Build 42.20.0 Stable Released* (Steam announcement, 2026-07-29). https://steamcommunity.com/ogg/108600/announcements/detail/1839676055882259 Accessed 2026-10-07 (host bot-blocks checkers).
 - [13] **The Indie Stone** — *42.20.4 STABLE and 42.19.2 UNSTABLE and 41.78.21 LEGACY Hotfixes Released* (Steam announcement). https://steamcommunity.com/ogg/108600/announcements/detail/1842212951296601 Accessed 2026-10-07 (host bot-blocks checkers).
+
+- [21] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766 Accessed 2026-10-07 (host bot-blocks checkers).
+- [22] **The Indie Stone** — *42.20.2 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314339441 Accessed 2026-10-07 (host bot-blocks checkers).
+- [23] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925 Accessed 2026-10-07 (host bot-blocks checkers).
+- [24] **The Indie Stone Forums** — *42.21 Patch Notes* (topic 101693, first post, 2026-09-23; the long fix lists are abridged to "selected" in the retrieved copy). https://theindiestone.com/forums/topic/101693-4221-patch-notes/ Accessed 2026-10-07 (host bot-blocks checkers).
+- [25] **PZ-Umbrella** — *library/events.lua* at the previous pin, commit 58204fc47895ba249592519cedecc7cfbaaebd60 (release 42.20.0; the upstream tag was later moved). https://github.com/PZ-Umbrella/Umbrella/blob/58204fc47895ba249592519cedecc7cfbaaebd60/library/events.lua Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): URL + revision id; facts only.
 
@@ -455,3 +499,4 @@ overwrites it [19].
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined from 42.20 to 42.21: API names re-checked against Umbrella 42.21.0 (13d01f9); added post-42.20.0 changes (`%%` in translations, .json writes, localization update, missing-translation exception, loadstring/loadstream); resolved script-key open question. Sources: Steam posts 42.20.1, 42.20.2, 42.20.4, 42.21 unstable and stable, TIS forum 42.21 notes. | — |

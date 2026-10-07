@@ -1,7 +1,7 @@
 ---
 id: admins-performance-tuning
 title: "Server Performance: Memory, CPU and the Levers That Are Actually Documented"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Admins
@@ -9,13 +9,13 @@ topic: "Server operations"
 build: both
 document_type: reference
 created: 2026-07-31
-updated: 2026-07-31
-review_due: 2026-10-31
-sources_verified: 2026-07-31
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [admins-foundation, admins-server-ini-reference, admins-sandboxvars-reference, meta-style-guide]
 tags: [performance, jvm, xmx, memory, cpu, tuning, monitoring, statistics, dedicated-server, b42, legacy41]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,16 +23,16 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | admins-performance-tuning |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Admins |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-07-31 |
-| Review due | 2026-10-31 |
-| Game versions verified | 41.78.16, 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 |
 
 # Executive Summary
 
@@ -48,6 +48,7 @@ Document-level confidence is **Medium**: the launch-script flags, setting defaul
 - `-Xmx` set above physical RAM silently spills into virtual memory, and `-Xms` the server cannot actually allocate stops it from starting — both failure modes are documented, sizing tables are not *(cited)* *(both)*
 - `MaxPlayers` defaults to 32 on B42 (B41-era default: 16), and the B42 settings reference explicitly warns that going above 32 risks degraded map streaming and desync — the only official-surface player-scale statement outside the 42.13 unstable advisory of at most 20 slots *(cited)*
 - The strongest officially documented performance rule is negative: The Indie Stone said in the 42.13 MP release that debug mode degrades server performance and that mods should be disabled — guidance never re-stated or rescinded for 42.20 *(cited)* *(B42)*
+- Between 42.20.1 and 42.21 The Indie Stone shipped further server-relevant work: a chunk-unloading performance fix for multiplayer servers, several memory-leak fixes, a RakNet throughput fix at ~150 ms ping, and a stated 254-player limit *(cited)* *(B42)* [11] [12] [14] [15]
 - 42.20 shipped real server-performance work: object-pool statistics for monitoring, a fix for servers hanging during chunk generation, ZNet-logging and packet-logging improvements, a zombie-culling fix, and a faster stackable-item transfer path *(cited)* *(B42)*
 - Monitoring is opt-in: `-statistic <seconds>` writes multiplayer statistics under the cache directory, and `MultiplayerStatisticsPeriod` controls the update period from the `.ini` side *(cited)*
 - B41's revision documents a zombie-network tuning quartet (`ZombieUpdateMaxHighPriority` and friends) plus `PhysicsDelay` and `UseTCPForMapDownloads` that the B42-era settings revision no longer lists *(cited)* *(B41)*
@@ -78,7 +79,9 @@ Not covered: the full per-key `.ini` and SandboxVars references (see `admins-ser
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | 41.78.16 | Setting defaults and the B41-only tuning keys verified against the archived Server settings revision stamped 41.78.16 [6] |
-| B42 (stable) | Yes | 42.20 | Launch line and settings verified against wiki revisions versioned 42.20.0 [4] [5]; release-note items from the 42.20 announcement [1] |
+| B42 (stable) | Yes | 42.20, 42.21 (patch notes only) | Launch line and settings verified against wiki revisions versioned 42.20.0 [4] [5]; release-note items from the 42.20 announcement [1]; 42.20.1-42.21 patch notes reviewed [11] [12] [13] [14] [15] |
+
+**42.21 re-check scope.** Re-checked: the 42.20.1, 42.20.3, 42.20.4 and 42.21 Steam notes [11] [12] [13] [14] and the TIS forum 42.21 changelist [15], against every statement here about memory, player count, chunk handling, network throughput and anti-cheat. Not re-checked: the launch-script flags, the 16 GB shipped default and the `.ini` defaults come from wiki revisions versioned 42.20.0 or earlier [4] [5] [7] and were not re-read from a 42.21 server install; the patch notes do not say whether any changed. Unchanged statements are carried forward from 42.20 with no contradicting change found, not re-tested.
 
 One dated caveat: the Startup parameters page — the source for the per-flag JVM semantics — is marked as last updated for 42.17.0, with 42.20.0 current [7]. Its `-Xms`/`-Xmx` semantics match the 42.20-versioned Dedicated server page's launch line [4], but flag-level details cited only to [7] carry a 42.17-era verification, not a 42.20 one.
 
@@ -123,7 +126,7 @@ Only a minority of the roughly 140 `.ini` keys have any documented connection to
 
 | Key | Default | Documented performance angle | Build | Cited at |
 |-----|---------|------------------------------|-------|----------|
-| `MaxPlayers` | 32 (B42); 16 at the B41 revision | The B42 reference caps it at 100 and warns that counts above 32 risk degraded map streaming and desync | both | [5] [6] |
+| `MaxPlayers` | 32 (B42); 16 at the B41 revision | The B42 reference caps it at 100 and warns that counts above 32 risk degraded map streaming and desync; the 42.20.3 notes say up to 254 players are supported *(B42)*, without a hardware or desync statement | both | [5] [6] [12] |
 | `MaxPacketsPerSecond` | 300 (100–1000) | Per-client ceiling on network packets the server will process | B42 | [5] |
 | `MultiplayerStatisticsPeriod` | 1 (0–10) | Statistics sampling period in seconds; 0 turns statistics off | B42 | [5] |
 | `PauseEmpty` | true | Halts game time when nobody is online — an idle server simulates less | both | [5] [6] |
@@ -161,11 +164,24 @@ The 42.20 stable release notes contain a cluster of server-performance and serve
 
 Two implications follow from the same document. First, the anti-cheat rework (item anti-cheat now server-side, NoClip and PacketException checks still work-in-progress) moves validation work onto the server — the fact is primary, its CPU cost is not quantified anywhere and remains quarantined at the parent (foundation Claim 3) [1]. Second, several of these items (culling misfires, gate-interaction stutter, chunk-generation hangs) were live defects throughout the unstable cycle: performance observations recorded on 42.13–42.19 servers predate these fixes and should not be projected onto 42.20 [1].
 
+## What 42.20.1 to 42.21 changed for server performance
+
+These are the server-relevant items in the later hotfix and incremental notes *(B42)*; none quantifies a gain:
+
+- **Chunk unloading.** 42.20.1 fixed a significant performance problem with chunk unloading on multiplayer servers, and the note says this should fix most bugs players had hit on high-population servers because of server lag [11].
+- **Memory.** 42.20.1 reused discarded world data to improve memory usage and fixed a memory leak that could degrade performance and crash the game over time [11]; 42.20.3 addressed multiple further causes of such a leak and added memory optimisations [12]; 42.21 fixed a memory leak caused by eating food directly from a vehicle trunk [15]. Both hotfix notes ask players still hitting out-of-memory errors in a new save to file a bug report with logs [11] [12].
+- **Network.** 42.21 fixed the RakNet reliable data stream failing to scale throughput at about 150 ms ping, improved driving behaviour at roughly 150+ ms ping, and applied the packet rate limit only to unconnected addresses [15]. The notes do not say whether this rate limit is the one governed by `MaxPacketsPerSecond`, so no mapping is asserted.
+- **Player limit.** 42.20.3 improved server player-limit handling, with support for up to 254 players and administrator access when a server is full [12].
+- **Observability.** 42.21 improved multiplayer logging for technical support [15].
+- **Zombie sync.** 42.21 fixed zombies disappearing after a player left and re-entered a chunk, and several multiplayer zombie-duplication cases; the stable announcement says some instances remain [14] [15].
+
+The notes give no RAM, CPU or player-count sizing figure alongside any of these items [11] [12] [13] [14] [15].
+
 ## Official statements about load — all of them
 
 The complete set of Indie Stone statements connecting an operational choice to server performance is short enough to list exhaustively:
 
-1. **Player count.** The 42.13 unstable MP release called more than 20 players on a server inadvisable, and its companion post recommended at most 20 player slots on dedicated servers "for now" [2] [3]. At stable, the B42 settings reference defaults `MaxPlayers` to 32 and warns above 32 [5]. Neither the 20-slot advisory nor its lifting appears in the 42.20 notes [1].
+1. **Player count.** The 42.13 unstable MP release called more than 20 players on a server inadvisable, and its companion post recommended at most 20 player slots on dedicated servers "for now" [2] [3]. At stable, the B42 settings reference defaults `MaxPlayers` to 32 and warns above 32 [5]. Neither the 20-slot advisory nor its lifting appears in the 42.20 notes [1]; the 42.20.3 notes state support for up to 254 players *(B42)* but do not mention the advisory or give a hardware recommendation [12].
 2. **Debug mode.** The 42.13 release states outright that using debug during multiplayer games will negatively impact server performance [2]. This is the single most direct official performance statement on record.
 3. **Mods.** The same release asked players to disable all mods, including client-side ones, during the stress-test phase [2] [3]. No official statement quantifies mod cost; the community numbers are quarantined below (Claim 1).
 4. **Map streaming.** The `MaxPlayers` warning ties player count above 32 to map-streaming quality and desync [5], and the `-gui` server argument is documented as unfinished and memory-hungry [7].
@@ -182,7 +198,7 @@ That is the entire official record. Every other performance rule in circulation 
 
 ## What is NOT documented
 
-An honest tuning runbook has to state the negative space. None of the following exists anywhere on the primary or fact-only surface cited by this document — the launch scripts and their wiki documentation [4] [7], the B42 and B41 settings references [5] [6], or the 42.20 release notes [1]:
+An honest tuning runbook has to state the negative space. None of the following exists anywhere on the primary or fact-only surface cited by this document — the launch scripts and their wiki documentation [4] [7], the B42 and B41 settings references [5] [6], the 42.20 release notes [1], or the 42.20.1-42.21 notes [11] [12] [13] [14] [15]:
 
 - **No sizing table.** No official RAM-per-player, RAM-per-mod, or RAM-per-population figure for either build. Every such table is hosting-company or community material (foundation Claim 1; Claims 1–3 below).
 - **No CPU guidance.** No statement on threading, core scaling, or clock-speed preference (foundation Claim 3).
@@ -200,10 +216,10 @@ An honest tuning runbook has to state the negative space. None of the following 
 | Launch memory default | Not verified against a B41-era script in this document | 16 GB in `StartServer64.bat`, must be edited down; 6 GB worked example [4] |
 | Garbage collector | Not verified against a B41-era script | `-XX:+UseZGC` in the documented launch line [4] |
 | Monitoring | `-statistic` argument predates the pinned pages' build stamps in neither direction — verified only at the 42.17-stamped revision [7] | Object-pool statistics, improved ZNet/packet logging, per-player ping columns added at 42.20 [1] |
-| Server-side work | Client-trusting anti-cheat model | Item anti-cheat moved server-side at 42.20; validation cost shifted to the server, magnitude undocumented [1] |
-| Known stable-cycle perf defects | Long-stable branch | 42.20 fixed chunk-generation hangs, zombie-culling collapse, gate-interaction stutter, puddle-geometry cost — all present during the unstable cycle [1] |
+| Server-side work | Client-trusting anti-cheat model | Item anti-cheat moved server-side at 42.20; validation cost shifted to the server, magnitude undocumented [1]; anti-cheat expanded again and clothing condition handled server-side at 42.21 [15] |
+| Known stable-cycle perf defects | Long-stable branch | 42.20 fixed chunk-generation hangs, zombie-culling collapse, gate-interaction stutter, puddle-geometry cost — all present during the unstable cycle [1]; 42.20.1 and 42.20.3 added chunk-unloading and memory-leak fixes [11] [12] |
 | Zombie cleanup ceiling | Not applicable at the pinned B41 revision | "Zombie count before deletion" maximum raised 500 → 5000 at 42.20 [1] |
-| Player-scale advisory | None on record | ≤ 20 slots advised at 42.13 unstable; not re-stated or rescinded at 42.20 [1] [2] [3] |
+| Player-scale advisory | None on record | ≤ 20 slots advised at 42.13 unstable; not re-stated or rescinded at 42.20 [1] [2] [3]; 42.20.3 states support for up to 254 players without mentioning the advisory [12] |
 
 Summary: B41's documented tuning surface is a set of low-level network-update knobs with no B42 counterpart; B42's is a higher-level surface — packet caps, statistics, warnings — plus a JVM layer (ZGC, 16 GB default) that the current wiki record only attests for B42 [4] [5] [6].
 
@@ -218,7 +234,7 @@ An ops sequence built only from the cited facts:
 5. **Treat mods as your least-documented load.** The official record says only "disable them" (stress-test era); the cost numbers are vendor folklore (Claim 1). Stage mod-list changes on a copy and measure, because no table will tell you.
 6. **Leave the B41 quartet alone on B42.** `ZombieUpdateDelta` and its siblings are attested at B41 only. Copying a B41 tuning block into a B42 `.ini` puts you in undocumented territory twice over — unknown keys, unknown effect.
 7. **Use the built-in idle and cleanup levers.** `PauseEmpty` (default on) already stops time on an empty server; `BloodSplatLifespanDays` and corpse/loot timers (see the sibling references) bound world-object accumulation; respect the in-file warning on `ZombieConfig.ZombiesCountBeforeDelete`.
-8. **Re-baseline after 42.20.** Several unstable-era performance complaints (hangs during chunk generation, stutter on gate interactions, population collapse) were fixed at stable. Do not carry a 42.1x tuning workaround forward without re-testing it against 42.20.
+8. **Re-baseline after 42.20 and again after 42.21.** Several unstable-era performance complaints (hangs during chunk generation, stutter on gate interactions, population collapse) were fixed at stable, and memory-leak and chunk-unloading fixes followed in 42.20.1 and 42.20.3 [11] [12]. Do not carry a 42.1x tuning workaround, or a heap size chosen to mask a pre-42.20.1 leak, forward without re-testing it on the current build.
 
 # Common Pitfalls & Troubleshooting
 
@@ -228,7 +244,7 @@ An ops sequence built only from the cited facts:
 - **Ran a MP session with debug enabled "just to check something" and the tick rate collapsed.** Officially predicted behaviour [2]. Use `-debuglog` filters instead.
 - **No statistics to look at during an incident.** The shipped script disables sampling (`-statistic 0`) [4]. Monitoring is opt-in; enable it during calm, not during the fire.
 - **Copied a B41 "network optimisation" `.ini` block onto a B42 server.** The quartet is undocumented on B42 [5] [6]; at best inert, at worst untested behaviour. Remove it.
-- **Diagnosing 42.20 with 42.13-era lore.** The culling, gate-stutter and chunk-hang defects that drove much unstable-era advice are fixed at 42.20 [1]; re-measure before re-applying old workarounds.
+- **Diagnosing 42.20 with 42.13-era lore.** The culling, gate-stutter and chunk-hang defects that drove much unstable-era advice are fixed at 42.20 [1]; re-measure before re-applying old workarounds; the same applies to memory observations made before the 42.20.1 and 42.20.3 leak fixes [11] [12].
 - **Buying RAM off a vendor table.** The tables conflict with each other by roughly a factor of two (foundation Claim 1; Claims 1–2 below). Size empirically: start at the documented 6 GB example and grow on observed usage.
 
 # Community Notes & Unverified Claims
@@ -244,7 +260,7 @@ The two headline sizing claims — B42 needs ~+2 GB RAM per player tier, and ser
 ## Claim 2 — Long-term memory growth tracks explored map area: an old, well-explored world costs more than a fresh one
 
 - **Claim:** Vendor guidance attributes baseline RAM growth to map exploration — the server holding streamed chunks for visited areas [9] — and describes long-running worlds with large built-up bases and wide exploration as heavier than fresh ones [10].
-- **Why unverified:** The primary record documents chunk streaming, chunk saving and chunk-related fixes as mechanisms [1] [5], but no official source states that resident memory scales with explored area or world age, and no measurement methodology is published by the vendors making the claim.
+- **Why unverified:** The primary record documents chunk streaming, chunk saving and chunk-related fixes as mechanisms [1] [5], but no official source states that resident memory scales with explored area or world age, and no measurement methodology is published by the vendors making the claim. Memory leaks that degraded servers over time were fixed in 42.20.1 and 42.20.3 [11] [12], so growth observed before those fixes cannot be attributed to map exploration alone.
 - **Confidence:** Medium. Two independent secondary sources agree, and the claim is consistent with the documented chunk architecture — but it rests entirely on unquantified vendor assertions.
 
 ## Claim 3 — Raising zombie population multipliers materially raises RAM, roughly +20–30% for a peak multiplier of 2.0
@@ -258,8 +274,8 @@ The two headline sizing claims — B42 needs ~+2 GB RAM per player tier, and ser
 - **The Startup parameters page lags stable.** Flag-level semantics cited to [7] were last updated for 42.17.0; the launch-line facts cross-check against the 42.20-versioned Dedicated server page [4], but a 42.20 revision of the flag table would strengthen several rows.
 - **B41 evidence is one archived revision.** Every B41-tagged value here traces to the single archived 41.78.16-stamped Server settings revision [6]; pzwiki's live site refused automated retrieval during this document's research, so verification went through the Internet Archive copy.
 - **Silence is not removal.** The absence of the `ZombieUpdate*` quartet from the B42-era revision [5] shows the documentation dropped them, not that the code did; the sibling `.ini` reference makes the same point and it bears repeating wherever tuning advice depends on it.
-- **The 42.13 advisories are frozen in amber.** The ≤20-slot and mods-off guidance was written for a stress-test build [2] [3] and has been neither renewed nor withdrawn at 42.20 [1]; this document treats it as the last word only because it is the *only* word.
-- **Day-two stable.** 42.20 is days old; hotfixes may alter any release-note-derived fact here, and the object-pool statistics surface in particular is new and undescribed [1].
+- **The 42.13 advisories are frozen in amber.** The ≤20-slot and mods-off guidance was written for a stress-test build [2] [3] and has been neither renewed nor withdrawn in the 42.20 notes [1] or the 42.20.1-42.21 notes [11] [12] [13] [14] [15] (42.20.3 states support for up to 254 players [12]); this document treats it as the last word only because it is the *only* word.
+- **Hotfix drift.** Release-note-derived facts here come from 42.20 through 42.21 and later hotfixes may alter any of them; the object-pool statistics surface in particular is undescribed [1]. The 42.21 re-check used patch notes only, with no 42.21 server install inspected.
 - **All sizing numbers here are quarantined for a reason.** If a future Indie Stone post publishes sizing guidance (the GSP feedback channel makes this plausible), Claims 1–3 and the foundation's Claims 1 and 3 should be re-graded immediately.
 
 # Verification Steps
@@ -269,7 +285,7 @@ The two headline sizing claims — B42 needs ~+2 GB RAM per player tier, and ser
 3. **Verify the Linux config path:** open `ProjectZomboid64.json` in a Linux install and locate the `-Xmx` entry the Ubuntu guide edits.
 4. **Verify the statistics subsystem:** launch with `-statistic 10`, play a client in, and inspect the `Statistic` directory under the cache dir for output; flip `MultiplayerStatisticsPeriod` to 0 and confirm sampling stops.
 5. **Verify the release-note items:** query the ISteamNews API (app 108600) and read the 42.20 announcement's MP section for the object-pool, ZNet-logging, chunk-hang and culling items quoted here.
-6. **Verify the settings rows:** run `showoptions` on a live 42.20 server and compare `MaxPlayers`, `MaxPacketsPerSecond`, `MultiplayerStatisticsPeriod`, `PauseEmpty` defaults against the table.
+6. **Verify the settings rows:** run `showoptions` on a live 42.21 server (this revision could not do so) and compare `MaxPlayers`, `MaxPacketsPerSecond`, `MultiplayerStatisticsPeriod`, `PauseEmpty` defaults against the table.
 7. **Probe the undocumented:** grep a B42 server's generated `.ini` for `ZombieUpdateDelta` (expected: absent) and, on a throwaway B41 server, present (defaults 0.5 etc.).
 8. **Probe Claim 2:** snapshot server RSS on a fresh world, then after systematically driving the map perimeter, and compare — a cheap first datum for the world-age claim.
 
@@ -278,7 +294,8 @@ The two headline sizing claims — B42 needs ~+2 GB RAM per player tier, and ser
 - What do the 42.20 object-pool statistics actually emit, and where — console, `console.txt`, or the statistics directory? The release note names the feature without describing its output [1].
 - What metric triggers `DenyLoginOnOverloadedServer`, and is it connected to the statistics subsystem? The B42 reference lists the key without semantics [5].
 - Does the B42 server still parse the B41 tuning quartet (`ZombieUpdateDelta` et al.), and if not, when were they retired? A changelog entry or code-level check would resolve it [5] [6].
-- Is the 42.13 ≤20-slot advisory considered lifted at 42.20? A single sentence from The Indie Stone would settle the largest open operational question on record [1] [2] [3].
+- Is the 42.13 ≤20-slot advisory considered lifted, now that 42.20.3 states support for up to 254 players [12]? A single sentence from The Indie Stone on recommended counts would settle the largest open operational question on record [1] [2] [3].
+- What gain did the 42.20.1 chunk-unloading fix and the memory-leak fixes deliver on a real server [11] [12]? The notes give no figures.
 - What is the multiplayer statistics file format, and is it stable enough for external monitoring tooling to consume?
 - Will the GSP feedback channel produce the first official sizing guidance, retiring Claims 1–3 and the foundation's sizing quarantine?
 
@@ -289,6 +306,11 @@ The two headline sizing claims — B42 needs ~+2 GB RAM per player tier, and ser
 - [1] **The Indie Stone** — *Build 42.20.0 Stable Released* (Steam announcement, 2026-07-29; full changelist retrieved via the ISteamNews API mirror, app 108600). https://steamcommunity.com/games/108600/announcements/detail/1839676055882259. Accessed 2026-07-31.
 - [2] **The Indie Stone** — *Unstable 42 MP Released* (Steam announcement, 2025-12-11; ≤20-player advisory, debug-mode performance warning, mods-off guidance). https://steamcommunity.com/games/108600/announcements/detail/1818752592123010. Accessed 2026-07-31.
 - [3] **The Indie Stone** — *Build 42.13.0 UNSTABLE Multiplayer Released* (Steam announcement, 2025-12-11; ≤20 dedicated player-slot recommendation). https://steamcommunity.com/games/108600/announcements/detail/1818752592122972. Accessed 2026-07-31.
+- [11] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766. Accessed 2026-10-07.
+- [12] **The Indie Stone** — *42.20.3 STABLE Hotfix Released* (Steam announcement, 2026-08-17). https://steamcommunity.com/games/108600/announcements/detail/1840944183785895. Accessed 2026-10-07.
+- [13] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601. Accessed 2026-10-07.
+- [14] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [15] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first post 2026-09-23; multiplayer list abridged to selected items in the retrieved copy). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -328,3 +350,4 @@ The two headline sizing claims — B42 needs ~+2 GB RAM per player tier, and ser
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: reviewed the 42.20.1, 42.20.3, 42.20.4 and 42.21 Steam notes [11] [12] [13] [14] and the TIS forum changelist [15]; added a section on 42.20.1-42.21 performance changes (chunk unloading, memory leaks, RakNet throughput, 254-player statement); updated advisory, Risks and Open Questions. Launch flags and settings not re-read on 42.21. | — |

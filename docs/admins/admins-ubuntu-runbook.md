@@ -1,7 +1,7 @@
 ---
 id: admins-ubuntu-runbook
 title: "Ubuntu Dedicated Server Runbook: SteamCMD to systemd"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Admins
@@ -9,13 +9,13 @@ topic: "Server runbooks"
 build: both
 document_type: tutorial
 created: 2026-07-31
-updated: 2026-07-31
-review_due: 2026-10-31
-sources_verified: 2026-07-31
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [admins-foundation, admins-server-ini-reference, admins-backups-migration, meta-style-guide]
 tags: [ubuntu, linux, steamcmd, systemd, ufw, dedicated-server, runbook, legacy41, screen, tmux]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,16 +23,16 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | admins-ubuntu-runbook |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Admins |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-07-31 |
-| Review due | 2026-10-31 |
-| Game versions verified | 41.78.16, 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 |
 
 # Executive Summary
 
@@ -40,7 +40,7 @@ This is the Admins-track, start-to-finish runbook for standing up a vanilla (unm
 
 Two sources anchor the procedure: the pinned pzwiki "Dedicated server" revision (1443349, versioned against 42.20.0), which documents the Debian/Ubuntu apt-based SteamCMD install, the required firewall ports, the `tmux` console pattern, and a `systemd` unit + socket pattern the wiki attributes directly to community/community-adjacent practice while noting the developers discourage it [3]; and the MIT-licensed, Ubuntu-22.04/24.04-scoped `Bobagi/Project-Zomboid-Ubuntu-Server` repository, this knowledge base's canonical Tier 4 source for the Linux self-host track, which documents an `adduser`-based non-root user, the same App ID 380870 SteamCMD sequence, `ufw` rules, and a `screen`-based persistent session [7]. The two sources agree on every mechanic they both cover; where community guides diverge — most visibly on whether extra 32-bit compatibility packages must be installed by name — this document says so and quarantines the discrepancy rather than picking a side.
 
-The branch picture carries over unchanged from `admins-foundation`: Build 42.20 has been the stable branch since 2026-07-29, and communities keeping a Build 41.78 world alive add a beta flag to the same SteamCMD sequence [1] [2]. Document-level confidence is **Medium**: the install/service mechanics rest on a fact-only wiki page plus an open-source community repo, not on an official Indie Stone Linux guide, and one operational detail (the exact 32-bit library list) is contested between community guides and is quarantined below.
+The branch picture carries over unchanged from `admins-foundation`: Build 42.21 has been the stable branch since 2026-09-28 (42.20 was stable from 2026-07-29), and communities keeping a Build 41.78 world alive add a beta flag to the same SteamCMD sequence [9] [1] [2]; the legacy line's latest primary-attested hotfix is 41.78.21 [10]. Document-level confidence is **Medium**: the install/service mechanics rest on a fact-only wiki page plus an open-source community repo, not on an official Indie Stone Linux guide, and one operational detail (the exact 32-bit library list) is contested between community guides and is quarantined below.
 
 # Key Takeaways
 
@@ -78,8 +78,10 @@ Not covered: mod/Workshop wiring (`admins-workshop-mod-wiring`); backup strategy
 
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
-| B41 (legacy41) | Yes | 41.78.16 | Same install/service procedure, reached by adding `-beta legacy41` to the SteamCMD update sequence [1] [2] [3] |
-| B42 (stable) | Yes | 42.20 | Default SteamCMD sequence installs 42.20, stable since 2026-07-29 [1] [3] |
+| B41 (legacy41) | Yes | 41.78.16 | Same install/service procedure, reached by adding `-beta legacy41` to the SteamCMD update sequence [1] [2] [3]; latest legacy hotfix is 41.78.21 (2026-08-26) [10] |
+| B42 (stable) | Yes | 42.20; notes reviewed to 42.21 | Default SteamCMD sequence installs the stable build: 42.21 since 2026-09-28 [9], previously 42.20 [1] [3] |
+
+Re-baseline note (0.2.0): this revision re-checked the version, branch, player-count and memory statements against the Steam announcements 42.20.1 to 42.21 stable [1] [9] [10]; those posts do not change the SteamCMD App ID, branch names, ports or service behaviour described here. All shell commands, paths, unit files and ports are carried forward from 42.20 with no contradicting change found; the KB has never run them and did not re-test them on 42.21.
 
 The pzwiki pages cited here are versioned against the 42.20 era [3] [4] [5] [6], and the Bobagi repository is not build-versioned at all — it documents the install mechanics (users, SteamCMD, firewall, persistent session) that are identical regardless of which branch flag is passed to `app_update` [7]. This document's B41 coverage is therefore the same install/service procedure as B42, distinguished only by the `-beta legacy41` flag documented directly by the primary announcements and the wiki [1] [2] [3] — it is not independently re-verified against a B41-era revision of the Dedicated server page, the same caution `admins-foundation` and its siblings already carry for this page.
 
@@ -222,7 +224,7 @@ Starting: `bash start-server.sh` from the install directory, optionally with `-s
 
 ## Branch selection via SteamCMD: stable vs. legacy41
 
-The install and service procedure above is identical for both builds; the only difference is one flag on the SteamCMD update line. The default sequence installs whatever is current on the stable branch — 42.20 since 2026-07-29 [1]. A community keeping a Build 41.78 world alive adds `-beta legacy41` to the same command, and the wiki gives the modified script verbatim [1] [2] [3]:
+The install and service procedure above is identical for both builds; the only difference is one flag on the SteamCMD update line. The default sequence installs whatever is current on the stable branch — 42.21 since 2026-09-28 [9] (42.20 before that [1]). A community keeping a Build 41.78 world alive adds `-beta legacy41` to the same command, and the wiki gives the modified script verbatim [1] [2] [3]:
 
 ```text
 // update_zomboid.txt (legacy41)
@@ -238,13 +240,14 @@ Nothing else in this runbook changes: the same non-root user, the same `Zomboid`
 
 # B41 vs B42 Delta
 
-| Area | Build 41.78 *(B41)* | Build 42.20 *(B42)* |
+| Area | Build 41.78 *(B41)* | Build 42.20 / 42.21 *(B42)* |
 |------|---------------------|----------------------|
 | SteamCMD sequence | `app_update 380870 -beta legacy41 validate` [1] [2] [3] | `app_update 380870 validate` (default branch) [1] [3] |
 | Prerequisites, user setup, directory layout | Same mechanics; not independently re-verified against a B41-era wiki revision in this document | Verified against the 42.20-versioned Dedicated server revision [3] |
 | Firewall ports | Same two UDP ports, same `ufw` commands [3] [4] [7] | Same [3] [4] [7] |
 | systemd unit / tmux / screen | Same unit file and fallback tools; no build-specific variant documented | Same [3] [7] |
 | Lifecycle commands (`save`, `quit`) | Same admin commands [5] | Same [5] |
+| Latest primary-attested release | 41.78.21 legacy hotfix, 2026-08-26 [10] | 42.21 stable, 2026-09-28 [9] |
 
 The one-line version: this entire runbook is one procedure with a single conditional branch flag — everything from prerequisites through firewall rules through the systemd unit is identical whether the SteamCMD line ends in `validate` or `-beta legacy41 validate` [1] [2] [3] [7].
 
@@ -331,6 +334,7 @@ Source basis for each numbered step: 1–4 and 6 from the pinned wiki revision [
 - **32-bit prerequisite packages are contested between community sources (Claim 1)** and were not tested first-hand on a clean Ubuntu 22.04/24.04 box for this document.
 - **Valve's own SteamCMD documentation could not be retrieved.** `developer.valvesoftware.com/wiki/SteamCMD` served an automated bot-verification challenge page during research for this document and is listed only in Further Reading, not cited as a numbered source for any claim.
 - **Wiki-page currency.** The Dedicated server, Server settings and Tech Support pages cited here are pinned at specific revisions (1443349, 1443167, 1442989) versioned against the 42.20 era; a post-42.20 hotfix could change any of the mechanics described before the wiki re-verifies them.
+- **Hotfix cadence.** 42.21 has been stable since 2026-09-28 [9]; a later hotfix could change anything above before the wiki catches up.
 - **B41-side verification is inherited, not direct**, exactly as the sibling Admins documents already flag for these same wiki pages: the install/service mechanics are asserted to be build-independent from the shared `legacy41` install path, not from an independently pinned B41-era page revision.
 
 # Verification Steps
@@ -339,7 +343,7 @@ Source basis for each numbered step: 1–4 and 6 from the pinned wiki revision [
 2. **Resolve Claim 1 empirically:** on a second clean VM, skip any explicit `lib32gcc-s1`/`lib32stdc++6` install and attempt only `dpkg --add-architecture i386` + `apt install steamcmd`; record whether SteamCMD runs.
 3. **Confirm the port surface:** with the server running, verify UDP listeners on `16261` and `16262` from another host, and confirm `RCONPort` (27015 by default) is *not* reachable unless you deliberately opened it.
 4. **Rehearse the systemd stop path:** note a save-file timestamp, run `systemctl stop zomboid`, and confirm the world data was flushed before the process actually exited.
-5. **Confirm the `legacy41` flag installs the right build:** run the modified update script and check the installed server's reported version against 41.78.16.
+5. **Confirm the `legacy41` flag installs the right build:** run the modified update script and check the installed server's reported version against 41.78.16 (the legacy line's latest primary-attested hotfix is 41.78.21 [10]).
 6. **Confirm log locations:** after a session, check `Zomboid/Logs/`, `Zomboid/server-console.txt` and `Zomboid/logs.zip` all exist and contain what this document describes.
 
 # Open Questions
@@ -355,6 +359,9 @@ Source basis for each numbered step: 1–4 and 6 from the pinned wiki revision [
 
 - [1] **The Indie Stone** — *Build 42.20.0 Stable Released* (Steam announcement, 2026-07-29; retrieved via the Steam news API mirror, ISteamNews app 108600). https://steamcommunity.com/games/108600/announcements/detail/1839676055882259. Accessed 2026-07-31.
 - [2] **The Indie Stone** — *B42 CHECKLIST* (Steam announcement, 2026-07-28; retrieved via the Steam news API mirror). https://steamcommunity.com/games/108600/announcements/detail/1839041357038237. Accessed 2026-07-31.
+
+- [9] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [10] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601. Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cite URL + revision id; facts only, never prose.
 
@@ -392,3 +399,4 @@ Source basis for each numbered step: 1–4 and 6 from the pinned wiki revision [
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21 (stable 2026-09-28) and legacy 41.78.21: updated branch and version statements in Executive Summary, Build Applicability, Branch selection, Delta, Verification and Risks. Sources: Steam posts 42.21 stable and 42.20.4+41.78.21. Commands, paths, unit files and ports reviewed against the 42.20.1-42.21 notes (no change found) and carried forward from 42.20, not re-tested. | — |

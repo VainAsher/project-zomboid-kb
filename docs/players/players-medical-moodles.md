@@ -1,7 +1,7 @@
 ---
 id: players-medical-moodles
 title: "Health, Injuries and Moodles: The Body Simulation"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Players
@@ -9,13 +9,13 @@ topic: "Medical & moodles"
 build: both
 document_type: reference
 created: 2026-07-31
-updated: 2026-07-31
-review_due: 2026-10-31
-sources_verified: 2026-07-31
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [players-foundation, players-skills-xp, admins-sandboxvars-reference, meta-style-guide]
 tags: [players, moodles, health, injuries, first-aid, zombification, knox-infection, muscle-strain, medical, build-42]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,16 +23,16 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | players-medical-moodles |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Players |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-07-31 |
-| Review due | 2026-10-31 |
-| Game versions verified | 41.78.16, 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 42.20, 42.21 |
 
 # Executive Summary
 
@@ -80,7 +80,9 @@ Not covered: exhaustive medical item statistics (bandage-by-bandage, plant-by-pl
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Yes | 41.78.16 | Moodle and Health facts drawn from wiki revisions stamped 41.78.16 [11] [13]; no muscle strain, smaller moodle roster |
-| B42 (stable) | Yes | 42.20 | Muscle strain, expanded moodles, new medical sandbox keys; values *(B42)*-tagged inline |
+| B42 (stable) | Yes | 42.20, re-checked against 42.21 patch notes | Muscle strain, expanded moodles, new medical sandbox keys; values *(B42)*-tagged inline |
+
+The 42.21 stable release (2026-09-28) was reviewed for this document by reading the official Steam announcements for 42.20.1 through 42.21 and the 42.21 forum changelist [24] [25] [26]. Only three medical items there affect this document (the antibiotics packaging recipe, reduced grave-digging strain in multiplayer and the multiplayer pill-taking animation fix, all recorded below); every other statement is carried forward from 42.20 and the cited pzwiki revisions with no contradicting change found in those notes. That was a patch-note review, not an in-game re-test.
 
 Version-stamp warning, stated plainly because it governs everything below: the pzwiki pages this document draws its mechanics from are versioned against **42.13.2** (Moodle) [10], **42.15.3** (Health) [12], **42.18.0** (First Aid) [15] and **42.13.1** (Knox Infection) [14] — all unstable-era, none re-verified against 42.20 stable. Where a number below is not also confirmed by a Steam announcement, assume it was established during the B42 unstable cycle and may have shifted. The B41-side figures come from revisions the wiki itself stamps 41.78.16 [11] [13], which is the frozen legacy build, so those are more stable by nature.
 
@@ -295,7 +297,7 @@ Mechanically it is not a moodle. It is fatigue damage applied to the specific bo
 - **Shoving.** Only 0.15 muscle fatigue, applied at 250% (0.375 total) across both upper arms, both forearms and both hands.
 - **Other sources.** Over-encumbrance at level 2 or higher converts its health damage into muscle strain. Sheet-rope climbs load the arms at a base 0.02 strain per tick (0.007 climbing down), doubled per over-encumbrance level, with a 150% multiplier at Strength/Fitness/Nimble 0 — every 3 Nimble levels cuts it 10%, every level of the higher of Strength/Fitness cuts it 20%, bottoming at 50% with Nimble 10 and Strength or Fitness 10. Vaulting a wall runs on the same math. Certain timed actions apply strain to specific parts scaled by a relevant skill, 150% at level 0 down to 50% at level 10. Exercise adds strain matching the muscle group trained, but with roughly a 12-hour delay before it appears.
 
-The balance history is fully primary-sourced and is worth knowing, because guides written at different points in the unstable cycle describe materially different systems. Melee weapon strain was cut to **60% of its launch value** in hotfix 42.0.1, three days after Unstable went public, with the sandbox value left untouched and the reduced figure becoming the new baseline *(B42)* [3]. In 42.1, over-encumbrance strain was **halved** (and only applies once encumbrance is heavy enough to also damage health), stone tools were tuned to produce roughly double the strain, and a bug causing health loss and strain from heavy loads *while sitting on furniture* was fixed *(B42)* [4]. 42.15 introduced the Apocalypse preset as the lore-canon mode with explicitly **reduced Muscle Strain and Discomfort impact**, and rebalanced inconsistent neck strain from sewing actions *(B42)* [5]. 42.16 reduced strain from digging furrows with a spade *(B42)* [7]. 42.17 fixed climbing over walls not generating strain at all *(B42)* [6]. Multiplayer took two passes: 42.14.1 fixed combat strain not syncing between clients, and 42.18 fixed body damage and muscle strain from over-encumbrance accumulating **over four times faster** in multiplayer than intended *(B42)* [8] [19].
+The balance history is fully primary-sourced and is worth knowing, because guides written at different points in the unstable cycle describe materially different systems. Melee weapon strain was cut to **60% of its launch value** in hotfix 42.0.1, three days after Unstable went public, with the sandbox value left untouched and the reduced figure becoming the new baseline *(B42)* [3]. In 42.1, over-encumbrance strain was **halved** (and only applies once encumbrance is heavy enough to also damage health), stone tools were tuned to produce roughly double the strain, and a bug causing health loss and strain from heavy loads *while sitting on furniture* was fixed *(B42)* [4]. 42.15 introduced the Apocalypse preset as the lore-canon mode with explicitly **reduced Muscle Strain and Discomfort impact**, and rebalanced inconsistent neck strain from sewing actions *(B42)* [5]. 42.16 reduced strain from digging furrows with a spade *(B42)* [7], and 42.21 reduced the strain from digging a single grave, listed under the multiplayer fixes *(B42)* [26]. 42.17 fixed climbing over walls not generating strain at all *(B42)* [6]. Multiplayer took two passes: 42.14.1 fixed combat strain not syncing between clients, and 42.18 fixed body damage and muscle strain from over-encumbrance accumulating **over four times faster** in multiplayer than intended *(B42)* [8] [19].
 
 Two sandbox multipliers govern the system's weight. `MuscleStrainFactor` (default 0.7 on 42.20) scales strain, and `DiscomfortFactor` (default 0.8) scales the clothing-discomfort effect; the latter was added in 42.1 and described at the time as working like the existing Muscle Strain Factor — disable, reduce or increase *(B42)* [4] [16].
 
@@ -315,6 +317,8 @@ Two sandbox multipliers govern the system's weight. `MuscleStrainFactor` (defaul
 | Zombification odds | Scratch 7%, laceration 25%, bite 100% [13] | Unchanged: scratch 7%, laceration 25%, bite 100% [12] [14] |
 | Health panel and body model | 17 sections, same status ladder [13] | 17 sections, same status ladder [12] |
 | Deep wound causes | Does not list bullet/shard extraction as a cause [13] | Extracting a lodged bullet or glass shard is listed as a deep-wound cause [12] |
+| Antibiotics packaging *(42.21)* | Not covered by the 42.21 notes | Antibiotics can be packaged with the "pack in box" crafting recipe [25] [26] |
+| Pill-taking sync *(42.21)* | — | Fixed a remote player getting stuck in a repeated animation after taking pills (multiplayer) [26] |
 | Medical UI fixes | — | Split-screen medical checks fixed in 42.20 stable; a translation error in the health panel's moodle info fixed in 42.6 [1] [23] |
 
 One deliberate non-change deserves emphasis. The odds that define whether a run ends — 7%, 25%, 100% — are stated identically in the B41-stamped and B42-stamped wiki revisions [12] [13] [14]. Build 42 changed how hard it is to *avoid* being wounded (spawn rebalancing, darkness, strain, sneaking) far more than it changed what a wound means once you have one [2].
@@ -391,7 +395,7 @@ The Hungry moodle's description also differs between the two revisions: the B41 
 - **Roster-diff inference.** The moodle delta is derived by comparing two wiki revisions, not from a developer changelog. "B42 added Noxious smell and Discomfort" describes what the two rosters contain; the exact release in which each arrived is not established here, and Discomfort's arrival is only indirectly dated by the 42.1 sandbox-setting note [4].
 - **Sandbox defaults move.** `WoundInfectionFactor` changed twice within four months of stable release [1] [6]. The defaults in this document are those in the 42.20-stamped listing [16] and are as perishable as any other balance value.
 - **Bot-blocked primary hosts.** All Indie Stone citations use Steam announcement URLs, which bot-block automated link checkers by design; they were retrieved and verified through the ISteamNews API for app 108600, and the gid in each URL comes from that API response.
-- **42.20 is two days old** at the time of writing. A hotfix wave is expected and could invalidate any balance number here.
+- **42.20 is two days old** at the time of writing. A hotfix wave is expected and could invalidate any balance number here. Update, 2026-10-07: hotfixes 42.20.1 to 42.20.4 and 42.21 followed; the notes reviewed [24] [25] [26] contain only the three medical items recorded above, but the strain, infection and moodle numbers were not re-tested in-game.
 
 # Verification Steps
 
@@ -436,6 +440,9 @@ The Hungry moodle's description also differs between the two revisions: the B41 
 - [21] **The Indie Stone** — *42.12.0 UNSTABLE Released* (Steam announcement, 2025-09-25; Endurance moodle acts as a rest progress indicator). https://steamcommunity.com/games/108600/announcements/detail/1811772772244324. Accessed 2026-07-31.
 - [22] **The Indie Stone** — *Build 42.13.0 UNSTABLE Multiplayer Released* (Steam announcement, 2025-12-11; animated Endurance moodle indicator disabled). https://steamcommunity.com/games/108600/announcements/detail/1818752592122972. Accessed 2026-07-31.
 - [23] **The Indie Stone** — *42.6.0 UNSTABLE Released* (Steam announcement, 2025-03-24; health-panel moodle info translation fix). https://steamcommunity.com/games/108600/announcements/detail/1794830911001792. Accessed 2026-07-31.
+- [24] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [25] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23; antibiotics packaging recipe). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925. Accessed 2026-10-07.
+- [26] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first post, 2026-09-23; reduced Muscle Strain from digging a single grave, antibiotics packaging). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)** — pzwiki (CC BY-NC-SA 3.0): cited by URL and revision id for facts only; all prose in this document is original.
 
@@ -472,3 +479,4 @@ The Hungry moodle's description also differs between the two revisions: the B41 
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: reviewed Steam announcements 42.20.1-42.21 and the 42.21 forum changelist [24] [25] [26]; added the antibiotics pack-in-box recipe, the reduced grave-digging strain and the MP pill-taking animation fix; version-scope statements updated. | — |

@@ -1,7 +1,7 @@
 ---
 id: creator-foundation
 title: "The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window"
-version: 1.0.0
+version: 1.1.0
 status: approved
 confidence: Medium
 category: Creator
@@ -9,13 +9,13 @@ topic: "Creator foundations"
 build: B42
 document_type: overview
 created: 2026-07-30
-updated: 2026-07-30
-review_due: 2026-10-30
-sources_verified: 2026-07-30
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [modders-foundation, players-foundation, admins-foundation, lore-foundation, meta-style-guide]
 tags: [creator, youtube, twitch, content-strategy, b42-stable, launch-window, channel-landscape, formats, cross-promotion]
-game_versions_verified: ["42.20"]
+game_versions_verified: ["42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,21 +23,24 @@ game_versions_verified: ["42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | creator-foundation |
-| Version | 1.0.0 |
+| Version | 1.1.0 |
 | Status | approved |
 | Confidence | Medium |
 | Category (track) | Creator |
 | Build | B42 |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-07-30 |
-| Review due | 2026-10-30 |
-| Game versions verified | 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 42.20, 42.21 (release timeline and change list re-checked 2026-10-07) |
 
 # Executive Summary
 
-This document maps the Project Zomboid content-creation landscape as it stands
+This document maps the Project Zomboid content-creation landscape as it stood
 one day after Build 42.20 reached the public stable branch (2026-07-29) [3].
+Revision 1.1.0 (2026-10-07) re-baselines the game-build statements: stable has
+since moved through four 42.20.x hotfixes [21][22][23][24] to 42.21, released
+on 2026-09-28 [26]; the audience figures remain the 2026-07-30 snapshot.
 It profiles the named channels that define the ecosystem's main formats —
 ambiguousamphibian (themed challenge runs), Pr1vateLime (condensed
 "I Survived X Days" narratives and multi-creator challenges), Retanaru
@@ -49,7 +52,7 @@ third-party estimates, cited to the estimate pages actually consulted
 The strategic core of the document is the launch window. Build 42 spent
 roughly nineteen months in unstable beta between 2024-12-17 [1] and the
 42.20 stable release [2][3], which means the largest wave of returning and
-new players since Build 41 is arriving right now: Steam concurrency peaked at
+new players since Build 41 was arriving at the time of writing: Steam concurrency peaked at
 74,959 players on release day per a SteamDB item syndicated on the official
 news feed [5], and Twitch watch-hours for the game rose 46.6% month-on-month
 into the release [6]. The best-positioned content in this window is
@@ -67,6 +70,9 @@ quarantined below rather than asserted.
 
 # Key Takeaways
 
+- Stable B42 has since moved on: four 42.20.x hotfixes followed [21][22][23][24]
+  and 42.21 became stable on 2026-09-28 after an unstable pass beginning
+  2026-09-23 *(cited)* *(B42)* [25][26].
 - Build 42.20 went stable on 2026-07-29 after an unstable cycle that began
   2024-12-17, and stable B42 ships with multiplayer included *(cited)*
   *(B42)* [1][2][3].
@@ -113,7 +119,8 @@ audience-scale estimates with explicit estimate labelling; the measured
 launch-window audience data (Steam concurrency, Twitch watch-hours); the
 B42.20 stable feature set *as content-opportunity raw material*; and the
 cross-promotion funnel between platforms. Build tag is **B42** because every
-opportunity assessed here keys off the 42.20 stable release; B41 appears only
+opportunity assessed here keys off the 42.20 stable release (current stable is
+42.21 as of revision 1.1.0 [26]); B41 appears only
 as context (the build veterans are migrating from).
 
 Not covered: game-mechanic depth (see players-foundation), monetisation and
@@ -143,9 +150,14 @@ Gaming) appear as format evidence [19][20].
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Context only | — | Appears solely as the build audiences are migrating from; savegames do not transfer to B42 [2][3] |
-| B42 (stable) | Yes | 42.20 | All opportunity analysis keys off the 2026-07-29 stable release [3] |
+| B42 (stable) | Yes | 42.20; 42.21 re-checked 2026-10-07 | The launch-window analysis keys off the 2026-07-29 stable release [3]; stable has been 42.21 since 2026-09-28 [26] |
 
-The ecosystem facts (channel rosters, estimate figures, Twitch data) are
+Revision 1.1.0 re-checked this document's build statements against the
+42.20.1 to 42.20.4 hotfix posts [21][22][23][24], the 42.21 unstable and
+stable posts [25][26] and the TIS forum 42.21 patch notes [27]. The feature
+descriptions in the Reference section still cite the 42.20 announcements; the
+42.21 changes are listed separately below and were not re-tested in game. The
+ecosystem facts (channel rosters, estimate figures, Twitch data) are
 dated 2026-07-30 snapshots and decay faster than any game build; treat their
 "verified against" as the access date on each reference.
 
@@ -164,6 +176,30 @@ official Steam news feed characterised the update as introducing animals,
 basements and deeper crafting [5], and the 42.20 stable patch notes
 themselves reference the animal systems directly (for example, butchering
 yields from large animals) [3].
+
+## Stable-branch changes since 42.20.0
+
+Four hotfixes followed the stable launch: 42.20.1 and 42.20.2 on 2026-08-05
+[21][22], 42.20.3 on 2026-08-17 [23] and 42.20.4 on 2026-08-26 [24]. The
+hotfixes covered multiplayer anti-cheat checksum validation and chunk-unloading
+performance [21], handling of the `%` character in mod translation text
+(mods should write `%%`) [21][22], support for up to 254 players per server
+[23], memory-leak fixes [21][23], and security fixes that removed the
+`loadstring` and `loadstream` Lua methods [24].
+
+42.21 went to the unstable branch on 2026-09-23 [25] and to stable on
+2026-09-28 [26]. The studio describes it as its first incremental update after
+Build 42 and says unstable-then-stable is the standard path for future releases
+[25][26]. Its headline items are a fix for zombies disappearing after a player
+leaves and re-enters a chunk (single and multiplayer), a fix for multiplayer
+zombie duplication, revised cutaway behaviour for the new XXL trees, and the
+re-enabling of `loadstring` and `loadstream` [25][26][27]. The forum change list
+adds balance items such as Welder-occupation characters starting with Welding
+rather than Blacksmithing recipes, an updated in-game player map, updated
+Spawn Point Selection preview videos and a localisation-system update [27].
+The stable post says some zombie-persistence and duplication cases remain for a
+later update [26]. Existing savegames on 42.20.4 are stated as not expected to be affected
+[27].
 
 ## What stable 42.20 contains that creators can point a camera at
 
@@ -267,8 +303,9 @@ the cited facts; they introduce no new factual claims.
 
 1. **Post-stable beginner guides.** Release-day concurrency of ~75K [5] and
    a 46.6% Twitch surge [6] mean a cohort of brand-new and lapsed players is
-   searching right now; guides verified against 42.20 rather than unstable
-   builds win that search race [3].
+   searching at release time; guides verified against the current stable
+   (42.21 since 2026-09-28 [26]) rather than unstable builds win that search
+   race [3].
 2. **B41-veteran transition content.** Saves do not carry over and legacy41
    exists [2][3]; "what changed, what to relearn, whether to migrate" is a
    ready-made series for the largest single audience segment.
@@ -303,8 +340,10 @@ launch-day coverage accordingly.
 
 - **Shipping guides recorded on unstable footage.** Nineteen months of
   unstable iterations [1][2] mean most existing B42 guide footage predates
-  42.20; values and visuals may differ from stable [2][3]. Re-verify on
-  42.20 before publishing, and date-stamp builds on screen.
+  42.20, and footage from 42.20.x predates the 42.21 changes [26][27]; values
+  and visuals may differ from stable [2][3]. Re-verify on
+  the current stable (42.21 since 2026-09-28 [26]) before publishing, and
+  date-stamp builds on screen.
 - **Treating tracker numbers as analytics.** The two trackers consulted for
   ambiguousamphibian differ by tens of thousands of subscribers and ~19M
   views for the same channel [7][8]. Use estimates for relative scale only.
@@ -372,9 +411,11 @@ launch-day coverage accordingly.
   describe release week; the opportunity analysis has a shelf life measured
   in weeks, and this document's review date should be treated as a hard
   re-verification deadline for the audience data.
-- **Hotfix exposure.** 42.20 is day-one stable; hotfixes in the coming weeks
-  could adjust the systems named as tutorial targets [3]. Feature
-  descriptions cite the release announcements, not post-release patches.
+- **Hotfix exposure.** Hotfixes and 42.21 have shipped since day-one stable
+  [21][22][23][24][26]; they could adjust the systems named as tutorial
+  targets. The feature descriptions in the 42.20 section cite the release
+  announcements, not post-release patches; the 42.21 forum list was read in
+  abridged form [27].
 - **Single-sourced Twitch data.** The Twitch figures rest on one tracker
   [6]; per the source rules they are rated no higher than Medium and should
   be corroborated before being quoted as fact.
@@ -388,8 +429,8 @@ launch-day coverage accordingly.
 1. Open the Steam announcements [1][2][3][4] directly (or via the news API
    feed [5]) and confirm the release dates, the basement/building/tile
    counts, the MP section, and the save-compatibility statements.
-2. Re-query the Steam news feed [5] for items newer than 2026-07-30 to
-   catch hotfixes that would stale-date the feature claims.
+2. Re-query the Steam news feed [5] for items newer than 2026-09-28 to
+   catch releases that would stale-date the feature claims.
 3. Re-load the tracker pages [7][8][9][10][11][12] and compare fresh
    subscriber/view figures against the table; deviations beyond a few
    percent mean the table needs a new snapshot date.
@@ -437,6 +478,29 @@ launch-day coverage accordingly.
   GetNewsForApp)*, including syndicated SteamDB and PCGamesN items.
   https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=108600&count=25&maxlength=400
   Accessed 2026-07-30.
+- [21] **The Indie Stone** — *42.20.1 STABLE Hotfix Released*. Steam
+  announcement, 2026-08-05. https://steamcommunity.com/games/108600/announcements/detail/1840310314338766
+  Accessed 2026-10-07.
+- [22] **The Indie Stone** — *42.20.2 STABLE Hotfix Released*. Steam
+  announcement, 2026-08-05. https://steamcommunity.com/games/108600/announcements/detail/1840310314339441
+  Accessed 2026-10-07.
+- [23] **The Indie Stone** — *42.20.3 STABLE Hotfix Released*. Steam
+  announcement, 2026-08-17. https://steamcommunity.com/games/108600/announcements/detail/1840944183785895
+  Accessed 2026-10-07.
+- [24] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21
+  LEGACY Hotfixes Released*. Steam announcement, 2026-08-26.
+  https://steamcommunity.com/games/108600/announcements/detail/1842212951296601
+  Accessed 2026-10-07.
+- [25] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable
+  Released*. Steam announcement, 2026-09-23.
+  https://steamcommunity.com/games/108600/announcements/detail/1844751498218925
+  Accessed 2026-10-07.
+- [26] **The Indie Stone** — *Build 42.21 Stable Released*. Steam announcement,
+  2026-09-28. https://steamcommunity.com/games/108600/announcements/detail/1844751498231307
+  Accessed 2026-10-07.
+- [27] **The Indie Stone** — *42.21 Patch Notes* (forum topic 101693, first
+  post 2026-09-23; abridged change list). https://theindiestone.com/forums/topic/101693-4221-patch-notes/
+  Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)**
 
@@ -516,3 +580,4 @@ YouTube oEmbed API on 2026-07-30)
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
+| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined from 42.20 to 42.21: added stable-branch changes section from the 42.20.1-42.20.4 and 42.21 Steam posts and the TIS forum 42.21 patch notes [21]-[27]; reframed launch-window tense and 42.20-as-current statements; audience data unchanged (2026-07-30 snapshot). | Pending (frozen document, factual revision) |

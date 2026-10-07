@@ -11,47 +11,47 @@ Tiers: 1 = track foundations · 2 = core reference · 3 = guides/tutorials/runbo
 
 | ID | Title | Topic | Tier | Build | Version | Status | Confidence | Path |
 |----|-------|-------|------|-------|---------|--------|------------|------|
-| admins-foundation | Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices | Server foundations | 1 | both | 1.0.1 | approved | Medium | `docs/admins/admins-foundation.md` |
-| admins-backups-migration | Backups, Saves and Migration: Protecting a Server World | Server operations | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-backups-migration.md` |
-| admins-legacy41-runbook | Keeping a Build 41 Server Alive: The legacy41 Runbook | Server runbooks | 3 | B41 | 0.1.0 | in-review | Medium | `docs/admins/admins-legacy41-runbook.md` |
-| admins-modded-server-runbook | Running a Modded Server: Selection, Rollout and Update Discipline | Server runbooks | 3 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-modded-server-runbook.md` |
-| admins-performance-tuning | Server Performance: Memory, CPU and the Levers That Are Actually Documented | Server operations | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-performance-tuning.md` |
-| admins-rcon-commands | RCON and Admin Commands: Operating a Live Server | Server operations | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-rcon-commands.md` |
-| admins-sandboxvars-reference | SandboxVars Reference: Gameplay Rules per Server | Server configuration | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-sandboxvars-reference.md` |
-| admins-server-ini-reference | server.ini Reference: The Settings That Matter, by Area | Server configuration | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-server-ini-reference.md` |
-| admins-ubuntu-runbook | Ubuntu Dedicated Server Runbook: SteamCMD to systemd | Server runbooks | 3 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-ubuntu-runbook.md` |
-| admins-workshop-mod-wiring | Wiring Workshop Mods into a Server: IDs, Load Order and Updates | Server operations | 2 | both | 0.1.0 | in-review | Medium | `docs/admins/admins-workshop-mod-wiring.md` |
-| creator-foundation | The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window | Creator foundations | 1 | B42 | 1.0.0 | approved | Medium | `docs/creator/creator-foundation.md` |
-| lore-foundation | The Knox Event and the History of Project Zomboid's Builds | Lore & history | 1 | historic | 1.0.1 | approved | Medium | `docs/lore/lore-foundation.md` |
-| meta-style-guide | How This Knowledge Base Is Written: Genre, Build Tags and License Rules | KB governance | 1 | both | 1.0.1 | approved | High | `docs/meta/meta-style-guide.md` |
-| modders-foundation | Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives | Modding foundations | 1 | both | 1.0.1 | approved | Medium | `docs/modders/modders-foundation.md` |
-| players-foundation | Surviving Knox Country: The Core Game Across Build 41 and Build 42 | Player foundations | 1 | both | 1.0.1 | approved | Medium | `docs/players/players-foundation.md` |
-| players-beginner-guide-b42 | Starting Project Zomboid on Build 42.20: A First-Week Survival Guide | Guides | 3 | B42 | 0.1.0 | in-review | Medium | `docs/players/players-beginner-guide-b42.md` |
-| players-farming-food | Farming, Foraging and Food: Feeding a Survivor Long-Term | Farming & food | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-farming-food.md` |
-| players-animals-husbandry | Animals and Husbandry in Build 42 | Animals & husbandry | 2 | B42 | 0.1.0 | in-review | Medium | `docs/players/players-animals-husbandry.md` |
-| players-b41-to-b42-transition | The B41 Veteran's Guide to Build 42: What Your Instincts Get Wrong | Guides | 3 | both | 0.1.0 | in-review | Medium | `docs/players/players-b41-to-b42-transition.md` |
-| players-crafting-chains | The B42 Crafting Overhaul: From Knapping to Blacksmithing | Crafting | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-crafting-chains.md` |
-| players-map-locations | Knox Country Locations: The B41 Towns and the B42 Expansion | Map & locations | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-map-locations.md` |
-| players-medical-moodles | Health, Injuries and Moodles: The Body Simulation | Medical & moodles | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-medical-moodles.md` |
-| players-skills-xp | Skills and XP: Levelling, Multipliers and the B42 Skill Roster | Skills & XP | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-skills-xp.md` |
-| players-traits-occupations | Traits and Occupations: Points, Rosters and the B42 Rework | Traits & occupations | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-traits-occupations.md` |
-| players-vehicles | Vehicles: Finding, Fixing and Driving Across Both Builds | Vehicles | 2 | both | 0.1.0 | in-review | Medium | `docs/players/players-vehicles.md` |
-| modders-lua-api-surface | The Project Zomboid Lua API Surface: Java-Exposed Classes, Globals and the Per-Build Differences | Lua API surface | 2 | both | 0.1.0 | in-review | Medium | `docs/modders/modders-lua-api-surface.md` |
-| modders-events-callbacks | Events and Callbacks: Hooking the Game Loop with Events.X.Add | Events & callbacks | 2 | both | 0.1.0 | in-review | Medium | `docs/modders/modders-events-callbacks.md` |
-| modders-modoptions-pzapi | PZAPI.ModOptions and the B42 Mod Settings API: Building an Options Screen | ModOptions & PZAPI | 2 | both | 0.1.0 | in-review | Medium | `docs/modders/modders-modoptions-pzapi.md` |
-| modders-item-scripts-distributions | Item Scripts, Recipes and Loot Distributions: Defining Content Through Script Files | Item scripts & distributions | 2 | both | 0.2.0 | in-review | Medium | `docs/modders/modders-item-scripts-distributions.md` |
-| modders-mp-networking-porting | Multiplayer Mod Networking: Client/Server Lua, sendClientCommand and Porting for B42 MP | MP networking porting | 2 | both | 0.2.0 | in-review | Medium | `docs/modders/modders-mp-networking-porting.md` |
-| modders-modinfo-modid-conventions | mod.info, Mod IDs and the B42 Versioned Mod Folder Layout | mod.info & Mod ID conventions | 2 | both | 0.1.0 | in-review | Medium | `docs/modders/modders-modinfo-modid-conventions.md` |
-| modders-first-mod-tutorial-b42 | Your First Build 42 Mod: A Verified Step-by-Step Tutorial | First mod tutorial | 3 | B42 | 0.1.0 | in-review | Medium | `docs/modders/modders-first-mod-tutorial-b42.md` |
-| modders-porting-b41-to-b42 | Porting a Build 41 Mod to Build 42: A Diff-Driven Checklist | Porting B41 mods to B42 | 3 | both | 0.2.0 | in-review | Medium | `docs/modders/modders-porting-b41-to-b42.md` |
-| creator-format-catalogue | Project Zomboid Content Format Catalogue: What Works, What It Costs and Which Build It Needs | Format catalogue | 2 | B42 | 0.1.0 | in-review | Medium | `docs/creator/creator-format-catalogue.md` |
-| creator-channel-competitor-map | The Project Zomboid Creator Landscape: Channels, Niches and Gaps | Channel & competitor map | 2 | B42 | 0.1.0 | in-review | Medium | `docs/creator/creator-channel-competitor-map.md` |
-| creator-cross-promotion-funnel | From Video to Server to Mod: A Cross-Promotion Funnel for a Project Zomboid Creator | Cross-promotion funnel | 2 | B42 | 0.1.0 | in-review | Medium | `docs/creator/creator-cross-promotion-funnel.md` |
-| creator-content-calendar | Post-Launch Content Calendar for Build 42: Release Rhythm, Patch Hooks and Evergreen Slots | Content calendar | 3 | B42 | 0.1.0 | in-review | Medium | `docs/creator/creator-content-calendar.md` |
-| lore-in-world-media | In-World Media: Radio, Television, Print and Found Documents in Knox Country | In-world media | 4 | both | 0.1.0 | in-review | Medium | `docs/lore/lore-in-world-media.md` |
-| lore-knox-event-timeline | The Knox Event Timeline: What the Game Says Happened and When | Knox Event timeline | 4 | historic | 0.1.0 | in-review | Medium | `docs/lore/lore-knox-event-timeline.md` |
-| meta-release-versioning-policy | Release and Versioning Policy: Document Versions, kb-release Tags and Game-Build Pins | Release & versioning policy | 4 | both | 0.1.0 | in-review | High | `docs/meta/meta-release-versioning-policy.md` |
-| meta-source-registry-companion | Source Registry Companion: How Each Source Is Reached, What Is Ingested and What Is Blocked | Source registry companion | 4 | both | 0.1.0 | in-review | Medium | `docs/meta/meta-source-registry-companion.md` |
+| admins-foundation | Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices | Server foundations | 1 | both | 1.1.0 | approved | Medium | `docs/admins/admins-foundation.md` |
+| admins-backups-migration | Backups, Saves and Migration: Protecting a Server World | Server operations | 2 | both | 0.2.0 | in-review | Medium | `docs/admins/admins-backups-migration.md` |
+| admins-legacy41-runbook | Keeping a Build 41 Server Alive: The legacy41 Runbook | Server runbooks | 3 | B41 | 0.2.0 | in-review | Medium | `docs/admins/admins-legacy41-runbook.md` |
+| admins-modded-server-runbook | Running a Modded Server: Selection, Rollout and Update Discipline | Server runbooks | 3 | both | 0.2.0 | in-review | Medium | `docs/admins/admins-modded-server-runbook.md` |
+| admins-performance-tuning | Server Performance: Memory, CPU and the Levers That Are Actually Documented | Server operations | 2 | both | 0.2.0 | in-review | Medium | `docs/admins/admins-performance-tuning.md` |
+| admins-rcon-commands | RCON and Admin Commands: Operating a Live Server | Server operations | 2 | both | 0.2.0 | in-review | Medium | `docs/admins/admins-rcon-commands.md` |
+| admins-sandboxvars-reference | SandboxVars Reference: Gameplay Rules per Server | Server configuration | 2 | both | 0.2.0 | in-review | Medium | `docs/admins/admins-sandboxvars-reference.md` |
+| admins-server-ini-reference | server.ini Reference: The Settings That Matter, by Area | Server configuration | 2 | both | 0.2.0 | in-review | Medium | `docs/admins/admins-server-ini-reference.md` |
+| admins-ubuntu-runbook | Ubuntu Dedicated Server Runbook: SteamCMD to systemd | Server runbooks | 3 | both | 0.2.0 | in-review | Medium | `docs/admins/admins-ubuntu-runbook.md` |
+| admins-workshop-mod-wiring | Wiring Workshop Mods into a Server: IDs, Load Order and Updates | Server operations | 2 | both | 0.2.0 | in-review | Medium | `docs/admins/admins-workshop-mod-wiring.md` |
+| creator-foundation | The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window | Creator foundations | 1 | B42 | 1.1.0 | approved | Medium | `docs/creator/creator-foundation.md` |
+| lore-foundation | The Knox Event and the History of Project Zomboid's Builds | Lore & history | 1 | historic | 1.1.0 | approved | Medium | `docs/lore/lore-foundation.md` |
+| meta-style-guide | How This Knowledge Base Is Written: Genre, Build Tags and License Rules | KB governance | 1 | both | 1.1.0 | approved | High | `docs/meta/meta-style-guide.md` |
+| modders-foundation | Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives | Modding foundations | 1 | both | 1.1.0 | approved | Medium | `docs/modders/modders-foundation.md` |
+| players-foundation | Surviving Knox Country: The Core Game Across Build 41 and Build 42 | Player foundations | 1 | both | 1.1.0 | approved | Medium | `docs/players/players-foundation.md` |
+| players-beginner-guide-b42 | Starting Project Zomboid on Build 42.21: A First-Week Survival Guide | Guides | 3 | B42 | 0.2.0 | in-review | Medium | `docs/players/players-beginner-guide-b42.md` |
+| players-farming-food | Farming, Foraging and Food: Feeding a Survivor Long-Term | Farming & food | 2 | both | 0.2.0 | in-review | Medium | `docs/players/players-farming-food.md` |
+| players-animals-husbandry | Animals and Husbandry in Build 42 | Animals & husbandry | 2 | B42 | 0.2.0 | in-review | Medium | `docs/players/players-animals-husbandry.md` |
+| players-b41-to-b42-transition | The B41 Veteran's Guide to Build 42: What Your Instincts Get Wrong | Guides | 3 | both | 0.2.0 | in-review | Medium | `docs/players/players-b41-to-b42-transition.md` |
+| players-crafting-chains | The B42 Crafting Overhaul: From Knapping to Blacksmithing | Crafting | 2 | both | 0.2.0 | in-review | Medium | `docs/players/players-crafting-chains.md` |
+| players-map-locations | Knox Country Locations: The B41 Towns and the B42 Expansion | Map & locations | 2 | both | 0.2.0 | in-review | Medium | `docs/players/players-map-locations.md` |
+| players-medical-moodles | Health, Injuries and Moodles: The Body Simulation | Medical & moodles | 2 | both | 0.2.0 | in-review | Medium | `docs/players/players-medical-moodles.md` |
+| players-skills-xp | Skills and XP: Levelling, Multipliers and the B42 Skill Roster | Skills & XP | 2 | both | 0.2.0 | in-review | Medium | `docs/players/players-skills-xp.md` |
+| players-traits-occupations | Traits and Occupations: Points, Rosters and the B42 Rework | Traits & occupations | 2 | both | 0.2.0 | in-review | Medium | `docs/players/players-traits-occupations.md` |
+| players-vehicles | Vehicles: Finding, Fixing and Driving Across Both Builds | Vehicles | 2 | both | 0.2.0 | in-review | Medium | `docs/players/players-vehicles.md` |
+| modders-lua-api-surface | The Project Zomboid Lua API Surface: Java-Exposed Classes, Globals and the Per-Build Differences | Lua API surface | 2 | both | 0.2.0 | in-review | Medium | `docs/modders/modders-lua-api-surface.md` |
+| modders-events-callbacks | Events and Callbacks: Hooking the Game Loop with Events.X.Add | Events & callbacks | 2 | both | 0.2.0 | in-review | Medium | `docs/modders/modders-events-callbacks.md` |
+| modders-modoptions-pzapi | PZAPI.ModOptions and the B42 Mod Settings API: Building an Options Screen | ModOptions & PZAPI | 2 | both | 0.2.0 | in-review | Medium | `docs/modders/modders-modoptions-pzapi.md` |
+| modders-item-scripts-distributions | Item Scripts, Recipes and Loot Distributions: Defining Content Through Script Files | Item scripts & distributions | 2 | both | 0.3.0 | in-review | Medium | `docs/modders/modders-item-scripts-distributions.md` |
+| modders-mp-networking-porting | Multiplayer Mod Networking: Client/Server Lua, sendClientCommand and Porting for B42 MP | MP networking porting | 2 | both | 0.3.0 | in-review | Medium | `docs/modders/modders-mp-networking-porting.md` |
+| modders-modinfo-modid-conventions | mod.info, Mod IDs and the B42 Versioned Mod Folder Layout | mod.info & Mod ID conventions | 2 | both | 0.2.0 | in-review | Medium | `docs/modders/modders-modinfo-modid-conventions.md` |
+| modders-first-mod-tutorial-b42 | Your First Build 42 Mod: A Verified Step-by-Step Tutorial | First mod tutorial | 3 | B42 | 0.2.0 | in-review | Medium | `docs/modders/modders-first-mod-tutorial-b42.md` |
+| modders-porting-b41-to-b42 | Porting a Build 41 Mod to Build 42: A Diff-Driven Checklist | Porting B41 mods to B42 | 3 | both | 0.3.0 | in-review | Medium | `docs/modders/modders-porting-b41-to-b42.md` |
+| creator-format-catalogue | Project Zomboid Content Format Catalogue: What Works, What It Costs and Which Build It Needs | Format catalogue | 2 | B42 | 0.2.0 | in-review | Medium | `docs/creator/creator-format-catalogue.md` |
+| creator-channel-competitor-map | The Project Zomboid Creator Landscape: Channels, Niches and Gaps | Channel & competitor map | 2 | B42 | 0.2.0 | in-review | Medium | `docs/creator/creator-channel-competitor-map.md` |
+| creator-cross-promotion-funnel | From Video to Server to Mod: A Cross-Promotion Funnel for a Project Zomboid Creator | Cross-promotion funnel | 2 | B42 | 0.2.0 | in-review | Medium | `docs/creator/creator-cross-promotion-funnel.md` |
+| creator-content-calendar | Post-Launch Content Calendar for Build 42: Release Rhythm, Patch Hooks and Evergreen Slots | Content calendar | 3 | B42 | 0.2.0 | in-review | Medium | `docs/creator/creator-content-calendar.md` |
+| lore-in-world-media | In-World Media: Radio, Television, Print and Found Documents in Knox Country | In-world media | 4 | both | 0.2.0 | in-review | Medium | `docs/lore/lore-in-world-media.md` |
+| lore-knox-event-timeline | The Knox Event Timeline: What the Game Says Happened and When | Knox Event timeline | 4 | historic | 0.2.0 | in-review | Medium | `docs/lore/lore-knox-event-timeline.md` |
+| meta-release-versioning-policy | Release and Versioning Policy: Document Versions, kb-release Tags and Game-Build Pins | Release & versioning policy | 4 | both | 0.2.0 | in-review | High | `docs/meta/meta-release-versioning-policy.md` |
+| meta-source-registry-companion | Source Registry Companion: How Each Source Is Reached, What Is Ingested and What Is Blocked | Source registry companion | 4 | both | 0.2.0 | in-review | Medium | `docs/meta/meta-source-registry-companion.md` |
 
 ## Knowledge graph
 

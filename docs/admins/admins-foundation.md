@@ -1,7 +1,7 @@
 ---
 id: admins-foundation
 title: "Running a Project Zomboid Dedicated Server: Architecture, Branches and Hosting Choices"
-version: 1.0.1
+version: 1.1.0
 status: approved
 confidence: Medium
 category: Admins
@@ -9,13 +9,13 @@ topic: "Server foundations"
 build: both
 document_type: overview
 created: 2026-07-30
-updated: 2026-07-30
-review_due: 2026-10-30
-sources_verified: 2026-07-30
+updated: 2026-10-07
+review_due: 2027-01-07
+sources_verified: 2026-10-07
 supersedes: null
 related: [modders-foundation, players-foundation, creator-foundation, lore-foundation, meta-style-guide]
 tags: [dedicated-server, steamcmd, rcon, hosting, server-ini, sandboxvars, b42, legacy41]
-game_versions_verified: ["41.78.16", "42.20"]
+game_versions_verified: ["41.78.16", "41.78.21", "42.20", "42.21"]
 ---
 
 # Document Control
@@ -23,29 +23,29 @@ game_versions_verified: ["41.78.16", "42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | admins-foundation |
-| Version | 1.0.1 |
+| Version | 1.1.0 |
 | Status | approved |
 | Confidence | Medium |
 | Category (track) | Admins |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-07-30 |
-| Review due | 2026-10-30 |
-| Game versions verified | 41.78.16, 42.20 |
+| Updated | 2026-10-07 |
+| Review due | 2027-01-07 |
+| Game versions verified | 41.78.16, 41.78.21, 42.20, 42.21 |
 
 # Executive Summary
 
 A Project Zomboid dedicated server is a headless Java game-server process, distributed free of charge as Steam App ID 380870 and installable with an anonymous SteamCMD login on Windows or Linux [7]. This document is the foundation of the Admins track: it maps what the server is, which build branches exist and why build matching matters, where the configuration lives (`servertest.ini` vs `servertest_SandboxVars.lua`), which ports must be open, how memory is sized, how mods are wired in, and what the open-source admin tooling landscape looks like. Deeper Admins-track runbooks (installation step-by-step, settings reference, RCON operations, mod management) will hang off this overview.
 
-The operational headline of mid-2026 is the branch split. Build 42.20 became the stable public build on 2026-07-29, the first stable release of Build 42 and the first stable build with B42 multiplayer [1] [2]. Communities that want to stay on Build 41.78 — whose saves cannot migrate — move server and players together to the `legacy41` Steam beta branch [2] [3]. Build 42's multiplayer, restored in unstable 42.13 (2025-12-11), arrives at stable with a reworked, re-enabled anti-cheat and item-handling logic moved server-side, which changes both the security posture and the resource profile of a B42 server [1] [5] [6].
+The operational headline of mid-2026 is the branch split. Build 42.20 became the stable public build on 2026-07-29, the first stable release of Build 42 and the first stable build with B42 multiplayer [1] [2]. Build 42.21 has been the stable build since 2026-09-28 [22]. Communities that want to stay on Build 41.78 — whose saves cannot migrate — move server and players together to the `legacy41` Steam beta branch [2] [3]; that branch is still maintained, with 41.78.21 a security hotfix on 2026-08-26 [21]. Build 42's multiplayer, restored in unstable 42.13 (2025-12-11), arrives at stable with a reworked, re-enabled anti-cheat and item-handling logic moved server-side, which changes both the security posture and the resource profile of a B42 server [1] [5] [6].
 
 Document-level confidence is **Medium**: the branch, port, file-layout and anti-cheat spine rests on official announcements and current pzwiki revisions (High), but the hardware-sizing numbers that admins most want — RAM per player tier and CPU single-thread behaviour — exist only in hosting-company and community sources with conflicting values, and are quarantined below rather than stated as fact.
 
 # Key Takeaways
 
 - The dedicated server is a free Steam tool: SteamCMD App ID **380870**, installed with `login anonymous` — no game purchase is needed on the host account *(cited)* *(both)*
-- Build 42.20 is the stable branch since 2026-07-29; B41 communities run `app_update 380870 -beta legacy41 validate` and keep their players on the `legacy41` client beta — server and clients must be on the same build *(cited)*
+- Build 42.20.0 became stable on 2026-07-29 and 42.21 has been the stable build since 2026-09-28; B41 communities run `app_update 380870 -beta legacy41 validate` and keep their players on the `legacy41` client beta — server and clients must be on the same build *(cited)*
 - Two config surfaces per server name: `servertest.ini` (server/network/mod settings) and `servertest_SandboxVars.lua` (gameplay rules), plus spawnpoint and spawnregion Lua files, all under `Zomboid/Server` in the server user's home directory *(cited)* *(both)*
 - Open **UDP 16261 and 16262** to the internet; RCON listens separately on `RCONPort` (default 27015) guarded by `RCONPassword` *(cited)* *(both)*
 - Memory is set with JVM `-Xms`/`-Xmx` flags; the B42 `StartServer64.bat` ships with a 16 GB default you **must** edit down or the server can fail to start *(cited)* *(B42)*
@@ -78,8 +78,10 @@ Not covered: a full step-by-step install runbook, the per-setting `server.ini` a
 
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
-| B41 (legacy41) | Yes | 41.78.16 | Server reachable via `app_update 380870 -beta legacy41 validate` [7]; B41-only values tagged *(B41)* |
-| B42 (stable) | Yes | 42.20 | Stable since 2026-07-29 [1] [2]; B42-only values tagged *(B42)* |
+| B41 (legacy41) | Yes | 41.78.16; latest primary-attested legacy release 41.78.21 | Server reachable via `app_update 380870 -beta legacy41 validate` [7]; B41-only values tagged *(B41)*; 41.78.21 (2026-08-26) is a security hotfix [21] |
+| B42 (stable) | Yes | 42.20; re-checked against 42.21 | 42.20.0 stable since 2026-07-29 [1] [2], 42.21 stable since 2026-09-28 [22]; B42-only values tagged *(B42)* |
+
+Revision note (2026-10-07): this document was re-checked against the Steam posts for 42.20.1, 42.20.3, 42.20.4/41.78.21 and 42.21 stable and the TIS forum 42.21 patch notes (selected items only) [19] [20] [21] [22] [23]. Only statements those sources affect were changed; everything else is carried forward unchanged from the 2026-07-30 review (41.78.16, 42.20) with no contradicting change found in them. It was not re-tested on a live server, and the cited pzwiki revisions were not refreshed against 42.21.
 
 The pzwiki pages cited for the file layout, ports and settings are versioned against 42.20.0 [7] [8]. The same surfaces (App ID, ports, file names, dual mod lists) existed on B41, but this document's wiki verification is against the B42-era page revisions; where a value is only confirmed for one build it is tagged inline.
 
@@ -93,11 +95,11 @@ The dedicated server hosts Project Zomboid multiplayer on either Windows or Linu
 
 There are two supported install paths: the "Project Zomboid Dedicated Server" tool in the Steam library's tools section, or SteamCMD [7]. The SteamCMD sequence is `force_install_dir <path>`, then `login anonymous`, then `app_update 380870 validate` — the server is App ID 380870 and needs no owned account [7]. The pzwiki Linux instructions (versioned 42.20.0) are Debian/Ubuntu-first: install `steamcmd` from apt, create a dedicated non-root `pzuser`, install to `/opt/pzserver`, and drive updates from a reusable `update_zomboid.txt` SteamCMD script [7]. The community-maintained Bobagi guide follows the same shape for Ubuntu 22.04/24.04 LTS — UFW firewall rules, a dedicated Steam user, SteamCMD install of App 380870, and `screen` for a persistent console session [14]. The wiki warns against launching the server through the Steam client UI; if that happens, file integrity should be re-verified [7].
 
-## The branch picture: 42.20 stable, legacy41 and 42.19
+## The branch picture: 42.21 stable, legacy41 and 42.19
 
-Build 42.20.0 was released to the stable branch on 2026-07-29 [1]. Build 41 savegames are not compatible with Build 42, and The Indie Stone's guidance to B41 server owners and their players is to opt into the `legacy41` beta branch — client side via Steam Properties → "Game Versions & Betas" → `legacy41`, and server side by adding the beta flag to the SteamCMD update command: `app_update 380870 -beta legacy41 validate` [2] [3] [7]. A separate `42.19` beta branch exists for finishing unstable-era 42.19 saves, which are likewise incompatible with 42.20 [2].
+Build 42.20.0 was released to the stable branch on 2026-07-29 [1]; four hotfixes followed (42.20.1 on 2026-08-05, 42.20.3 on 2026-08-17, 42.20.4 on 2026-08-26) [19] [20] [21], and 42.21 reached stable on 2026-09-28 after an unstable test cycle that began 2026-09-23 [22] [23]. The studio says its standard procedure going forward is unstable first, then stable [22]. Build 41 savegames are not compatible with Build 42, and The Indie Stone's guidance to B41 server owners and their players is to opt into the `legacy41` beta branch — client side via Steam Properties → "Game Versions & Betas" → `legacy41`, and server side by adding the beta flag to the SteamCMD update command: `app_update 380870 -beta legacy41 validate` [2] [3] [7]. A separate `42.19` beta branch exists for finishing unstable-era 42.19 saves, which are likewise incompatible with 42.20 [2]. The legacy line is still patched: 41.78.21 shipped on 2026-08-26 in a single hotfix note shared with 42.20.4 and 42.19.2 [21]. For B42 saves, the 42.21 notes state that saves from 42.20.4 should not be affected by 42.21 and advise backing up first [23]. A 42.20.1 fix also stopped broken B41 worlds from being hosted on B42 servers [19].
 
-Build matching between server and clients is enforced in two ways: operationally, the checklist post tells server owners to move themselves "(and your players)" to the branch together before the switch date, because a community split across builds cannot play together [2] [3]; and mechanically, the `DoLuaChecksum=true` server setting kicks clients whose game files do not match the server's [8].
+Build matching between server and clients is enforced in two ways: operationally, the checklist post tells server owners to move themselves "(and your players)" to the branch together before the switch date, because a community split across builds cannot play together [2] [3]; and mechanically, the `DoLuaChecksum=true` server setting kicks clients whose game files do not match the server's [8]. 42.20.1 further improved Lua checksum validation for multiplayer anti-cheat [19], and 42.21 added a notification for players who try to connect to a server running a different game version [23].
 
 ## Configuration surfaces: server.ini vs SandboxVars
 
@@ -126,11 +128,13 @@ Server heap size is controlled by the JVM `-Xms` (initial) and `-Xmx` (maximum) 
 
 When B42 multiplayer shipped in unstable 42.13 (2025-12-11), it was explicitly work-in-progress for stress testing: the release guidance was to prefer Steam co-op or whitelisted servers, keep dedicated servers to at most 20 player slots "for now", disable mods (even client-side ones), and avoid debug mode during MP sessions [5] [6]. Those are unstable-era operating limits, published for 42.13 and not re-stated (either as still-current or as lifted) in the 42.20 release notes [1] [5].
 
+Later hotfixes extended the multiplayer picture. 42.20.1 fixed a chunk-unloading performance problem on multiplayer servers that the notes link to server lag on high-population servers [19]. 42.20.3 improved server player-limit handling, including support for up to 254 players and administrator access when a server is full [20]; the post does not say what population is performant, so it does not by itself rescind the 42.13-era slot advisory. 42.21 added a server-browser change (the update column shows the last wipe rather than the last restart), fixed players entering dedicated servers without correct Steam authentication (which had blocked SteamID bans), expanded the anti-cheat system, and fixed a memory leak caused by eating from a vehicle trunk (selected items from the forum notes) [23]. Memory-leak fixes also appear in 42.20.1 and 42.20.3 [19] [20].
+
 At stable, 42.20's release notes describe a security-hardened server: anti-cheats were "Re-Worked and Re-Enabled"; the `antiCheatItem` mechanism was "removed as now server-side"; anti-cheat logging was improved and false positives fixed; and a series of exploits was closed — arbitrary item spawning, illegal XP gains, foraging manipulation, and a hole that let clients duplicate a dedicated server's map data *(B42)* [1]. The current server-settings reference exposes a family of `AntiCheat*` toggles — among them checksum, hit, no-clip, packet-exception, permission, player, safehouse, safety, speed and XP checks — alongside a `SteamVAC` switch *(B42, page versioned 42.20.0)* [8]. 42.20 also added server-operator conveniences: a "Show coordinates" server option, ZNet/packet-logging improvements, object-pool statistics for monitoring, and fixes for server hangs during chunk generation and for map-visited data not persisting across restarts [1]. The community claim that this server-side shift makes B42 meaningfully heavier on CPU than B41 is quarantined below (Claim 3).
 
 ## Mod wiring basics
 
-Mods are declared in `servertest.ini` on two paired lists: `WorkshopItems=` carries the Steam Workshop item IDs the server should download, semicolon-separated (the reference example is `WorkshopItems=514427485;513111049`), and `Mods=` carries the mod loading IDs — the internal IDs found in each mod's `info.txt` under the Workshop content folder [7] [8]. The wiki's workflow is: collect the mods in a Workshop collection, extract the paired IDs (it points to a community ID-grabber tool), then paste them into the two lists [7]. Workshop mods added to a server are downloaded automatically by connecting clients [7]. On B42, mods themselves use the new versioned folder layout (a mandatory `common/` folder plus `42.x` version folders) rather than B41's flat `media/` layout, which is why B41-era mods needed restructuring for B42 servers *(B42)* [10]. The claimed B42-only backslash prefix on `Mods=` entries could not be verified against any primary source and is quarantined below (Claim 2).
+Mods are declared in `servertest.ini` on two paired lists: `WorkshopItems=` carries the Steam Workshop item IDs the server should download, semicolon-separated (the reference example is `WorkshopItems=514427485;513111049`), and `Mods=` carries the mod loading IDs — the internal IDs found in each mod's `info.txt` under the Workshop content folder [7] [8]. The wiki's workflow is: collect the mods in a Workshop collection, extract the paired IDs (it points to a community ID-grabber tool), then paste them into the two lists [7]. Workshop mods added to a server are downloaded automatically by connecting clients [7]. Mod and server authors should also know the `loadstring` and `loadstream` Lua methods were removed in 42.20.4 as part of a security fix [21] and re-enabled in 42.21 [22] [23]; the same 2026-08-26 hotfix note also covers the 41.78.21 legacy build, and no source reviewed says whether legacy41 got them back. On B42, mods themselves use the new versioned folder layout (a mandatory `common/` folder plus `42.x` version folders) rather than B41's flat `media/` layout, which is why B41-era mods needed restructuring for B42 servers *(B42)* [10]. The claimed B42-only backslash prefix on `Mods=` entries could not be verified against any primary source and is quarantined below (Claim 2).
 
 ## The admin tooling landscape
 
@@ -152,9 +156,9 @@ Self-hosting is fully supported by the free server distribution and first-class 
 
 | Area | Build 41.78 *(B41)* | Build 42.20 *(B42)* |
 |------|---------------------|---------------------|
-| Branch | Served from the `legacy41` beta branch; installed with `app_update 380870 -beta legacy41 validate` [2] [7] | Default stable branch since 2026-07-29 [1] [2] |
+| Branch | Served from the `legacy41` beta branch; installed with `app_update 380870 -beta legacy41 validate` [2] [7]; latest primary-attested release 41.78.21 [21] | Default stable branch since 2026-07-29 (42.20.0), 42.21 since 2026-09-28 [1] [2] [22] |
 | Saves & matching | B41 worlds live only on `legacy41`; server and players must move branch together [2] [3] | B41 and 42.19-unstable saves cannot migrate to 42.20 [2] |
-| Multiplayer maturity | Long-stable MP [2] | MP restored in unstable 42.13 (2025-12-11) with a 20-player-slot advisory and mods-off guidance; first stable MP in 42.20 [1] [5] [6] |
+| Multiplayer maturity | Long-stable MP [2] | MP restored in unstable 42.13 (2025-12-11) with a 20-player-slot advisory and mods-off guidance; first stable MP in 42.20; up to 254 players supported by the server limit handling from 42.20.3 [1] [5] [6] [20] |
 | Anti-cheat | B41-era anti-cheat model | Anti-cheat reworked and re-enabled at 42.20; item anti-cheat moved server-side; item-spawn/XP/foraging exploits and a map-data-copy exploit fixed [1] |
 | Server-side surface | Fewer server-side checks | `AntiCheat*` toggle family (checksum, speed, XP, safehouse, etc.) plus improved server logging/monitoring in the 42.20-era settings reference [1] [8] |
 | Mod layout served | Flat `media/` mod structure [10] | Versioned `common/` + `42.x` mod folder structure; B41 mods need restructuring [10] |
@@ -213,8 +217,8 @@ The one-line version: the server you operate is recognisably the same artifact o
 
 # Risks & Caveats
 
-- **Day-one stable.** 42.20 is one day old at the time of writing and hotfixes are expected; any 42.20-specific behaviour cited here (anti-cheat toggles, server options) could shift within weeks [1] [3].
-- **Unstable-era operating limits.** The ≤20-player and mods-off guidance was published for 42.13 unstable and has not been re-stated or rescinded for 42.20 [5] [6]; treating it as still-binding is conservative, not confirmed.
+- **Fast-moving stable.** 42.20.0 was followed by hotfixes within days and by 42.21 two months later [19] [20] [21] [22]; the anti-cheat toggles and server options cited from 42.20-era pages were not re-read against 42.21, which fixed server options such as Safety Disconnect Delay and expanded anti-cheat [23].
+- **Unstable-era operating limits.** The ≤20-player and mods-off guidance was published for 42.13 unstable and has not been re-stated or rescinded for 42.20 [5] [6]; 42.20.3 added support for up to 254 players without commenting on performance [20]. Treating the old advisory as still-binding is conservative, not confirmed.
 - **Wiki verification is B42-sided.** The cited Dedicated server and Server settings revisions are versioned 42.20.0 [7] [8]; B41 continuity of those surfaces is asserted from the unchanged workflow and the `legacy41` install path, not from a B41-era page revision.
 - **All hardware-sizing numbers are non-primary.** Claims 1 and 3 are the load-bearing caveat of this document: no RAM table or threading statement here comes from The Indie Stone.
 - **Steam announcement mirrors.** Primary citations use steamcommunity.com announcement URLs (verified via the ISteamNews API mirror per project source policy); these hosts bot-block automated link checkers.
@@ -231,7 +235,8 @@ The one-line version: the server you operate is recognisably the same artifact o
 
 # Open Questions
 
-- Do the 42.13-era MP limits (≤20 player slots, mods discouraged) still reflect The Indie Stone's guidance on 42.20 stable, or has scale headroom improved? A dev statement or Thursdoid would resolve it [5] [6].
+- Do the 42.13-era MP limits (≤20 player slots, mods discouraged) still reflect The Indie Stone's guidance on current stable, or has scale headroom improved? 42.20.3 raised the supported player-limit ceiling to 254 [20] but states no recommended population; a dev statement or Thursdoid would resolve it [5] [6].
+- Were `loadstring`/`loadstream` re-enabled on legacy41 as they were on 42.21 stable [21] [22] [23]? No source reviewed says.
 - Is the backslash `Mods=` convention (Claim 2) real on 42.20, and if so where did it originate — game code, a specific unstable build, or hosting-panel tooling? The empirical test in Verification Steps resolves the behaviour; a changelog entry would resolve the provenance.
 - What does the B42 server actually thread across cores (Claim 3)? Profiling on 42.20, or developer comment via the GSP feedback channel, would resolve it [4].
 - Will The Indie Stone publish official server sizing guidance now that a GSP engagement channel exists [4]?
@@ -254,6 +259,12 @@ The one-line version: the server you operate is recognisably the same artifact o
 - [8] **PZwiki** — *Server settings* (revision 1443167; page versioned against 42.20.0). https://pzwiki.net/w/index.php?title=Server_settings&oldid=1443167. Accessed 2026-07-30. Fact-only source.
 - [9] **PZwiki** — *Startup parameters* (revision 1393745). https://pzwiki.net/w/index.php?title=Startup_parameters&oldid=1393745. Accessed 2026-07-30. Fact-only source.
 - [10] **PZwiki** — *Mod structure* (revision 1443271; page versioned against 42.14.0). https://pzwiki.net/w/index.php?title=Mod_structure&oldid=1443271. Accessed 2026-07-30. Fact-only source.
+
+- [19] **The Indie Stone** — *42.20.1 STABLE Hotfix Released* (Steam announcement, 2026-08-05). https://steamcommunity.com/games/108600/announcements/detail/1840310314338766. Accessed 2026-10-07.
+- [20] **The Indie Stone** — *42.20.3 STABLE Hotfix Released* (Steam announcement, 2026-08-17). https://steamcommunity.com/games/108600/announcements/detail/1840944183785895. Accessed 2026-10-07.
+- [21] **The Indie Stone** — *42.20.4 STABLE & 42.19.2 UNSTABLE & 41.78.21 LEGACY Hotfixes Released* (Steam announcement, 2026-08-26). https://steamcommunity.com/games/108600/announcements/detail/1842212951296601. Accessed 2026-10-07.
+- [22] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307. Accessed 2026-10-07.
+- [23] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, selected changes only; 2026-09-23). https://theindiestone.com/forums/topic/101693-4221-patch-notes/. Accessed 2026-10-07.
 
 **Secondary & Corroborating**
 
@@ -293,3 +304,4 @@ The one-line version: the server you operate is recognisably the same artifact o
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
 | 1.0.1 | 2026-07-30 | Orchestrator (KB Pipeline) | License-hygiene prose rewrites after arming the pzwiki n-gram gate (no factual changes). | Standing mandate (2026-07-30) |
+| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21 stable and legacy 41.78.21 against the 42.20.1, 42.20.3, 42.20.4/41.78.21 and 42.21 stable Steam posts and the 42.21 forum notes [19] [20] [21] [22] [23]: branch/version facts, 254-player limit, server-browser/auth/anti-cheat changes, loadstring status, save-safety note. | Pending (frozen document; factual change requires re-approval) |

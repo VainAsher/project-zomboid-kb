@@ -1,7 +1,7 @@
 ---
 id: creator-channel-competitor-map
 title: "The Project Zomboid Creator Landscape: Channels, Niches and Gaps"
-version: 0.1.0
+version: 0.2.0
 status: in-review
 confidence: Medium
 category: Creator
@@ -10,12 +10,12 @@ build: B42
 document_type: reference
 created: 2026-10-07
 updated: 2026-10-07
-review_due: 2027-01-05
+review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
 related: [creator-foundation, creator-format-catalogue, creator-cross-promotion-funnel, creator-content-calendar, players-beginner-guide-b42, players-b41-to-b42-transition, admins-modded-server-runbook, modders-first-mod-tutorial-b42, meta-style-guide]
 tags: [creator, youtube, competitor-map, channels, niches, content-gaps, b42-stable, upload-cadence]
-game_versions_verified: ["42.20"]
+game_versions_verified: ["42.21"]
 ---
 
 # Document Control
@@ -23,7 +23,7 @@ game_versions_verified: ["42.20"]
 | Field | Value |
 |-------|-------|
 | Document ID | creator-channel-competitor-map |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Status | in-review |
 | Confidence | Medium |
 | Category (track) | Creator |
@@ -31,8 +31,8 @@ game_versions_verified: ["42.20"]
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
 | Updated | 2026-10-07 |
-| Review due | 2027-01-05 |
-| Game versions verified | 42.20 (B42 stable is 42.21 since 2026-09-28) |
+| Review due | 2027-01-07 |
+| Game versions verified | 42.21 (release sequence and change list re-read 2026-10-07; no mechanics claimed) |
 
 # Executive Summary
 
@@ -54,8 +54,9 @@ branch in its titles until June 2026 and now titles videos against plain
 "B42" [7]. Mattsi's most recent upload is dated 2026-02-06 [8].
 
 Build 42 stable has moved on since the creator track's foundation was
-written: 42.21 reached stable on 2026-09-28 [1], so any B42 footage dated
-before that is 42.20-era [2]. Document confidence is **Medium**. The facts
+written: 42.21 reached stable on 2026-09-28 [1], so stable-branch B42 footage
+dated before that predates the 42.21 changes, which include zombie-persistence
+fixes, XXL-tree cutaway changes and Welder starting-recipe changes [3][17]. Document confidence is **Medium**. The facts
 are first-hand and dated, but they are a sample (the most recent fifteen
 uploads per channel plus four search probes), the search probes are ranked by
 YouTube's own algorithm, and the Twitch layer of the landscape could not be
@@ -74,8 +75,9 @@ opened at all.
   "Unstable" in the two most recent uploads *(cited)* [7].
 - Mattsi's last upload is dated 2026-02-06, eight months before the
   retrieval date *(cited)* [8].
-- B42 stable is 42.21 as of 2026-09-28; 42.20 is the version this KB last
-  verified game facts against *(cited)* *(B42)* [1][2].
+- B42 stable is 42.21 as of 2026-09-28; the preceding stable was 42.20.0
+  (2026-07-29) with hotfixes, so stable footage dated before 2026-09-28 is
+  pre-42.21 *(cited)* *(B42)* [1][2][17].
 - The four topic probes (modding, dedicated servers, lore, B41-to-B42
   changes) each returned a populated result page, so "gap" here means thin
   recency on the current build, not absence *(cited, search snapshot)*
@@ -129,12 +131,14 @@ re-reading it here.
 | Build | Applies | Verified against | Notes |
 |-------|---------|------------------|-------|
 | B41 (legacy41) | Context only | — | Appears as the build older guide videos were made on; a legacy line still receives hotfixes [2] |
-| B42 (stable) | Yes | 42.20 (game facts); 42.21 is current stable | 42.21 was released to stable on 2026-09-28 after an unstable pass beginning 2026-09-23 [1][3]; this document records channel behaviour, not mechanics |
+| B42 (stable) | Yes | 42.21 (release sequence and change list) | 42.21 was released to stable on 2026-09-28 after an unstable pass beginning 2026-09-23 [1][3]; this document records channel behaviour, not mechanics |
 
 The ecosystem data in this document is a 2026-10-07 snapshot and decays far
 faster than any game build. Titles that mention "B42" or "Build 42" do not
 state a point release, so none of the channel videos is claimed to be
-42.20- or 42.21-accurate.
+42.20- or 42.21-accurate. This revision re-checked the release sequence
+against the Steam posts [1][2][3] and the TIS forum 42.21 patch notes (read in
+abridged form) [17]; channel and search data were not re-fetched.
 
 # Reference
 
@@ -214,7 +218,10 @@ video (2026-10-05) [11], and MrAtomicDuck's unstable-branch news video
 release [7]. No title in ambiguousamphibian's sample names a build [4]. The
 official 42.21 announcement states that the build went from unstable to
 stable on 2026-09-28 and adds that releases will follow an
-unstable-then-stable path as standard procedure [1].
+unstable-then-stable path as standard procedure [1]. The forum change list for
+42.21 includes fixes for vanishing and duplicated zombies, XXL-tree cutaway
+changes, a Welder-occupation starting-recipe change and map and UI updates, so
+a "what's new in 42.21" video can be checked against a primary list [17].
 
 ## Topic-coverage probes
 
@@ -354,8 +361,8 @@ cadence or recency claim.
   2027-01-05 is a soft deadline; a creator-facing decision should use a fresh
   pull.
 - **Release context.** The game facts rest on the Steam announcements [1][2]
-  [3]; hotfixes after 2026-09-28 may already have changed what a tutorial
-  should say.
+  [3] and the abridged 42.21 forum list [17]; hotfixes after 2026-09-28 may
+  already have changed what a tutorial should say.
 
 # Verification Steps
 
@@ -368,7 +375,7 @@ cadence or recency claim.
 3. Repeat the four search probes [13][14][15][16] and compare uploader and
    age distributions.
 4. Confirm the 42.21 stable date and the unstable-first procedure in the
-   Steam announcements [1][3].
+   Steam announcements [1][3], and the change list in the forum post [17].
 5. For Claim 1, open each creator's Twitch page directly and record
    whatever it shows with a date.
 
@@ -393,6 +400,7 @@ cadence or recency claim.
 - [1] **The Indie Stone** — *Build 42.21 Stable Released* (Steam announcement, 2026-09-28). https://steamcommunity.com/games/108600/announcements/detail/1844751498231307 Accessed 2026-10-07 via the Steam news API (ISteamNews, app 108600); host is bot-block allowlisted.
 - [2] **The Indie Stone** — *Build 42.20.0 Stable Released* (Steam announcement, 2026-07-29). https://steamcommunity.com/games/108600/announcements/detail/1839676055882259 Accessed 2026-10-07 via the Steam news API; host is bot-block allowlisted.
 - [3] **The Indie Stone** — *Re-population of the Dead: Build 42.21 Unstable Released* (Steam announcement, 2026-09-23). https://steamcommunity.com/games/108600/announcements/detail/1844751498218925 Accessed 2026-10-07 via the Steam news API; host is bot-block allowlisted.
+- [17] **The Indie Stone** — *42.21 Patch Notes* (TIS forum topic 101693, first post 2026-09-23; abridged change list). https://theindiestone.com/forums/topic/101693-4221-patch-notes/ Accessed 2026-10-07.
 
 **Fact-Only Sources (no prose reuse)**
 
@@ -446,3 +454,4 @@ cadence or recency claim.
 | Version | Date | Author | Change | Approved By |
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
+| 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: replaced "42.20-era" and "last verified on 42.20" statements; added the TIS forum 42.21 patch notes [17] for what changed; YouTube snapshot data unchanged (2026-10-07). | — |
