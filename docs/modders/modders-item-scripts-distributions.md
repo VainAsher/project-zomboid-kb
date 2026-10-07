@@ -1,15 +1,15 @@
 ---
 id: modders-item-scripts-distributions
 title: "Item Scripts, Recipes and Loot Distributions: Defining Content Through Script Files"
-version: 0.3.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Modders
 topic: "Item scripts & distributions"
 build: both
 document_type: reference
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | modders-item-scripts-distributions |
-| Version | 0.3.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Modders |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16 (Umbrella stubs), 42.20 (Umbrella 42.20.0 stubs), 42.21 (Umbrella 42.21.0 stubs and the 42.20.1 to 42.21 notes); ScriptsDocs pages are stamped 42.21.0 |
 
@@ -683,3 +683,4 @@ Working habits that follow from the sources:
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (virtual agent) | Added the 42.13+ registry system from the official migration guide; resolved the ItemType and tag-registration open questions. | — |
 | 0.3.0 | 2026-10-07 | KB Pipeline (virtual agent) | Re-baselined 42.20 to 42.21: re-checked against Umbrella 42.21.0 stubs (distribution and ItemTag stubs unchanged; `Recipe` name loses six members) and the 42.20.1 to 42.21 notes (`%%` translations, `.json` writes, localization update, missing-translation/recipe exception, loader re-enable). Sources: Steam posts [29] [30] [36] [2] [5], forum notes [31], Umbrella 42.21.0 [32] [33] [34] [35]. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.3.0 text. | Project owner (user instruction 2026-10-08) |

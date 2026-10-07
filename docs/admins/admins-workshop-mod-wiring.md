@@ -1,15 +1,15 @@
 ---
 id: admins-workshop-mod-wiring
 title: "Wiring Workshop Mods into a Server: IDs, Load Order and Updates"
-version: 0.2.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Admins
 topic: "Server operations"
 build: both
 document_type: reference
 created: 2026-07-31
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | admins-workshop-mod-wiring |
-| Version | 0.2.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Admins |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16, 42.20, 42.21 |
 
@@ -671,3 +671,4 @@ revision id; facts only, never prose.
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21 (stable 2026-09-28): added a Reference section on 42.20.1-42.21 notes bearing on Workshop wiring (Lua checksum validation, loadstring/loadstream removal and re-enable, game-version mismatch notice, no documented change to Workshop fetch behaviour); updated Build Applicability, Delta, Risks and Open Questions. Sources: Steam posts 42.20.1, 42.20.4+41.78.21, 42.21 unstable and stable; TIS forum 42.21 patch notes. Unchanged statements carried forward from 42.20, not re-tested. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. | Project owner (user instruction 2026-10-08) |

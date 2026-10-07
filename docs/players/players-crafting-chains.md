@@ -1,15 +1,15 @@
 ---
 id: players-crafting-chains
 title: "The B42 Crafting Overhaul: From Knapping to Blacksmithing"
-version: 0.2.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Players
 topic: "Crafting"
 build: both
 document_type: reference
 created: 2026-07-30
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | players-crafting-chains |
-| Version | 0.2.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Players |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16, 42.20, 42.21 |
 
@@ -290,3 +290,4 @@ The one-line version: B41 crafting asked "do I have the items?"; B42 crafting as
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | 42.21 re-baseline against the 42.20.1–42.20.4 hotfix notes, the 42.21 unstable and stable Steam posts and the abridged TIS forum 42.21 changelist: new 'What 42.21 changed' section (Welder Welding recipes, 86 more oven water-purification containers, washing machines clean rags/strips/bandages, antibiotics pack-in-box, CharacterTraitScriptGenerator recipe fix); crafting UI station-removal and Making Sinew animation fixes; stale 'Metalworker' guidance corrected to Welder. Rebase is a patch-notes review, not an in-game re-test. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. | Project owner (user instruction 2026-10-08) |

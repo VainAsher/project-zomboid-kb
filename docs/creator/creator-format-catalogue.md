@@ -1,15 +1,15 @@
 ---
 id: creator-format-catalogue
 title: "Project Zomboid Content Format Catalogue: What Works, What It Costs and Which Build It Needs"
-version: 0.2.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Creator
 topic: "Format catalogue"
 build: B42
 document_type: reference
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | creator-format-catalogue |
-| Version | 0.2.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Creator |
 | Build | B42 |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 42.21 (patch posts 42.20.0 to 42.21 and the TIS forum 42.21 change list read 2026-10-07; not re-tested in game) |
 
@@ -436,3 +436,4 @@ None of the videos in the sample is a source for any game fact in this KB.
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: patch table and re-record matrix extended from the TIS forum 42.21 patch notes [38] (Welder start recipes, XXL trees, map and spawn-selection UI, localization, farming and refrigeration, MP notices); corrected "hotfix waves" count; game_versions_verified set to 42.21. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. | Project owner (user instruction 2026-10-08) |

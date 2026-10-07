@@ -1,15 +1,15 @@
 ---
 id: admins-rcon-commands
 title: "RCON and Admin Commands: Operating a Live Server"
-version: 0.2.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Admins
 topic: "Server operations"
 build: both
 document_type: reference
 created: 2026-07-31
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["41.78.16", "42.17.0", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | admins-rcon-commands |
-| Version | 0.2.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Admins |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16 (B41 page revision); 42.17.0 (B42 page revision); 42.21 (patch notes reviewed; stable is 42.21) |
 
@@ -407,3 +407,4 @@ Operationally: a B41 (`legacy41`) runbook loses `/replay` and `/clear` nothing e
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: reviewed 42.20.3 [8], 42.21 unstable [9] and stable [10] Steam notes and the TIS forum changelist [11]; added admin-command fix notes (teleport, grantadmin/setaccesslevel, SteamID bans), scope statement; roster not re-run on 42.21. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. | Project owner (user instruction 2026-10-08) |

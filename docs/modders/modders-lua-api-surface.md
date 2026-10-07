@@ -1,15 +1,15 @@
 ---
 id: modders-lua-api-surface
 title: "The Project Zomboid Lua API Surface: Java-Exposed Classes, Globals and the Per-Build Differences"
-version: 0.2.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Modders
 topic: "Lua API surface"
 build: both
 document_type: reference
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | modders-lua-api-surface |
-| Version | 0.2.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Modders |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16 (stubs), 42.21.0 (stubs; 42.20.0 stubs kept for comparison) |
 
@@ -535,3 +535,4 @@ local z = square and square:getZ()
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined from 42.20.0 to 42.21: Umbrella pin moved to 13d01f9 (42.21.0) and all index counts recomputed; `loadstring`/`loadstream` removed in 42.20.4 and re-enabled in 42.21, with the stub-lag caveat; mod `.json` writing, `%%` translation escaping, Lua checksum and localization notes added; Umbrella tag-drift note. Sources: Steam 42.20.1, 42.20.2, 42.20.4, 42.21 stable; TIS forum 42.21 patch notes; Umbrella 13d01f9. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. | Project owner (user instruction 2026-10-08) |

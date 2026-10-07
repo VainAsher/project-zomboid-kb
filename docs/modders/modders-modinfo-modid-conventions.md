@@ -1,15 +1,15 @@
 ---
 id: modders-modinfo-modid-conventions
 title: "mod.info, Mod IDs and the B42 Versioned Mod Folder Layout"
-version: 0.2.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Modders
 topic: "mod.info & Mod ID conventions"
 build: both
 document_type: reference
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | modders-modinfo-modid-conventions |
-| Version | 0.2.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Modders |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16 (Umbrella stub pin only), 42.20.0 (stubs and docs), 42.21 (Umbrella 42.21.0 stubs, ScriptsDocs page titled 42.21.0, and the 42.20.1 to 42.21 notes; not re-tested in-game) |
 
@@ -473,3 +473,4 @@ sibling document records the same gap [see `admins-workshop-mod-wiring`].
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (virtual agent) | Re-baselined 42.20 to 42.21: re-read the ScriptsDocs `mod.info` page (now titled 42.21.0, same 17 keys), compared 42.21.0 `ChooseGameInfo.Mod` and `ActiveMods` stubs, and read the 42.20.1 to 42.21 notes (no `mod.info` or folder-layout change; localization update noted as an open question). Sources: [4] [16] [17] [19] [20] [21] [3] [22] [2] [18]. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. | Project owner (user instruction 2026-10-08) |

@@ -1,15 +1,15 @@
 ---
 id: modders-events-callbacks
 title: "Events and Callbacks: Hooking the Game Loop with Events.X.Add"
-version: 0.2.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Modders
 topic: "Events & callbacks"
 build: both
 document_type: reference
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | modders-events-callbacks |
-| Version | 0.2.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Modders |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16 (Umbrella stubs), 42.21.0 (Umbrella stubs; 42.20.0 kept for comparison) |
 
@@ -567,3 +567,4 @@ both builds, with the first parameter renamed [1] [2].
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined from 42.20.0 to 42.21: Umbrella pin moved to 13d01f9 (42.21.0); event counts, labels, added/dropped lists and signature tables recomputed (244 events; 10 added since 42.20.0); new 42.20.0 to 42.21.0 stub-change subsection; `loadstring`/`loadstream` re-enabled in 42.21 noted. Sources: Steam 42.21 stable and 42.20.4; TIS forum 42.21 patch notes; Umbrella 13d01f9 vs 58204fc. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. | Project owner (user instruction 2026-10-08) |

@@ -9,7 +9,7 @@ topic: "Creator foundations"
 build: B42
 document_type: overview
 created: 2026-07-30
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -30,7 +30,7 @@ game_versions_verified: ["42.20", "42.21"]
 | Build | B42 |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 42.20, 42.21 (release timeline and change list re-checked 2026-10-07) |
 
@@ -580,4 +580,4 @@ YouTube oEmbed API on 2026-07-30)
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
-| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined from 42.20 to 42.21: added stable-branch changes section from the 42.20.1-42.20.4 and 42.21 Steam posts and the TIS forum 42.21 patch notes [21]-[27]; reframed launch-window tense and 42.20-as-current statements; audience data unchanged (2026-07-30 snapshot). | Pending (frozen document, factual revision) |
+| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined from 42.20 to 42.21: added stable-branch changes section from the 42.20.1-42.20.4 and 42.21 Steam posts and the TIS forum 42.21 patch notes [21]-[27]; reframed launch-window tense and 42.20-as-current statements; audience data unchanged (2026-07-30 snapshot). | Project owner (user instruction 2026-10-08) |

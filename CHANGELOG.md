@@ -7,6 +7,14 @@ document version with a revision note — never a silent edit.
 
 ### Added
 
+- 2026-10-08 — Release `kb-release-2026.10.08`: all 41 documents approved
+  (35 frozen at 1.0.0, five foundations at 1.1.0, players-foundation at 1.1.1)
+  on the project owner's instruction; players-foundation occupation roster
+  corrected (24 occupations + Custom; Farmer/Rancher/Fishing Guide/Firefighter)
+  and the discrepancy notes in the traits and animals docs resolved;
+  meta-release-versioning-policy updated to describe the release. Pins:
+  game 42.21 + 41.78.21, Umbrella 42.21.0 @ 13d01f9.
+
 - 2026-10-07 — 42.21 re-baseline: all 41 documents revised (frozen
   foundations to 1.1.0, others to next minor) against the 42.20.1-42.21 Steam
   posts, the TIS forum 42.21 changelist and Umbrella 42.21.0; pins.json moved

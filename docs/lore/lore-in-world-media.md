@@ -1,15 +1,15 @@
 ---
 id: lore-in-world-media
 title: "In-World Media: Radio, Television, Print and Found Documents in Knox Country"
-version: 0.2.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Lore
 topic: "In-world media"
 build: both
 document_type: reference
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | lore-in-world-media |
-| Version | 0.2.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Lore |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16 (Umbrella stub index), 42.20 (Umbrella 42.20.0 stub index, release notes), 42.21 (Umbrella 42.21.0 stub index, stable announcement and forum change list); B42 stable is 42.21 as of 2026-09-28 [2] |
 
@@ -467,3 +467,4 @@ open question.
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: B42 pin moved to Umbrella 42.21.0 (42.20.0 archived index kept for comparison); recorded removal of PrintMediaManager, six ISPrintMedia* classes and three Lua globals from the stubs; added 42.21 media-related change-list entries; sources [13][14]. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. | Project owner (user instruction 2026-10-08) |

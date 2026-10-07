@@ -1,10 +1,12 @@
 # Project Status
 
-**Stage:** 2 — foundation cluster FROZEN (kb-release-2026.07.30); Players +
-Admins waves A–D merged (19 docs, all `in-review` v0.1.0, not yet frozen);
-Stage-1 API-existence gate armed; Modders wave E (8 docs) merged 2026-10-07.
+**Stage:** 2 complete — all 41 documents (Players, Admins, Modders, Creator,
+Lore, Meta) approved and frozen at release `kb-release-2026.10.08`, validated
+against game 42.21 + 41.78.21 and Umbrella 42.21.0. Next: Stage 3 freshness
+automation (see ROADMAP.md) and the follow-ups listed below.
 
-**Date:** 2026-10-07 (status refreshed; originally written 2026-07-30)
+**Date:** 2026-10-08 (status refreshed; originally written 2026-07-30). The
+sections below are dated history.
 
 ## Wave E — Modders cluster (2026-10-07)
 
@@ -41,11 +43,14 @@ current. Gates green (validate/genre/license/API 349 refs/server-settings;
 links 412/416 live, 0 dead). The 42.20.0 API index is archived in
 sources/schemas/archive/.
 
-Frozen docs revised and awaiting human re-approval (factual changes, status
-still `approved`): admins-foundation, creator-foundation, lore-foundation,
-meta-style-guide, modders-foundation, players-foundation (all 1.1.0).
-players-foundation still carries the occupation-roster contradiction noted
-under wave A, so auto-approval was withheld.
+Release: all 41 docs frozen/approved and tagged `kb-release-2026.10.08`
+(project owner approval 2026-10-08). The six foundations were re-approved
+(admins/creator/lore/meta-style-guide/modders at 1.1.0, players-foundation at
+1.1.1 after its occupation-roster correction: the pinned revision 1391359
+lists 24 occupations plus Custom Occupation, with Farmer, Rancher, Fishing
+Guide and Firefighter - not Crop Farmer/Livestock Farmer/Angler); the other 35
+docs were promoted from 0.x in-review to 1.0.0 with no content change except
+the traits, animals and release-policy notes.
 
 Re-baseline caveats / follow-ups:
 - Carried-forward statements were NOT re-tested in game; the forum changelist
@@ -60,7 +65,6 @@ Re-baseline caveats / follow-ups:
   fewer Recipe members) are unexplained by the notes.
 - New primary refs sit out of numeric order inside some Primary lists
   (contiguous; validator accepts).
-- No kb-release tag cut for this re-baseline yet (pending freeze decision).
 
 ## Wave F — Creator + Lore/meta (2026-10-07)
 
@@ -92,8 +96,8 @@ Wave F follow-ups:
 
 - 25 docs (6 foundations + 19 wave A–D). All gates green except none failing:
   validate, genre audit (strict), license hygiene (67 pzwiki snapshots),
-  server-setting gate, links (0 dead), graph. Wave A–D docs are still
-  `in-review`; no freeze/`kb-release` since 2026.07.30.
+  server-setting gate, links (0 dead), graph. Wave A–D docs were still
+  `in-review` at that point (frozen 2026-10-08, see Release above).
 - **Game-version drift (new, unreconciled):** Steam news shows B42 stable is
   now **42.21** (2026-09-28; hotfixes 42.20.1–42.20.4 in Aug) and legacy41 is
   **41.78.21** (2026-08-26). Every doc is verified against 42.20 / 41.78.16-19.

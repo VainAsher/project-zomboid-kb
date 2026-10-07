@@ -1,15 +1,15 @@
 ---
 id: admins-ubuntu-runbook
 title: "Ubuntu Dedicated Server Runbook: SteamCMD to systemd"
-version: 0.2.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Admins
 topic: "Server runbooks"
 build: both
 document_type: tutorial
 created: 2026-07-31
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | admins-ubuntu-runbook |
-| Version | 0.2.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Admins |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16, 42.20, 42.21 |
 
@@ -400,3 +400,4 @@ Source basis for each numbered step: 1–4 and 6 from the pinned wiki revision [
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21 (stable 2026-09-28) and legacy 41.78.21: updated branch and version statements in Executive Summary, Build Applicability, Branch selection, Delta, Verification and Risks. Sources: Steam posts 42.21 stable and 42.20.4+41.78.21. Commands, paths, unit files and ports reviewed against the 42.20.1-42.21 notes (no change found) and carried forward from 42.20, not re-tested. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. | Project owner (user instruction 2026-10-08) |

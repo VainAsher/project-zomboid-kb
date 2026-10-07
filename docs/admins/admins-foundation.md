@@ -9,7 +9,7 @@ topic: "Server foundations"
 build: both
 document_type: overview
 created: 2026-07-30
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -30,7 +30,7 @@ game_versions_verified: ["41.78.16", "41.78.21", "42.20", "42.21"]
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16, 41.78.21, 42.20, 42.21 |
 
@@ -304,4 +304,4 @@ The one-line version: the server you operate is recognisably the same artifact o
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
 | 1.0.1 | 2026-07-30 | Orchestrator (KB Pipeline) | License-hygiene prose rewrites after arming the pzwiki n-gram gate (no factual changes). | Standing mandate (2026-07-30) |
-| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21 stable and legacy 41.78.21 against the 42.20.1, 42.20.3, 42.20.4/41.78.21 and 42.21 stable Steam posts and the 42.21 forum notes [19] [20] [21] [22] [23]: branch/version facts, 254-player limit, server-browser/auth/anti-cheat changes, loadstring status, save-safety note. | Pending (frozen document; factual change requires re-approval) |
+| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21 stable and legacy 41.78.21 against the 42.20.1, 42.20.3, 42.20.4/41.78.21 and 42.21 stable Steam posts and the 42.21 forum notes [19] [20] [21] [22] [23]: branch/version facts, 254-player limit, server-browser/auth/anti-cheat changes, loadstring status, save-safety note. | Project owner (user instruction 2026-10-08) |

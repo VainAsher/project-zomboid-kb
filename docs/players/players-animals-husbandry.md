@@ -1,15 +1,15 @@
 ---
 id: players-animals-husbandry
 title: "Animals and Husbandry in Build 42"
-version: 0.2.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Players
 topic: "Animals & husbandry"
 build: B42
 document_type: reference
 created: 2026-07-30
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | players-animals-husbandry |
-| Version | 0.2.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Players |
 | Build | B42 |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 42.20, 42.21 |
 
@@ -225,7 +225,7 @@ B41 saves and mods are not compatible with Build 42, so none of this back-ports 
 
 - **The core numeric source is ten unstable versions old.** The pzwiki Animal page is versioned against 42.6.0; every weight, enclosure size and gene range quoted here could have been rebalanced by 42.20 [8]. This is the largest single risk in the document.
 - **Design-era Thursdoid facts may have shifted in shipping.** Milking behaviour, henhouse/fox raids, breed positioning and genetics details come from 2022–2023 development posts explicitly labelled work-in-progress [4] [5]; the wiki corroborates most of them as shipped, but each could differ in detail on stable.
-- **Occupation naming is inconsistent across sources.** The Occupation table snapshot used here (revision 1391359) lists Farmer, Rancher and Fishing Guide, while this knowledge base's foundation document describes the same revision's roster using the names Crop Farmer, Livestock Farmer and Angler [12]. One of the two readings is wrong or the wiki page mixes naming eras; an in-game check should settle it (flagged for human review).
+- **Occupation naming is inconsistent across sources.** The Occupation table snapshot used here (revision 1391359) lists Farmer, Rancher and Fishing Guide, while this knowledge base's foundation document describes the same revision's roster using the names Crop Farmer, Livestock Farmer and Angler [12]. Resolved 2026-10-08: the snapshot's roster lists Farmer, Rancher and Fishing Guide (no Crop Farmer, Livestock Farmer or Angler), so the foundation document's reading was wrong and was corrected; this document's names stand.
 - **The pzwiki Husbandry and Animal Care pages were unreachable** at research time (Cloudflare bot protection blocked both the API and page fetches twice), so Animal Care detail rests on the Skill page summary and the Animal page rather than the dedicated skill page [8] [11].
 - **Patching is ongoing.** 42.20 was followed by four hotfixes and then 42.21, whose retrieved changelist is a selection that lists animal bug fixes but no value changes, so other animal behaviour changes in 42.21 may exist that this document does not capture [3] [15] [16] [17] [18] [20] [21].
 
@@ -305,3 +305,4 @@ B41 saves and mods are not compatible with Build 42, so none of this back-ports 
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | 42.21 re-baseline against the 42.20.1–42.20.4 hotfix notes, the 42.21 unstable and stable Steam posts and the abridged TIS forum 42.21 changelist (incl. supplement): Build Applicability, Risks and Open Questions updated; animal bug fixes itemised (spawn error, death-state delay, attack animation, kill-count, butcher hook and trailer fixes); no animal values changed. Rebase is a patch-notes review, not an in-game re-test. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. Includes the 2026-10-08 resolution note on occupation naming. | Project owner (user instruction 2026-10-08) |

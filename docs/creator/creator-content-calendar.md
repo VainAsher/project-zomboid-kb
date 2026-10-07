@@ -1,15 +1,15 @@
 ---
 id: creator-content-calendar
 title: "Post-Launch Content Calendar for Build 42: Release Rhythm, Patch Hooks and Evergreen Slots"
-version: 0.2.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Creator
 topic: "Content calendar"
 build: B42
 document_type: guide
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | creator-content-calendar |
-| Version | 0.2.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Creator |
 | Build | B42 |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 42.21 (release timeline, 42.21 Steam posts and TIS forum change list read 2026-10-07) |
 
@@ -540,3 +540,4 @@ None.
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: 42.21 change table completed from the TIS forum 42.21 patch notes [14] and the 42.20.1-42.21 Steam posts; announced-but-unshipped table re-checked against the forum list; interval arithmetic recomputed (no changes); staleness map and video-staleness table extended. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. | Project owner (user instruction 2026-10-08) |

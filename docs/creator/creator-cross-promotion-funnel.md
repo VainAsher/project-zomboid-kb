@@ -1,15 +1,15 @@
 ---
 id: creator-cross-promotion-funnel
 title: "From Video to Server to Mod: A Cross-Promotion Funnel for a Project Zomboid Creator"
-version: 0.2.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Creator
 topic: "Cross-promotion funnel"
 build: B42
 document_type: reference
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | creator-cross-promotion-funnel |
-| Version | 0.2.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Creator |
 | Build | B42 |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 42.21 (change list re-read 2026-10-07; server-setting names are from a 42.20-era pzwiki snapshot) |
 
@@ -478,3 +478,4 @@ Judgements built on the cited facts above; no new factual claims.
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined to 42.21: checked the TIS forum 42.21 patch notes [10] for changes touching server listing and Discord hooks; TIS Terms and Modding Policy statements unchanged (those pages were not re-fetched in this revision; the 2026-10-07 read showed 2022 update dates [1][2]). | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. | Project owner (user instruction 2026-10-08) |

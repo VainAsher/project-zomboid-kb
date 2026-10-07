@@ -9,7 +9,7 @@ topic: "Modding foundations"
 build: both
 document_type: overview
 created: 2026-07-30
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -30,7 +30,7 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16, 42.20.0, 42.21.0 (42.21 by review of patch notes and API stubs, not in-game) |
 
@@ -576,4 +576,4 @@ future work, not present capability [2] [28].
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
 | 1.0.1 | 2026-07-30 | Orchestrator (KB Pipeline) | License-hygiene prose rewrites after arming the pzwiki n-gram gate (no factual changes). | Standing mandate (2026-07-30) |
-| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined from 42.20 to 42.21 (factual update to an approved document; status stays approved pending orchestrator re-approval): current stable 42.21, Umbrella 42.21.0, JavaDocs/LuaDocs stamps, added 42.20.1-42.21 modding changes (`%%`, .json writes, localization, anti-cheat, loadstring/loadstream removed then re-enabled), refreshed Announced-but-not-shipped as of 2026-10-07, resolved the Support Update claim from Steam primary posts (former Claim 1 removed, former Claim 2 renumbered). Sources: Steam posts 42.20.1, 42.20.2, 42.20.4, 42.21 unstable and stable, NEXT STEPS, BUILD 42 STABLE PLANS, TIS forum 42.21 notes. | — |
+| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined from 42.20 to 42.21 (factual update to an approved document; status stays approved pending orchestrator re-approval): current stable 42.21, Umbrella 42.21.0, JavaDocs/LuaDocs stamps, added 42.20.1-42.21 modding changes (`%%`, .json writes, localization, anti-cheat, loadstring/loadstream removed then re-enabled), refreshed Announced-but-not-shipped as of 2026-10-07, resolved the Support Update claim from Steam primary posts (former Claim 1 removed, former Claim 2 renumbered). Sources: Steam posts 42.20.1, 42.20.2, 42.20.4, 42.21 unstable and stable, NEXT STEPS, BUILD 42 STABLE PLANS, TIS forum 42.21 notes. | Project owner (user instruction 2026-10-08) |

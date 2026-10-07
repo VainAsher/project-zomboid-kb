@@ -1,15 +1,15 @@
 ---
 id: players-traits-occupations
 title: "Traits and Occupations: Points, Rosters and the B42 Rework"
-version: 0.2.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Players
 topic: "Traits & occupations"
 build: both
 document_type: reference
 created: 2026-07-30
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | players-traits-occupations |
-| Version | 0.2.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Players |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16, 42.20, 42.21 |
 
@@ -361,7 +361,7 @@ One line: B41's roster is a stable menu with famous point loopholes; B42's is a 
 - **No first-hand 42.20 or 42.21 verification.** Every roster value here traces to pinned wiki revisions versioned 42.18.0/42.19.0 plus patch notes through 42.20; the 42.19–42.20 notes show only fixes, not roster changes [15] [16], but a stable-branch hotfix could re-price anything.
 - **Wiki-internal naming inconsistencies.** The pinned B42 trait revision names the -2 Strength tier "Feeble" in its negatives table but "Weak" in its adaptive-traits section, and lists Night Owl both as purchasable-without-cost and as occupation-exclusive; the page itself carries a formatting-improvement banner [22]. In-game checks are the only resolution.
 - **Display names vs patch-note names.** The pinned occupation revision's display text ("Crop Farmer", "Livestock Farmer", "Fire Officer") lags the 42.13/42.16 renames its own page links reflect [5] [8] [20]. This document follows the patch notes; the in-game 42.20 labels have not been read directly.
-- **Occupation-count discrepancy with the parent document.** `players-foundation` states 23 occupations plus Custom Occupation for the same pinned revision; this document counts 24 rows. A human should recount revision 1391359 [20].
+- **Occupation count (resolved 2026-10-08).** `players-foundation` previously stated 23 occupations plus Custom Occupation for the pinned revision. A recount of revision 1391359 [20] gives 24 named occupations plus Custom Occupation, matching this document, and `players-foundation` was corrected. The roster's displayed names are Farmer, Rancher, Fishing Guide and Firefighter.
 - **Two renames rest on inference.** Metalworker→Welder (roster comparison only; the 42.21 notes confirm the name Welder exists but say nothing of a rename [27] [29]) and Axe Man→Ax-pert (asset/description continuity plus name attestation) are argued, not quoted, from primaries [5] [19] [20] [21] [22].
 - **Steam announcement mirrors.** Primary citations use Steam announcement mirrors of Indie Stone posts per project policy; those hosts bot-block automated link checkers.
 
@@ -447,3 +447,4 @@ One line: B41's roster is a stable menu with famous point loopholes; B42's is a 
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | 42.21 re-baseline against the 42.20.1–42.20.4 hotfix notes, the 42.21 unstable and stable Steam posts and the abridged TIS forum 42.21 changelist: Welder occupation now starts with Welding recipes instead of Blacksmithing recipes (42.21) recorded as primary confirmation of the name Welder; Metalworker-to-Welder rename kept inferred; CharacterTraitScriptGenerator recipe fix noted; no point costs changed. Rebase is a patch-notes review, not an in-game re-test. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. Includes the 2026-10-08 resolution note on the occupation count. | Project owner (user instruction 2026-10-08) |

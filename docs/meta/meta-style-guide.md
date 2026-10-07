@@ -9,7 +9,7 @@ topic: "KB governance"
 build: both
 document_type: reference
 created: 2026-07-30
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -30,7 +30,7 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16, 42.20, 42.21 (and the 41.78.21 legacy hotfix announcement) |
 
@@ -461,4 +461,4 @@ None.
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
 | 1.0.1 | 2026-07-30 | Orchestrator (KB Pipeline) | License-hygiene prose rewrites after arming the pzwiki n-gram gate (no factual changes). | Standing mandate (2026-07-30) |
-| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Factual update: stable build now 42.21, legacy41 primary-attested hotfix 41.78.21, link-checker allowlist contents, API-existence and server-setting gates now live, supporting scripts listed; sources [6][7]. Proposed for re-approval. | Pending orchestrator approval |
+| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Factual update: stable build now 42.21, legacy41 primary-attested hotfix 41.78.21, link-checker allowlist contents, API-existence and server-setting gates now live, supporting scripts listed; sources [6][7]. Proposed for re-approval. | Project owner (user instruction 2026-10-08) |

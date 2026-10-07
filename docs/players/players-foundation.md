@@ -1,7 +1,7 @@
 ---
 id: players-foundation
 title: "Surviving Knox Country: The Core Game Across Build 41 and Build 42"
-version: 1.1.0
+version: 1.1.1
 status: approved
 confidence: Medium
 category: Players
@@ -9,7 +9,7 @@ topic: "Player foundations"
 build: both
 document_type: overview
 created: 2026-07-30
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["41.78.16", "41.78.21", "42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | players-foundation |
-| Version | 1.1.0 |
+| Version | 1.1.1 |
 | Status | approved |
 | Confidence | Medium |
 | Category (track) | Players |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16, 41.78.21, 42.20, 42.21 |
 
@@ -49,7 +49,7 @@ Document-level confidence is **Medium**: the release-facts spine rests on offici
 - **Build 41 saves are not compatible with Build 42**; a `legacy41` Steam beta branch keeps 41.78 playable, and a `42.19` branch exists for finishing unstable-era saves *(cited)*
 - B42 headline changes for players: animals and husbandry, a crafting and building overhaul, a new lighting system, basements and 32-level buildings, muscle strain in combat, and a map with roughly double the surface area *(cited)* *(B42)*
 - Multiplayer was disabled at B42's unstable launch, returned in 42.13 unstable (2025-12-11), and ships stable in 42.20 with reworked anti-cheat and a fix for the zombie-culling population bug *(cited)* *(B42)*
-- Character creation still works on the occupation + traits points system in both builds, but B42 reworked the roster: new trades tied to crafting (e.g. Blacksmith, Welder), and B41's Farmer and Fisherman replaced by Crop Farmer, Livestock Farmer and Angler *(cited)*
+- Character creation still works on the occupation + traits points system in both builds, but B42 reworked the roster: new trades tied to crafting (e.g. Blacksmith, Welder), farming split into Farmer and Rancher, and Fishing Guide listed where B41 had Fisherman *(cited)*
 - B42 grows the skill list with crafting families — Blacksmithing, Carving, Glassmaking, Knapping, Masonry, Pottery, Welding — plus Animal Care, Butchering and Tracking *(cited)* *(B42)*
 - Build 42.21 (stable since 2026-09-28) fixed zombies disappearing after a player leaves and re-enters a chunk, in singleplayer and multiplayer, and the 42.20.x hotfixes raised the multiplayer player cap to 254 *(cited)* *(B42)*
 - The in-game XP-boost percentages shown at character creation are reported by the community wiki to be displayed incorrectly as of 42.13.1 *(community, unverified)*
@@ -99,7 +99,7 @@ The moodle system is how the game communicates needs and states: icons in the to
 
 In both builds you build a character from three choices: an occupation (pre-outbreak line of work), positive traits, and negative traits, balanced against a points budget that must end at zero or above [13] [15]. Occupations grant starting skill levels; starting levels matter beyond the levels themselves, because a skill you start with levels in earns a permanent XP boost — level 0 skills earn 25% XP, while starting levels 1, 2 and 3+ earn 100%, 133% and 166% respectively per the wiki's figures [13] [15]. Some traits can also be gained or lost during play depending on your character's lifestyle [15].
 
-The rosters differ by build. The B41-era wiki revision lists 21 occupations plus Unemployed (8 free points) *(B41)* [14]. The B42 revision lists 23 occupations plus a "Custom Occupation" option carrying the 8 free points *(B42)* [13]. Comparing the two cited rosters: B42 adds trades tied to the crafting overhaul such as Blacksmith and Tailor; B41's Metalworker, Repairman, Farmer and Fisherman do not appear, with the B42 roster instead listing Welder, DIY Expert, Crop Farmer, Livestock Farmer and Angler [13] [14]. Deeper Players-track documents will carry the full per-occupation and per-trait tables; treat any B41-era guide's occupation advice as suspect on B42.
+The rosters differ by build. The B41-era wiki revision lists 21 occupations plus Unemployed (8 free points) *(B41)* [14]. The B42 revision lists 24 occupations plus a "Custom Occupation" option carrying the 8 free points *(B42)* [13]. Comparing the two cited rosters: B42 adds trades tied to the crafting overhaul such as Blacksmith and Tailor; the B41 names Metalworker, Repairman, Fire Officer and Fisherman do not appear in the B42 roster, which lists Welder, DIY Expert, Firefighter and Fishing Guide instead, and Farmer appears alongside a new Rancher [13] [14]. The rename history, with its patch-note sources, is in `players-traits-occupations`. Deeper Players-track documents will carry the full per-occupation and per-trait tables; treat any B41-era guide's occupation advice as suspect on B42.
 
 ## Skills
 
@@ -147,7 +147,7 @@ Build 41 savegames "clearly will not be compatible with Build 42" — The Indie 
 | Saves | B41 saves play only on `legacy41` [2] | B41 saves cannot be migrated into B42 [2] |
 | Crafting | Base crafting set (carpentry, cooking, metalworking-era recipes) [12] [14] | Crafting and building overhaul: pottery, blacksmithing, stone working and more, with new workstations [9] [10] |
 | Skills | Six categories; Farming, Metalworking among the roster [12] | Adds Blacksmithing, Carving, Glassmaking, Knapping, Masonry, Pottery, Welding, Animal Care, Butchering, Tracking; Agriculture listed in place of Farming [12] |
-| Occupations | 21 occupations + Unemployed [14] | 23 occupations + Custom Occupation; Welder, DIY Expert, Crop Farmer, Livestock Farmer, Angler replace Metalworker, Repairman, Farmer, Fisherman; Blacksmith and Tailor added [13] [14] |
+| Occupations | 21 occupations + Unemployed [14] | 24 occupations + Custom Occupation; Welder, DIY Expert, Firefighter, Fishing Guide listed instead of Metalworker, Repairman, Fire Officer, Fisherman; Rancher, Blacksmith and Tailor added [13] [14] |
 | Animals | None | Sheep, chickens, pigs, cows, rats, rabbits, deer; husbandry, hunting and tracking [9] |
 | Map | Original Knox Country towns [16] | Surface area doubled; Brandenburg, Ekron, Irvington added; seven areas reworked in 42.20 [3] |
 | Verticality | Original engine height limits | Raised height limits: 32-level skyscrapers in Louisville, basements across the map (400 procedural + 75 unique) [3] [7] |
@@ -277,4 +277,5 @@ The one-line version: Build 42 keeps the same core loop and moodle language, but
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
 | 1.0.1 | 2026-07-30 | Orchestrator (KB Pipeline) | License-hygiene prose rewrites after arming the pzwiki n-gram gate (no factual changes). | Standing mandate (2026-07-30) |
-| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baseline to 42.21: reviewed against the 42.20.1, 42.20.3, 42.20.4 (incl. 41.78.21), 42.21 unstable and 42.21 stable Steam posts and the abridged TIS forum 42.21 changelist (42.20.2 reviewed; modding/debug-only, no player claims affected). Added post-42.20 hotfix/42.21 section, MP updates (254 players, anti-cheat, version-mismatch notice), Welder name confirmation, updated delta/guidance/risks. Unchanged statements carried forward, not re-tested in-game. | Pending orchestrator |
+| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baseline to 42.21: reviewed against the 42.20.1, 42.20.3, 42.20.4 (incl. 41.78.21), 42.21 unstable and 42.21 stable Steam posts and the abridged TIS forum 42.21 changelist (42.20.2 reviewed; modding/debug-only, no player claims affected). Added post-42.20 hotfix/42.21 section, MP updates (254 players, anti-cheat, version-mismatch notice), Welder name confirmation, updated delta/guidance/risks. Unchanged statements carried forward, not re-tested in-game. | Project owner (user instruction 2026-10-08) |
+| 1.1.1 | 2026-10-08 | Orchestrator (KB Pipeline) | Correction: the occupation roster statements (count 23 -> 24 plus Custom Occupation; Farmer, Rancher, Fishing Guide and Firefighter listed, not Crop Farmer, Livestock Farmer and Angler) now match revision 1391359 of the pinned Occupation page; resolves the cross-document discrepancy. Re-approved with release kb-release-2026.10.08. | Project owner (user instruction 2026-10-08) |

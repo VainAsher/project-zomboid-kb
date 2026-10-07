@@ -1,15 +1,15 @@
 ---
 id: modders-mp-networking-porting
 title: "Multiplayer Mod Networking: Client/Server Lua, sendClientCommand and Porting for B42 MP"
-version: 0.3.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Modders
 topic: "MP networking porting"
 build: both
 document_type: reference
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | modders-mp-networking-porting |
-| Version | 0.3.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Modders |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16 (stubs), 42.20.0 and 42.21.0 (API stubs plus the 42.20.1 to 42.21 official notes; see Build Applicability) |
 
@@ -713,3 +713,4 @@ Events.OnServerCommand.Add(onServerCommand)
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (virtual agent) | Added the official 42.13 TIS documents (Timed Action split, item sync, registries); resolved the unread-guide claim; Build Applicability notes stub-checked vs guide-only statements. | — |
 | 0.3.0 | 2026-10-07 | KB Pipeline (virtual agent) | Re-baselined 42.20 to 42.21: added the 42.20.1 to 42.21 MP notes (Lua checksum validation, 254-player limit, expanded anti-cheat, server-side clothing condition, version-mismatch notification, B41 worlds blocked), `%%` translation rule, `.json` writes, loader removal and re-enable chronology, and the 42.21.0 stub diff (medical-check and foraging events, `sendAddObjectToMap`). Sources: Steam posts 42.20.1 to 42.21 [18] [19] [20] [26] [21] [25], forum notes [22], Umbrella 42.21.0 [23] [24]. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.3.0 text. | Project owner (user instruction 2026-10-08) |

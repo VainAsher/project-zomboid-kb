@@ -1,15 +1,15 @@
 ---
 id: players-beginner-guide-b42
 title: "Starting Project Zomboid on Build 42.21: A First-Week Survival Guide"
-version: 0.2.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Players
 topic: "Guides"
 build: B42
 document_type: tutorial
 created: 2026-07-31
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | players-beginner-guide-b42 |
-| Version | 0.2.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Players |
 | Build | B42 |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 42.20, 42.21 |
 
@@ -274,3 +274,4 @@ Not applicable — single-build document. This guide is deliberately scoped to B
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baseline to 42.21: reviewed against the 42.20.1, 42.20.3, 42.20.4 (incl. 41.78.21), 42.21 unstable and 42.21 stable Steam posts and the abridged TIS forum 42.21 changelist (42.20.2 reviewed; modding/debug-only). Title and scope now 42.21; added fridge warming, bagged-food refrigeration, oven water purification, washing machines, farming path change, chunk re-entry fix, memory-leak fixes, XXL trees, save-backup note; legacy41 described as maintained (41.78.21). Unchanged statements carried forward, not re-tested in-game. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. | Project owner (user instruction 2026-10-08) |

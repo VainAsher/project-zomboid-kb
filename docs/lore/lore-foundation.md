@@ -9,7 +9,7 @@ topic: "Lore & history"
 build: historic
 document_type: overview
 created: 2026-07-30
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -30,7 +30,7 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Build | historic |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-30 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16, 42.20, 42.21 (via patch announcements; historic material verified against sources, not in-game) |
 
@@ -286,4 +286,4 @@ Not applicable — this is a `historic` document; the build-to-build story *is* 
 | 0.1.0 | 2026-07-30 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
 | 1.0.1 | 2026-07-30 | Orchestrator (KB Pipeline) | License-hygiene prose rewrites after arming the pzwiki n-gram gate (no factual changes). | Standing mandate (2026-07-30) |
-| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Factual update: added the post-42.20.0 release timeline (42.20.1 to 42.20.4 hotfixes, 41.78.21 legacy hotfix, 42.21 unstable 2026-09-23 and stable 2026-09-28, the unstable-first statement); stable build now 42.21; sources [20]-[26]. Proposed for re-approval. | Pending orchestrator approval |
+| 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Factual update: added the post-42.20.0 release timeline (42.20.1 to 42.20.4 hotfixes, 41.78.21 legacy hotfix, 42.21 unstable 2026-09-23 and stable 2026-09-28, the unstable-first statement); stable build now 42.21; sources [20]-[26]. Proposed for re-approval. | Project owner (user instruction 2026-10-08) |

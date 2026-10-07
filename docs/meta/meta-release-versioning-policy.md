@@ -1,15 +1,15 @@
 ---
 id: meta-release-versioning-policy
 title: "Release and Versioning Policy: Document Versions, kb-release Tags and Game-Build Pins"
-version: 0.2.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: High
 category: Meta
 topic: "Release & versioning policy"
 build: both
 document_type: policy
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | meta-release-versioning-policy |
-| Version | 0.2.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | High |
 | Category (track) | Meta |
 | Build | both |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-10-07 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16, 42.20, 42.21 (and the 41.78.21 legacy hotfix announcement) |
 
@@ -55,8 +55,10 @@ the pins now follow, and the Umbrella repository [2], whose release tags are
 what the API pins refer to. Confidence is High for the mechanics described.
 It would fall if the scripts were changed without a revision of this
 document. On 2026-10-07 the pins were moved to 42.21 and 41.78.21 and the
-freshness script reports them current; the `kb-release` tag for that
-re-baseline has not been cut (see Reference and Open Questions).
+freshness script reports them current; on 2026-10-08 the project owner
+approved the re-approval of the six foundation documents and the freeze of
+the remaining 35, and the `kb-release-2026.10.08` tag was cut for that
+re-baseline (see Reference).
 
 # Key Takeaways
 
@@ -68,12 +70,12 @@ re-baseline has not been cut (see Reference and Open Questions).
   silent edit (`CLAUDE.md` rule 6). Nothing in the gates checks that a
   revision row exists; this is a human/orchestrator discipline. *(repo
   rule)*
-- Exactly one release tag exists today, `kb-release-2026.07.30`, an
-  annotated tag whose message names the game builds and the Umbrella
-  release tag. No release has been cut since, and none has been cut for the
-  2026-10-07 re-baseline: that tag is pending the orchestrator's commit and
-  tag. As of 2026-10-07, 35 documents sit unfrozen at `in-review` (six
-  are `approved`). *(repo state, `git tag` and the `status:` fields)*
+- Two release tags exist as of 2026-10-08: `kb-release-2026.07.30` (the six
+  foundation documents) and `kb-release-2026.10.08` (the 42.21 re-baseline,
+  all 41 documents at `approved`). Each is an annotated tag whose message
+  names the game builds and the Umbrella release tag and commit. Before the
+  second tag was cut, 35 documents sat unfrozen at `in-review`.
+  *(repo state, `git tag`, `RELEASE_HISTORY.md` and the `status:` fields)*
 - `sources/pins.json` pins Umbrella B42 `42.21.0` @ `13d01f9` (previous
   pin `42.20.0` @ `58204fc` kept as `B42_previous`) and B41 `41.78.16` @
   `fa2e7e1`; the B41 game baseline is the legacy41 maintenance line (user
@@ -194,12 +196,17 @@ rule.
 `RELEASE_HISTORY.md` states the release procedure: all gates green, human
 approval, per-document `1.0.0`, then an annotated git tag, and every tag
 records the game builds and Umbrella commit it was validated against. The
-single row so far is `kb-release-2026.07.30` (foundation cluster, six
-documents), which records game builds 41.78.16 (legacy41) and 42.20.0
-(stable) and the Umbrella release tag `42.20.0`. The annotated tag message
-itself reads "Foundation cluster v1.0.0 - game builds 41.78.16 + 42.20.0,
-Umbrella release tag 42.20.0" (`git tag -n9`). The tag points at commit
-`49b9ada`, the freeze commit.
+first row is `kb-release-2026.07.30` (foundation cluster, six documents),
+which records game builds 41.78.16 (legacy41) and 42.20.0 (stable) and the
+Umbrella release tag `42.20.0`. Its annotated tag message reads "Foundation
+cluster v1.0.0 - game builds 41.78.16 + 42.20.0, Umbrella release tag
+42.20.0" (`git tag -n9`), and the tag points at commit `49b9ada`, the freeze
+commit. The second row is `kb-release-2026.10.08` (the 42.21 re-baseline:
+all 41 documents), which records game builds 42.21 (stable) and 41.78.21
+(legacy41) and Umbrella `42.21.0` at commit `13d01f9`; because the upstream
+`42.20.0` tag was later moved, tags that name an Umbrella release also name
+its commit. The commit a tag points at can be read with `git rev-parse
+<tag>^{commit}`.
 
 Two honest details. First, `RELEASE_HISTORY.md` and the tag message name the
 Umbrella release tag, while the full commit ids live in `sources/pins.json`
@@ -412,12 +419,13 @@ None.
   the re-baseline.
 - The 42.20, 42.21 and 41.78.21 announcements [1] [3] [4] [5] are on a
   bot-blocking host and are cited as allowlisted URLs.
-- No `kb-release` tag has been cut for the re-baseline; any statement here
-  about it is a statement of intent by the orchestrator, not a tag.
-- The count of unfrozen documents (35 as of 2026-10-07) is the number of
-  `docs/` files whose `status:` is not `approved` (41 documents, six
-  approved); recount before quoting it. The earlier figure of 27 was a
-  snapshot at commit `0ad3a16`.
+- The `kb-release-2026.10.08` tag is read from `git tag` and
+  `RELEASE_HISTORY.md`; it was cut after the commit that contains this
+  document, so this document cannot name its own tag commit.
+- The count of unfrozen documents is the number of `docs/` files whose
+  `status:` is not `approved`; it was 35 of 41 on 2026-10-07 and 0 of 41
+  after the 2026-10-08 freeze. Recount before quoting it. The earlier figure
+  of 27 was a snapshot at commit `0ad3a16`.
 
 # Verification Steps
 
@@ -447,14 +455,14 @@ None.
 - **Freshness and API gates outside CI.** Neither `check_freshness.py` nor
   `check_api_exists.py` is in `qa.yml`, so a regression in either would not
   fail a push.
-- **Re-baseline of 42.21 and 41.78.21.** The pins were moved on 2026-10-07
-  and documents are being revised individually; which documents still carry
-  only 42.20 in `game_versions_verified`, and what that means for the freeze
-  schedule, is for the orchestrator to decide. The `kb-release` tag for the
-  re-baseline is pending the orchestrator's commit and tag.
-- **Unfrozen backlog.** Nothing has been frozen since `kb-release-2026.07.30`
-  although the standing mandate permits it; whether to freeze before or
-  after the re-baseline is undecided.
+- **Freeze meaning.** The 2026-10-08 freeze promoted every document to
+  `1.0.0` or kept its `1.1.x` version at `approved`. It records a human
+  approval of the documents as they stood, not a claim that open questions
+  are closed: many documents still carry Medium confidence, quarantined
+  claims and carried-forward statements that were not re-tested in game.
+- **Next re-baseline.** The next freshness drift (a newer stable build, a
+  newer Umbrella tag) needs a repeat of the 2026-10-07 procedure; nothing
+  automates it.
 - **Revision-row enforcement.** No gate verifies that a version bump has a
   matching Revision History row or `CHANGELOG.md` entry.
 - **Local markdownlint.** The tool is not installed here, so one of the five
@@ -495,3 +503,4 @@ None.
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined: pins now B42 42.21.0 (42.20.0 kept as previous, tag-move note) and B41 41.78.21 primary-attested; freshness now exits 0; unfrozen count 35 as of 2026-10-07; kb-release tag for the re-baseline recorded as pending; sources [3][4][5]. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. Includes the 2026-10-08 update describing this release and the freeze. | Project owner (user instruction 2026-10-08) |

@@ -1,15 +1,15 @@
 ---
 id: admins-legacy41-runbook
 title: "Keeping a Build 41 Server Alive: The legacy41 Runbook"
-version: 0.2.0
-status: in-review
+version: 1.0.0
+status: approved
 confidence: Medium
 category: Admins
 topic: "Server runbooks"
 build: B41
 document_type: tutorial
 created: 2026-07-31
-updated: 2026-10-07
+updated: 2026-10-08
 review_due: 2027-01-07
 sources_verified: 2026-10-07
 supersedes: null
@@ -23,14 +23,14 @@ game_versions_verified: ["41.78.16", "41.78.19", "41.78.21", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | admins-legacy41-runbook |
-| Version | 0.2.0 |
-| Status | in-review |
+| Version | 1.0.0 |
+| Status | approved |
 | Confidence | Medium |
 | Category (track) | Admins |
 | Build | B41 |
 | Owner | PZ Knowledge-Base Pipeline |
 | Created | 2026-07-31 |
-| Updated | 2026-10-07 |
+| Updated | 2026-10-08 |
 | Review due | 2027-01-07 |
 | Game versions verified | 41.78.16, 41.78.19, 41.78.21, 42.21 |
 
@@ -317,3 +317,4 @@ Plan as if legacy41 continues but is not guaranteed: keep full cold backups (wor
 |---------|------|--------|--------|-------------|
 | 0.1.0 | 2026-07-31 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined against 42.20.4/41.78.21 hotfix post, 42.21 stable post and 42.21 forum patch notes [13] [14] [15]: added 41.78.21 to the hotfix record, loadstring/loadstream status, 42.21 version-mismatch notification, current-stable wording; 41.78.20 remains wiki-only. | — |
+| 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. | Project owner (user instruction 2026-10-08) |
