@@ -55,6 +55,8 @@ BOT_BLOCK_HOSTS = {
     "support.discord.com",          # Discord help centre; 403s non-browser agents
     "pzwiki.net",                  # intermittent Cloudflare challenge on API/page fetches
     "developer.valvesoftware.com", # Valve dev wiki; challenges bots
+    "pzfans.com",                  # community site; 403s datacenter IPs (GitHub runners)
+    "socialcounts.org",            # third-party subscriber-count site; 403s datacenter IPs
     "legionhosting.net",           # hosting-company KB; 403s bots (corroborate-only source)
 }
 
