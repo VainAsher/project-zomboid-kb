@@ -7,6 +7,16 @@ document version with a revision note — never a silent edit.
 
 ### Added
 
+- 2026-10-08 — Stage 3 freshness tooling: `requeue.py` (version / review-date /
+  Umbrella / patch-note signals -> worklist), `watch_umbrella.py` (newer or
+  moved Umbrella tags), `build_entity_map.py` + `sources/entity_aliases.json`
+  -> `exports/entity-map.json`, `check_freshness.py` refactored (importable,
+  `--feed-file`, fixed UNSTABLE posts being read as STABLE), extended
+  `freshness.yml` (run summary + self-closing tracking issue) and `qa.yml`
+  (entity-map staleness check, re-queue smoke test). Replayed against the 42.21
+  release: 34 documents flagged, patch-note lines routed to the documents the
+  re-baseline actually revised. meta-release-versioning-policy 1.2.0.
+
 - 2026-10-08 — Published: public repo github.com/VainAsher/project-zomboid-kb
   (main plus both kb-release tags) and the MkDocs site on GitHub Pages
   (https://vainasher.github.io/project-zomboid-kb/); Pages build tooling

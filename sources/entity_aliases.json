@@ -1,0 +1,428 @@
+{
+  "_comment": "Curated phrase -> document ids, used by scripts/build_entity_map.py and scripts/requeue.py to point new patch-note lines at the documents they probably affect. Matching is case-insensitive on whole words (an optional plural s is allowed); a trailing * makes the term a stem (prefix) match. This is a heuristic aid for the orchestrator, not a proof of impact; extend it whenever a re-baseline shows a topic the map missed. Every id must exist in docs/ (build_entity_map.py checks).",
+  "_always_on_release": [
+    "admins-foundation",
+    "creator-content-calendar",
+    "creator-foundation",
+    "lore-foundation",
+    "meta-release-versioning-policy",
+    "meta-source-registry-companion",
+    "players-foundation"
+  ],
+  "aliases": {
+    "xxl tree": [
+      "players-vehicles",
+      "players-beginner-guide-b42",
+      "creator-format-catalogue"
+    ],
+    "welder": [
+      "players-traits-occupations",
+      "players-crafting-chains",
+      "players-foundation"
+    ],
+    "blacksmith": [
+      "players-crafting-chains",
+      "players-traits-occupations"
+    ],
+    "occupation": [
+      "players-traits-occupations",
+      "players-foundation",
+      "players-b41-to-b42-transition"
+    ],
+    "profession": [
+      "players-traits-occupations",
+      "modders-item-scripts-distributions"
+    ],
+    "trait": [
+      "players-traits-occupations",
+      "modders-item-scripts-distributions"
+    ],
+    "skill book": [
+      "players-skills-xp",
+      "lore-in-world-media"
+    ],
+    "xp": [
+      "players-skills-xp"
+    ],
+    "perk": [
+      "players-skills-xp",
+      "players-traits-occupations"
+    ],
+    "fridge": [
+      "players-farming-food",
+      "players-beginner-guide-b42"
+    ],
+    "freezer": [
+      "players-farming-food",
+      "players-beginner-guide-b42"
+    ],
+    "refrigerat*": [
+      "players-farming-food",
+      "players-beginner-guide-b42"
+    ],
+    "spoil*": [
+      "players-farming-food",
+      "players-beginner-guide-b42"
+    ],
+    "farm*": [
+      "players-farming-food"
+    ],
+    "furrow": [
+      "players-farming-food"
+    ],
+    "crop": [
+      "players-farming-food"
+    ],
+    "foraging": [
+      "players-farming-food",
+      "players-map-locations"
+    ],
+    "antibiotic": [
+      "players-medical-moodles"
+    ],
+    "infect*": [
+      "players-medical-moodles",
+      "lore-knox-event-timeline"
+    ],
+    "moodle": [
+      "players-medical-moodles"
+    ],
+    "bandage": [
+      "players-medical-moodles",
+      "players-crafting-chains"
+    ],
+    "muscle strain": [
+      "players-medical-moodles",
+      "players-skills-xp"
+    ],
+    "animal": [
+      "players-animals-husbandry"
+    ],
+    "butcher*": [
+      "players-animals-husbandry",
+      "players-crafting-chains"
+    ],
+    "hutch": [
+      "players-animals-husbandry"
+    ],
+    "trailer": [
+      "players-animals-husbandry",
+      "players-vehicles"
+    ],
+    "washing machine": [
+      "players-crafting-chains"
+    ],
+    "purif*": [
+      "players-crafting-chains",
+      "players-farming-food"
+    ],
+    "craft*": [
+      "players-crafting-chains",
+      "modders-item-scripts-distributions"
+    ],
+    "recipe": [
+      "players-crafting-chains",
+      "modders-item-scripts-distributions",
+      "modders-porting-b41-to-b42"
+    ],
+    "vehicle": [
+      "players-vehicles"
+    ],
+    "driv*": [
+      "players-vehicles"
+    ],
+    "trunk": [
+      "players-vehicles"
+    ],
+    "map": [
+      "players-map-locations"
+    ],
+    "road stories": [
+      "players-map-locations"
+    ],
+    "stash": [
+      "players-map-locations"
+    ],
+    "spawn point": [
+      "players-map-locations",
+      "players-beginner-guide-b42"
+    ],
+    "glow": [
+      "players-map-locations"
+    ],
+    "rosewood": [
+      "players-map-locations"
+    ],
+    "split-screen": [
+      "players-foundation",
+      "players-beginner-guide-b42"
+    ],
+    "split screen": [
+      "players-foundation",
+      "players-beginner-guide-b42"
+    ],
+    "zombie": [
+      "players-foundation",
+      "admins-sandboxvars-reference"
+    ],
+    "chunk": [
+      "admins-performance-tuning",
+      "players-foundation"
+    ],
+    "loadstring": [
+      "modders-lua-api-surface",
+      "modders-events-callbacks",
+      "modders-mp-networking-porting",
+      "modders-porting-b41-to-b42",
+      "admins-modded-server-runbook",
+      "admins-legacy41-runbook"
+    ],
+    "loadstream": [
+      "modders-lua-api-surface",
+      "modders-events-callbacks",
+      "modders-mp-networking-porting",
+      "modders-porting-b41-to-b42",
+      "admins-modded-server-runbook",
+      "admins-legacy41-runbook"
+    ],
+    "translat*": [
+      "modders-item-scripts-distributions",
+      "modders-modinfo-modid-conventions",
+      "modders-first-mod-tutorial-b42"
+    ],
+    "localiz*": [
+      "modders-item-scripts-distributions",
+      "modders-modinfo-modid-conventions",
+      "modders-first-mod-tutorial-b42"
+    ],
+    "mod maker*": [
+      "modders-foundation",
+      "modders-porting-b41-to-b42"
+    ],
+    "modder": [
+      "modders-foundation"
+    ],
+    "lua": [
+      "modders-lua-api-surface",
+      "modders-events-callbacks"
+    ],
+    "api": [
+      "modders-lua-api-surface",
+      "modders-porting-b41-to-b42"
+    ],
+    "event": [
+      "modders-events-callbacks"
+    ],
+    "modoptions": [
+      "modders-modoptions-pzapi"
+    ],
+    "mod options": [
+      "modders-modoptions-pzapi"
+    ],
+    "registry": [
+      "modders-item-scripts-distributions",
+      "modders-porting-b41-to-b42"
+    ],
+    "registries": [
+      "modders-item-scripts-distributions",
+      "modders-porting-b41-to-b42"
+    ],
+    "itemtag": [
+      "modders-item-scripts-distributions"
+    ],
+    "mod.info": [
+      "modders-modinfo-modid-conventions"
+    ],
+    "workshop": [
+      "admins-workshop-mod-wiring",
+      "modders-modinfo-modid-conventions",
+      "creator-cross-promotion-funnel"
+    ],
+    "json": [
+      "modders-lua-api-surface",
+      "modders-mp-networking-porting"
+    ],
+    "anti-cheat": [
+      "admins-server-ini-reference",
+      "modders-mp-networking-porting",
+      "admins-foundation"
+    ],
+    "anticheat": [
+      "admins-server-ini-reference",
+      "modders-mp-networking-porting",
+      "admins-foundation"
+    ],
+    "checksum": [
+      "admins-server-ini-reference",
+      "modders-mp-networking-porting",
+      "admins-modded-server-runbook"
+    ],
+    "multiplayer": [
+      "modders-mp-networking-porting",
+      "admins-foundation"
+    ],
+    "sendclientcommand": [
+      "modders-mp-networking-porting"
+    ],
+    "player limit": [
+      "admins-server-ini-reference",
+      "admins-performance-tuning"
+    ],
+    "maxplayers": [
+      "admins-server-ini-reference",
+      "admins-performance-tuning"
+    ],
+    "memory leak": [
+      "admins-performance-tuning",
+      "players-beginner-guide-b42"
+    ],
+    "out of memory": [
+      "admins-performance-tuning",
+      "players-beginner-guide-b42"
+    ],
+    "performance": [
+      "admins-performance-tuning"
+    ],
+    "server browser": [
+      "admins-server-ini-reference",
+      "admins-backups-migration",
+      "creator-cross-promotion-funnel"
+    ],
+    "wipe": [
+      "admins-backups-migration",
+      "admins-server-ini-reference"
+    ],
+    "backup": [
+      "admins-backups-migration"
+    ],
+    "savegame": [
+      "admins-backups-migration",
+      "players-b41-to-b42-transition"
+    ],
+    "safehouse": [
+      "admins-sandboxvars-reference",
+      "admins-server-ini-reference"
+    ],
+    "sandbox": [
+      "admins-sandboxvars-reference"
+    ],
+    "server option": [
+      "admins-server-ini-reference",
+      "admins-sandboxvars-reference"
+    ],
+    "whitelist": [
+      "admins-rcon-commands",
+      "admins-server-ini-reference"
+    ],
+    "setaccesslevel": [
+      "admins-rcon-commands"
+    ],
+    "grantadmin": [
+      "admins-rcon-commands"
+    ],
+    "teleport": [
+      "admins-rcon-commands"
+    ],
+    "rcon": [
+      "admins-rcon-commands"
+    ],
+    "admin": [
+      "admins-rcon-commands",
+      "admins-foundation"
+    ],
+    "dedicated server": [
+      "admins-ubuntu-runbook",
+      "admins-foundation"
+    ],
+    "steamcmd": [
+      "admins-ubuntu-runbook"
+    ],
+    "steam authentic*": [
+      "admins-rcon-commands",
+      "admins-server-ini-reference"
+    ],
+    "discord": [
+      "admins-server-ini-reference",
+      "creator-cross-promotion-funnel"
+    ],
+    "usernamedisguises": [
+      "admins-server-ini-reference"
+    ],
+    "legacy": [
+      "admins-legacy41-runbook",
+      "players-b41-to-b42-transition"
+    ],
+    "41.78": [
+      "admins-legacy41-runbook",
+      "players-b41-to-b42-transition"
+    ],
+    "b41 world": [
+      "admins-backups-migration",
+      "admins-legacy41-runbook",
+      "players-b41-to-b42-transition"
+    ],
+    "radio": [
+      "lore-in-world-media"
+    ],
+    "television": [
+      "lore-in-world-media"
+    ],
+    "newspaper": [
+      "lore-in-world-media",
+      "modders-item-scripts-distributions"
+    ],
+    "brochure": [
+      "lore-in-world-media",
+      "modders-item-scripts-distributions"
+    ],
+    "flier": [
+      "lore-in-world-media",
+      "modders-item-scripts-distributions"
+    ],
+    "broadcast": [
+      "lore-in-world-media",
+      "lore-knox-event-timeline"
+    ],
+    "knox event": [
+      "lore-knox-event-timeline",
+      "lore-foundation"
+    ],
+    "credits": [
+      "lore-foundation"
+    ],
+    "unstable": [
+      "creator-content-calendar",
+      "meta-release-versioning-policy"
+    ],
+    "hotfix": [
+      "creator-content-calendar",
+      "meta-release-versioning-policy"
+    ],
+    "youtube": [
+      "creator-format-catalogue",
+      "creator-channel-competitor-map",
+      "creator-cross-promotion-funnel"
+    ],
+    "tutorial": [
+      "players-beginner-guide-b42",
+      "modders-first-mod-tutorial-b42"
+    ],
+    "character creation": [
+      "players-traits-occupations",
+      "players-beginner-guide-b42"
+    ],
+    "worldzed": [
+      "modders-foundation"
+    ],
+    "tilezed": [
+      "modders-foundation"
+    ],
+    "animzed": [
+      "modders-foundation"
+    ],
+    "support update": [
+      "modders-foundation",
+      "creator-content-calendar"
+    ]
+  }
+}

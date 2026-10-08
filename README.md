@@ -49,11 +49,15 @@ python scripts/check_api_exists.py
 npx --yes markdownlint-cli2@0.23.3 "docs/**/*.md" "*.md"
 python scripts/check_links.py             # network required
 python scripts/check_freshness.py         # network; exit 2 = pinned builds behind
+python scripts/watch_umbrella.py         # network; exit 2 = Umbrella pin drift
+python scripts/build_entity_map.py && python scripts/requeue.py   # worklist of documents to re-verify
 python scripts/build_graph.py && python scripts/build_rag.py && python scripts/build_site.py
 ```
 
 CI (`.github/workflows/`) runs the offline gates on every push and pull
-request, the link check weekly, and the freshness check daily.
+request and the link check weekly. A daily freshness run checks the pinned
+game builds and Umbrella tags, lists the documents to re-verify, and keeps
+one `freshness` issue open while there is anything to do.
 
 ## Status
 

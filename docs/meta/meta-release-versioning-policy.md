@@ -1,7 +1,7 @@
 ---
 id: meta-release-versioning-policy
 title: "Release and Versioning Policy: Document Versions, kb-release Tags and Game-Build Pins"
-version: 1.1.0
+version: 1.2.0
 status: approved
 confidence: High
 category: Meta
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | meta-release-versioning-policy |
-| Version | 1.1.0 |
+| Version | 1.2.0 |
 | Status | approved |
 | Confidence | High |
 | Category (track) | Meta |
@@ -88,8 +88,9 @@ re-baseline (see Reference).
 - Green gates prove structure, citation hygiene, name existence and
   link liveness. They do not prove a statement is true, current, or
   correctly interpreted. *(see the gate table)*
-- Open policy gaps are real: no automated re-queue, the license-hygiene
-  gate compares against an empty corpus in CI (the snapshots are
+- Open policy gaps are real: re-queueing now produces a worklist and a
+  tracking issue but a human still does the re-verification, the
+  license-hygiene gate compares against an empty corpus in CI (the snapshots are
   gitignored), and the existence gates still pass silently on a local run if
   their schema files are missing (CI guards this). Terms for the content and
   the software are now declared in `LICENSE-CONTENT.md` and `LICENSE`.
@@ -185,9 +186,9 @@ via patch notes (`templates/document_template.md`). Their intended roles:
 
 | Field | Meaning in this KB | Who reads it |
 |-------|--------------------|--------------|
-| `game_versions_verified` | Builds the facts were verified against | The human or orchestrator reading freshness output; not read by `check_freshness.py` |
+| `game_versions_verified` | Builds the facts were verified against | `scripts/requeue.py`, which compares it at major.minor precision with the newest announced builds; not read by `check_freshness.py` |
 | `sources_verified` | Date the cited sources were last checked | Humans; plus `ROADMAP.md` Stage 3 plan |
-| `review_due` | Date the document should be re-reviewed | `ROADMAP.md` Stage 3 plans re-queue through it; no script does so yet |
+| `review_due` | Date the document should be re-reviewed | `scripts/requeue.py` flags a document whose date has passed |
 
 The template's example `review_due` is about three months after creation
 (`2026-07-30` to `2026-10-30`), and this document follows the same
@@ -281,14 +282,27 @@ unstable-first procedure going forward [3].
 
 ## The re-queue rule
 
-On drift the script prints its own instruction: re-queue documents whose
-`game_versions_verified` predates the new build. The roadmap adds a second
-trigger, stale `sources_verified` re-queuing through `review_due`, and plans
-tags after each hotfix wave (`ROADMAP.md`, Stage 3). Today re-queuing is a
-manual orchestrator action: no script lists the affected documents, no
-script reads `review_due`, and `check_freshness.py` does not inspect
-`docs/`. The mapping from a patch to the entities it touches ("changelog to
-entity map" in the roadmap) does not exist yet.
+On drift `check_freshness.py` prints its own instruction: re-queue documents
+whose `game_versions_verified` predates the new build. Since 2026-10-08
+`scripts/requeue.py` builds that list. It combines three signals: a
+document's `game_versions_verified` lagging the newest announced build
+(compared at major.minor precision, so a hotfix inside the verified minor is
+not flagged; `historic` documents are skipped and B41 documents are compared
+with the legacy line); a passed `review_due`; and Umbrella pin drift, which
+flags every Modders document. It also reads official Steam announcements
+newer than the pins and matches their lines against the entity map
+(`exports/entity-map.json`, built by `scripts/build_entity_map.py` from
+`sources/entity_aliases.json` plus the code-span identifiers the documents
+themselves use) to show which documents each line probably affects, and it
+lists the forum topics those posts link, because the forum blocks bots. A
+new stable build also flags the release-bookkeeping documents named in the
+alias file. The patch-note matching is a heuristic pointer with its evidence
+lines printed for a human to judge, not proof of impact; extend the alias
+file when a re-baseline shows a topic the map missed. `scripts/watch_umbrella.py`
+supplies the Umbrella signal: it reads upstream tags with `git ls-remote` and
+reports a newer tag or a pinned tag that now points at a different commit.
+`requeue.py` exits 2 when its worklist is non-empty. Revising the listed
+documents remains a manual, human-gated step.
 
 ## The QA gates: what each proves and does not prove
 
@@ -324,10 +338,16 @@ notice, because in CI the pzwiki snapshots are absent and the gate passes
 trivially; run it locally against the corpus before every release.
 markdownlint runs in a separate job with a pinned `markdownlint-cli2`
 version; the link check runs only on the weekly schedule or manual dispatch.
-`.github/workflows/freshness.yml` runs `check_freshness.py` daily and fails
-the run when it exits 2 (pinned builds behind the Steam feed), so a failed
-scheduled run is the drift notification; a feed read error is only a
-warning.
+`.github/workflows/freshness.yml` runs `check_freshness.py`,
+`watch_umbrella.py` and `requeue.py` daily and writes the report to the run
+summary. It opens or updates one issue labelled `freshness` while there is
+anything to re-verify and closes it when the report is empty. The run fails
+only on build or Umbrella drift, so a failed scheduled run is the "re-baseline
+needed" alert; a review date passing opens the issue without failing the
+run, and a feed or tag read error is only a warning. `qa.yml` also rebuilds
+the entity map (stale committed output fails the push) and runs
+`requeue.py --offline --today 2000-01-01`, which fails if the pins have moved
+ahead of the documents.
 
 ## The human gate and the standing mandate
 
@@ -466,20 +486,26 @@ None.
   carve-outs are in `LICENSE-CONTENT.md` and `LICENSE`. This was a choice by
   the owner, not a legal review, and it does not license the Umbrella-derived
   name lists in `sources/schemas/`.
-- **No automated re-queue.** The roadmap plans changelog-to-entity mapping
-  and `review_due` re-queueing; neither exists. Stale documents are found by
-  a human reading freshness output.
-- **Freshness is notification-only.** `freshness.yml` fails a scheduled run
-  on drift but opens no issue and re-queues nothing; a human reads the
-  failed run and starts the re-baseline.
+- **Re-queue is a worklist, not a repair.** `requeue.py` and `freshness.yml`
+  list and track what to re-verify; a human or orchestrator still reads the
+  patch notes, revises the documents and cuts the tag.
+- **Entity-map coverage.** The alias file is hand-curated and the derived
+  identifiers only cover names the documents already use, so a patch note
+  about a topic no document mentions produces no match; it is judged on
+  evidence lines, and its recall against real re-baselines has been checked
+  only by replaying the 42.21 release.
+- **Watchers still manual.** No watcher exists for the official blog (its
+  posts are mirrored in the Steam feed already read), for a dedicated-server
+  build id (needs SteamCMD or an unofficial API) or for Workshop item
+  changelogs (needs a list of tracked items, which does not exist).
 - **Freeze meaning.** The 2026-10-08 freeze promoted every document to
   `1.0.0` or kept its `1.1.x` version at `approved`. It records a human
   approval of the documents as they stood, not a claim that open questions
   are closed: many documents still carry Medium confidence, quarantined
   claims and carried-forward statements that were not re-tested in game.
 - **Next re-baseline.** The next freshness drift (a newer stable build, a
-  newer Umbrella tag) needs a repeat of the 2026-10-07 procedure; nothing
-  automates it.
+  newer Umbrella tag) needs a repeat of the 2026-10-07 procedure; the
+  worklist is automated, the revisions are not.
 - **Revision-row enforcement.** No gate verifies that a version bump has a
   matching Revision History row or `CHANGELOG.md` entry.
 - **Local markdownlint.** The tool is fetched on demand rather than
@@ -523,3 +549,4 @@ None.
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined: pins now B42 42.21.0 (42.20.0 kept as previous, tag-move note) and B41 41.78.21 primary-attested; freshness now exits 0; unfrozen count 35 as of 2026-10-07; kb-release tag for the re-baseline recorded as pending; sources [3][4][5]. | — |
 | 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. Includes the 2026-10-08 update describing this release and the freeze. | Project owner (user instruction 2026-10-08) |
 | 1.1.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Release policy updated for the 2026-10-08 CI and license changes: API-existence and gate-data guards in qa.yml, a daily freshness.yml, a pinned markdownlint, LICENSE (MIT, software) and LICENSE-CONTENT.md (all rights reserved, content). Open Questions and pitfalls revised to match. | Project owner (user instruction 2026-10-08) |
+| 1.2.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Stage 3 freshness tooling described: requeue.py, watch_umbrella.py, build_entity_map.py with sources/entity_aliases.json, the extended freshness.yml (summary and tracking issue) and the qa.yml entity-map and smoke steps; re-queue rule, review_due and game_versions_verified field rows, and Open Questions revised. | Project owner (user instruction 2026-10-08) |

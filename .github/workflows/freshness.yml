@@ -1,38 +1,93 @@
 name: Freshness
 
-# Compares the game builds pinned in sources/pins.json against the official
-# Steam news feed for Project Zomboid (app 108600). A newer stable or legacy
-# build than the pin fails this job on purpose: a failed scheduled run is
-# GitHub's notification that documents need re-verification
-# (see docs/meta/meta-release-versioning-policy.md). Network-dependent, so it
-# is kept out of the push/PR QA workflow.
+# Daily watch for things that make documents stale:
+#   * scripts/check_freshness.py - pinned game builds vs the Steam news feed
+#   * scripts/watch_umbrella.py  - Umbrella pins vs upstream tags (newer, or moved)
+#   * scripts/requeue.py         - which documents to re-verify, and why
+#                                  (version, review date, Umbrella, patch-note matches)
+#
+# Output goes to the run summary. One tracking issue (label "freshness") is
+# opened or updated while there is anything to re-verify, and closed again
+# when everything is current. The run FAILS only on build or Umbrella drift,
+# so a failed scheduled run is the "re-baseline needed" alert (see
+# docs/meta/meta-release-versioning-policy.md). Network-dependent, so it is
+# kept out of the push/PR QA workflow.
 on:
   schedule:
     # Daily 07:00 UTC.
     - cron: "0 7 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      simulate_overdue:
+        description: "Test the issue path: pretend today is 2027-02-01 (review dates overdue)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
+  issues: write
 
 jobs:
   drift:
-    name: Pinned builds vs Steam news
+    name: Pinned builds, Umbrella pins and re-queue
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Check for build drift
+
+      - name: Run the watchers
+        id: watch
         run: |
           set +e
-          python scripts/check_freshness.py
-          rc=$?
-          if [ "$rc" -eq 2 ]; then
-            echo "::error::Pinned game builds are behind the official feed. Re-baseline: read the new patch notes, re-pin Umbrella (scripts/extract_api_index.py), revise affected documents, cut a kb-release tag."
-          elif [ "$rc" -eq 1 ]; then
-            echo "::warning::Could not read the Steam news feed this run (network or API error); no drift verdict."
-            rc=0
+          extra=""
+          if [ "${{ inputs.simulate_overdue }}" = "true" ]; then extra="--today 2027-02-01"; fi
+          python scripts/check_freshness.py > freshness.txt;  f=$?
+          python scripts/watch_umbrella.py  > umbrella.txt;   u=$?
+          python scripts/requeue.py $extra --markdown requeue.md > /dev/null; r=$?
+          {
+            echo "## Freshness"; echo '```'; cat freshness.txt umbrella.txt; echo '```'; echo
+            cat requeue.md
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "freshness_rc=$f"  >> "$GITHUB_OUTPUT"
+          echo "umbrella_rc=$u"   >> "$GITHUB_OUTPUT"
+          echo "requeue_rc=$r"    >> "$GITHUB_OUTPUT"
+          if [ "$f" -eq 1 ]; then echo "::warning::Could not read the Steam news feed this run; no build-drift verdict."; fi
+          if [ "$u" -eq 1 ]; then echo "::warning::Could not read the Umbrella tags this run; no Umbrella verdict."; fi
+          exit 0
+
+      - name: Open, update or close the tracking issue
+        run: |
+          set -e
+          gh label create freshness --color D93F0B \
+            --description "Documents need re-verification (automated)" 2>/dev/null || true
+          existing=$(gh issue list --label freshness --state open --json number --jq '.[0].number // empty')
+          rq="${{ steps.watch.outputs.requeue_rc }}"
+          if [ "$rq" = "2" ]; then
+            # GitHub caps an issue body at 65536 characters.
+            head -c 60000 requeue.md > body.md
+            printf '\n\n---\nAutomated by `.github/workflows/freshness.yml` on %s. Procedure: docs/meta/meta-release-versioning-policy.md. This issue closes itself when the report is empty.\n' "$(date -u +%F)" >> body.md
+            if [ -n "$existing" ]; then
+              gh issue edit "$existing" --body-file body.md
+              echo "Updated issue #$existing"
+            else
+              gh issue create --label freshness \
+                --title "Freshness: documents need re-verification" --body-file body.md
+            fi
+          elif [ "$rq" = "0" ] && [ -n "$existing" ]; then
+            gh issue close "$existing" --comment "Everything is current against the pins and the feed; closing automatically."
+            echo "Closed issue #$existing"
+          else
+            echo "Nothing to do (requeue exit $rq)."
           fi
-          exit "$rc"
+
+      - name: Fail on build or Umbrella drift
+        run: |
+          f="${{ steps.watch.outputs.freshness_rc }}"; u="${{ steps.watch.outputs.umbrella_rc }}"
+          if [ "$f" = "2" ] || [ "$u" = "2" ]; then
+            echo "::error::Pinned builds or Umbrella pins are behind upstream. Re-baseline: read the new patch notes (forum topics are listed in the summary), re-pin Umbrella (scripts/extract_api_index.py), revise the documents on the re-queue list, cut a kb-release tag."
+            exit 1
+          fi

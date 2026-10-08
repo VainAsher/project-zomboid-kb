@@ -7,6 +7,7 @@ This license covers the SOFTWARE in this repository only:
 - scripts/ (QA gates, extractors, export and site builders)
 - .github/workflows/ (CI configuration)
 - .markdownlint.jsonc
+- sources/entity_aliases.json (curated routing table read by the tooling)
 
 It does NOT cover the knowledge-base content (docs/, templates/, prompts/,
 exports/ and the Markdown files at the repository root), which is

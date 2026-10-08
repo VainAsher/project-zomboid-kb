@@ -1,0 +1,4407 @@
+{
+ "_generated_by": "scripts/build_entity_map.py - do not edit by hand",
+ "documents": 41,
+ "always_on_release": [
+  "admins-foundation",
+  "creator-content-calendar",
+  "creator-foundation",
+  "lore-foundation",
+  "meta-release-versioning-policy",
+  "meta-source-registry-companion",
+  "players-foundation"
+ ],
+ "aliases": {
+  "41.78": [
+   "admins-legacy41-runbook",
+   "players-b41-to-b42-transition"
+  ],
+  "admin": [
+   "admins-foundation",
+   "admins-rcon-commands"
+  ],
+  "animal": [
+   "players-animals-husbandry"
+  ],
+  "animzed": [
+   "modders-foundation"
+  ],
+  "anti-cheat": [
+   "admins-foundation",
+   "admins-server-ini-reference",
+   "modders-mp-networking-porting"
+  ],
+  "antibiotic": [
+   "players-medical-moodles"
+  ],
+  "anticheat": [
+   "admins-foundation",
+   "admins-server-ini-reference",
+   "modders-mp-networking-porting"
+  ],
+  "api": [
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "b41 world": [
+   "admins-backups-migration",
+   "admins-legacy41-runbook",
+   "players-b41-to-b42-transition"
+  ],
+  "backup": [
+   "admins-backups-migration"
+  ],
+  "bandage": [
+   "players-crafting-chains",
+   "players-medical-moodles"
+  ],
+  "blacksmith": [
+   "players-crafting-chains",
+   "players-traits-occupations"
+  ],
+  "broadcast": [
+   "lore-in-world-media",
+   "lore-knox-event-timeline"
+  ],
+  "brochure": [
+   "lore-in-world-media",
+   "modders-item-scripts-distributions"
+  ],
+  "butcher*": [
+   "players-animals-husbandry",
+   "players-crafting-chains"
+  ],
+  "character creation": [
+   "players-beginner-guide-b42",
+   "players-traits-occupations"
+  ],
+  "checksum": [
+   "admins-modded-server-runbook",
+   "admins-server-ini-reference",
+   "modders-mp-networking-porting"
+  ],
+  "chunk": [
+   "admins-performance-tuning",
+   "players-foundation"
+  ],
+  "craft*": [
+   "modders-item-scripts-distributions",
+   "players-crafting-chains"
+  ],
+  "credits": [
+   "lore-foundation"
+  ],
+  "crop": [
+   "players-farming-food"
+  ],
+  "dedicated server": [
+   "admins-foundation",
+   "admins-ubuntu-runbook"
+  ],
+  "discord": [
+   "admins-server-ini-reference",
+   "creator-cross-promotion-funnel"
+  ],
+  "driv*": [
+   "players-vehicles"
+  ],
+  "event": [
+   "modders-events-callbacks"
+  ],
+  "farm*": [
+   "players-farming-food"
+  ],
+  "flier": [
+   "lore-in-world-media",
+   "modders-item-scripts-distributions"
+  ],
+  "foraging": [
+   "players-farming-food",
+   "players-map-locations"
+  ],
+  "freezer": [
+   "players-beginner-guide-b42",
+   "players-farming-food"
+  ],
+  "fridge": [
+   "players-beginner-guide-b42",
+   "players-farming-food"
+  ],
+  "furrow": [
+   "players-farming-food"
+  ],
+  "glow": [
+   "players-map-locations"
+  ],
+  "grantadmin": [
+   "admins-rcon-commands"
+  ],
+  "hotfix": [
+   "creator-content-calendar",
+   "meta-release-versioning-policy"
+  ],
+  "hutch": [
+   "players-animals-husbandry"
+  ],
+  "infect*": [
+   "lore-knox-event-timeline",
+   "players-medical-moodles"
+  ],
+  "itemtag": [
+   "modders-item-scripts-distributions"
+  ],
+  "json": [
+   "modders-lua-api-surface",
+   "modders-mp-networking-porting"
+  ],
+  "knox event": [
+   "lore-foundation",
+   "lore-knox-event-timeline"
+  ],
+  "legacy": [
+   "admins-legacy41-runbook",
+   "players-b41-to-b42-transition"
+  ],
+  "loadstream": [
+   "admins-legacy41-runbook",
+   "admins-modded-server-runbook",
+   "modders-events-callbacks",
+   "modders-lua-api-surface",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "loadstring": [
+   "admins-legacy41-runbook",
+   "admins-modded-server-runbook",
+   "modders-events-callbacks",
+   "modders-lua-api-surface",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "localiz*": [
+   "modders-first-mod-tutorial-b42",
+   "modders-item-scripts-distributions",
+   "modders-modinfo-modid-conventions"
+  ],
+  "lua": [
+   "modders-events-callbacks",
+   "modders-lua-api-surface"
+  ],
+  "map": [
+   "players-map-locations"
+  ],
+  "maxplayers": [
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "memory leak": [
+   "admins-performance-tuning",
+   "players-beginner-guide-b42"
+  ],
+  "mod maker*": [
+   "modders-foundation",
+   "modders-porting-b41-to-b42"
+  ],
+  "mod options": [
+   "modders-modoptions-pzapi"
+  ],
+  "mod.info": [
+   "modders-modinfo-modid-conventions"
+  ],
+  "modder": [
+   "modders-foundation"
+  ],
+  "modoptions": [
+   "modders-modoptions-pzapi"
+  ],
+  "moodle": [
+   "players-medical-moodles"
+  ],
+  "multiplayer": [
+   "admins-foundation",
+   "modders-mp-networking-porting"
+  ],
+  "muscle strain": [
+   "players-medical-moodles",
+   "players-skills-xp"
+  ],
+  "newspaper": [
+   "lore-in-world-media",
+   "modders-item-scripts-distributions"
+  ],
+  "occupation": [
+   "players-b41-to-b42-transition",
+   "players-foundation",
+   "players-traits-occupations"
+  ],
+  "out of memory": [
+   "admins-performance-tuning",
+   "players-beginner-guide-b42"
+  ],
+  "performance": [
+   "admins-performance-tuning"
+  ],
+  "perk": [
+   "players-skills-xp",
+   "players-traits-occupations"
+  ],
+  "player limit": [
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "profession": [
+   "modders-item-scripts-distributions",
+   "players-traits-occupations"
+  ],
+  "purif*": [
+   "players-crafting-chains",
+   "players-farming-food"
+  ],
+  "radio": [
+   "lore-in-world-media"
+  ],
+  "rcon": [
+   "admins-rcon-commands"
+  ],
+  "recipe": [
+   "modders-item-scripts-distributions",
+   "modders-porting-b41-to-b42",
+   "players-crafting-chains"
+  ],
+  "refrigerat*": [
+   "players-beginner-guide-b42",
+   "players-farming-food"
+  ],
+  "registries": [
+   "modders-item-scripts-distributions",
+   "modders-porting-b41-to-b42"
+  ],
+  "registry": [
+   "modders-item-scripts-distributions",
+   "modders-porting-b41-to-b42"
+  ],
+  "road stories": [
+   "players-map-locations"
+  ],
+  "rosewood": [
+   "players-map-locations"
+  ],
+  "safehouse": [
+   "admins-sandboxvars-reference",
+   "admins-server-ini-reference"
+  ],
+  "sandbox": [
+   "admins-sandboxvars-reference"
+  ],
+  "savegame": [
+   "admins-backups-migration",
+   "players-b41-to-b42-transition"
+  ],
+  "sendclientcommand": [
+   "modders-mp-networking-porting"
+  ],
+  "server browser": [
+   "admins-backups-migration",
+   "admins-server-ini-reference",
+   "creator-cross-promotion-funnel"
+  ],
+  "server option": [
+   "admins-sandboxvars-reference",
+   "admins-server-ini-reference"
+  ],
+  "setaccesslevel": [
+   "admins-rcon-commands"
+  ],
+  "skill book": [
+   "lore-in-world-media",
+   "players-skills-xp"
+  ],
+  "spawn point": [
+   "players-beginner-guide-b42",
+   "players-map-locations"
+  ],
+  "split screen": [
+   "players-beginner-guide-b42",
+   "players-foundation"
+  ],
+  "split-screen": [
+   "players-beginner-guide-b42",
+   "players-foundation"
+  ],
+  "spoil*": [
+   "players-beginner-guide-b42",
+   "players-farming-food"
+  ],
+  "stash": [
+   "players-map-locations"
+  ],
+  "steam authentic*": [
+   "admins-rcon-commands",
+   "admins-server-ini-reference"
+  ],
+  "steamcmd": [
+   "admins-ubuntu-runbook"
+  ],
+  "support update": [
+   "creator-content-calendar",
+   "modders-foundation"
+  ],
+  "teleport": [
+   "admins-rcon-commands"
+  ],
+  "television": [
+   "lore-in-world-media"
+  ],
+  "tilezed": [
+   "modders-foundation"
+  ],
+  "trailer": [
+   "players-animals-husbandry",
+   "players-vehicles"
+  ],
+  "trait": [
+   "modders-item-scripts-distributions",
+   "players-traits-occupations"
+  ],
+  "translat*": [
+   "modders-first-mod-tutorial-b42",
+   "modders-item-scripts-distributions",
+   "modders-modinfo-modid-conventions"
+  ],
+  "trunk": [
+   "players-vehicles"
+  ],
+  "tutorial": [
+   "modders-first-mod-tutorial-b42",
+   "players-beginner-guide-b42"
+  ],
+  "unstable": [
+   "creator-content-calendar",
+   "meta-release-versioning-policy"
+  ],
+  "usernamedisguises": [
+   "admins-server-ini-reference"
+  ],
+  "vehicle": [
+   "players-vehicles"
+  ],
+  "washing machine": [
+   "players-crafting-chains"
+  ],
+  "welder": [
+   "players-crafting-chains",
+   "players-foundation",
+   "players-traits-occupations"
+  ],
+  "whitelist": [
+   "admins-rcon-commands",
+   "admins-server-ini-reference"
+  ],
+  "wipe": [
+   "admins-backups-migration",
+   "admins-server-ini-reference"
+  ],
+  "workshop": [
+   "admins-workshop-mod-wiring",
+   "creator-cross-promotion-funnel",
+   "modders-modinfo-modid-conventions"
+  ],
+  "worldzed": [
+   "modders-foundation"
+  ],
+  "xp": [
+   "players-skills-xp"
+  ],
+  "xxl tree": [
+   "creator-format-catalogue",
+   "players-beginner-guide-b42",
+   "players-vehicles"
+  ],
+  "youtube": [
+   "creator-channel-competitor-map",
+   "creator-cross-promotion-funnel",
+   "creator-format-catalogue"
+  ],
+  "zombie": [
+   "admins-sandboxvars-reference",
+   "players-foundation"
+  ]
+ },
+ "identifiers": {
+  "AbundantLootFactor": [
+   "admins-sandboxvars-reference"
+  ],
+  "AcceptedMedicalCheck": [
+   "modders-events-callbacks",
+   "modders-first-mod-tutorial-b42",
+   "modders-lua-api-surface"
+  ],
+  "ActiveMods": [
+   "modders-modinfo-modid-conventions"
+  ],
+  "AddEvent": [
+   "modders-events-callbacks"
+  ],
+  "AddIngredientIfCooked": [
+   "modders-item-scripts-distributions"
+  ],
+  "AddIngredientSound": [
+   "modders-item-scripts-distributions"
+  ],
+  "AddWorldInventoryItem": [
+   "modders-lua-api-surface"
+  ],
+  "AddXP": [
+   "modders-events-callbacks"
+  ],
+  "AdminSafehouse": [
+   "admins-server-ini-reference"
+  ],
+  "AlarmDecay": [
+   "admins-sandboxvars-reference"
+  ],
+  "AlarmDecayModifier": [
+   "admins-sandboxvars-reference"
+  ],
+  "AllClothesUnlocked": [
+   "admins-sandboxvars-reference"
+  ],
+  "AllowBatchCraft": [
+   "modders-item-scripts-distributions"
+  ],
+  "AllowCoop": [
+   "admins-server-ini-reference"
+  ],
+  "AllowDestructionBySledgehammer": [
+   "admins-server-ini-reference"
+  ],
+  "AllowExteriorGenerator": [
+   "admins-sandboxvars-reference",
+   "players-vehicles"
+  ],
+  "AllowNonAsciiUsername": [
+   "admins-server-ini-reference"
+  ],
+  "AllowTradeUI": [
+   "admins-server-ini-reference"
+  ],
+  "AlwaysPreTouch": [
+   "admins-performance-tuning"
+  ],
+  "AmmoLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "AmmoType": [
+   "modders-mp-networking-porting"
+  ],
+  "AmmoType.register": [
+   "modders-mp-networking-porting"
+  ],
+  "AnimalAgeModifier": [
+   "admins-sandboxvars-reference"
+  ],
+  "AnimalDefinitions": [
+   "modders-lua-api-surface"
+  ],
+  "AnimalEggHatch": [
+   "admins-sandboxvars-reference"
+  ],
+  "AnimalGrassRegrowTime": [
+   "admins-sandboxvars-reference"
+  ],
+  "AnimalInventoryItem": [
+   "modders-lua-api-surface"
+  ],
+  "AnimalMatingSeason": [
+   "admins-sandboxvars-reference"
+  ],
+  "AnimalMetaPredator": [
+   "admins-sandboxvars-reference"
+  ],
+  "AnimalMetaStatsModifier": [
+   "admins-sandboxvars-reference"
+  ],
+  "AnimalMilkIncModifier": [
+   "admins-sandboxvars-reference"
+  ],
+  "AnimalPathChance": [
+   "admins-sandboxvars-reference"
+  ],
+  "AnimalPregnancyTime": [
+   "admins-sandboxvars-reference"
+  ],
+  "AnimalRanchChance": [
+   "admins-sandboxvars-reference"
+  ],
+  "AnimalSoundAttractZombies": [
+   "admins-sandboxvars-reference"
+  ],
+  "AnimalStatsModifier": [
+   "admins-sandboxvars-reference"
+  ],
+  "AnimalTrackChance": [
+   "admins-sandboxvars-reference"
+  ],
+  "AnimalWoolIncModifier": [
+   "admins-sandboxvars-reference"
+  ],
+  "AnnotatedMapChance": [
+   "admins-sandboxvars-reference"
+  ],
+  "AnnounceAnimalDeath": [
+   "admins-server-ini-reference"
+  ],
+  "AnnounceDeath": [
+   "admins-server-ini-reference"
+  ],
+  "AntiCheatChecksum": [
+   "admins-server-ini-reference"
+  ],
+  "AntiCheatHit": [
+   "admins-server-ini-reference"
+  ],
+  "AntiCheatNoClip": [
+   "admins-server-ini-reference"
+  ],
+  "AntiCheatPacketException": [
+   "admins-server-ini-reference"
+  ],
+  "AntiCheatPermission": [
+   "admins-server-ini-reference"
+  ],
+  "AntiCheatPlayer": [
+   "admins-server-ini-reference"
+  ],
+  "AntiCheatSafeHouse": [
+   "admins-server-ini-reference"
+  ],
+  "AntiCheatSafety": [
+   "admins-server-ini-reference"
+  ],
+  "AntiCheatSpeed": [
+   "admins-server-ini-reference"
+  ],
+  "AntiCheatXP": [
+   "admins-server-ini-reference"
+  ],
+  "AnySurfaceCraft": [
+   "modders-item-scripts-distributions"
+  ],
+  "AttackBlockMovements": [
+   "admins-sandboxvars-reference"
+  ],
+  "AutoCreateUserInWhiteList": [
+   "admins-legacy41-runbook",
+   "admins-server-ini-reference"
+  ],
+  "AutoLearnAll": [
+   "modders-item-scripts-distributions"
+  ],
+  "AutoLearnAny": [
+   "modders-item-scripts-distributions"
+  ],
+  "BOT_BLOCK_HOSTS": [
+   "meta-source-registry-companion",
+   "meta-style-guide"
+  ],
+  "BackupsCount": [
+   "admins-backups-migration",
+   "admins-server-ini-reference"
+  ],
+  "BackupsOnStart": [
+   "admins-backups-migration",
+   "admins-server-ini-reference"
+  ],
+  "BackupsOnVersionChange": [
+   "admins-backups-migration",
+   "admins-server-ini-reference"
+  ],
+  "BackupsPeriod": [
+   "admins-backups-migration",
+   "admins-server-ini-reference"
+  ],
+  "BadWordListFile": [
+   "admins-server-ini-reference"
+  ],
+  "BadWordPolicy": [
+   "admins-server-ini-reference"
+  ],
+  "BadWordReplacement": [
+   "admins-server-ini-reference"
+  ],
+  "BanKickGlobalSound": [
+   "admins-server-ini-reference"
+  ],
+  "Base.Axe": [
+   "admins-rcon-commands"
+  ],
+  "Base.BookFarming1": [
+   "players-skills-xp"
+  ],
+  "Base.BookFarming5": [
+   "players-skills-xp"
+  ],
+  "Base.Hat": [
+   "admins-sandboxvars-reference"
+  ],
+  "Base.ItemName": [
+   "modders-foundation"
+  ],
+  "Base.Nails": [
+   "modders-item-scripts-distributions"
+  ],
+  "Base.VanAmbulance": [
+   "admins-rcon-commands"
+  ],
+  "BaseItem": [
+   "modders-item-scripts-distributions"
+  ],
+  "BaseVehicle": [
+   "modders-mp-networking-porting"
+  ],
+  "Basement.SpawnFrequency": [
+   "admins-sandboxvars-reference"
+  ],
+  "BloodBodyPartType": [
+   "modders-mp-networking-porting"
+  ],
+  "BloodLevel": [
+   "admins-sandboxvars-reference"
+  ],
+  "BloodSplatLifespanDays": [
+   "admins-performance-tuning",
+   "admins-sandboxvars-reference",
+   "admins-server-ini-reference"
+  ],
+  "BodyDamage": [
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "BodyDamage:getApparentInfectionLevel": [
+   "modders-porting-b41-to-b42"
+  ],
+  "BodyDamage:getBoredomLevel": [
+   "modders-porting-b41-to-b42"
+  ],
+  "BodyDamage:getInfectionLevel": [
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "BodyDamage:getTemperature": [
+   "modders-porting-b41-to-b42"
+  ],
+  "BodyDamage:getUnhappynessLevel": [
+   "modders-porting-b41-to-b42"
+  ],
+  "BodyDamage:getWetness": [
+   "modders-porting-b41-to-b42"
+  ],
+  "BodyPart": [
+   "modders-mp-networking-porting"
+  ],
+  "BoneFracture": [
+   "admins-sandboxvars-reference",
+   "players-medical-moodles"
+  ],
+  "CFarmingSystem": [
+   "modders-mp-networking-porting"
+  ],
+  "Callback_OnTick": [
+   "modders-events-callbacks"
+  ],
+  "CanAddSpicesEmpty": [
+   "modders-item-scripts-distributions"
+  ],
+  "CanWalk": [
+   "modders-item-scripts-distributions"
+  ],
+  "CannedFoodLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "CarAlarm": [
+   "admins-sandboxvars-reference"
+  ],
+  "CarDamageOnImpact": [
+   "admins-sandboxvars-reference"
+  ],
+  "CarEngineAttractionModifier": [
+   "admins-server-ini-reference"
+  ],
+  "CarGasConsumption": [
+   "admins-sandboxvars-reference",
+   "players-vehicles"
+  ],
+  "CarGeneralCondition": [
+   "admins-sandboxvars-reference"
+  ],
+  "CarSpawnRate": [
+   "admins-sandboxvars-reference"
+  ],
+  "ChanceHasGas": [
+   "admins-sandboxvars-reference"
+  ],
+  "CharacterFreePoints": [
+   "admins-sandboxvars-reference"
+  ],
+  "CharacterProfession": [
+   "modders-item-scripts-distributions",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "CharacterProfession.register": [
+   "modders-mp-networking-porting"
+  ],
+  "CharacterStat": [
+   "modders-porting-b41-to-b42"
+  ],
+  "CharacterStat.HUNGER": [
+   "modders-porting-b41-to-b42"
+  ],
+  "CharacterStat.MORALE": [
+   "modders-porting-b41-to-b42"
+  ],
+  "CharacterStat.STRESS": [
+   "modders-porting-b41-to-b42"
+  ],
+  "CharacterTrait": [
+   "modders-item-scripts-distributions",
+   "modders-lua-api-surface",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "CharacterTrait.register": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "ChatMessageCharacterLimit": [
+   "admins-server-ini-reference"
+  ],
+  "ChatMessageSlowModeTime": [
+   "admins-server-ini-reference"
+  ],
+  "ChatStreams": [
+   "admins-server-ini-reference",
+   "admins-workshop-mod-wiring"
+  ],
+  "ChooseGameInfo": [
+   "modders-modinfo-modid-conventions"
+  ],
+  "ChooseGameInfo.Mod": [
+   "modders-modinfo-modid-conventions"
+  ],
+  "Class:method": [
+   "meta-release-versioning-policy",
+   "modders-porting-b41-to-b42"
+  ],
+  "ClayLakeChance": [
+   "admins-sandboxvars-reference"
+  ],
+  "ClayRiverChance": [
+   "admins-sandboxvars-reference"
+  ],
+  "ClearAllDistributionItems": [
+   "modders-item-scripts-distributions"
+  ],
+  "ClientActionLogs": [
+   "admins-server-ini-reference",
+   "admins-workshop-mod-wiring"
+  ],
+  "ClientCommandFilter": [
+   "admins-server-ini-reference",
+   "admins-workshop-mod-wiring"
+  ],
+  "ClimateCycle": [
+   "admins-sandboxvars-reference"
+  ],
+  "ClipSize": [
+   "modders-item-scripts-distributions"
+  ],
+  "ClothingDegradation": [
+   "admins-sandboxvars-reference"
+  ],
+  "ClothingLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "CommonLootFactor": [
+   "admins-sandboxvars-reference"
+  ],
+  "CompostTime": [
+   "admins-sandboxvars-reference"
+  ],
+  "ConditionMax": [
+   "modders-item-scripts-distributions"
+  ],
+  "ConditionModifier": [
+   "modders-item-scripts-distributions"
+  ],
+  "ConstructionBonusPoints": [
+   "admins-sandboxvars-reference"
+  ],
+  "ConstructionPreventsLootRespawn": [
+   "admins-legacy41-runbook",
+   "admins-sandboxvars-reference",
+   "admins-server-ini-reference"
+  ],
+  "ContainerLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "CookwareLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "CoopMasterPingTimeout": [
+   "admins-server-ini-reference"
+  ],
+  "CoopServerLaunchTimeout": [
+   "admins-server-ini-reference"
+  ],
+  "CraftRecipe": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "CraftRecipe:getInputs": [
+   "modders-porting-b41-to-b42"
+  ],
+  "CraftRecipe:getOutputs": [
+   "modders-porting-b41-to-b42"
+  ],
+  "CraftRecipe:getRequiredSkills": [
+   "modders-porting-b41-to-b42"
+  ],
+  "CraftRecipeCode": [
+   "modders-lua-api-surface"
+  ],
+  "CreateItem": [
+   "modders-porting-b41-to-b42"
+  ],
+  "DISABLE_BROADCASTING": [
+   "lore-in-world-media"
+  ],
+  "DamageToPlayerFromHitByACar": [
+   "admins-sandboxvars-reference"
+  ],
+  "DayLength": [
+   "admins-sandboxvars-reference"
+  ],
+  "DayNightCycle": [
+   "admins-sandboxvars-reference"
+  ],
+  "DaysForRottenFoodRemoval": [
+   "admins-sandboxvars-reference"
+  ],
+  "DaysUntilMaximumDiminishedLoot": [
+   "admins-sandboxvars-reference"
+  ],
+  "DaysUntilMaximumLooted": [
+   "admins-sandboxvars-reference"
+  ],
+  "DaysUntilMaximumRatIndex": [
+   "admins-sandboxvars-reference"
+  ],
+  "DecayingCorpseHealthImpact": [
+   "admins-sandboxvars-reference",
+   "players-medical-moodles"
+  ],
+  "DeepPrintDistributionTable": [
+   "modders-item-scripts-distributions"
+  ],
+  "DefaultPort": [
+   "admins-foundation",
+   "admins-server-ini-reference"
+  ],
+  "DenyLoginOnOverloadedServer": [
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "DisableBurntTowing": [
+   "admins-server-ini-reference"
+  ],
+  "DisableRadioAdmin": [
+   "admins-server-ini-reference"
+  ],
+  "DisableRadioGM": [
+   "admins-server-ini-reference"
+  ],
+  "DisableRadioInvisible": [
+   "admins-server-ini-reference"
+  ],
+  "DisableRadioModerator": [
+   "admins-server-ini-reference"
+  ],
+  "DisableRadioOverseer": [
+   "admins-server-ini-reference"
+  ],
+  "DisableRadioStaff": [
+   "admins-server-ini-reference"
+  ],
+  "DisableSafehouseWhenOwnerConnected": [
+   "admins-legacy41-runbook",
+   "admins-server-ini-reference"
+  ],
+  "DisableSafehouseWhenPlayerConnected": [
+   "admins-legacy41-runbook",
+   "admins-server-ini-reference"
+  ],
+  "DisableScoreboard": [
+   "admins-server-ini-reference"
+  ],
+  "DisableTrailerTowing": [
+   "admins-server-ini-reference"
+  ],
+  "DisableVehicleTowing": [
+   "admins-server-ini-reference"
+  ],
+  "DiscomfortFactor": [
+   "admins-sandboxvars-reference",
+   "players-medical-moodles"
+  ],
+  "DiscordChannel": [
+   "admins-legacy41-runbook",
+   "admins-server-ini-reference"
+  ],
+  "DiscordChannelID": [
+   "admins-legacy41-runbook",
+   "admins-server-ini-reference"
+  ],
+  "DiscordChatChannel": [
+   "admins-server-ini-reference"
+  ],
+  "DiscordCommandChannel": [
+   "admins-server-ini-reference"
+  ],
+  "DiscordEnable": [
+   "admins-server-ini-reference",
+   "creator-cross-promotion-funnel"
+  ],
+  "DiscordLogChannel": [
+   "admins-server-ini-reference"
+  ],
+  "DiscordToken": [
+   "admins-server-ini-reference"
+  ],
+  "DisplayCategory": [
+   "modders-item-scripts-distributions"
+  ],
+  "DisplayName": [
+   "modders-first-mod-tutorial-b42",
+   "modders-item-scripts-distributions",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "DisplayUserName": [
+   "admins-server-ini-reference"
+  ],
+  "DistributeTransmission": [
+   "lore-in-world-media"
+  ],
+  "DistributionMerge": [
+   "modders-item-scripts-distributions"
+  ],
+  "DoLuaChecksum": [
+   "admins-foundation",
+   "admins-legacy41-runbook",
+   "admins-server-ini-reference"
+  ],
+  "DrainableComboItem": [
+   "modders-porting-b41-to-b42"
+  ],
+  "DrainableComboItem:getCurrentUses": [
+   "modders-porting-b41-to-b42"
+  ],
+  "DrainableComboItem:getDelta": [
+   "modders-porting-b41-to-b42"
+  ],
+  "DrainableComboItem:getMaxUses": [
+   "modders-porting-b41-to-b42"
+  ],
+  "DrainableComboItem:getRemainingUses": [
+   "modders-porting-b41-to-b42"
+  ],
+  "DrainableComboItem:getUsedDelta": [
+   "modders-porting-b41-to-b42"
+  ],
+  "DrainableComboItem:setCurrentUses": [
+   "modders-porting-b41-to-b42"
+  ],
+  "DrainableComboItem:setDelta": [
+   "modders-porting-b41-to-b42"
+  ],
+  "DropOffWhiteListAfterDeath": [
+   "admins-server-ini-reference"
+  ],
+  "DynamicRadio": [
+   "lore-in-world-media"
+  ],
+  "DynamicRadioChannel": [
+   "lore-in-world-media"
+  ],
+  "ERROR": [
+   "admins-modded-server-runbook"
+  ],
+  "EasyClimbing": [
+   "admins-sandboxvars-reference"
+  ],
+  "ElecShut": [
+   "admins-sandboxvars-reference"
+  ],
+  "ElecShutModifier": [
+   "admins-sandboxvars-reference"
+  ],
+  "EnablePoisoning": [
+   "admins-sandboxvars-reference"
+  ],
+  "EnableSnowOnGround": [
+   "admins-sandboxvars-reference"
+  ],
+  "EnableTaintedWaterText": [
+   "admins-sandboxvars-reference"
+  ],
+  "EnableVehicles": [
+   "admins-sandboxvars-reference"
+  ],
+  "EndRegen": [
+   "admins-sandboxvars-reference"
+  ],
+  "ErosionDays": [
+   "admins-sandboxvars-reference"
+  ],
+  "ErosionSpeed": [
+   "admins-sandboxvars-reference"
+  ],
+  "Events.AcceptedMedicalCheck": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.AcceptedTrade": [
+   "modders-events-callbacks"
+  ],
+  "Events.EveryDays": [
+   "modders-events-callbacks"
+  ],
+  "Events.EveryHours": [
+   "modders-events-callbacks"
+  ],
+  "Events.EveryOneMinute": [
+   "modders-events-callbacks"
+  ],
+  "Events.EveryTenMinutes": [
+   "modders-events-callbacks"
+  ],
+  "Events.LoadGridsquare": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnAmbientSound": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnBeingHitByZombie": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnChangeWeather": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnCharacterDeath": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnCharacterMeet": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnClientCommand": [
+   "modders-events-callbacks",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnConnectFailed": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnConnected": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnConnectionStateChanged": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnContextKey": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnCreatePlayer": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnDawn": [
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnDeadBodySpawn": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnDestroyIsoThumpable": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnDistributionMerge": [
+   "modders-item-scripts-distributions",
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnDoTileBuilding3": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnDusk": [
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnEnterVehicle": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnEquipPrimary": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnFETick": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnFillInventoryContextMenuNoItems": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnFillInventoryObjectContextMenu": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnFillWorldObjectContextMenu": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnForagePool": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnForageRequestZone": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnForageSpot": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnGameBoot": [
+   "modders-events-callbacks",
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnGameStart": [
+   "modders-events-callbacks",
+   "modders-first-mod-tutorial-b42"
+  ],
+  "Events.OnHitZombie": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnInitGlobalModData": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnItemFound": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnJoypadDebugRenderUIOptionSet": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnKeyKeepPressed": [
+   "modders-modoptions-pzapi"
+  ],
+  "Events.OnKeyPressed": [
+   "modders-events-callbacks",
+   "modders-modoptions-pzapi"
+  ],
+  "Events.OnKeyStartPressed": [
+   "modders-modoptions-pzapi"
+  ],
+  "Events.OnLoad": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnMainMenuEnter": [
+   "modders-modoptions-pzapi"
+  ],
+  "Events.OnMakeItem": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnMechanicActionDone": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnMouseWheel": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnNetworkUsersReceived": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnNewGame": [
+   "modders-events-callbacks",
+   "modders-first-mod-tutorial-b42"
+  ],
+  "Events.OnNewSurvivorGroup": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnObjectAdded": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnPlayerDeath": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnPlayerSetSafehouse": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnPlayerUpdate": [
+   "modders-events-callbacks",
+   "modders-lua-api-surface"
+  ],
+  "Events.OnPostDistributionMerge": [
+   "modders-events-callbacks",
+   "modders-item-scripts-distributions",
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnPostFloorSquareDraw": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnPostTileDraw": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnPreDistributionMerge": [
+   "modders-events-callbacks",
+   "modders-item-scripts-distributions",
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnPreFillInventoryContextMenuNoItems": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnPreGameStart": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnPressRackButton": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnProcessAction": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnRadioInteraction": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnRainStart": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnRainStop": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnReceiveGlobalModData": [
+   "modders-events-callbacks",
+   "modders-mp-networking-porting"
+  ],
+  "Events.OnReceiveUserlog": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnRenderUpdate": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnRolesReceived": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnScoreboardUpdate": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnServerCommand": [
+   "modders-events-callbacks",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnServerCustomizationDataReceived": [
+   "modders-mp-networking-porting"
+  ],
+  "Events.OnServerStarted": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnServerWorkshopItems": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnSleepingTick": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnTick": [
+   "modders-events-callbacks",
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnTickEvenPaused": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnUseVehicle": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnWarUpdate": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnWeaponHitCharacter": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnWeaponHitXp": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnZombieCreate": [
+   "modders-events-callbacks",
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OnZombieDead": [
+   "modders-events-callbacks"
+  ],
+  "Events.OnZombieUpdate": [
+   "modders-events-callbacks"
+  ],
+  "Events.OptionControllerButtonStyleChanged": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.OptionGamepadBindingPresetChanged": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.ReceiveSafehouseInvite": [
+   "modders-events-callbacks"
+  ],
+  "Events.RequestMedicalCheck": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "Events.RequestTrade": [
+   "modders-events-callbacks"
+  ],
+  "Events.SendCustomModData": [
+   "modders-mp-networking-porting"
+  ],
+  "Events.X": [
+   "meta-release-versioning-policy"
+  ],
+  "Events.onItemFall": [
+   "modders-events-callbacks"
+  ],
+  "EveryDays": [
+   "modders-events-callbacks"
+  ],
+  "EveryHours": [
+   "modders-events-callbacks"
+  ],
+  "EveryOneMinute": [
+   "modders-events-callbacks"
+  ],
+  "EveryTenMinutes": [
+   "modders-events-callbacks"
+  ],
+  "EvolvedRecipe": [
+   "modders-item-scripts-distributions",
+   "modders-mp-networking-porting"
+  ],
+  "ExecStop": [
+   "admins-ubuntu-runbook"
+  ],
+  "ExtremeLootFactor": [
+   "admins-sandboxvars-reference"
+  ],
+  "FactionDaySurvivedToCreate": [
+   "admins-server-ini-reference"
+  ],
+  "FactionPlayersRequiredForTag": [
+   "admins-server-ini-reference"
+  ],
+  "FarmingAmountNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "FarmingLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "FarmingSpeedNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "FastForwardMultiplier": [
+   "admins-server-ini-reference"
+  ],
+  "FileNotFoundException": [
+   "admins-modded-server-runbook"
+  ],
+  "FireSpread": [
+   "admins-sandboxvars-reference"
+  ],
+  "FirearmHeadGearEffect": [
+   "admins-sandboxvars-reference"
+  ],
+  "FirearmJamMultiplier": [
+   "admins-sandboxvars-reference"
+  ],
+  "FirearmMoodleMultiplier": [
+   "admins-sandboxvars-reference"
+  ],
+  "FirearmNoiseMultiplier": [
+   "admins-sandboxvars-reference"
+  ],
+  "FirearmUseDamageChance": [
+   "admins-sandboxvars-reference"
+  ],
+  "FirearmWeatherMultiplier": [
+   "admins-sandboxvars-reference"
+  ],
+  "FishAbundance": [
+   "admins-sandboxvars-reference"
+  ],
+  "FlintKnapping": [
+   "players-skills-xp"
+  ],
+  "FluidContainer": [
+   "modders-mp-networking-porting"
+  ],
+  "FluidSample": [
+   "modders-lua-api-surface"
+  ],
+  "FluidType": [
+   "modders-lua-api-surface"
+  ],
+  "FogCycle": [
+   "admins-sandboxvars-reference"
+  ],
+  "FoodLoot": [
+   "admins-sandboxvars-reference"
+  ],
+  "FoodLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "FoodRotSpeed": [
+   "admins-sandboxvars-reference"
+  ],
+  "FridgeFactor": [
+   "admins-sandboxvars-reference"
+  ],
+  "FuelStationGasEmptyChance": [
+   "admins-sandboxvars-reference"
+  ],
+  "FuelStationGasInfinite": [
+   "admins-sandboxvars-reference",
+   "players-vehicles"
+  ],
+  "FuelStationGasMax": [
+   "admins-sandboxvars-reference"
+  ],
+  "FuelStationGasMin": [
+   "admins-sandboxvars-reference"
+  ],
+  "FurnaceLogic": [
+   "modders-porting-b41-to-b42"
+  ],
+  "GameTime": [
+   "modders-events-callbacks"
+  ],
+  "GeneratorFuelConsumption": [
+   "admins-sandboxvars-reference"
+  ],
+  "GeneratorSpawning": [
+   "admins-sandboxvars-reference"
+  ],
+  "GeneratorTileRange": [
+   "admins-sandboxvars-reference"
+  ],
+  "GeneratorVerticalPowerRange": [
+   "admins-sandboxvars-reference"
+  ],
+  "GetItemTypes": [
+   "modders-item-scripts-distributions"
+  ],
+  "GlobalChat": [
+   "admins-server-ini-reference"
+  ],
+  "GlobalItem": [
+   "modders-item-scripts-distributions"
+  ],
+  "GlobalToggle": [
+   "admins-sandboxvars-reference"
+  ],
+  "GoodWordListFile": [
+   "admins-server-ini-reference"
+  ],
+  "GrantedTraits": [
+   "modders-item-scripts-distributions"
+  ],
+  "GrappleGrabCollisionCheck": [
+   "modders-events-callbacks"
+  ],
+  "GrapplerLetGo": [
+   "modders-events-callbacks"
+  ],
+  "HaloTextHelper": [
+   "modders-first-mod-tutorial-b42"
+  ],
+  "HaloTextHelper.addBadText": [
+   "modders-first-mod-tutorial-b42"
+  ],
+  "HaloTextHelper.addGoodText": [
+   "modders-first-mod-tutorial-b42"
+  ],
+  "HaloTextHelper.addText": [
+   "modders-first-mod-tutorial-b42"
+  ],
+  "HaloTextHelper.addTextWithArrow": [
+   "modders-first-mod-tutorial-b42"
+  ],
+  "HandWeapon": [
+   "modders-porting-b41-to-b42"
+  ],
+  "HandWeapon:getAllWeaponParts": [
+   "modders-porting-b41-to-b42"
+  ],
+  "HandWeapon:getCanon": [
+   "modders-porting-b41-to-b42"
+  ],
+  "HandWeapon:getClip": [
+   "modders-porting-b41-to-b42"
+  ],
+  "HandWeapon:getScope": [
+   "modders-porting-b41-to-b42"
+  ],
+  "HandWeapon:getSling": [
+   "modders-porting-b41-to-b42"
+  ],
+  "HandWeapon:getStock": [
+   "modders-porting-b41-to-b42"
+  ],
+  "HandWeapon:getWeaponPart": [
+   "modders-porting-b41-to-b42"
+  ],
+  "HasTrait": [
+   "modders-lua-api-surface"
+  ],
+  "HideAdminsInPlayerList": [
+   "admins-server-ini-reference"
+  ],
+  "HideDisguisedUserName": [
+   "admins-server-ini-reference"
+  ],
+  "HidePlayersBehindYou": [
+   "admins-server-ini-reference"
+  ],
+  "HoursForCorpseRemoval": [
+   "admins-sandboxvars-reference"
+  ],
+  "HoursForLootRespawn": [
+   "admins-legacy41-runbook",
+   "admins-sandboxvars-reference",
+   "admins-server-ini-reference"
+  ],
+  "HoursForWorldItemRemoval": [
+   "admins-sandboxvars-reference"
+  ],
+  "IGUI_CraftingCategories_": [
+   "modders-item-scripts-distributions"
+  ],
+  "ISBSFurnace": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISBaseTimedAction": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "ISBaseTimedAction.getDuration": [
+   "modders-mp-networking-porting"
+  ],
+  "ISBaseTimedAction:forceCancel": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISBaseTimedAction:getDuration": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISBaseTimedAction:isStarted": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISBlacksmithMenu": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISBuildMenu": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISBuildWindow": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISContextTelevision": [
+   "lore-in-world-media"
+  ],
+  "ISCraftingCategoryUI": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISCraftingUI": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISFarmingCursor": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISFireplaceMenu": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISFurnaceLogicPanel": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISGameLoadingUI": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISHandcraftWindow": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISInventoryPane": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISLiteratureList": [
+   "lore-in-world-media"
+  ],
+  "ISLiteratureUI": [
+   "lore-in-world-media"
+  ],
+  "ISModalDialog": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISOptionPanel": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISPrintMediaInfo": [
+   "lore-in-world-media"
+  ],
+  "ISPrintMediaListBox": [
+   "lore-in-world-media"
+  ],
+  "ISPrintMediaMap": [
+   "lore-in-world-media"
+  ],
+  "ISPrintMediaPage": [
+   "lore-in-world-media"
+  ],
+  "ISPrintMediaPanel": [
+   "lore-in-world-media"
+  ],
+  "ISPrintMediaRichText": [
+   "lore-in-world-media"
+  ],
+  "ISPrintMediaSetInfo": [
+   "lore-in-world-media"
+  ],
+  "ISPrintMediaTextPanel": [
+   "lore-in-world-media"
+  ],
+  "ISReloadManager": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISReloadWeaponAction": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISSafetyUI": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISScrollingListBox": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISTextEntryBox": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISUIElement": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISUIElement:centerOnScreen": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISUIElement:detachFromParent": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISUIElement:doLayout": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISUIElement:getCentreX": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISUIElement:getCentreY": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ISteamNews": [
+   "meta-style-guide",
+   "players-b41-to-b42-transition",
+   "players-medical-moodles"
+  ],
+  "InHandCraft": [
+   "modders-item-scripts-distributions"
+  ],
+  "InitialGas": [
+   "admins-sandboxvars-reference"
+  ],
+  "InjurySeverity": [
+   "admins-sandboxvars-reference",
+   "players-medical-moodles"
+  ],
+  "InsaneLootFactor": [
+   "admins-sandboxvars-reference"
+  ],
+  "InvContextRadio": [
+   "lore-in-world-media"
+  ],
+  "InventoryItem": [
+   "modders-first-mod-tutorial-b42",
+   "modders-lua-api-surface",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "InventoryItem.UseAndSync": [
+   "modders-mp-networking-porting"
+  ],
+  "InventoryItem:getFluidContainer": [
+   "modders-porting-b41-to-b42"
+  ],
+  "InventoryItem:getPlaceDir": [
+   "modders-porting-b41-to-b42"
+  ],
+  "InventoryItem:isFluidContainer": [
+   "modders-porting-b41-to-b42"
+  ],
+  "InventoryItem:isTaintedWater": [
+   "modders-porting-b41-to-b42"
+  ],
+  "InventoryItem:setPlaceDir": [
+   "modders-porting-b41-to-b42"
+  ],
+  "InventoryItem:setTaintedWater": [
+   "modders-porting-b41-to-b42"
+  ],
+  "InventoryItemFactory": [
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoAnimal": [
+   "modders-mp-networking-porting"
+  ],
+  "IsoDeadBody": [
+   "modders-mp-networking-porting"
+  ],
+  "IsoGameCharacter": [
+   "modders-lua-api-surface",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoGameCharacter.isTimedActionInstant": [
+   "modders-mp-networking-porting"
+  ],
+  "IsoGameCharacter:HasTrait": [
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoGameCharacter:getCharacterTraits": [
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoGameCharacter:getTemperature": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoGameCharacter:getTraits": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoGameCharacter:hasTrait": [
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoGridSquare": [
+   "modders-lua-api-surface",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoGridSquare.transmitModdata": [
+   "modders-mp-networking-porting"
+  ],
+  "IsoGridSquare.transmitRemoveItemFromSquare": [
+   "modders-mp-networking-porting"
+  ],
+  "IsoGridSquare:AddWorldInventoryItem": [
+   "modders-lua-api-surface"
+  ],
+  "IsoGridSquare:addFreezer": [
+   "modders-lua-api-surface"
+  ],
+  "IsoGridSquare:addGrindstone": [
+   "modders-lua-api-surface"
+  ],
+  "IsoGridSquare:drawCircleExplosion": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoGridSquare:explode": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoGridSquare:explodeTrap": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoGridSquare:explosion": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoGridSquare:smoke": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoLivingCharacter": [
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoObject": [
+   "modders-lua-api-surface",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoObject.sync": [
+   "modders-mp-networking-porting"
+  ],
+  "IsoObject.transmitCompleteItemToClients": [
+   "modders-mp-networking-porting"
+  ],
+  "IsoObject.transmitModData": [
+   "modders-mp-networking-porting"
+  ],
+  "IsoObject:addFluid": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoObject:getFluidContainer": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoObject:getWaterAmount": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoObject:setWaterAmount": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoObject:useWater": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoPlayer": [
+   "modders-first-mod-tutorial-b42",
+   "modders-lua-api-surface",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoPlayer:addAttachedAnimal": [
+   "modders-lua-api-surface"
+  ],
+  "IsoPlayer:canSeeAll": [
+   "modders-lua-api-surface"
+  ],
+  "IsoPlayer:getForname": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoPlayer:getPlayerMoveDir": [
+   "modders-lua-api-surface"
+  ],
+  "IsoPlayer:getPlayerNum": [
+   "modders-lua-api-surface"
+  ],
+  "IsoPlayer:getStaticTraits": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoPlayer:getSurname": [
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoPlayer:isCanSeeAll": [
+   "modders-lua-api-surface"
+  ],
+  "IsoPlayer:isDeaf": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoRadio": [
+   "lore-in-world-media"
+  ],
+  "IsoZombie": [
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoZombie:becomeCorpse": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoZombie:getHitAngle": [
+   "modders-porting-b41-to-b42"
+  ],
+  "IsoZombie:isLocal": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ItemBodyLocation": [
+   "modders-mp-networking-porting"
+  ],
+  "ItemBodyLocation.register": [
+   "modders-mp-networking-porting"
+  ],
+  "ItemContainer": [
+   "modders-lua-api-surface",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "ItemContainer:getContentsWeight": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ItemContainer:getFirstFluidContainer": [
+   "modders-lua-api-surface"
+  ],
+  "ItemContainer:getWeight": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ItemKey": [
+   "modders-item-scripts-distributions",
+   "modders-lua-api-surface"
+  ],
+  "ItemKey.new": [
+   "modders-item-scripts-distributions"
+  ],
+  "ItemName": [
+   "modders-first-mod-tutorial-b42",
+   "modders-item-scripts-distributions"
+  ],
+  "ItemNumbersLimitPerContainer": [
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "ItemPickerJava": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ItemRemovalListBlacklistToggle": [
+   "admins-sandboxvars-reference"
+  ],
+  "ItemTag": [
+   "modders-item-scripts-distributions",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "ItemTag.AEROSOL": [
+   "modders-item-scripts-distributions"
+  ],
+  "ItemTag.register": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "ItemType": [
+   "modders-first-mod-tutorial-b42",
+   "modders-item-scripts-distributions",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "ItemType.register": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "KahluaTableImpl": [
+   "modders-mp-networking-porting"
+  ],
+  "KeyLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "KickFastPlayers": [
+   "admins-server-ini-reference"
+  ],
+  "KillInsideCrops": [
+   "admins-sandboxvars-reference"
+  ],
+  "KnockedDownAllowed": [
+   "admins-server-ini-reference"
+  ],
+  "LICENSE": [
+   "meta-release-versioning-policy",
+   "meta-style-guide"
+  ],
+  "LOUISVILLE_OBFUSCATION": [
+   "lore-in-world-media"
+  ],
+  "LevelForDismantleXPCutoff": [
+   "admins-sandboxvars-reference"
+  ],
+  "LevelForMediaXPCutoff": [
+   "admins-sandboxvars-reference"
+  ],
+  "LevelPerk": [
+   "modders-events-callbacks"
+  ],
+  "LightBulbLifespan": [
+   "admins-sandboxvars-reference"
+  ],
+  "LiteratureCooldown": [
+   "admins-sandboxvars-reference"
+  ],
+  "LiteratureLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "LoadChunk": [
+   "modders-events-callbacks",
+   "modders-lua-api-surface"
+  ],
+  "LoadGridsquare": [
+   "modders-events-callbacks"
+  ],
+  "LockedCar": [
+   "admins-sandboxvars-reference"
+  ],
+  "LockedHouses": [
+   "admins-sandboxvars-reference"
+  ],
+  "LogLocalChat": [
+   "admins-server-ini-reference"
+  ],
+  "LoginQueueConnectTimeout": [
+   "admins-server-ini-reference"
+  ],
+  "LoginQueueEnabled": [
+   "admins-server-ini-reference"
+  ],
+  "LoginScreen": [
+   "modders-porting-b41-to-b42"
+  ],
+  "LootItemRemovalList": [
+   "admins-sandboxvars-reference"
+  ],
+  "LootRespawn": [
+   "admins-sandboxvars-reference"
+  ],
+  "LuaEventManager": [
+   "modders-events-callbacks"
+  ],
+  "LuaEventManager.AddEvent": [
+   "modders-events-callbacks"
+  ],
+  "LuaEventManager.RunQueuedEvents": [
+   "modders-events-callbacks"
+  ],
+  "LuaEventManager.getEvents": [
+   "modders-events-callbacks"
+  ],
+  "LuaEventManager.setEvents": [
+   "modders-events-callbacks"
+  ],
+  "LuaEventManager.triggerEvent": [
+   "modders-events-callbacks"
+  ],
+  "LuaEventManager.triggerEventGarbage": [
+   "modders-events-callbacks"
+  ],
+  "LuaEventManager.triggerEventUnique": [
+   "modders-events-callbacks"
+  ],
+  "MCRCON_PASS": [
+   "admins-rcon-commands"
+  ],
+  "MCRCON_PORT": [
+   "admins-rcon-commands"
+  ],
+  "MaggotSpawn": [
+   "admins-sandboxvars-reference"
+  ],
+  "Map.AllowMiniMap": [
+   "admins-sandboxvars-reference"
+  ],
+  "Map.AllowWorldMap": [
+   "admins-sandboxvars-reference"
+  ],
+  "Map.MapAllKnown": [
+   "admins-sandboxvars-reference"
+  ],
+  "Map.MapNeedsLight": [
+   "admins-sandboxvars-reference"
+  ],
+  "MapRemotePlayerVisibility": [
+   "admins-server-ini-reference"
+  ],
+  "MaterialLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "MaxAccountsPerUser": [
+   "admins-server-ini-reference"
+  ],
+  "MaxFogIntensity": [
+   "admins-sandboxvars-reference"
+  ],
+  "MaxItems": [
+   "modders-item-scripts-distributions"
+  ],
+  "MaxItemsForLootRespawn": [
+   "admins-legacy41-runbook",
+   "admins-sandboxvars-reference",
+   "admins-server-ini-reference"
+  ],
+  "MaxPacketsPerSecond": [
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "MaxPlayers": [
+   "admins-legacy41-runbook",
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "MaxRainFxIntensity": [
+   "admins-sandboxvars-reference"
+  ],
+  "MaxSafezoneSize": [
+   "admins-server-ini-reference"
+  ],
+  "MaximumDiminishedLoot": [
+   "admins-sandboxvars-reference"
+  ],
+  "MaximumFireFuelHours": [
+   "admins-sandboxvars-reference"
+  ],
+  "MaximumLooted": [
+   "admins-sandboxvars-reference"
+  ],
+  "MaximumLootedBuildingRooms": [
+   "admins-sandboxvars-reference"
+  ],
+  "MaximumRatIndex": [
+   "admins-sandboxvars-reference"
+  ],
+  "MechanicsLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "MediaData": [
+   "lore-in-world-media"
+  ],
+  "MediaLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "MedicalLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "MementoLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "MergeDistributionRecursive": [
+   "modders-item-scripts-distributions"
+  ],
+  "MetaEvent": [
+   "admins-sandboxvars-reference"
+  ],
+  "MetaKnowledge": [
+   "admins-sandboxvars-reference"
+  ],
+  "MetaRecipe": [
+   "modders-item-scripts-distributions"
+  ],
+  "MetalWelding": [
+   "players-skills-xp"
+  ],
+  "MinimumWater": [
+   "modders-item-scripts-distributions"
+  ],
+  "MinutesPerPage": [
+   "admins-legacy41-runbook",
+   "admins-sandboxvars-reference",
+   "admins-server-ini-reference"
+  ],
+  "ModData": [
+   "modders-mp-networking-porting"
+  ],
+  "ModData.request": [
+   "modders-mp-networking-porting"
+  ],
+  "ModData.transmit": [
+   "modders-mp-networking-porting"
+  ],
+  "ModOptions": [
+   "modders-modoptions-pzapi"
+  ],
+  "Module.ItemId": [
+   "modders-item-scripts-distributions"
+  ],
+  "MoodleType": [
+   "modders-item-scripts-distributions",
+   "modders-mp-networking-porting"
+  ],
+  "MoodleType.register": [
+   "modders-mp-networking-porting"
+  ],
+  "MouseOverToSeeDisplayName": [
+   "admins-server-ini-reference"
+  ],
+  "MultiHitZombies": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiStageBuilding": [
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "MultiplayerStatisticsPeriod": [
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "MultiplierConfig": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Aiming": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Axe": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Blacksmith": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Blunt": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Butchering": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Carving": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Cooking": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Doctor": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Electricity": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Farming": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Fishing": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Fitness": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.FlintKnapping": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Glassmaking": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Global": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.GlobalToggle": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Husbandry": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Lightfoot": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.LongBlade": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Maintenance": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Masonry": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Mechanics": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.MetalWelding": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Nimble": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.PlantScavenging": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Pottery": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Reloading": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.SmallBlade": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.SmallBlunt": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Sneak": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Spear": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Sprinting": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Strength": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Tailoring": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Tracking": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Trapping": [
+   "admins-sandboxvars-reference"
+  ],
+  "MultiplierConfig.Woodwork": [
+   "admins-sandboxvars-reference"
+  ],
+  "MuscleStrainFactor": [
+   "admins-sandboxvars-reference",
+   "players-b41-to-b42-transition",
+   "players-medical-moodles"
+  ],
+  "MyFirstMod": [
+   "modders-first-mod-tutorial-b42"
+  ],
+  "MyFirstMod.Token": [
+   "modders-first-mod-tutorial-b42"
+  ],
+  "MyMod_MyItemID": [
+   "modders-foundation"
+  ],
+  "NatureAbundance": [
+   "admins-sandboxvars-reference"
+  ],
+  "NeedToBeLearn": [
+   "modders-item-scripts-distributions"
+  ],
+  "NegativeTraitsPenalty": [
+   "admins-sandboxvars-reference"
+  ],
+  "NetTimedAction": [
+   "modders-mp-networking-porting"
+  ],
+  "NetTimedAction.animEvent": [
+   "modders-mp-networking-porting"
+  ],
+  "NetTimedAction.forceComplete": [
+   "modders-mp-networking-porting"
+  ],
+  "NightDarkness": [
+   "admins-sandboxvars-reference"
+  ],
+  "NightLength": [
+   "admins-sandboxvars-reference"
+  ],
+  "NoBlackClothes": [
+   "admins-sandboxvars-reference"
+  ],
+  "NoFire": [
+   "admins-server-ini-reference"
+  ],
+  "NormalLootFactor": [
+   "admins-sandboxvars-reference"
+  ],
+  "NullPointerException": [
+   "admins-modded-server-runbook"
+  ],
+  "OldNewspaper": [
+   "lore-in-world-media"
+  ],
+  "OnAIStateEnter": [
+   "modders-events-callbacks"
+  ],
+  "OnAIStateExecute": [
+   "modders-events-callbacks"
+  ],
+  "OnAIStateExit": [
+   "modders-events-callbacks"
+  ],
+  "OnAddBuilding": [
+   "modders-events-callbacks"
+  ],
+  "OnAddMessage": [
+   "modders-events-callbacks"
+  ],
+  "OnAddToMenu": [
+   "modders-item-scripts-distributions"
+  ],
+  "OnAlertMessage": [
+   "modders-events-callbacks"
+  ],
+  "OnAmbientSound": [
+   "modders-events-callbacks"
+  ],
+  "OnAnimalTracks": [
+   "modders-events-callbacks"
+  ],
+  "OnBeingHitByZombie": [
+   "modders-events-callbacks"
+  ],
+  "OnCGlobalObjectSystemInit": [
+   "modders-events-callbacks"
+  ],
+  "OnCanPerform": [
+   "modders-item-scripts-distributions"
+  ],
+  "OnChangeWeather": [
+   "modders-events-callbacks"
+  ],
+  "OnCharacterCreateStats": [
+   "modders-events-callbacks"
+  ],
+  "OnCharacterDeath": [
+   "modders-events-callbacks"
+  ],
+  "OnCharacterMeet": [
+   "modders-events-callbacks"
+  ],
+  "OnClickedAnimalForContext": [
+   "modders-events-callbacks"
+  ],
+  "OnClientCommand": [
+   "modders-events-callbacks",
+   "modders-mp-networking-porting"
+  ],
+  "OnClimateManagerInit": [
+   "modders-events-callbacks"
+  ],
+  "OnClimateTick": [
+   "modders-events-callbacks"
+  ],
+  "OnClothingUpdated": [
+   "modders-events-callbacks"
+  ],
+  "OnConnectFailed": [
+   "modders-events-callbacks"
+  ],
+  "OnConnected": [
+   "modders-events-callbacks"
+  ],
+  "OnContainerUpdate": [
+   "modders-events-callbacks"
+  ],
+  "OnContextKey": [
+   "modders-events-callbacks"
+  ],
+  "OnCreate": [
+   "modders-item-scripts-distributions"
+  ],
+  "OnCreatePlayer": [
+   "modders-events-callbacks",
+   "modders-first-mod-tutorial-b42"
+  ],
+  "OnCreateUI": [
+   "modders-events-callbacks"
+  ],
+  "OnDawn": [
+   "modders-events-callbacks"
+  ],
+  "OnDeadBodySpawn": [
+   "modders-events-callbacks"
+  ],
+  "OnDesignationZoneUpdatedNetwork": [
+   "modders-events-callbacks"
+  ],
+  "OnDisconnect": [
+   "modders-events-callbacks"
+  ],
+  "OnDistributionMerge": [
+   "modders-events-callbacks"
+  ],
+  "OnDoTileBuilding": [
+   "modders-events-callbacks"
+  ],
+  "OnDusk": [
+   "modders-events-callbacks",
+   "modders-lua-api-surface"
+  ],
+  "OnEnterVehicle": [
+   "modders-events-callbacks"
+  ],
+  "OnEquipPrimary": [
+   "modders-events-callbacks"
+  ],
+  "OnEquipSecondary": [
+   "modders-events-callbacks"
+  ],
+  "OnExitVehicle": [
+   "modders-events-callbacks"
+  ],
+  "OnFETick": [
+   "modders-events-callbacks"
+  ],
+  "OnFailed": [
+   "modders-item-scripts-distributions"
+  ],
+  "OnFillContainer": [
+   "modders-events-callbacks"
+  ],
+  "OnFillInventoryContextMenuNoItems": [
+   "modders-events-callbacks",
+   "modders-first-mod-tutorial-b42",
+   "modders-lua-api-surface"
+  ],
+  "OnFillInventoryObjectContextMenu": [
+   "modders-events-callbacks"
+  ],
+  "OnFillWorldObjectContextMenu": [
+   "modders-events-callbacks"
+  ],
+  "OnFishingActionMPUpdate": [
+   "modders-events-callbacks"
+  ],
+  "OnForagePool": [
+   "modders-events-callbacks",
+   "modders-first-mod-tutorial-b42",
+   "modders-lua-api-surface"
+  ],
+  "OnForageRequestZone": [
+   "modders-events-callbacks",
+   "modders-first-mod-tutorial-b42",
+   "modders-lua-api-surface"
+  ],
+  "OnForageSpot": [
+   "modders-events-callbacks",
+   "modders-first-mod-tutorial-b42",
+   "modders-lua-api-surface"
+  ],
+  "OnGameBoot": [
+   "modders-events-callbacks"
+  ],
+  "OnGameStart": [
+   "modders-events-callbacks",
+   "modders-first-mod-tutorial-b42"
+  ],
+  "OnGameTimeLoaded": [
+   "modders-events-callbacks"
+  ],
+  "OnGetDBSchema": [
+   "modders-events-callbacks"
+  ],
+  "OnGetTableResult": [
+   "modders-events-callbacks"
+  ],
+  "OnGiveXP": [
+   "modders-item-scripts-distributions"
+  ],
+  "OnGoogleAuthRequest": [
+   "modders-events-callbacks"
+  ],
+  "OnGridBurnt": [
+   "modders-events-callbacks"
+  ],
+  "OnHitZombie": [
+   "modders-events-callbacks"
+  ],
+  "OnInitGlobalModData": [
+   "modders-events-callbacks"
+  ],
+  "OnInitModdedWeatherStage": [
+   "modders-events-callbacks"
+  ],
+  "OnInitRecordedMedia": [
+   "lore-in-world-media"
+  ],
+  "OnInitSeasons": [
+   "modders-events-callbacks"
+  ],
+  "OnInitWorld": [
+   "modders-events-callbacks"
+  ],
+  "OnIsoThumpableLoad": [
+   "modders-events-callbacks"
+  ],
+  "OnIsoThumpableSave": [
+   "modders-events-callbacks"
+  ],
+  "OnItemFound": [
+   "modders-events-callbacks",
+   "modders-lua-api-surface"
+  ],
+  "OnJoypadActivate": [
+   "modders-events-callbacks"
+  ],
+  "OnJoypadDebugRenderUIOptionSet": [
+   "modders-events-callbacks",
+   "modders-first-mod-tutorial-b42"
+  ],
+  "OnKeyKeepPressed": [
+   "modders-events-callbacks"
+  ],
+  "OnKeyPressed": [
+   "modders-events-callbacks"
+  ],
+  "OnKeyStartPressed": [
+   "modders-events-callbacks"
+  ],
+  "OnLoad": [
+   "modders-events-callbacks"
+  ],
+  "OnLoadMapZones": [
+   "modders-events-callbacks"
+  ],
+  "OnLoadRadioScripts": [
+   "lore-in-world-media"
+  ],
+  "OnLoadedTileDefinitions": [
+   "modders-events-callbacks"
+  ],
+  "OnLoginState": [
+   "modders-events-callbacks"
+  ],
+  "OnLoginStateSuccess": [
+   "modders-events-callbacks"
+  ],
+  "OnMainMenuEnter": [
+   "modders-events-callbacks"
+  ],
+  "OnMakeItem": [
+   "modders-events-callbacks"
+  ],
+  "OnMapLoadCreateIsoObject": [
+   "modders-events-callbacks"
+  ],
+  "OnMechanicActionDone": [
+   "modders-events-callbacks"
+  ],
+  "OnModsModified": [
+   "modders-events-callbacks"
+  ],
+  "OnMouseDown": [
+   "modders-events-callbacks"
+  ],
+  "OnMouseWheel": [
+   "modders-events-callbacks"
+  ],
+  "OnNPCSurvivorUpdate": [
+   "modders-events-callbacks"
+  ],
+  "OnNetworkUsersReceived": [
+   "modders-events-callbacks"
+  ],
+  "OnNewFire": [
+   "modders-events-callbacks"
+  ],
+  "OnNewGame": [
+   "modders-events-callbacks",
+   "modders-first-mod-tutorial-b42"
+  ],
+  "OnNewSurvivorGroup": [
+   "modders-events-callbacks"
+  ],
+  "OnObjectAboutToBeRemoved": [
+   "modders-events-callbacks"
+  ],
+  "OnObjectAdded": [
+   "modders-events-callbacks"
+  ],
+  "OnPlayerAttackFinished": [
+   "modders-events-callbacks"
+  ],
+  "OnPlayerDeath": [
+   "modders-events-callbacks"
+  ],
+  "OnPlayerGetDamage": [
+   "modders-events-callbacks"
+  ],
+  "OnPlayerMove": [
+   "modders-events-callbacks"
+  ],
+  "OnPlayerSetSafehouse": [
+   "modders-events-callbacks"
+  ],
+  "OnPlayerUpdate": [
+   "modders-events-callbacks"
+  ],
+  "OnPostCharactersSquareDraw": [
+   "modders-events-callbacks"
+  ],
+  "OnPostDistributionMerge": [
+   "modders-events-callbacks"
+  ],
+  "OnPostFloorSquareDraw": [
+   "modders-events-callbacks"
+  ],
+  "OnPostMapLoad": [
+   "modders-events-callbacks"
+  ],
+  "OnPostSave": [
+   "modders-events-callbacks"
+  ],
+  "OnPostTileDraw": [
+   "modders-events-callbacks"
+  ],
+  "OnPostTilesSquareDraw": [
+   "modders-events-callbacks"
+  ],
+  "OnPostUIDraw": [
+   "modders-events-callbacks"
+  ],
+  "OnPostWallSquareDraw": [
+   "modders-events-callbacks"
+  ],
+  "OnPreDistributionMerge": [
+   "modders-events-callbacks"
+  ],
+  "OnPreFillInventoryContextMenuNoItems": [
+   "modders-events-callbacks",
+   "modders-first-mod-tutorial-b42",
+   "modders-lua-api-surface"
+  ],
+  "OnPreGameStart": [
+   "modders-events-callbacks"
+  ],
+  "OnPreMapLoad": [
+   "modders-events-callbacks"
+  ],
+  "OnPreUIDraw": [
+   "modders-events-callbacks"
+  ],
+  "OnProcessAction": [
+   "modders-events-callbacks"
+  ],
+  "OnProcessTransaction": [
+   "modders-events-callbacks"
+  ],
+  "OnQRReceived": [
+   "modders-events-callbacks"
+  ],
+  "OnRadioInteraction": [
+   "lore-in-world-media",
+   "modders-events-callbacks"
+  ],
+  "OnRainStart": [
+   "modders-events-callbacks",
+   "modders-lua-api-surface"
+  ],
+  "OnRainStop": [
+   "modders-events-callbacks",
+   "modders-lua-api-surface"
+  ],
+  "OnReceiveGlobalModData": [
+   "modders-events-callbacks",
+   "modders-mp-networking-porting"
+  ],
+  "OnReceiveItemListNet": [
+   "modders-events-callbacks"
+  ],
+  "OnRenderTick": [
+   "modders-events-callbacks"
+  ],
+  "OnRenderUpdate": [
+   "modders-events-callbacks"
+  ],
+  "OnResetLua": [
+   "modders-events-callbacks"
+  ],
+  "OnResolutionChange": [
+   "modders-events-callbacks"
+  ],
+  "OnRolesReceived": [
+   "modders-events-callbacks"
+  ],
+  "OnSGlobalObjectSystemInit": [
+   "modders-events-callbacks"
+  ],
+  "OnSafehousesChanged": [
+   "modders-events-callbacks"
+  ],
+  "OnSave": [
+   "modders-events-callbacks"
+  ],
+  "OnScoreboardUpdate": [
+   "modders-events-callbacks"
+  ],
+  "OnSeeNewRoom": [
+   "modders-events-callbacks"
+  ],
+  "OnServerCommand": [
+   "modders-events-callbacks",
+   "modders-mp-networking-porting"
+  ],
+  "OnServerCustomizationDataReceived": [
+   "modders-events-callbacks"
+  ],
+  "OnServerFinishSaving": [
+   "modders-events-callbacks"
+  ],
+  "OnServerStartSaving": [
+   "modders-events-callbacks"
+  ],
+  "OnServerStarted": [
+   "modders-events-callbacks"
+  ],
+  "OnServerStatisticReceived": [
+   "modders-events-callbacks"
+  ],
+  "OnServerWorkshopItems": [
+   "modders-events-callbacks"
+  ],
+  "OnSleepingTick": [
+   "modders-events-callbacks",
+   "modders-lua-api-surface"
+  ],
+  "OnSourceWindowFileReload": [
+   "modders-events-callbacks"
+  ],
+  "OnSpawnRegionsLoaded": [
+   "modders-events-callbacks"
+  ],
+  "OnSpawnVehicleEnd": [
+   "modders-events-callbacks"
+  ],
+  "OnSpawnVehicleStart": [
+   "modders-events-callbacks"
+  ],
+  "OnSteamGameJoin": [
+   "modders-events-callbacks"
+  ],
+  "OnSteamRulesRefreshComplete": [
+   "modders-events-callbacks"
+  ],
+  "OnSteamServerFailedToRespond2": [
+   "modders-events-callbacks"
+  ],
+  "OnSteamServerResponded": [
+   "modders-events-callbacks"
+  ],
+  "OnSteamWorkshopItemCreated": [
+   "modders-events-callbacks"
+  ],
+  "OnSteamWorkshopItemUpdated": [
+   "modders-events-callbacks"
+  ],
+  "OnSwitchVehicleSeat": [
+   "modders-events-callbacks"
+  ],
+  "OnTest": [
+   "modders-item-scripts-distributions"
+  ],
+  "OnThunderEvent": [
+   "modders-events-callbacks"
+  ],
+  "OnTick": [
+   "modders-events-callbacks"
+  ],
+  "OnTickCallbacks": [
+   "modders-events-callbacks"
+  ],
+  "OnTickEvenPaused": [
+   "modders-events-callbacks"
+  ],
+  "OnTileRemoved": [
+   "modders-events-callbacks"
+  ],
+  "OnUpdate": [
+   "modders-item-scripts-distributions"
+  ],
+  "OnUpdateModdedWeatherStage": [
+   "modders-events-callbacks"
+  ],
+  "OnUseVehicle": [
+   "modders-events-callbacks"
+  ],
+  "OnVehicleDamageTexture": [
+   "modders-events-callbacks"
+  ],
+  "OnVehicleHorn": [
+   "modders-events-callbacks",
+   "modders-lua-api-surface"
+  ],
+  "OnWarUpdate": [
+   "modders-events-callbacks"
+  ],
+  "OnWaterAmountChange": [
+   "modders-events-callbacks"
+  ],
+  "OnWeaponHitCharacter": [
+   "modders-events-callbacks"
+  ],
+  "OnWeaponHitThumpable": [
+   "modders-events-callbacks"
+  ],
+  "OnWeaponHitXp": [
+   "modders-events-callbacks"
+  ],
+  "OnWeaponSwing": [
+   "modders-events-callbacks"
+  ],
+  "OnWeatherPeriodComplete": [
+   "modders-events-callbacks"
+  ],
+  "OnWeatherPeriodStage": [
+   "modders-events-callbacks"
+  ],
+  "OnWeatherPeriodStart": [
+   "modders-events-callbacks"
+  ],
+  "OnWeatherPeriodStop": [
+   "modders-events-callbacks"
+  ],
+  "OnWorldMessage": [
+   "modders-events-callbacks"
+  ],
+  "OnZombieCreate": [
+   "modders-events-callbacks",
+   "modders-lua-api-surface"
+  ],
+  "OnZombieDead": [
+   "modders-events-callbacks"
+  ],
+  "OnZombieUpdate": [
+   "modders-events-callbacks"
+  ],
+  "OptionControllerButtonStyleChanged": [
+   "modders-events-callbacks",
+   "modders-first-mod-tutorial-b42"
+  ],
+  "OptionGamepadBindingPresetChanged": [
+   "modders-events-callbacks",
+   "modders-first-mod-tutorial-b42"
+  ],
+  "OtherLoot": [
+   "admins-sandboxvars-reference"
+  ],
+  "OtherLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "OtherOptions": [
+   "modders-modoptions-pzapi"
+  ],
+  "POST_RADIO_SILENCE": [
+   "lore-in-world-media"
+  ],
+  "PVPFirearmDamageModifier": [
+   "admins-server-ini-reference"
+  ],
+  "PVPLogToolChat": [
+   "admins-server-ini-reference"
+  ],
+  "PVPLogToolFile": [
+   "admins-server-ini-reference"
+  ],
+  "PVPMeleeDamageModifier": [
+   "admins-server-ini-reference"
+  ],
+  "PVPMeleeWhileHitReaction": [
+   "admins-server-ini-reference"
+  ],
+  "PZAPI": [
+   "modders-foundation",
+   "modders-modoptions-pzapi"
+  ],
+  "PZAPI.ModOptions": [
+   "modders-foundation",
+   "modders-modoptions-pzapi"
+  ],
+  "PZAPI.ModOptions:create": [
+   "modders-modoptions-pzapi"
+  ],
+  "PZAPI.ModOptions:getOptions": [
+   "modders-modoptions-pzapi"
+  ],
+  "PZAPI.ModOptions:load": [
+   "modders-modoptions-pzapi"
+  ],
+  "PZAPI.ModOptions:save": [
+   "modders-modoptions-pzapi"
+  ],
+  "PZAPI.UI": [
+   "modders-modoptions-pzapi"
+  ],
+  "PZAPI.UI.Extensions": [
+   "modders-modoptions-pzapi"
+  ],
+  "PZNetKahluaTableImpl": [
+   "modders-mp-networking-porting"
+  ],
+  "PauseEmpty": [
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "PerkLogs": [
+   "admins-server-ini-reference"
+  ],
+  "PhysicsDelay": [
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "PingFrequency": [
+   "admins-server-ini-reference"
+  ],
+  "PingLimit": [
+   "admins-legacy41-runbook",
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "PlaceDirtAboveground": [
+   "admins-sandboxvars-reference"
+  ],
+  "PlantAbundance": [
+   "admins-sandboxvars-reference"
+  ],
+  "PlantGrowingSeasons": [
+   "admins-sandboxvars-reference"
+  ],
+  "PlantResilience": [
+   "admins-sandboxvars-reference"
+  ],
+  "PlantScavenging": [
+   "admins-sandboxvars-reference",
+   "players-farming-food"
+  ],
+  "PlayerBumpPlayer": [
+   "admins-server-ini-reference"
+  ],
+  "PlayerDamageFromCrash": [
+   "admins-sandboxvars-reference"
+  ],
+  "PlayerRespawnWithOther": [
+   "admins-server-ini-reference"
+  ],
+  "PlayerRespawnWithSelf": [
+   "admins-server-ini-reference"
+  ],
+  "PlayerSafehouse": [
+   "admins-server-ini-reference"
+  ],
+  "PlayerSaveOnDamage": [
+   "admins-server-ini-reference"
+  ],
+  "PopulationMultiplier": [
+   "admins-sandboxvars-reference"
+  ],
+  "PrintMediaDefinitions": [
+   "lore-in-world-media"
+  ],
+  "PrintMediaEntries": [
+   "lore-in-world-media"
+  ],
+  "PrintMediaEntry": [
+   "lore-in-world-media"
+  ],
+  "PrintMediaManager": [
+   "lore-in-world-media"
+  ],
+  "PrintMediaMaps": [
+   "lore-in-world-media"
+  ],
+  "ProceduralDistributions": [
+   "modders-item-scripts-distributions"
+  ],
+  "ProceduralDistributions.list": [
+   "modders-item-scripts-distributions"
+  ],
+  "ProfessionFactory": [
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "PublicDescription": [
+   "admins-server-ini-reference",
+   "creator-cross-promotion-funnel"
+  ],
+  "PublicName": [
+   "admins-server-ini-reference",
+   "creator-cross-promotion-funnel"
+  ],
+  "PublicServerList": [
+   "modders-porting-b41-to-b42"
+  ],
+  "RCONPassword": [
+   "admins-foundation",
+   "admins-rcon-commands",
+   "admins-server-ini-reference",
+   "admins-ubuntu-runbook"
+  ],
+  "RCONPort": [
+   "admins-foundation",
+   "admins-rcon-commands",
+   "admins-server-ini-reference",
+   "admins-ubuntu-runbook"
+  ],
+  "RadioBroadCast": [
+   "lore-in-world-media"
+  ],
+  "RadioChannel": [
+   "lore-in-world-media"
+  ],
+  "RadioData": [
+   "lore-in-world-media"
+  ],
+  "RadioLine": [
+   "lore-in-world-media"
+  ],
+  "RadioScript": [
+   "lore-in-world-media"
+  ],
+  "RadioScriptManager": [
+   "lore-in-world-media"
+  ],
+  "RangedWeaponLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "RareLootFactor": [
+   "admins-sandboxvars-reference"
+  ],
+  "RearVulnerability": [
+   "admins-sandboxvars-reference"
+  ],
+  "ReceiveFactionInvite": [
+   "modders-events-callbacks"
+  ],
+  "ReceiveTransmission": [
+   "lore-in-world-media"
+  ],
+  "RecentlySurvivorVehicles": [
+   "admins-sandboxvars-reference"
+  ],
+  "Recipe:getCategory": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Recipe:getResult": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Recipe:getSound": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Recipe:getTimeToMake": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Recipe:isHidden": [
+   "modders-porting-b41-to-b42"
+  ],
+  "RecipeResourceLoot": [
+   "admins-sandboxvars-reference"
+  ],
+  "RecordedMedia": [
+   "lore-in-world-media"
+  ],
+  "RefreshCheats": [
+   "modders-events-callbacks"
+  ],
+  "RemoveItemFromDistribution": [
+   "modders-item-scripts-distributions"
+  ],
+  "RemovePlayerCorpsesOnCorpseRemoval": [
+   "admins-server-ini-reference"
+  ],
+  "RemoveStoryLoot": [
+   "admins-sandboxvars-reference"
+  ],
+  "RemoveZombieLoot": [
+   "admins-sandboxvars-reference"
+  ],
+  "RenderOpaqueObjectsInWorld": [
+   "modders-events-callbacks"
+  ],
+  "ReplaceItemInDistribution": [
+   "modders-item-scripts-distributions"
+  ],
+  "RequestMedicalCheck": [
+   "modders-events-callbacks",
+   "modders-first-mod-tutorial-b42",
+   "modders-lua-api-surface"
+  ],
+  "ResetID": [
+   "admins-backups-migration",
+   "admins-server-ini-reference"
+  ],
+  "RespawnHours": [
+   "admins-sandboxvars-reference"
+  ],
+  "RespawnMultiplier": [
+   "admins-sandboxvars-reference"
+  ],
+  "RespawnUnseenHours": [
+   "admins-sandboxvars-reference"
+  ],
+  "ResultItem": [
+   "modders-item-scripts-distributions"
+  ],
+  "RollsMultiplier": [
+   "admins-sandboxvars-reference"
+  ],
+  "RuntimeException": [
+   "modders-first-mod-tutorial-b42",
+   "modders-foundation",
+   "modders-porting-b41-to-b42"
+  ],
+  "RuralLooted": [
+   "admins-sandboxvars-reference"
+  ],
+  "SAVE_FILE": [
+   "lore-in-world-media"
+  ],
+  "SFarmingSystem": [
+   "modders-mp-networking-porting"
+  ],
+  "SIGTERM": [
+   "admins-ubuntu-runbook"
+  ],
+  "SafeHouseRemovalTime": [
+   "admins-server-ini-reference"
+  ],
+  "SafehouseAllowFire": [
+   "admins-server-ini-reference"
+  ],
+  "SafehouseAllowLoot": [
+   "admins-server-ini-reference"
+  ],
+  "SafehouseAllowNonResidential": [
+   "admins-server-ini-reference"
+  ],
+  "SafehouseAllowRespawn": [
+   "admins-server-ini-reference"
+  ],
+  "SafehouseAllowTrepass": [
+   "admins-server-ini-reference"
+  ],
+  "SafehouseDaySurvivedToClaim": [
+   "admins-server-ini-reference"
+  ],
+  "SafehouseDisableDisguises": [
+   "admins-server-ini-reference"
+  ],
+  "SafehousePreventsLootRespawn": [
+   "admins-server-ini-reference"
+  ],
+  "SafetyCooldownTimer": [
+   "admins-server-ini-reference"
+  ],
+  "SafetyDisconnectDelay": [
+   "admins-server-ini-reference"
+  ],
+  "SafetySystem": [
+   "admins-server-ini-reference"
+  ],
+  "SafetyToggleTimer": [
+   "admins-server-ini-reference"
+  ],
+  "SandboxOptions": [
+   "modders-lua-api-surface"
+  ],
+  "SandboxOptions:getFoodLootModifier": [
+   "modders-lua-api-surface"
+  ],
+  "SandboxVars": [
+   "admins-sandboxvars-reference"
+  ],
+  "SandboxVars.ModName.OptionName": [
+   "admins-sandboxvars-reference"
+  ],
+  "SaveTransactionID": [
+   "admins-server-ini-reference"
+  ],
+  "SaveWorldEveryMinutes": [
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "ScriptManager": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ScriptManager:getAllBuildableRecipes": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ScriptManager:getAllCraftRecipes": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ScriptManager:getAllRecipes": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ScriptManager:getCraftRecipe": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ScriptManager:getRecipe": [
+   "modders-porting-b41-to-b42"
+  ],
+  "SeeNotLearntRecipe": [
+   "admins-sandboxvars-reference"
+  ],
+  "SeenHoursPreventLootRespawn": [
+   "admins-sandboxvars-reference"
+  ],
+  "SendCustomModData": [
+   "modders-events-callbacks"
+  ],
+  "ServerList": [
+   "modders-porting-b41-to-b42"
+  ],
+  "ServerPlayerID": [
+   "admins-backups-migration",
+   "admins-server-ini-reference"
+  ],
+  "ServerWelcomeMessage": [
+   "admins-server-ini-reference",
+   "creator-cross-promotion-funnel"
+  ],
+  "SetDragItem": [
+   "modders-events-callbacks"
+  ],
+  "ShowCoordinates": [
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "ShowFirstAndLastName": [
+   "admins-server-ini-reference"
+  ],
+  "ShowSafety": [
+   "admins-server-ini-reference"
+  ],
+  "SirenEffectsZombies": [
+   "admins-sandboxvars-reference"
+  ],
+  "SirenShutoffHours": [
+   "admins-sandboxvars-reference"
+  ],
+  "Skill:level": [
+   "modders-item-scripts-distributions"
+  ],
+  "Skill:xp": [
+   "modders-item-scripts-distributions"
+  ],
+  "SkillBookLoot": [
+   "admins-sandboxvars-reference"
+  ],
+  "SkillRequired": [
+   "modders-item-scripts-distributions"
+  ],
+  "SledgehammerOnlyInSafehouse": [
+   "admins-server-ini-reference"
+  ],
+  "SleepAllowed": [
+   "admins-server-ini-reference"
+  ],
+  "SleepNeeded": [
+   "admins-server-ini-reference"
+  ],
+  "SleepingEvent": [
+   "admins-sandboxvars-reference"
+  ],
+  "SmallBlade": [
+   "admins-sandboxvars-reference"
+  ],
+  "SneakModeHideFromOtherPlayers": [
+   "admins-server-ini-reference"
+  ],
+  "SomeVanillaList": [
+   "modders-item-scripts-distributions"
+  ],
+  "SpawnItems": [
+   "admins-server-ini-reference"
+  ],
+  "SpawnPoint": [
+   "admins-server-ini-reference"
+  ],
+  "SpeedLimit": [
+   "admins-server-ini-reference"
+  ],
+  "StartDay": [
+   "admins-sandboxvars-reference"
+  ],
+  "StartMonth": [
+   "admins-sandboxvars-reference"
+  ],
+  "StartServer32": [
+   "admins-foundation"
+  ],
+  "StartServer32.bat": [
+   "admins-foundation"
+  ],
+  "StartServer64": [
+   "admins-foundation",
+   "admins-performance-tuning"
+  ],
+  "StartServer64.bat": [
+   "admins-foundation",
+   "admins-performance-tuning"
+  ],
+  "StartServer64_nosteam": [
+   "admins-foundation"
+  ],
+  "StartServer64_nosteam.bat": [
+   "admins-foundation"
+  ],
+  "StartTime": [
+   "admins-sandboxvars-reference"
+  ],
+  "StartYear": [
+   "admins-sandboxvars-reference"
+  ],
+  "StarterKit": [
+   "admins-sandboxvars-reference"
+  ],
+  "Stats:add": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Stats:getBoredom": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Stats:getEndurance": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Stats:getHunger": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Stats:getStress": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Stats:getThirst": [
+   "modders-porting-b41-to-b42"
+  ],
+  "Stats:set": [
+   "modders-porting-b41-to-b42"
+  ],
+  "StatsDecrease": [
+   "admins-sandboxvars-reference"
+  ],
+  "SteamCMD": [
+   "admins-workshop-mod-wiring"
+  ],
+  "SteamPort1": [
+   "admins-legacy41-runbook",
+   "admins-server-ini-reference"
+  ],
+  "SteamPort2": [
+   "admins-legacy41-runbook",
+   "admins-server-ini-reference"
+  ],
+  "SteamScoreboard": [
+   "admins-server-ini-reference"
+  ],
+  "SteamVAC": [
+   "admins-foundation",
+   "admins-server-ini-reference"
+  ],
+  "SurvivalGearsLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "SurvivalGuideManager": [
+   "lore-in-world-media"
+  ],
+  "SurvivorHouseChance": [
+   "admins-sandboxvars-reference"
+  ],
+  "SwitchZombiesOwnershipEachUpdate": [
+   "admins-server-ini-reference"
+  ],
+  "System.err.println": [
+   "modders-first-mod-tutorial-b42",
+   "modders-porting-b41-to-b42"
+  ],
+  "TimeSinceApo": [
+   "admins-sandboxvars-reference"
+  ],
+  "ToolLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "TradingUIAddItem": [
+   "modders-events-callbacks"
+  ],
+  "TradingUIRemoveItem": [
+   "modders-events-callbacks"
+  ],
+  "TradingUIUpdateState": [
+   "modders-events-callbacks"
+  ],
+  "TrafficJam": [
+   "admins-sandboxvars-reference"
+  ],
+  "TraitFactory": [
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "TraitFactory.addTrait": [
+   "modders-porting-b41-to-b42"
+  ],
+  "TrashDeleteAll": [
+   "admins-server-ini-reference"
+  ],
+  "TriggerHouseAlarm": [
+   "admins-sandboxvars-reference"
+  ],
+  "UDPPort": [
+   "admins-foundation",
+   "admins-server-ini-reference"
+  ],
+  "UI_ServerOptionDesc_AddToSafehouse": [
+   "admins-rcon-commands"
+  ],
+  "UI_ServerOptionDesc_CreateHorde2": [
+   "admins-rcon-commands"
+  ],
+  "UI_ServerOptionDesc_KickFromSafehouse": [
+   "admins-rcon-commands"
+  ],
+  "UI_ServerOptionDesc_List": [
+   "admins-rcon-commands"
+  ],
+  "UI_ServerOptionDesc_RemoveZombies": [
+   "admins-rcon-commands"
+  ],
+  "UPnPForce": [
+   "admins-server-ini-reference"
+  ],
+  "UPnPLeaseTime": [
+   "admins-server-ini-reference"
+  ],
+  "UPnPZeroLeaseTimeFallback": [
+   "admins-server-ini-reference"
+  ],
+  "UltraSpeedDoesnotAffectToAnimals": [
+   "admins-server-ini-reference"
+  ],
+  "UseTCPForMapDownloads": [
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "UsernameDisguises": [
+   "admins-server-ini-reference",
+   "creator-cross-promotion-funnel"
+  ],
+  "VERSION": [
+   "admins-sandboxvars-reference"
+  ],
+  "VehicleDistributions": [
+   "modders-porting-b41-to-b42"
+  ],
+  "VehicleEasyUse": [
+   "admins-sandboxvars-reference"
+  ],
+  "VehiclePart": [
+   "modders-mp-networking-porting"
+  ],
+  "VehicleStoryChance": [
+   "admins-sandboxvars-reference"
+  ],
+  "VehicleWindow": [
+   "modders-mp-networking-porting"
+  ],
+  "ViewBannedIPs": [
+   "modders-events-callbacks"
+  ],
+  "ViewBannedSteamIDs": [
+   "modders-events-callbacks"
+  ],
+  "Voice3D": [
+   "admins-server-ini-reference"
+  ],
+  "VoiceBuffering": [
+   "admins-legacy41-runbook",
+   "admins-server-ini-reference"
+  ],
+  "VoiceComplexity": [
+   "admins-legacy41-runbook",
+   "admins-server-ini-reference"
+  ],
+  "VoiceEnable": [
+   "admins-server-ini-reference"
+  ],
+  "VoiceMaxDistance": [
+   "admins-server-ini-reference"
+  ],
+  "VoiceMinDistance": [
+   "admins-server-ini-reference"
+  ],
+  "VoicePeriod": [
+   "admins-legacy41-runbook",
+   "admins-server-ini-reference"
+  ],
+  "VoiceSampleRate": [
+   "admins-legacy41-runbook",
+   "admins-server-ini-reference"
+  ],
+  "WarDuration": [
+   "admins-server-ini-reference"
+  ],
+  "WarSafehouseHitPoints": [
+   "admins-server-ini-reference"
+  ],
+  "WarStartDelay": [
+   "admins-server-ini-reference"
+  ],
+  "WaterShut": [
+   "admins-sandboxvars-reference"
+  ],
+  "WaterShutModifier": [
+   "admins-sandboxvars-reference"
+  ],
+  "WeaponLoot": [
+   "admins-sandboxvars-reference"
+  ],
+  "WeaponLootNew": [
+   "admins-sandboxvars-reference"
+  ],
+  "WeaponParts": [
+   "modders-item-scripts-distributions"
+  ],
+  "WebhookAddress": [
+   "admins-server-ini-reference"
+  ],
+  "WorkshopItems": [
+   "admins-foundation",
+   "admins-server-ini-reference",
+   "admins-workshop-mod-wiring",
+   "creator-cross-promotion-funnel"
+  ],
+  "WorldItemRemovalList": [
+   "admins-sandboxvars-reference"
+  ],
+  "WoundInfectionFactor": [
+   "admins-sandboxvars-reference",
+   "players-medical-moodles"
+  ],
+  "X.Y.Z": [
+   "meta-release-versioning-policy"
+  ],
+  "XpMultiplier": [
+   "admins-sandboxvars-reference"
+  ],
+  "XpMultiplierAffectsPassive": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombRand": [
+   "modders-lua-api-surface"
+  ],
+  "ZombieAttractionMultiplier": [
+   "admins-sandboxvars-reference",
+   "players-vehicles"
+  ],
+  "ZombieConfig": [
+   "admins-performance-tuning",
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieConfig.FollowSoundDistance": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieConfig.PopulationMultiplier": [
+   "admins-performance-tuning",
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieConfig.PopulationPeakDay": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieConfig.PopulationPeakMultiplier": [
+   "admins-performance-tuning",
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieConfig.PopulationStartMultiplier": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieConfig.RallyGroupRadius": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieConfig.RallyGroupSeparation": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieConfig.RallyGroupSize": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieConfig.RallyGroupSizeVariance": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieConfig.RallyTravelDistance": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieConfig.RedistributeHours": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieConfig.RespawnHours": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieConfig.RespawnMultiplier": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieConfig.RespawnUnseenHours": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieConfig.ZombiesCountBeforeDelete": [
+   "admins-performance-tuning",
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieHealthImpact": [
+   "admins-sandboxvars-reference",
+   "players-medical-moodles"
+  ],
+  "ZombieLore": [
+   "admins-sandboxvars-reference",
+   "players-medical-moodles"
+  ],
+  "ZombieLore.ActiveOnly": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.ChanceOfAttachedWeapon": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.Cognition": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.CrawlUnderVehicle": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.Decomp": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.DisableFakeDead": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.DoorOpeningPercentage": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.FenceDamageMultiplier": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.FenceThumpersRequired": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.Hearing": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.Memory": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.Mortality": [
+   "admins-sandboxvars-reference",
+   "players-medical-moodles"
+  ],
+  "ZombieLore.PlayerSpawnZombieRemoval": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.Reanimate": [
+   "admins-sandboxvars-reference",
+   "players-medical-moodles"
+  ],
+  "ZombieLore.Sight": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.Smell": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.Speed": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.SpottedLogic": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.SprinterPercentage": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.Strength": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.ThumpNoChasing": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.ThumpOnConstruction": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.Toughness": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.Transmission": [
+   "admins-sandboxvars-reference",
+   "players-medical-moodles"
+  ],
+  "ZombieLore.TriggerHouseAlarm": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.ZombiesArmorFactor": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.ZombiesCrawlersDragDown": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.ZombiesDragDown": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.ZombiesFallDamage": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.ZombiesFenceLunge": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieLore.ZombiesMaxDefense": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieMigrate": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombiePopLootEffect": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieRespawn": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZombieUpdateDelta": [
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "ZombieUpdateMaxHighPriority": [
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "ZombieUpdateRadiusHighPriority": [
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "ZombieUpdateRadiusLowPriority": [
+   "admins-performance-tuning",
+   "admins-server-ini-reference"
+  ],
+  "ZombieVoronoiNoise": [
+   "admins-sandboxvars-reference"
+  ],
+  "ZomboidRadio": [
+   "lore-in-world-media"
+  ],
+  "ZoneStoryChance": [
+   "admins-sandboxvars-reference"
+  ],
+  "__IsoGridSquare": [
+   "modders-lua-api-surface"
+  ],
+  "acceptMedicalCheck": [
+   "modders-porting-b41-to-b42"
+  ],
+  "addButton": [
+   "modders-modoptions-pzapi"
+  ],
+  "addColorPicker": [
+   "modders-modoptions-pzapi"
+  ],
+  "addComboBox": [
+   "modders-modoptions-pzapi"
+  ],
+  "addDescription": [
+   "modders-modoptions-pzapi"
+  ],
+  "addGoodText": [
+   "modders-first-mod-tutorial-b42"
+  ],
+  "addKeyBind": [
+   "modders-modoptions-pzapi"
+  ],
+  "addMultipleTickBox": [
+   "modders-modoptions-pzapi"
+  ],
+  "addSeparator": [
+   "modders-modoptions-pzapi"
+  ],
+  "addSlider": [
+   "modders-modoptions-pzapi"
+  ],
+  "addTextEntry": [
+   "modders-modoptions-pzapi"
+  ],
+  "addTickBox": [
+   "modders-modoptions-pzapi"
+  ],
+  "addTitle": [
+   "modders-modoptions-pzapi"
+  ],
+  "animEvent": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "antiCheatItem": [
+   "admins-foundation"
+  ],
+  "autoAge": [
+   "modders-lua-api-surface"
+  ],
+  "base.axe": [
+   "admins-rcon-commands"
+  ],
+  "base:aerosol": [
+   "modders-item-scripts-distributions"
+  ],
+  "base:alarmclock": [
+   "modders-item-scripts-distributions"
+  ],
+  "base:alarmclockclothing": [
+   "modders-item-scripts-distributions"
+  ],
+  "base:animal": [
+   "modders-item-scripts-distributions"
+  ],
+  "base:clothing": [
+   "modders-item-scripts-distributions"
+  ],
+  "base:container": [
+   "modders-item-scripts-distributions"
+  ],
+  "base:drainable": [
+   "modders-item-scripts-distributions"
+  ],
+  "base:egg": [
+   "modders-item-scripts-distributions"
+  ],
+  "base:food": [
+   "modders-item-scripts-distributions"
+  ],
+  "base:hasmetal": [
+   "modders-item-scripts-distributions"
+  ],
+  "base:key": [
+   "modders-item-scripts-distributions"
+  ],
+  "base:literature": [
+   "modders-item-scripts-distributions"
+  ],
+  "base:map": [
+   "modders-item-scripts-distributions"
+  ],
+  "base:moveable": [
+   "modders-item-scripts-distributions"
+  ],
+  "base:normal": [
+   "modders-first-mod-tutorial-b42",
+   "modders-item-scripts-distributions"
+  ],
+  "base:radio": [
+   "modders-item-scripts-distributions"
+  ],
+  "base:weapon": [
+   "modders-item-scripts-distributions"
+  ],
+  "base:weaponpart": [
+   "modders-item-scripts-distributions"
+  ],
+  "bodyPart": [
+   "modders-events-callbacks"
+  ],
+  "build.major": [
+   "modders-first-mod-tutorial-b42",
+   "modders-modinfo-modid-conventions"
+  ],
+  "checkModsNeedUpdate": [
+   "admins-rcon-commands"
+  ],
+  "craftRecipe": [
+   "admins-workshop-mod-wiring",
+   "modders-foundation",
+   "modders-item-scripts-distributions",
+   "modders-porting-b41-to-b42"
+  ],
+  "deleteDatabase": [
+   "modders-porting-b41-to-b42"
+  ],
+  "disableBroadcasting": [
+   "lore-in-world-media"
+  ],
+  "disableLineLearning": [
+   "lore-in-world-media"
+  ],
+  "displayNames": [
+   "modders-events-callbacks"
+  ],
+  "distanceTraveled": [
+   "modders-events-callbacks"
+  ],
+  "doPrintMediaDebug": [
+   "lore-in-world-media"
+  ],
+  "doSurvivalGuide": [
+   "lore-in-world-media"
+  ],
+  "emulateAnimEvent": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "forceForItems": [
+   "modders-item-scripts-distributions"
+  ],
+  "forceForRooms": [
+   "modders-item-scripts-distributions"
+  ],
+  "forceForTiles": [
+   "modders-item-scripts-distributions"
+  ],
+  "forceForZones": [
+   "modders-item-scripts-distributions"
+  ],
+  "game_builds.B41_legacy.decision": [
+   "meta-release-versioning-policy"
+  ],
+  "game_builds.B42_stable": [
+   "meta-release-versioning-policy"
+  ],
+  "getActivatedMods": [
+   "modders-porting-b41-to-b42"
+  ],
+  "getAirCounterMultiplier": [
+   "lore-in-world-media"
+  ],
+  "getBreakModGameVersion": [
+   "modders-porting-b41-to-b42"
+  ],
+  "getCell": [
+   "modders-lua-api-surface"
+  ],
+  "getCommonDir": [
+   "modders-modinfo-modid-conventions"
+  ],
+  "getCurrentSaveName": [
+   "modders-porting-b41-to-b42"
+  ],
+  "getCurrentScriptLoop": [
+   "lore-in-world-media"
+  ],
+  "getCurrentScriptMaxLoops": [
+   "lore-in-world-media"
+  ],
+  "getCurrentTimeStamp": [
+   "lore-in-world-media"
+  ],
+  "getCurrentUses": [
+   "modders-porting-b41-to-b42"
+  ],
+  "getDuration": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "getFileWriter": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "getGameVersion": [
+   "modders-porting-b41-to-b42"
+  ],
+  "getIssues": [
+   "lore-in-world-media"
+  ],
+  "getMaxUsernameLength": [
+   "modders-porting-b41-to-b42"
+  ],
+  "getMinUsernameLength": [
+   "modders-porting-b41-to-b42"
+  ],
+  "getModFileWriter": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "getModInfoByID": [
+   "modders-porting-b41-to-b42"
+  ],
+  "getMods": [
+   "modders-porting-b41-to-b42"
+  ],
+  "getOption": [
+   "modders-modoptions-pzapi"
+  ],
+  "getOptions": [
+   "modders-modoptions-pzapi"
+  ],
+  "getOrCreate": [
+   "modders-mp-networking-porting"
+  ],
+  "getPlayer": [
+   "modders-first-mod-tutorial-b42",
+   "modders-lua-api-surface"
+  ],
+  "getPlayerCraftingUI": [
+   "modders-porting-b41-to-b42"
+  ],
+  "getProgress": [
+   "modders-mp-networking-porting"
+  ],
+  "getRadioText": [
+   "lore-in-world-media"
+  ],
+  "getSandboxFileWriter": [
+   "modders-porting-b41-to-b42"
+  ],
+  "getSaveName": [
+   "modders-porting-b41-to-b42"
+  ],
+  "getSpecificPlayer": [
+   "modders-first-mod-tutorial-b42",
+   "modders-lua-api-surface"
+  ],
+  "getTableNames": [
+   "modders-mp-networking-porting"
+  ],
+  "getText": [
+   "modders-lua-api-surface",
+   "modders-modoptions-pzapi"
+  ],
+  "getVersionDir": [
+   "modders-modinfo-modid-conventions"
+  ],
+  "hasListenedToAll": [
+   "lore-in-world-media"
+  ],
+  "hasListenedToLine": [
+   "lore-in-world-media"
+  ],
+  "hasTrait": [
+   "modders-lua-api-surface"
+  ],
+  "hostUsername": [
+   "modders-events-callbacks"
+  ],
+  "insertNewListOfButtonsList": [
+   "modders-porting-b41-to-b42"
+  ],
+  "instanceItem": [
+   "modders-lua-api-surface",
+   "modders-porting-b41-to-b42"
+  ],
+  "invitedUsername": [
+   "modders-events-callbacks"
+  ],
+  "isClient": [
+   "modders-lua-api-surface",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "isCoopHost": [
+   "modders-mp-networking-porting"
+  ],
+  "isModBind": [
+   "modders-modoptions-pzapi"
+  ],
+  "isMultiplayer": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "isRotten": [
+   "modders-item-scripts-distributions"
+  ],
+  "isServer": [
+   "modders-lua-api-surface",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "isShop": [
+   "modders-item-scripts-distributions"
+  ],
+  "isWorn": [
+   "modders-item-scripts-distributions"
+  ],
+  "itemId": [
+   "modders-events-callbacks"
+  ],
+  "itemMapper": [
+   "modders-item-scripts-distributions"
+  ],
+  "json.load": [
+   "meta-source-registry-companion"
+  ],
+  "loadModAfter": [
+   "admins-workshop-mod-wiring",
+   "modders-modinfo-modid-conventions"
+  ],
+  "loadModBefore": [
+   "admins-workshop-mod-wiring",
+   "modders-modinfo-modid-conventions"
+  ],
+  "louisvilleObfuscation": [
+   "lore-in-world-media"
+  ],
+  "map_sand.bin": [
+   "admins-backups-migration"
+  ],
+  "map_t.bin": [
+   "admins-backups-migration"
+  ],
+  "map_worldgen.bin": [
+   "admins-server-ini-reference"
+  ],
+  "maxMap": [
+   "modders-item-scripts-distributions"
+  ],
+  "maxSize": [
+   "modders-events-callbacks"
+  ],
+  "modOptionsID": [
+   "modders-modoptions-pzapi"
+  ],
+  "mode:destroy": [
+   "modders-item-scripts-distributions"
+  ],
+  "mode:keep": [
+   "modders-item-scripts-distributions"
+  ],
+  "modid:name": [
+   "modders-mp-networking-porting"
+  ],
+  "module.id": [
+   "modders-item-scripts-distributions"
+  ],
+  "module.item": [
+   "admins-rcon-commands"
+  ],
+  "name:quantity": [
+   "modders-item-scripts-distributions"
+  ],
+  "namespace:name": [
+   "modders-item-scripts-distributions"
+  ],
+  "needToBeLearn": [
+   "modders-item-scripts-distributions"
+  ],
+  "needTobeLearn": [
+   "modders-item-scripts-distributions"
+  ],
+  "newGame": [
+   "modders-events-callbacks"
+  ],
+  "onAddForageDefs": [
+   "modders-events-callbacks"
+  ],
+  "onChange": [
+   "modders-modoptions-pzapi"
+  ],
+  "onChangeApply": [
+   "modders-modoptions-pzapi"
+  ],
+  "onlyOne": [
+   "modders-item-scripts-distributions"
+  ],
+  "otherPlayer": [
+   "modders-events-callbacks"
+  ],
+  "overlayMapper": [
+   "modders-item-scripts-distributions"
+  ],
+  "partType": [
+   "modders-events-callbacks"
+  ],
+  "pingValues": [
+   "modders-events-callbacks"
+  ],
+  "playerIndex": [
+   "modders-events-callbacks"
+  ],
+  "playerNum": [
+   "modders-events-callbacks"
+  ],
+  "players.db": [
+   "admins-backups-migration"
+  ],
+  "postRadioSilence": [
+   "lore-in-world-media"
+  ],
+  "pressedNotTapped": [
+   "modders-events-callbacks"
+  ],
+  "procList": [
+   "modders-item-scripts-distributions"
+  ],
+  "professionChance": [
+   "modders-item-scripts-distributions"
+  ],
+  "requestMedicalCheck": [
+   "modders-porting-b41-to-b42"
+  ],
+  "self.netAction": [
+   "modders-mp-networking-porting"
+  ],
+  "sendAddItemToContainer": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "sendAddObjectToMap": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "sendAddXp": [
+   "modders-porting-b41-to-b42"
+  ],
+  "sendBandage": [
+   "modders-porting-b41-to-b42"
+  ],
+  "sendClientCommand": [
+   "modders-events-callbacks",
+   "modders-lua-api-surface",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "sendClientCommandV": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "sendItemStats": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "sendRemoveItemFromContainer": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "sendServerCommand": [
+   "modders-events-callbacks",
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "sendServerCommandV": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "sendStitch": [
+   "modders-porting-b41-to-b42"
+  ],
+  "serverStart": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "setEnabled": [
+   "modders-modoptions-pzapi"
+  ],
+  "simulateChannelUntil": [
+   "lore-in-world-media"
+  ],
+  "simulateScriptsUntil": [
+   "lore-in-world-media"
+  ],
+  "stashChance": [
+   "modders-item-scripts-distributions"
+  ],
+  "steamIDs": [
+   "modders-events-callbacks"
+  ],
+  "suspiciousActivity": [
+   "modders-events-callbacks"
+  ],
+  "syncHandWeaponFields": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "syncItemFields": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "syncItemModData": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "timedAction": [
+   "modders-item-scripts-distributions"
+  ],
+  "transmitCompleteItemToClients": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "transmitRemoveItemFromSquare": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "transmitUpdatedSpriteToClients": [
+   "modders-mp-networking-porting",
+   "modders-porting-b41-to-b42"
+  ],
+  "triggerEvent": [
+   "modders-events-callbacks"
+  ],
+  "useDelta": [
+   "modders-lua-api-surface"
+  ],
+  "vehicleId": [
+   "modders-events-callbacks"
+  ],
+  "vehicles.db": [
+   "admins-backups-migration"
+  ],
+  "versionMax": [
+   "admins-modded-server-runbook",
+   "modders-modinfo-modid-conventions"
+  ],
+  "versionMin": [
+   "admins-modded-server-runbook",
+   "modders-first-mod-tutorial-b42",
+   "modders-modinfo-modid-conventions"
+  ],
+  "weightChance": [
+   "modders-item-scripts-distributions"
+  ],
+  "worldObjects": [
+   "modders-events-callbacks"
+  ],
+  "xpAward": [
+   "modders-item-scripts-distributions"
+  ],
+  "zombie.characters": [
+   "modders-lua-api-surface"
+  ],
+  "zombie.iso": [
+   "modders-lua-api-surface"
+  ],
+  "zombie.network.GameServer": [
+   "admins-foundation",
+   "admins-performance-tuning"
+  ],
+  "zomboid.control": [
+   "admins-ubuntu-runbook"
+  ]
+ }
+}

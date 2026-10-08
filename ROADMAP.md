@@ -29,10 +29,15 @@ builds genuinely diverge, e.g. server runbooks).
 
 ## Stage 3 — Freshness automation
 
-Started 2026-10-08: `scripts/check_freshness.py` compares pinned builds with
-the Steam news feed and `.github/workflows/freshness.yml` runs it daily (a
-failed run is the drift alert). Still manual: blog/buildid/Umbrella/Workshop
-watchers, the changelog-to-entity map and automatic re-queue.
+Done 2026-10-08: `scripts/check_freshness.py` (pinned builds vs the Steam
+feed), `scripts/watch_umbrella.py` (Umbrella pins vs upstream tags, including a
+moved tag), `scripts/build_entity_map.py` + `sources/entity_aliases.json`
+(patch-note line -> probable documents), `scripts/requeue.py` (version, review
+date, Umbrella and patch-note signals -> a worklist), and
+`.github/workflows/freshness.yml` (daily run, run summary, one self-closing
+`freshness` issue). Still open: a buildid watcher (needs SteamCMD or an
+unofficial API), Workshop item changelog watchers (needs a tracked-item list)
+and a blog watcher (the blog is already mirrored in the Steam feed).
 
 - Watchers: Steam news API (app 108600) + blog + `steam_dedicated` buildid;
   Umbrella/pz-zdoc repos; Workshop changelogs for tracked mods.

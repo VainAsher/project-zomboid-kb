@@ -55,9 +55,13 @@ python scripts/build_graph.py              # cross-references resolve
 python scripts/build_rag.py && python scripts/build_site.py   # exports current
 ```
 
-Freshness: `python scripts/check_freshness.py` (informational; exit 2 = pinned
-builds behind Steam news). Server-setting range checks remain planned. See
-`ROADMAP.md`.
+Freshness and re-queue (Stage 3, informational; exit 2 = something to
+re-verify): `python scripts/check_freshness.py` (pinned builds vs Steam news),
+`python scripts/watch_umbrella.py` (Umbrella pins vs upstream tags, incl. moved
+tags), `python scripts/requeue.py` (which documents to re-verify and why;
+reads `exports/entity-map.json`, built by `python scripts/build_entity_map.py`
+from `sources/entity_aliases.json`). Server-setting range checks remain
+planned. See `ROADMAP.md`.
 
 ## Repo map
 

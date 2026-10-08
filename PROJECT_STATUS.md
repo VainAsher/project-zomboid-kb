@@ -5,6 +5,10 @@ Lore, Meta) approved and frozen at release `kb-release-2026.10.08`, validated
 against game 42.21 + 41.78.21 and Umbrella 42.21.0. Next: Stage 3 freshness
 automation (see ROADMAP.md) and the follow-ups listed below.
 
+**Stage 3 (started 2026-10-08):** re-queue worklist, Umbrella watcher, entity
+map and a daily freshness workflow with a self-closing `freshness` issue are
+live; buildid / Workshop watchers remain open (ROADMAP.md).
+
 **Published:** public repo `VainAsher/project-zomboid-kb`; site at
 https://vainasher.github.io/project-zomboid-kb/ (GitHub Actions: QA, Publish,
 Freshness; first runs green 2026-10-08).

@@ -47,6 +47,10 @@ jobs:
         run: python scripts/build_rag.py
       - name: Regenerate site scaffolding
         run: python scripts/build_site.py
+      - name: Build entity map (patch-note routing to documents)
+        run: python scripts/build_entity_map.py
+      - name: Re-queue smoke test (offline; fails if the pins are ahead of the documents)
+        run: python scripts/requeue.py --offline --today 2000-01-01
       - name: Ensure committed generated artefacts are up to date
         run: |
           git diff --exit-code exports/ mkdocs.yml docs/index.md \
