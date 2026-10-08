@@ -635,26 +635,26 @@ detail), `modders-modinfo-modid-conventions` (IDs) and
    archived as `sources/schemas/archive/api-index-B42-42.20.0.json`), the
    following script reproduces the totals and the effective removals:
 
-```python
-import json
-a = json.load(open("sources/schemas/api-index-B41.json"))
-b = json.load(open("sources/schemas/api-index-B42.json"))
-A, B = a["classes"], b["classes"]
+   ```python
+   import json
+   a = json.load(open("sources/schemas/api-index-B41.json"))
+   b = json.load(open("sources/schemas/api-index-B42.json"))
+   A, B = a["classes"], b["classes"]
 
-def members(idx, cls, seen=None):
-    seen = seen or set()
-    if cls in seen or cls not in idx:
-        return set()
-    seen.add(cls)
-    out = set(idx[cls]["members"])
-    for parent in idx[cls]["parents"]:
-        out |= members(idx, parent, seen)
-    return out
+   def members(idx, cls, seen=None):
+       seen = seen or set()
+       if cls in seen or cls not in idx:
+           return set()
+       seen.add(cls)
+       out = set(idx[cls]["members"])
+       for parent in idx[cls]["parents"]:
+           out |= members(idx, parent, seen)
+       return out
 
-print(len(set(A) - set(B)), len(set(B) - set(A)))
-print(sorted(set(a["events"]) - set(b["events"])))
-print(sorted(members(A, "Stats") - members(B, "Stats")))
-```
+   print(len(set(A) - set(B)), len(set(B) - set(A)))
+   print(sorted(set(a["events"]) - set(b["events"])))
+   print(sorted(members(A, "Stats") - members(B, "Stats")))
+   ```
 
 3. Run `python scripts/check_api_exists.py` on your own notes to confirm any
    name you plan to rely on exists in the target build.

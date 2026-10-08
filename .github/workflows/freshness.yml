@@ -1,0 +1,38 @@
+name: Freshness
+
+# Compares the game builds pinned in sources/pins.json against the official
+# Steam news feed for Project Zomboid (app 108600). A newer stable or legacy
+# build than the pin fails this job on purpose: a failed scheduled run is
+# GitHub's notification that documents need re-verification
+# (see docs/meta/meta-release-versioning-policy.md). Network-dependent, so it
+# is kept out of the push/PR QA workflow.
+on:
+  schedule:
+    # Daily 07:00 UTC.
+    - cron: "0 7 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  drift:
+    name: Pinned builds vs Steam news
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check for build drift
+        run: |
+          set +e
+          python scripts/check_freshness.py
+          rc=$?
+          if [ "$rc" -eq 2 ]; then
+            echo "::error::Pinned game builds are behind the official feed. Re-baseline: read the new patch notes, re-pin Umbrella (scripts/extract_api_index.py), revise affected documents, cut a kb-release tag."
+          elif [ "$rc" -eq 1 ]; then
+            echo "::warning::Could not read the Steam news feed this run (network or API error); no drift verdict."
+            rc=0
+          fi
+          exit "$rc"

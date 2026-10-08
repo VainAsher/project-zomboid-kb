@@ -24,14 +24,23 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pyyaml
+      - name: Require the gate data files (existence gates pass silently without them)
+        run: |
+          for f in sources/pins.json sources/schemas/server-settings.json                    sources/schemas/api-index-B41.json sources/schemas/api-index-B42.json; do
+            test -s "$f" || { echo "::error::missing gate data file: $f"; exit 1; }
+          done
       - name: Validate documents
         run: python scripts/validate.py
       - name: Audit genre discipline (evidence vs hearsay)
         run: python scripts/audit_genre.py --strict
       - name: License hygiene (no pzwiki prose reuse)
-        run: python scripts/check_license_hygiene.py
+        run: |
+          echo "::notice::The pzwiki snapshots are gitignored (CC BY-NC-SA data), so this gate compares against an empty corpus in CI and passes trivially. Run it locally against sources/pzwiki/ before every release."
+          python scripts/check_license_hygiene.py
       - name: Server-setting existence gate (Admin track)
         run: python scripts/check_server_settings.py
+      - name: API-existence gate (Modders track, B41 and B42 Umbrella indices)
+        run: python scripts/check_api_exists.py
       - name: Build exports & validate cross-references
         run: python scripts/build_graph.py
       - name: Build RAG export
@@ -49,7 +58,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: markdownlint-cli2
-        run: npx --yes markdownlint-cli2 "docs/**/*.md" "*.md"
+        run: npx --yes markdownlint-cli2@0.23.3 "docs/**/*.md" "*.md"
 
   linkcheck:
     # Network-dependent: runs on schedule / manual dispatch, not on every PR.

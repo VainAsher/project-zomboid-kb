@@ -23,7 +23,7 @@ Tiers: 1 = track foundations · 2 = core reference · 3 = guides/tutorials/runbo
 | admins-workshop-mod-wiring | Wiring Workshop Mods into a Server: IDs, Load Order and Updates | Server operations | 2 | both | 1.0.0 | approved | Medium | `docs/admins/admins-workshop-mod-wiring.md` |
 | creator-foundation | The Project Zomboid Content Landscape: Formats, Channels and the B42-Stable Window | Creator foundations | 1 | B42 | 1.1.0 | approved | Medium | `docs/creator/creator-foundation.md` |
 | lore-foundation | The Knox Event and the History of Project Zomboid's Builds | Lore & history | 1 | historic | 1.1.0 | approved | Medium | `docs/lore/lore-foundation.md` |
-| meta-style-guide | How This Knowledge Base Is Written: Genre, Build Tags and License Rules | KB governance | 1 | both | 1.1.0 | approved | High | `docs/meta/meta-style-guide.md` |
+| meta-style-guide | How This Knowledge Base Is Written: Genre, Build Tags and License Rules | KB governance | 1 | both | 1.2.0 | approved | High | `docs/meta/meta-style-guide.md` |
 | modders-foundation | Modding Project Zomboid: Ecosystem, Toolchain and Where the API Truth Lives | Modding foundations | 1 | both | 1.1.0 | approved | Medium | `docs/modders/modders-foundation.md` |
 | players-foundation | Surviving Knox Country: The Core Game Across Build 41 and Build 42 | Player foundations | 1 | both | 1.1.1 | approved | Medium | `docs/players/players-foundation.md` |
 | players-beginner-guide-b42 | Starting Project Zomboid on Build 42.21: A First-Week Survival Guide | Guides | 3 | B42 | 1.0.0 | approved | Medium | `docs/players/players-beginner-guide-b42.md` |
@@ -50,7 +50,7 @@ Tiers: 1 = track foundations · 2 = core reference · 3 = guides/tutorials/runbo
 | creator-content-calendar | Post-Launch Content Calendar for Build 42: Release Rhythm, Patch Hooks and Evergreen Slots | Content calendar | 3 | B42 | 1.0.0 | approved | Medium | `docs/creator/creator-content-calendar.md` |
 | lore-in-world-media | In-World Media: Radio, Television, Print and Found Documents in Knox Country | In-world media | 4 | both | 1.0.0 | approved | Medium | `docs/lore/lore-in-world-media.md` |
 | lore-knox-event-timeline | The Knox Event Timeline: What the Game Says Happened and When | Knox Event timeline | 4 | historic | 1.0.0 | approved | Medium | `docs/lore/lore-knox-event-timeline.md` |
-| meta-release-versioning-policy | Release and Versioning Policy: Document Versions, kb-release Tags and Game-Build Pins | Release & versioning policy | 4 | both | 1.0.0 | approved | High | `docs/meta/meta-release-versioning-policy.md` |
+| meta-release-versioning-policy | Release and Versioning Policy: Document Versions, kb-release Tags and Game-Build Pins | Release & versioning policy | 4 | both | 1.1.0 | approved | High | `docs/meta/meta-release-versioning-policy.md` |
 | meta-source-registry-companion | Source Registry Companion: How Each Source Is Reached, What Is Ingested and What Is Blocked | Source registry companion | 4 | both | 1.0.0 | approved | Medium | `docs/meta/meta-source-registry-companion.md` |
 
 ## Knowledge graph

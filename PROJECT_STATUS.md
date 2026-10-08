@@ -18,6 +18,7 @@ Worker-found extractor bug (B41 `--- @class` with a space) fixed; B41 index
 regenerated and the two diff-dependent docs recomputed.
 
 Wave E follow-ups for a human or later pass:
+
 - DONE 2026-10-07: TIS forum 42.13 Migration Guide + "API for Inventory
   Items" PDFs read (signed-in browser download by the user) and folded into
   modders-mp-networking-porting, -item-scripts-distributions and
@@ -53,6 +54,7 @@ docs were promoted from 0.x in-review to 1.0.0 with no content change except
 the traits, animals and release-policy notes.
 
 Re-baseline caveats / follow-ups:
+
 - Carried-forward statements were NOT re-tested in game; the forum changelist
   was captured in abridged form (long MP/other fix lists 'selected').
 - Welder is primary-confirmed as a 42.21 occupation; the Metalworker->Welder
@@ -76,6 +78,7 @@ run; links 395/399 live, 0 dead. Allowlist extended (support.discord.com,
 pzwiki.net, developer.valvesoftware.com).
 
 Wave F follow-ups:
+
 - NEXT: 42.21 re-baseline (read 42.20.1-42.21 notes incl. the forum 42.21
   changelist topic 101693, re-pin Umbrella, bump `game_versions_verified`,
   re-verify the 42.13-era MP/registry rules). ScriptsDocs is already stamped
@@ -89,8 +92,11 @@ Wave F follow-ups:
   Brewing).
 - meta-release-versioning-policy says "27 unfrozen" as a dated snapshot;
   current count is 35.
-- CI (.github/workflows/qa.yml) does not yet run check_api_exists.py or
-  check_freshness.py; no LICENSE file for the KB's own prose.
+- RESOLVED 2026-10-08: qa.yml now runs check_api_exists.py (plus a guard
+  that the gate data files exist), freshness.yml runs check_freshness.py daily,
+  and LICENSE (MIT, software) + LICENSE-CONTENT.md (all rights reserved,
+  content) exist. The license-hygiene gate still compares against an empty
+  corpus in CI (snapshots are gitignored): run it locally before releases.
 
 ## State review 2026-10-07
 
@@ -166,8 +172,8 @@ Wave F follow-ups:
 
 ## Open items carried out of the foundation cluster
 
-- No repo LICENSE file for the KB's own original prose (flagged by
-  meta-style-guide worker) — needs a human licensing decision.
+- RESOLVED 2026-10-08: repo licensing decided by the project owner (content
+  all rights reserved, software MIT) - see LICENSE and LICENSE-CONTENT.md.
 - Contested facts quarantined, to be settled empirically on a test server:
   B42 RAM sizing (+2 GB claim), backslash Mod-ID convention,
   live `reloadoptions` vs stop-before-editing, 42.20 challenge name

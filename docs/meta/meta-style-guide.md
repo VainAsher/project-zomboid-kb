@@ -1,7 +1,7 @@
 ---
 id: meta-style-guide
 title: "How This Knowledge Base Is Written: Genre, Build Tags and License Rules"
-version: 1.1.0
+version: 1.2.0
 status: approved
 confidence: High
 category: Meta
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | meta-style-guide |
-| Version | 1.1.0 |
+| Version | 1.2.0 |
 | Status | approved |
 | Confidence | High |
 | Category (track) | Meta |
@@ -252,8 +252,9 @@ are quoted minimally, cited by path and game version, and never rehosted.
 **The KB's own prose.** Because every document is 100% original expression
 citing facts to their sources, the prose of this KB is the project's own
 work and is not a derivative of pzwiki or of official text. The repository
-does not yet carry an explicit outbound LICENSE file for that prose; see
-Open Questions.
+declares its own terms in `LICENSE-CONTENT.md` (all rights reserved for the
+content, with the third-party carve-outs listed there) and `LICENSE` (MIT for
+the software); see Open Questions.
 
 ## The QA gates
 
@@ -404,16 +405,18 @@ None.
 
 # Open Questions
 
-- **Outbound license for the KB's own prose.** The repository asserts
-  original authorship but ships no LICENSE file declaring terms for reuse of
-  its own text. A human decision is needed (e.g. CC BY 4.0, CC BY-SA, or all
-  rights reserved), noting that ShareAlike obligations would only be
-  triggered if pzwiki-derivative text existed — which the pipeline is
+- **Outbound license (decided 2026-10-08).** The project owner chose all
+  rights reserved for the KB's own prose and the MIT License for the
+  software, declared in `LICENSE-CONTENT.md` and `LICENSE`. This is the
+  owner's choice, not legal advice. ShareAlike obligations would only be
+  triggered if pzwiki-derivative text existed, which the pipeline is
   designed to prevent.
 - **Gate coverage.** The API-existence gate and the server-setting gate are
   now live (see the QA gates section) but check names only, not semantics,
-  and `.github/workflows/qa.yml` does not call the API-existence or
-  freshness scripts; whether to wire them into CI is undecided.
+  and `.github/workflows/qa.yml` now calls the API-existence gate on every
+  push (with a guard for missing data files) while `freshness.yml` runs the
+  freshness check daily; the license-hygiene gate still compares against an
+  empty corpus in CI.
 - **Discord provenance.** The archive-and-cite workflow for ephemeral
   Discord primaries is specified in `SOURCE_REGISTRY.md` but the local
   archive store is not yet populated.
@@ -462,3 +465,4 @@ None.
 | 1.0.0 | 2026-07-30 | Orchestrator (KB Pipeline) | Approved and frozen — foundation cluster release kb-release-2026.07.30. | Standing mandate (2026-07-30) |
 | 1.0.1 | 2026-07-30 | Orchestrator (KB Pipeline) | License-hygiene prose rewrites after arming the pzwiki n-gram gate (no factual changes). | Standing mandate (2026-07-30) |
 | 1.1.0 | 2026-10-07 | KB Pipeline (revision worker) | Factual update: stable build now 42.21, legacy41 primary-attested hotfix 41.78.21, link-checker allowlist contents, API-existence and server-setting gates now live, supporting scripts listed; sources [6][7]. Proposed for re-approval. | Project owner (user instruction 2026-10-08) |
+| 1.2.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Style guide updated for the 2026-10-08 license decision (LICENSE-CONTENT.md, LICENSE) and the CI wiring of the API-existence and freshness checks. | Project owner (user instruction 2026-10-08) |

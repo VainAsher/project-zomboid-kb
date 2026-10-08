@@ -29,6 +29,11 @@ builds genuinely diverge, e.g. server runbooks).
 
 ## Stage 3 — Freshness automation
 
+Started 2026-10-08: `scripts/check_freshness.py` compares pinned builds with
+the Steam news feed and `.github/workflows/freshness.yml` runs it daily (a
+failed run is the drift alert). Still manual: blog/buildid/Umbrella/Workshop
+watchers, the changelog-to-entity map and automatic re-queue.
+
 - Watchers: Steam news API (app 108600) + blog + `steam_dedicated` buildid;
   Umbrella/pz-zdoc repos; Workshop changelogs for tracked mods.
 - Changelog → entity map → re-queue affected docs; stale `sources_verified`

@@ -7,6 +7,14 @@ document version with a revision note — never a silent edit.
 
 ### Added
 
+- 2026-10-08 — CI and licensing: qa.yml now runs the API-existence gate, guards
+  the gate data files and pins markdownlint-cli2; new freshness.yml runs the
+  freshness check daily; LICENSE (MIT, software) and LICENSE-CONTENT.md (all
+  rights reserved, content, with third-party notices) added; README refreshed;
+  generated site now carries a copyright line. meta-release-versioning-policy
+  (1.1.0) and meta-style-guide (1.2.0) updated to match; two markdownlint
+  findings fixed (porting guide list, status file).
+
 - 2026-10-08 — Release `kb-release-2026.10.08`: all 41 documents approved
   (35 frozen at 1.0.0, five foundations at 1.1.0, players-foundation at 1.1.1)
   on the project owner's instruction; players-foundation occupation roster

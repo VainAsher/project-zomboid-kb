@@ -1,7 +1,7 @@
 ---
 id: meta-release-versioning-policy
 title: "Release and Versioning Policy: Document Versions, kb-release Tags and Game-Build Pins"
-version: 1.0.0
+version: 1.1.0
 status: approved
 confidence: High
 category: Meta
@@ -23,7 +23,7 @@ game_versions_verified: ["41.78.16", "42.20", "42.21"]
 | Field | Value |
 |-------|-------|
 | Document ID | meta-release-versioning-policy |
-| Version | 1.0.0 |
+| Version | 1.1.0 |
 | Status | approved |
 | Confidence | High |
 | Category (track) | Meta |
@@ -88,9 +88,12 @@ re-baseline (see Reference).
 - Green gates prove structure, citation hygiene, name existence and
   link liveness. They do not prove a statement is true, current, or
   correctly interpreted. *(see the gate table)*
-- Open policy gaps are real: no LICENSE file for the KB's prose, no
-  automated re-queue, freshness and API gates not wired into CI,
-  markdownlint not installed locally. *(see Open Questions)*
+- Open policy gaps are real: no automated re-queue, the license-hygiene
+  gate compares against an empty corpus in CI (the snapshots are
+  gitignored), and the existence gates still pass silently on a local run if
+  their schema files are missing (CI guards this). Terms for the content and
+  the software are now declared in `LICENSE-CONTENT.md` and `LICENSE`.
+  *(see Open Questions)*
 - The upstream Umbrella `42.20.0` tag was later moved to a different commit
   (`98f50ae`, two commits on), so the KB pins by commit id, not tag name.
   *(repo file note in `sources/pins.json`)*
@@ -297,7 +300,7 @@ each script's own docstring or code.
 | Structure and citations | `python scripts/validate.py` | Required front matter, valid enums and ISO dates, 19 sections in order, a substantive delta for `both`, references contiguous, every marker resolving, every reference cited | That a cited source says what the sentence claims; that version and status agree; that a revision row exists |
 | Genre audit | `python scripts/audit_genre.py --strict` | Reference and delta contain at least one `[n]` marker (or an explicit "Not applicable"); every quarantined claim has Claim, Why unverified and Confidence with High, Medium or Low | That every individual sentence is cited, only that the section cites at all; that a claim is correctly rated |
 | License hygiene | `python scripts/check_license_hygiene.py` | No shared word n-gram at or above the threshold (default 8) with the ingested pzwiki snapshots | Originality of table layout (the script says it is a human-review item); overlap with pages that are not in the corpus; overlap with any non-pzwiki source |
-| Markdown lint | `npx --no-install markdownlint-cli2 "docs/**/*.md" "*.md"` | Style conformance to `.markdownlint.jsonc` | Anything about content; currently not runnable locally (not installed) |
+| Markdown lint | `npx --yes markdownlint-cli2@0.23.3 "docs/**/*.md" "*.md"` | Style conformance to `.markdownlint.jsonc` | Anything about content; it is not a repo dependency, so a local run needs network access to fetch the tool (with `--no-install` and no copy installed it reports unavailable) |
 | Links | `python scripts/check_links.py` | Cited URLs respond; bot-block hosts are reported as warnings | That a bot-blocked page still says what is cited; that a live page is the intended one |
 | Cross-references | `python scripts/build_graph.py` | Related-document references resolve; graph export is rebuilt | That the relationship is meaningful |
 | Exports | `python scripts/build_rag.py` and `python scripts/build_site.py` | Exports and site scaffolding are regenerated and match what is committed (CI diff check) | Retrieval quality, rendering of the live site |
@@ -311,12 +314,20 @@ tag. The same script reported 319 symbol references clean on 2026-10-07. The
 two existence gates are also silent no-ops when their schema files are absent
 (the arming pattern), so a missing schema looks like a pass.
 
-Wiring to CI (`.github/workflows/qa.yml`): the offline job runs validate,
-genre audit, license hygiene, server settings, graph, RAG and site, then
-fails if committed exports are stale; markdownlint runs in a separate job
-using `npx --yes`; the link check runs only on the weekly schedule or manual
-dispatch. The workflow does not call `check_api_exists.py` or
-`check_freshness.py`.
+Wiring to CI: `.github/workflows/qa.yml`'s offline job first requires the
+gate data files (`sources/pins.json`, `server-settings.json` and the two
+`api-index-*.json` files) to exist and be non-empty, because the existence
+gates pass silently without them; it then runs validate, genre audit,
+license hygiene, server settings, API existence, graph, RAG and site, and
+fails if committed exports are stale. The license-hygiene step emits a
+notice, because in CI the pzwiki snapshots are absent and the gate passes
+trivially; run it locally against the corpus before every release.
+markdownlint runs in a separate job with a pinned `markdownlint-cli2`
+version; the link check runs only on the weekly schedule or manual dispatch.
+`.github/workflows/freshness.yml` runs `check_freshness.py` daily and fails
+the run when it exits 2 (pinned builds behind the Steam feed), so a failed
+scheduled run is the drift notification; a feed read error is only a
+warning.
 
 ## The human gate and the standing mandate
 
@@ -369,10 +380,11 @@ stubs, not game behaviour.
 - **Fixing prose only:** a patch bump with a note stating no factual change,
   as done for the foundation documents.
 - **Before freezing a cluster:** run every gate, re-run the link check
-  independently, and also run `check_api_exists.py` and
-  `check_freshness.py` by hand, since CI does not. If freshness exits 2,
-  decide explicitly whether to re-baseline before tagging, because the tag
-  will claim validation against the pinned builds.
+  independently, and also run the license-hygiene gate locally against the
+  pzwiki corpus (CI cannot), and run `check_freshness.py` once more by hand
+  even though `freshness.yml` runs daily. If freshness exits 2, decide
+  explicitly whether to re-baseline before tagging, because the tag will
+  claim validation against the pinned builds.
 - **When freshness exits 2:** treat it as a work-queue trigger, not a
   failure. List documents whose `game_versions_verified` predates the new
   build, prioritise B42 minor releases over B41 maintenance patches under
@@ -396,8 +408,9 @@ stubs, not game behaviour.
   does not mean the document is wrong, only that nobody has re-checked.
 - **Reading API or server gates as accuracy checks.** Both verify names
   only, and both pass silently if their schema is missing.
-- **Counting markdownlint as passed.** It runs in CI but cannot run locally
-  here; a local run reports it as unavailable, not green.
+- **Counting markdownlint as passed.** It runs in CI and locally through
+  `npx --yes`; a run that could not fetch or find the tool is unavailable,
+  not green.
 - **Citing wiki-attested builds as official.** 41.78.20 is wiki-attested
   only; the freshness comparison deliberately ignores it.
 
@@ -437,7 +450,8 @@ None.
   (`echo $?`); 2 means drift.
 - Run `python scripts/check_api_exists.py` with no arguments and read the
   closing summary line.
-- Open `.github/workflows/qa.yml` and confirm which gates it runs.
+- Open `.github/workflows/qa.yml` and `.github/workflows/freshness.yml` and
+  confirm which gates they run and when.
 - Run `python scripts/validate.py docs/meta/meta-release-versioning-policy.md`
   and confirm it accepts the version and status values described.
 - Run `npx --no-install markdownlint-cli2 "docs/**/*.md"` and confirm
@@ -445,16 +459,19 @@ None.
 
 # Open Questions
 
-- **Outbound license for the KB's own prose.** `PROJECT_STATUS.md` lists the
-  missing repository LICENSE file as an open item needing a human decision.
-  Until it exists, the reuse terms of every document, and of the exports and
-  site built from them, are undeclared.
+- **Outbound license (decided 2026-10-08).** The project owner chose all
+  rights reserved for the content (`docs/`, `templates/`, `prompts/`,
+  `exports/` and root Markdown) and the MIT License for the software
+  (`scripts/`, `.github/workflows/`); the terms and the third-party
+  carve-outs are in `LICENSE-CONTENT.md` and `LICENSE`. This was a choice by
+  the owner, not a legal review, and it does not license the Umbrella-derived
+  name lists in `sources/schemas/`.
 - **No automated re-queue.** The roadmap plans changelog-to-entity mapping
   and `review_due` re-queueing; neither exists. Stale documents are found by
   a human reading freshness output.
-- **Freshness and API gates outside CI.** Neither `check_freshness.py` nor
-  `check_api_exists.py` is in `qa.yml`, so a regression in either would not
-  fail a push.
+- **Freshness is notification-only.** `freshness.yml` fails a scheduled run
+  on drift but opens no issue and re-queues nothing; a human reads the
+  failed run and starts the re-baseline.
 - **Freeze meaning.** The 2026-10-08 freeze promoted every document to
   `1.0.0` or kept its `1.1.x` version at `approved`. It records a human
   approval of the documents as they stood, not a claim that open questions
@@ -465,8 +482,9 @@ None.
   automates it.
 - **Revision-row enforcement.** No gate verifies that a version bump has a
   matching Revision History row or `CHANGELOG.md` entry.
-- **Local markdownlint.** The tool is not installed here, so one of the five
-  contract gates cannot be run by workers.
+- **Local markdownlint.** The tool is fetched on demand rather than
+  installed, so a worker without network access cannot run one of the five
+  contract gates.
 - **Tag content.** Whether tags should carry Umbrella commit ids directly,
   rather than the release tag name, is unsettled.
 
@@ -504,3 +522,4 @@ None.
 | 0.1.0 | 2026-10-07 | KB Pipeline (virtual agent) | Initial draft. | — |
 | 0.2.0 | 2026-10-07 | KB Pipeline (revision worker) | Re-baselined: pins now B42 42.21.0 (42.20.0 kept as previous, tag-move note) and B41 41.78.21 primary-attested; freshness now exits 0; unfrozen count 35 as of 2026-10-07; kb-release tag for the re-baseline recorded as pending; sources [3][4][5]. | — |
 | 1.0.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Approved and frozen — release kb-release-2026.10.08 (42.21 re-baseline; validated against 42.21 and 41.78.21, Umbrella 42.21.0 @ 13d01f9). Content is the reviewed 0.2.0 text. Includes the 2026-10-08 update describing this release and the freeze. | Project owner (user instruction 2026-10-08) |
+| 1.1.0 | 2026-10-08 | Orchestrator (KB Pipeline) | Release policy updated for the 2026-10-08 CI and license changes: API-existence and gate-data guards in qa.yml, a daily freshness.yml, a pinned markdownlint, LICENSE (MIT, software) and LICENSE-CONTENT.md (all rights reserved, content). Open Questions and pitfalls revised to match. | Project owner (user instruction 2026-10-08) |
