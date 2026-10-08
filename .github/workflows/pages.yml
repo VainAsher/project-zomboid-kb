@@ -26,7 +26,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pyyaml mkdocs-material
+      # Pinned to the versions the strict build was verified with locally;
+      # Material has announced a breaking MkDocs 2.0.
+      - run: pip install pyyaml==6.0.3 "mkdocs>=1.6,<2" mkdocs-material==9.7.7
       - name: Regenerate site scaffolding (nav + landing page)
         run: python scripts/build_site.py
       - name: Build site

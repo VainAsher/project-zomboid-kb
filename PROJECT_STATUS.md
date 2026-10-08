@@ -28,9 +28,9 @@ Wave E follow-ups for a human or later pass:
 - Verify tutorial/ModOptions/item-script example code in a live 42.20 game.
 - B41 `Recipe` block syntax and `Mods=` ordering remain unsourced (quarantined).
 - Add pzwiki workshop.txt rev 1598215 to the pzwiki manifest (fetched live).
-- A worker reported env vars (incl. OPENAI_API_KEY) printed to a session log;
-  no secret is in the repo (grep clean) - consider rotating that key.
-- All Modders docs verified on Umbrella 42.20.0; 42.21 (2026-09-28) unverified.
+- A worker reported environment variables printed to a session log by a stray
+  shell command; no secret is in the repo (checked with a grep before publishing).
+- (Superseded 2026-10-08) The Modders docs were verified on Umbrella 42.20.0 at wave E; the 42.21 re-baseline then moved them to 42.21.0.
 
 ## 42.21 re-baseline (2026-10-07)
 

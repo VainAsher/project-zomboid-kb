@@ -6,3 +6,6 @@ __pycache__/
 # CC BY-NC-SA snapshots - local verification corpus only, never commit
 sources/pzwiki/*.txt
 
+
+# Claude Code local state
+.claude/
