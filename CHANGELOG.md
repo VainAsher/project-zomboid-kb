@@ -7,6 +7,13 @@ document version with a revision note — never a silent edit.
 
 ### Added
 
+- 2026-10-08 — Published: public repo github.com/VainAsher/project-zomboid-kb
+  (main plus both kb-release tags) and the MkDocs site on GitHub Pages
+  (https://vainasher.github.io/project-zomboid-kb/); Pages build tooling
+  pinned; two more link-check hosts allowlisted (403 to GitHub runner IPs).
+  First CI runs: QA, Publish and Freshness green; weekly link check run
+  manually, 0 dead.
+
 - 2026-10-08 — CI and licensing: qa.yml now runs the API-existence gate, guards
   the gate data files and pins markdownlint-cli2; new freshness.yml runs the
   freshness check daily; LICENSE (MIT, software) and LICENSE-CONTENT.md (all

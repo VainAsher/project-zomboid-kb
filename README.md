@@ -57,6 +57,9 @@ request, the link check weekly, and the freshness check daily.
 
 ## Status
 
+Published site: https://vainasher.github.io/project-zomboid-kb/ · Repository:
+https://github.com/VainAsher/project-zomboid-kb
+
 41 documents across all six tracks are approved and released as
 `kb-release-2026.10.08` (game builds 42.21 and 41.78.21, Umbrella 42.21.0).
 See `PROJECT_STATUS.md`, `RELEASE_HISTORY.md` and `ROADMAP.md`.
